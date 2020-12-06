@@ -1,0 +1,203 @@
+@charset "UTF-8"; 
+
+body{
+	background-color: rgba(227, 227, 227, 0.7);
+
+
+}
+.mainTitle{
+	color: #000000;
+	font-size: 80px;
+	font-family: '나눔스퀘어';
+	margin: 20px 0 20px 80px;
+}
+.secon_box{
+	width:700px;
+	height:200px;
+	background:white;
+	border: 1px solid black;
+	margin: 0 20px 20px 50px;
+
+}
+
+.mid_txt{
+	font-size: 35px;
+	font-family: '나눔스퀘어';
+	padding:20px 0 0 30px;
+}
+#mid_txt2{
+	font-size: 35px;
+	margin: 15px 0 20px 30px;
+	font-family: '나눔스퀘어';
+}
+#hr{
+	width:670px;
+}
+.name_in{
+	width: 400px;
+	height: 36px;
+	padding:0px 0 0 30px;
+}
+.name_in>input{
+	width:280px;
+	margin-left: 20px;
+}
+.tel_in>input{
+	width: 50px;
+	margin-left:5px;
+}
+.tel_in>input+input{
+	width:90px;
+}
+.mail_in>input, .mail_in>input+input{
+	width:130px;
+	margin-left:5px;
+}
+.tel_in, .bcop_in, .point_in{
+	width: 500px;
+	height: 36px;
+		padding:0 0 0 30px;
+}
+.mail_in, .scop_in{
+	width: 500px;
+	height: 36px;
+	padding:0px 0 0 30px;
+}
+
+.bcop_in>input, .scop_in >input, .point_in>input{
+	margin: 0 20px 0 40px;
+	box-shadow: 1px 1px 2px gray;
+	}
+.scop_in>p, .point_in>p{
+	font-size: 12px;
+	font-family: '나눔스퀘어';
+	text-align: center;
+	display: inline-block;
+}
+.secon_box:nth-of-type(6){
+	
+	height:400px;
+	background:white;
+	border: 1px solid black;
+	margin: 0 20px 20px 50px;
+}
+.secon_box:nth-of-type(5){
+	height: 150px;
+}
+.card_btn{
+	width: 32px;
+	heigth: 20px;
+	border-radius:100px;
+	background: #BC9C6A;
+	line-height:30px;
+	border-style: none;
+	position: absolute;
+	margin: 8px 20px 10px 34px;
+		
+}
+.tri{
+	position:relative;
+	margin: 20px 20px 10px 38px;
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 16px solid white;
+}
+
+.onecli_in{
+	width: 500px;
+	height: 50px;
+	display: inline-block;
+}
+
+.tri > a {
+position:absolute;
+	display:inline;
+	top:-30px;
+	left:-3px;
+	text-decoration: none;
+
+}
+.secon_box:nth-of-type(6) > div:nth-of-type(4)>input,
+.secon_box:nth-of-type(6) > div:nth-of-type(5)>input
+{
+	background: #000000;	
+}
+.secon_box:nth-of-type(6) > div:nth-of-type(4)>.tri,
+.secon_box:nth-of-type(6) > div:nth-of-type(5)>.tri
+{
+	border-top: 16px solid gray;
+}
+.onepay{
+	width: 650px;
+	margin: 0 auto;
+	height: 120px;
+	background: gray;
+}
+hr{
+	width:670px;
+	text-align: center;
+}
+.card{
+	width:150px;
+	height: 100px;
+	float:left;
+	margin: 10px 0 0 20px;
+	background: pink;
+	text-align: center;
+	color: #ffffff;
+	font-size: 22px;
+}
+.card>div{
+	margin-top:52px;
+}
+.right_box{
+	position: absolute;
+	left:50em;
+	width: 280px;
+	height: 420px;
+	background: #fff;
+	border: 1px solid black;
+}
+.hr2{
+	width: 250px;
+	text-align: center;
+	margin-top :20px;
+}
+
+
+.price{
+	width: 50px;
+	margin :0px;
+	display: inline;
+	float: right;
+}
+.t_price{
+	width :250px;
+	margin: 20px 20px 0 20px;
+}
+.btn{
+	position: absolute;
+	left:26.7em;
+	top: 19em;
+	width: 280px;
+	height: 60px;
+	background: #BC9C6A;
+	border-style: none;
+	font-size: 30px;
+	color: #fff;
+	
+}
+.t_price:nth-last-of-type(1) {
+	color: lightblue;
+	font-size: 25px;
+	font-family: '나눔스퀘어'
+}
+.t_price:nth-last-of-type(2) {
+	margin-top: 30px;
+	color: #BC9C6A;
+	font-size: 25px;
+	font-family: '나눔스퀘어'
+}
