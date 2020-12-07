@@ -11,7 +11,6 @@ import com.korea.health.user.model.NoticeMapper;
 @Controller
 public class NoticeController {
 	
-	
 	@Resource
 	NoticeMapper mppr;
 	@RequestMapping("/style_seongmin/notice_list")
