@@ -41,6 +41,7 @@
                   <div style="">
                      
                      <jsp:include page="review_list.jsp" />
+                     
                   </div>
                </article>
 

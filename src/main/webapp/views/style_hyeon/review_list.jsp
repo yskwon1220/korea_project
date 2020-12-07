@@ -29,7 +29,7 @@
 
          <ul>
             
-            <h1>이용후기</h1>
+            <h1 class="review">이용후기</h1>
 
             
             <div class="table-responsive">
@@ -46,7 +46,7 @@
                   </thead>
                   <tr>
                      <th>1</th>
-                     <td><a href="review_detail.jsp">이용후기입니다</a></td>
+                     <td><a>이용후기입니다</a></td>
                      <td>2020-06-11</td>
                      <td>이XX</td>
                      <td>3</td>
@@ -139,9 +139,13 @@
                      <option value='T'>제목</option>
                      <option value='C'>내용</option>
                   </select> <input id='txtKeyWord' /> <a href="">검색</a>
+                  <div class="btn-box">
+	              		<div class="btn btn-submit2"><a href="<c:url value="/user_page/style_hyeon/review_detail.jsp"/>">글쓰기</a></div>
+	               </div >
                </div>
+              
             </li>
-
+			
          </ul>
       </div>
    </div>

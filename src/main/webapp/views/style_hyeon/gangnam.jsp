@@ -34,9 +34,43 @@
                   <div id="content">
                      
                      <!-- Content -->
+                                             <section id="banner">
+            <div class="slideList">
+                <div class="slideImg">
+                    
+                    <img src="http://www.fitness-fm.com/img/s1.jpg" style="width: 100%; height: 300px; display: inline-block;">
+                </div>
+                <div class="slideImg">
+                    
+                     <img src="http://www.fitness-fm.com/img/s5.jpg"  style="width: 100%; height: 300px; display: inline-block;">
+                </div>
+                <div class="slideImg">
+                    
+                     <img src="http://www.fitness-fm.com/img/s6.jpg"  style="width: 100%; height: 300px; display: inline-block;">
+                </div>
+            </div>
+        </section>
+        <p class= "loca">강남점</p>
+        <h3 class="ex1">상세설명</h3>
+        <hr class="hr">
+        <p class="ex">
+        1. 약 300여 평 강남역 최고 시설로 오픈한 스페셜피트니스 강남점은 헬스, 요가, 필라테스, 줌바 등 각종 G.X를 갖춘 대규모 종합 피트니스센터입니다. <br />
+		2. 신세대 기호에 맞춘 젊고 세련된 감각의 최신식 인테리어로 오픈하였습니다.<br />
+		3. 약 30여 종의 유산소 기구, 40여 종의 최고급 운동시설이 준비되어 있습니다.<br />
+		　*웨이트머신 브랜드 : 해외 최고급 테크노짐 머신 풀세트<br />
+		4. 넓고 쾌적한 샤워시설, 휴게실 등 다양한 부대시설을 제공합니다.<br />
+		5. 평일 24시간, 연중무휴 오픈으로 원하는 시간에 예약하여 이용하실 수 있습니다.<br />
+		6. 체성분 분석기를 활용하여 전문강사진이 과학적으로 운동 지도해드립니다.<br />
+		
+        
+        
+        </p>
+                     
+                     
+                     
                         <article>
-                           <p class= "loca">강남점</p>
-                           								<div id="map" style="width:100%;height:400px;"></div>
+                           <p class= "loca">오시는 길</p>
+                           								<div id="map" style="width:100%;height:450px; margin: 0 auto;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=62fb6fc3c9bffc549b33f7284c140232"></script>
 <script>
@@ -62,7 +96,7 @@ marker.setMap(map);
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 // marker.setMap(null);    
 </script>
-                           
+<br />                           
                            
                            
                            
@@ -83,5 +117,7 @@ marker.setMap(map);
 	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
 	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
 	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
+	
+	<script src="<c:url value="/assets/js/slide.js"/>"></script>
    </body>
 </html>
