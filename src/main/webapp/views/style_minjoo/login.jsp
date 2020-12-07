@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>회원가입</title>
+<title>로그인</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" /> 
 <link rel="shortcut icon" href="favicon.ico">
@@ -40,33 +40,46 @@
 						<h2>로그인</h2>
 
 						<!-- 본문 들어가는 부분 -->
+<div class="text-center">
 
 
 
-						<form action="user_page/MainV3.jsp" method="post">
+
+							<div class="row" style="width: 30%; float:none; margin:0 auto">
+							<div class="col">
+							<img alt="" src="../images/fit01.jpg">
+							</div>
+							</div>		
+							
+					<form action="../user_page/MainV3.jsp" method="post">
 							<!-- loginReg.jsp -->
-							<table width="400px">
+												
+							<div class="row" style="width: 30%; float:none; margin:0 auto">
 
-								<tr>
-									<td><label for="">아이디</label></td>
-									<td><input type="text" name="id" class="form-control"></td>
-								</tr>
+							<div class="form-group col">
+								<label for="id">아이디</label>
+								<input type="text" id="id" name="id" class="form-control">
+							</div>
+							</div>
+							
+							<div class="row" style="width: 30%; float:none; margin:0 auto">
+							<div class="form-group  col">
+								<label for="pw">패스워드</label>
+								<input type="password" id="pw" name="pw" class="form-control">
+							</div>
+							</div>
+		
+							<div class="row" style="width: 30%; float:none; margin:0 auto">
+							<div class="form-group col ">
+								<input type="submit" class="btn btn-primary" value="로그인"> 
+								<input type="button" class="btn btn-default" value="아직회원이 아니시라구요?" onClick="javascript:location.href='join.jsp'">
+							</div>
+							</div>
+								
 
-								<tr>
-									<td><label for="">패스워드</label></td>
-									<td><input type="password" name="pass" class="form-control"></td>
-								</tr>
-
-								<tr>
-									<td colspan="2" align="center">
-									<input type="submit" class="btn btn-primary" value="로그인"> 
-									<input type="button" class="btn btn-primary" value="아직회원이 아니시라구요?" onClick="javascript:location.href='join.jsp'">
-										</td>
-								</tr>
-
-							</table>
+							
 						</form>
-
+</div>
 
 					</article>
 

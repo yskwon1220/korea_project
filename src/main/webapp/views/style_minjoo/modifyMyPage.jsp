@@ -37,53 +37,88 @@
 
 
 						<h2>내정보</h2>
+<div class="row text-center">						
 						<form action="myPage.jsp">
-							<table>
-								<tr>
-									<td><label for="">이름</label></td>
-									<td><input type="text" class="form-control" /></td>
-								</tr>
-								<tr>
-									<td><label for="">id</label></td>
-									<td><input type="text" class="form-control" /></td>
-								</tr>
-								<tr>
-									<td><label for="">이용권정보</label></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><label for="">주소</label></td>
-									<td><input type="text" class="form-control" /></td>
-								</tr>
-								<tr>
-									<td><label for="">별명</label></td>
-									<td><input type="text" class="form-control" /></td>
-								</tr>
-								<tr>
-									<td><label for="">email</label></td>
-									<td><input type="text" class="form-control" /></td>
-								</tr>
-								<tr>
-									<td><label for="">휴대폰번호</label></td>
-									<td><input type="tel" maxlength="11" class="form-control"/></td>
-								</tr>
-								<tr>
-									<td><label for="">성별</label></td>
-									<td></td>
-								</tr>
 
-							</table>
-							<div align="center">
-								<input type="submit" class="btn btn-primary" value="회원정보 수정 완료"> 
-								<input type="reset" class="btn btn-primary" value="초기화"> 
-								<input type="button" class="btn btn-primary" value="마이페이지로 돌아가기" onclick="location.href='myPage.jsp'" />
-							</div>
-							<br>
-							<div align="center">
-								<input type="button" value="메인페이지로 돌아가기" class="btn btn-link" onclick="location.href='user_page/MainV3.jsp'">
-							</div>
 
-						</form>
+<div class="row" style="width: 30%; float:none; margin:0 auto">
+		<div class="form-group col">
+				<label for="id" class="">아이디</label>
+				<input type="text" readonly="readonly" class="form-control" id="id" value="아이디${id}">
+		</div>
+		<div class="row" style="float:right;">
+				<div class="form-group col">
+						<input type="button" class="btn btn-primary" value="비밀번호 변경" onclick="location.href='pwModify.jsp'" />
+				</div>
+		</div>
+</div>
+			
+
+			
+
+
+<div class="row" style="width: 30%; float:none; margin:0 auto">
+			<div class="form-group  col">	
+				<label for="name" class="">이름</label>
+				<input type="text" readonly="readonly" id="name" class="form-control" maxlength="15" value="이름${name}">
+			</div>	
+				
+</div>
+
+<div class="row" style="width: 30%; float:none; margin:0 auto">
+	<div class="form-group  col">
+		<label for="birthday" class="">생년월일</label>
+		<input type="text" readonly="readonly" id="birthday" maxlength="6" class="form-control" value="950714${birthday}">
+	</div>	
+</div>
+
+
+<div class="row" style="width: 30%; float:none; margin:0 auto">
+	<div class="form-group  col">
+		<label for="email" class="">이메일</label>
+		<input type="email" id="email" placeholder="이메일" class="form-control" maxlength="40">
+	</div>
+</div>
+
+<div class="row" style="width: 30%; float:none; margin:0 auto">
+	<div class="form-group  col">
+		<label for="tel" class="">휴대폰 번호</label>
+		<input type="tel" class="form-control" id="tel" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
+	</div>
+</div>
+
+<div class="row" style="width: 30%;   margin:0 auto">
+       <div class="form-group col">
+                    <label for="gender" class="">성별</label>
+                    <div class="col">
+					<input type="text" readonly="readonly" id="gender" class="form-control" value="gender${gender}">
+                    </div>
+                </div>
+</div>
+
+
+<div class="row form-inline" style="width: 30%; float:none;  margin:0 auto">
+	<div class="form-group col ">
+					<!-- <input type="button" class="btn btn-primary" value="비밀번호 변경" onclick="location.href='myPage.jsp'" /> -->
+<!-- 	</div>
+	<div class="form-group col "> -->
+					<input type="submit" class="btn btn-primary" value="회원정보 수정 완료"/> 
+					<input type="reset" class="btn btn-primary" value="초기화"/> 
+	</div>
+	
+</div>
+
+
+<div class="row form-inline" style="width: 30%; float:right;  margin:0 auto">	
+	<div class="form-group col ">
+		<input type="button" class="btn btn-default" value="마이페이지로 돌아가기" onclick="location.href='myPage.jsp'" />
+		<input type="button" class="btn btn-default" value="메인페이지로 돌아가기" onclick="location.href='user_page/MainV3.jsp'"/>
+	</div>
+</div>
+
+</form> 
+</div> <!-- 폼 감싸는 div  -->
+
 
 
 					</article>
