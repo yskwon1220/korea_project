@@ -48,7 +48,7 @@
 
 
 </head>
-<body onLoad="regFrm.id.focus()">
+<body>
 	<!-- 페이지 로딩 및 새로고침이 발생되면 포커스가 ID입력란으로 위치합니다. -->
 		<jsp:include page="../inc/headerV3.jsp" />
 <div id="page-wrapper">

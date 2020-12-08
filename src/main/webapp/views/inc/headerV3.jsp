@@ -27,7 +27,7 @@
 						<li><a href="<c:url value="/style_hyeon/membership.jsp"/>">MemberShip</a></li>
 						<li><a href="<c:url value="/style_hyeji/resSystem.jsp"/>">reservation</a></li>
 						<li><a href="/style_seongmin/community">community</a></li>
-						<li class="cta"><a href="#">Get Join</a></li>
+						<li><a href="/style_minjoo/join.jsp">Get Join</a></li>
 					</ul>
 				</nav>
 			</div>

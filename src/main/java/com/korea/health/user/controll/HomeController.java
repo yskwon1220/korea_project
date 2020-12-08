@@ -28,5 +28,10 @@ public class HomeController {
 		System.out.println("comu");  
 	}
 	
+	@RequestMapping("/style_minjoo/join")
+	public void join() {
+		
+		System.out.println("join");  
+	}
 	
 }
