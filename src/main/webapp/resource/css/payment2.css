@@ -1,0 +1,60 @@
+@charset "UTF-8";
+body{
+	 background: #f0f0f0;
+}
+.top_div{
+	width:80%;
+	background: #ffffff;
+	hegith: auto;
+	text-align: center;
+	margin :0 auto;
+	margin-top :20px;
+	padding-top: 20px;
+	padding-bottom:20px;
+}
+
+h3{
+	maring-top: 30px;
+}
+.info{
+	width:70%;
+	height: 300px;
+	display: inline-block;
+	border: 1px solid #000000;
+	border-right: 0px;
+	border-left: 0px;
+ 
+}
+#info_get, #info_pay{
+	float:left;
+	width: 48%;
+	height: 300px;
+	display: inline-block;
+	text-align: left;
+}
+#info_get{
+	border-right:1px solid #000000; 
+}
+#info_pay{
+	margin-left: 12px;
+}
+.getpep, .getpep>div{
+	display: inline-block;
+	margin-bottom: 12px;
+}
+.getpep:nth-of-type(2)>div{
+	display: inline;
+}
+.getpep>a{
+	margin-left:20px;
+}
+.getpep>div:nth-of-type(1) {
+	margin-right:20px;
+}
+.btn{
+	text-align: center;
+	margin-top:10px;
+}
+input{
+	font-size: 20px;
+}
