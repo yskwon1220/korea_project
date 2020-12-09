@@ -19,11 +19,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-    <jsp:include page="/admin_page/module_admin_top.jsp"/>
+    <jsp:include page="module_admin_top.jsp"/>
         <!--메인 컨텐츠 wrapper-->
         <div id="layoutSidenav">
             <!--좌측 네비게이션 세팅-->
-   			<jsp:include page="/admin_page/module_admin_sideNav.jsp"/>
+   			<jsp:include page="module_admin_sideNav.jsp"/>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -140,7 +140,7 @@
                         </div>
                 </main>
                 <!--Footer 푸터 삽입 영역-->
-				<jsp:include page="/admin_page/module_admin_footer.jsp"/>
+				<jsp:include page="module_admin_footer.jsp"/>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

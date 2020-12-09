@@ -26,7 +26,7 @@
 						<li><a href="<c:url value="/style_hyeon/gangdong.jsp"/>">Find</a></li>
 						<li><a href="<c:url value="/style_hyeon/membership.jsp"/>">MemberShip</a></li>
 						<li><a href="<c:url value="/style_hyeji/resSystem.jsp"/>">reservation</a></li>
-						<li><a href="/style_seongmin/community">community</a></li>
+						<li><a href="<c:url value="/community"/>">community</a></li>
 						<li><a href="<c:url value="${path }/style_jooho/event/event_page"/>">eventlist</a></li>
 						<li><a href="<c:url value="${path }/style_jooho/payment/payment"/>">payment_main</a></li>
 						<li class="cta"><a href="#">Get Join</a></li>
