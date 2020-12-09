@@ -29,20 +29,20 @@
 
 
 		<div class="tot">
-			<div class="title">${detail.get(0).title }</div>
+			<div class="title">${data.get(0).title }</div>
 
 
 			<div class="detail_main">
 				<img
-					src="<c:url value="${path }/resource/images/${detail.get(0).detail_img1}"/>">
+					src="<c:url value="${path }/resource/images/${data.get(0).detail_img1}"/>">
 			</div>
 			<div class="detail_main">
 				<img
-					src="<c:url value="${path }/resource/images/${detail.get(0).detail_img2}"/>">
+					src="<c:url value="${path }/resource/images/${data.get(0).detail_img2}"/>">
 			</div>
 			<div class="detail_main">
 				<img
-					src="<c:url value="${path }/resource/images/${detail.get(0).detail_img3}"/>">
+					src="<c:url value="${path }/resource/images/${data.get(0).detail_img3}"/>">
 			</div>
 
 

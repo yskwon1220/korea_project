@@ -8,7 +8,7 @@
 <script type="text/javascript">
 
 function openWin(){
-	window.open("http://localhost/payment/cardpay.jsp","카드결제","width=800, height=700, toolbar=no,scrollbars=no, menubar=no, resizable=yes")
+	window.open("http://localhost:81/style_jooho/payment/cardpay","카드결제","width=800, height=700, location=no, toolbar=no,scrollbars=no, menubar=no, resizable=no")
 }
 
 </script>
@@ -21,13 +21,13 @@ function openWin(){
 </head>
 <body>
 <form action="PaymentReg">
-	<div class="mainTitle">강의결제</div>
+	<div class="mainTitle">이용권결제</div>
 
 	<div class="right_box">
 		<div class="mid_txt">최종 결제 금액</div>
 		<hr class="hr2">
 		<div class="t_price">
-			강의금액
+			이용권금액
 			<div class="price">0원</div>
 		</div>
 		<div class="t_price">
