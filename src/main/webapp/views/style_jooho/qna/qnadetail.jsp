@@ -6,8 +6,7 @@
 
 <html>
 <head>
-<title>공지사항</title>
-<link rel="shortcut icon" href="favicon.ico">
+<title>자주묻는 질문</title>
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
 	rel="stylesheet">
@@ -30,11 +29,11 @@
 
 </head>
 <body>
-	<jsp:include page="../inc/headerV3.jsp" />
-	<div id="main-wrapper ">
+<%-- 	<jsp:include page="../inc/headerV3.jsp" />
+	<div id="main-wrapper "> --%>
 		<div id="board">
 			<div id="titleList">
-				<div id="category">공지사항</div>
+				<div id="category">자주묻는 질문</div>
 				<div id="titleName">
 					<svg width="1em" height="1em" viewBox="0 0 16 16"
 						class="bi bi-chat-right-dots-fill" fill="currentColor"
@@ -42,7 +41,7 @@
   			<path fill-rule="evenodd"
 							d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
 			</svg>
-					크리스마스 관련 공지입니다
+					블라블라블라블라
 				</div>
 				<div class="titleDetail">운영자</div>
 				<div class="titleDetail">2020-11-21</div>
@@ -84,14 +83,14 @@
 				</div>
 				<div class="bottomB">
 					<button type="button" class="btn btn-sm btn-primary" id="btnList"
-						onclick="location.href='00.notice.jsp'">목록</button>
+						onclick="location.href='02.qna_list.jsp'">목록</button>
 				</div>
 			</div>
 		</div>
-	</div>
+<%-- 	</div>
 
 
-	<jsp:include page="../inc/footerV3.jsp" />
+	<jsp:include page="../inc/footerV3.jsp" /> --%>
 
 	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>

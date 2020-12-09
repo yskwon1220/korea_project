@@ -7,7 +7,6 @@
 <html>
 <head>
 <title>community</title>
-<link rel="shortcut icon" href="favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
 
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
@@ -51,7 +50,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/notice_list" class="item-grid">
+					<a href="/style_seongmin/notice/noticelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">공지사항</h3>
@@ -62,7 +61,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/qna_list" class="item-grid">
+					<a href="/style_seongmin/qna/qnalist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">자주 묻는질문</h3>
@@ -73,7 +72,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/one_list" class="item-grid">
+					<a href="/style_seongmin/fnq/onelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">1대1 문의</h3>
@@ -82,6 +81,8 @@
 							</div>
 						</div>
 					</a>
+				</div>
+				</div>
 				</div>
 				</div>
 				</div>
