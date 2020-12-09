@@ -73,6 +73,13 @@ public class EventVO {
 	public void setMain_img(String main_img) {
 		this.main_img = main_img;
 	}
+
+	@Override
+	public String toString() {
+		return "EventVO [event_no=" + event_no + ", user_no=" + user_no + ", title=" + title + ", main_img=" + main_img
+				+ ", detail_img1=" + detail_img1 + ", detail_img2=" + detail_img2 + ", detail_img3=" + detail_img3
+				+ ", d_day=" + d_day + "]";
+	}
 	
 	
 	
