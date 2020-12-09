@@ -33,7 +33,7 @@
       <div id="page-wrapper">
 
    
-    <h3 class="msg_p3">회원권 신청</h3>
+    <h2 class="msg_p2">회원권 신청</h2>
     <p class="msg_p3">언제 어디서 누구나 편리하고 부담없이 피트니스! 피트니스 회원권은 동일한 브랜드내에서 전 지점 이용이 가능합니다.</p>
    
     <div class=" msg_p3">이벤트 상품구매는 안내데스크에 문의하세요.</div>
@@ -64,7 +64,7 @@
                                                                                              <div class="prdo_sel_box" onclick="go_order('tttereffd')">
                   <span>[피트니스] 프레스티지 <br>( 20 Month )</span>
                   <strong>545,500</strong>
-                  <span>(운동복,라커,1일2회입장 포함)</span>
+                  <span>&nbsp;</span>
                </div>
                                                
              
@@ -85,7 +85,7 @@
                     <div class="prdo_sel_box2"> &nbsp; 운동복 사용</div>
                     <div class="prdo_sel_box2"> &nbsp; 미사용</div>
                     
-                    <div> *  운동복사용료 =  월 10,000원 x 사용개월수 (부가세별도)</div>
+                    <div class="ex"> *  운동복사용료 =  월 10,000원 x 사용개월수 (부가세별도)</div>
                     
                 </td>
             </tr>
@@ -102,7 +102,7 @@
                     <div class="prdo_sel_box3"> &nbsp; 예약 안함</div>
 
                     
-                    <div>
+                    <div class="ex">
                         * 락커 결제는 안내데스크에서 진행됩니다.<br>
                         *  라커이용료 =  월 10,000원 x 사용개월수 (부가세별도)
                     </div>
