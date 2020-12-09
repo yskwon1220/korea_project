@@ -5,7 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.korea.health.user.model.NoticeMapper">
 	<select id="noticelist" resultType="NoticeVO">
-		select * from notice
+		select * from notice 
 	</select>
+
+	
 </mapper>
 
