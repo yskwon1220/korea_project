@@ -40,7 +40,7 @@
 
 									
 									<h2>내정보</h2>
-									<form action="pwCheck.jsp">
+									<form action="pwCheck">
 												<table>
 													<tr>
 														<td>이름</td>
@@ -82,7 +82,7 @@
 												</table>
 												<div align="right">
 											<input  type="submit" class="btn btn-primary" value="회원정보 수정" >
-											<input  type="button" class="btn btn-default" value="메인페이지로 돌아가기" onClick="javascript:location.href='user_page/MainV3.jsp'" >
+											<input  type="button" class="btn btn-default" value="메인페이지로 돌아가기" onClick="javascript:location.href='user_page/MainV3'" >
 												</div>
 												</form>
 												

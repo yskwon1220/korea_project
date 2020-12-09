@@ -7,10 +7,17 @@
 <html>
 <head>
 <title>회원가입</title>
+<style type="text/css">
+table{
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+</style>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" /> 
 <link rel="shortcut icon" href="favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3bootstrap.css"/>" />
@@ -18,53 +25,28 @@
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3owl.carousel.min.css"/>" />
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3owl.theme.default.min.css"/>" />
 	<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" /> 
-	<link rel="stylesheet" href="<c:url value="/assets/css/join.css"/>" /> 
 
             <script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
 
-   <script type="text/javascript">
-    
-        // 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
-        function checkValue()
-        {
-            if(!document.userInfo.id.value){
-                alert("아이디를 입력하세요.");
-                return false;
-            }
-            
-            if(!document.userInfo.pw.value){
-                alert("비밀번호를 입력하세요.");
-                return false;
-            }
-            
-            // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
-            if(document.userInfo.pw.value != document.userInfo.pwpw.value ){
-                alert("비밀번호를 동일하게 입력하세요.");
-                return false;
-            }
-        }
-    </script>
-
-
-
 </head>
-<body>
-	<!-- 페이지 로딩 및 새로고침이 발생되면 포커스가 ID입력란으로 위치합니다. -->
+<body onLoad="regFrm.id.focus()">
 		<jsp:include page="../inc/headerV3.jsp" />
-<div id="page-wrapper">
+	<!-- 페이지 로딩 및 새로고침이 발생되면 포커스가 ID입력란으로 위치합니다. -->
+	<div id="page-wrapper">
 
 
-<!-- Main -->
-<div id="main-wrapper">
-<div class="container">
-<div id="content">
+		<!-- Main -->
+		<div id="main-wrapper">
+			<div class="container">
+				<div id="content">
 
-<!-- Content -->
-<article>
+					<!-- Content -->
+					<article>
 
-	<h2>회원 가입</h2>
+						<h2>회원 가입</h2>
 
-	<!-- 본문 들어가는 부분 -->
+						<!-- 본문 들어가는 부분 -->
+
 
 
 <div class="row text-center">						
@@ -171,12 +153,12 @@
 
 <div class="row" style="width: 30%; float:none;  margin:0 auto">
 	<div class="form-group col ">
-				<input type="button" value="회원가입" class="btn btn-primary" onclick="inputCheck()"/> 
+				<input type="submit" value="회원가입" class="btn btn-primary"/> 
 				<input type="reset" value="다시쓰기" class="btn btn-primary"/> 
 	</div>
 	<div class="form-group col ">
 					
-				<input type="button" value="회원이시라구요?" class="btn btn-default" onClick="javascript:location.href='login.jsp'">
+				<input type="button" value="회원이시라구요?" class="btn btn-default" onClick="javascript:location.href='login'">
 	</div>
 </div>
 
@@ -185,13 +167,13 @@
 	
 
 
-</article>
+					</article>
 
-</div>
-</div>
-</div>
+				</div>
+			</div>
+		</div>
 
-</div>
+     </div>
 
 
 <jsp:include page="../inc/footerV3.jsp" />

@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>로그인</title>
+<title>회원가입</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" /> 
 <link rel="shortcut icon" href="favicon.ico">
@@ -23,8 +23,8 @@
             <script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
 
 </head>
-<body onLoad="regFrm.id.focus()">
-	<!-- 페이지 로딩 및 새로고침이 발생되면 포커스가 ID입력란으로 위치합니다. -->
+
+<body>
 		<jsp:include page="../inc/headerV3.jsp" />
 	<div id="page-wrapper">
 
@@ -40,6 +40,7 @@
 						<h2>로그인</h2>
 
 						<!-- 본문 들어가는 부분 -->
+
 <div class="text-center">
 
 
@@ -47,7 +48,7 @@
 
 							<div class="row" style="width: 30%; float:none; margin:0 auto">
 							<div class="col">
-							<img alt="" src="../images/fit01.jpg">
+							<img alt="" src="../images/fit01.jpg" width="342px">
 							</div>
 							</div>		
 							
@@ -72,7 +73,7 @@
 							<div class="row" style="width: 30%; float:none; margin:0 auto">
 							<div class="form-group col ">
 								<input type="submit" class="btn btn-primary" value="로그인"> 
-								<input type="button" class="btn btn-default" value="아직회원이 아니시라구요?" onClick="javascript:location.href='join.jsp'">
+								<input type="button" class="btn btn-default" value="아직회원이 아니시라구요?" onClick="javascript:location.href='join'">
 							</div>
 							</div>
 								
@@ -80,7 +81,6 @@
 							
 						</form>
 </div>
-
 					</article>
 
 				</div>

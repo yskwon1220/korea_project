@@ -6,7 +6,7 @@
 
 <html>
 <head>
-<title>Verti by HTML5 UP</title>
+<title>회원정보 수정</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" /> 
 <link rel="shortcut icon" href="favicon.ico">
@@ -48,7 +48,7 @@
 		</div>
 		<div class="row" style="float:right;">
 				<div class="form-group col">
-						<input type="button" class="btn btn-primary" value="비밀번호 변경" onclick="location.href='pwModify.jsp'" />
+						<input type="button" class="btn btn-primary" value="비밀번호 변경" onclick="location.href='pwModify'" />
 				</div>
 		</div>
 </div>
@@ -111,8 +111,8 @@
 
 <div class="row form-inline" style="width: 30%; float:right;  margin:0 auto">	
 	<div class="form-group col ">
-		<input type="button" class="btn btn-default" value="마이페이지로 돌아가기" onclick="location.href='myPage.jsp'" />
-		<input type="button" class="btn btn-default" value="메인페이지로 돌아가기" onclick="location.href='user_page/MainV3.jsp'"/>
+		<input type="button" class="btn btn-default" value="마이페이지로 돌아가기" onclick="location.href='myPage'" />
+		<input type="button" class="btn btn-default" value="메인페이지로 돌아가기" onclick="location.href='user_page/MainV3'"/>
 	</div>
 </div>
 
