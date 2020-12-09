@@ -12,8 +12,8 @@
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<link rel="stylesheet" href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/ad_index_styles.css"/>">
-	<link href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css"/> rel="stylesheet" crossorigin="anonymous" />
-	<script src="<c:url value="${path}/resource/bootstrap-4.5.3-dist/js/all.min.js"/> crossorigin="anonymous"></script>
+	<link href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css"/> rel="stylesheet" />
+	<script src="<c:url value="${path}/resource/bootstrap-4.5.3-dist/js/all.min.js"/>"></script>
 <style>
 	body {
 		font-family: "Helvetica Nene", Helvetica, Arial, 맑은 고딕;

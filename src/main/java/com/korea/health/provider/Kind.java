@@ -25,6 +25,4 @@ public class Kind {
 	public void setMainUrl(String mainUrl) {
 		this.mainUrl = mainUrl;
 	}
-	
-	
 }

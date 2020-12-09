@@ -30,8 +30,8 @@ public class ProviderController {
 		Kind kind = new Kind();
 		kind.setCate(cate);
 		kind.setService(service);
-		kind.setMainUrl("admin_page_/" + cate + "/" + service + ".jsp");
-		
+		kind.setMainUrl(cate + "/" + service + ".jsp");
+		System.out.println(kind.getMainUrl());
 		return kind;
 		
 	}
