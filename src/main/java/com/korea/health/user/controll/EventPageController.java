@@ -14,18 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.korea.health.service.Action;
-
-import com.korea.health.service.Myprovider;
-import com.korea.health.user.model.EventMapper;
+import com.korea.health.provider.Action;
+import com.korea.health.provider.Myprovider;
 import com.korea.health.user.model.cardVO;
-
-
+import com.korea.health.user.model.event.EventMapper;
 
 @Controller
 @RequestMapping("/style_jooho/{cate}/{list}")
 public class EventPageController {
-   
 
    @Resource
    Myprovider provider;
