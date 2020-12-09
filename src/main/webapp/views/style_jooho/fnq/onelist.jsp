@@ -2,12 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 
 <html>
 <head>
-<title>자주하는 질문</title>
-<link rel="shortcut icon" href="favicon.ico">
+<title>1대1 문의</title>
+
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
 	rel="stylesheet">
@@ -30,17 +31,17 @@
 
 </head>
 <body>
-	<jsp:include page="../inc/headerV3.jsp" />
-	<div id="main-wrapper">
+<%-- 	<jsp:include page="${path}/inc/headerV3.jsp" />
+	<div id="main-wrapper"> --%>
 		<div class="container">
-			<div id="content">
+			<div id="content"><!--  -->
 
 				<!-- Content -->
 				<article>
 					<div class="header01">
 					
 					</div>
-					<h2>자주하는 질문</h2>
+					<h2>1대1 문의</h2>
 					<hr>
 					<%-- 						<div style="">
 							<jsp:include page="../user_page/notice_list.jsp" />
@@ -54,7 +55,7 @@
 									<th>글제목</th>
 									<th>작성일</th>
 									<th>작성자</th>
-									<th>조회수</th>
+									<th>처리상태</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -64,7 +65,7 @@
 								<td>${vo.title }</td>
 								<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd HH:mm"/></td>
 								<td>${vo.no }</td>
-								<td>${vo.cnt }</td>
+								<td>${vo.rep }</td>
 							</tr>
 							</c:forEach>
 							</tbody>
@@ -97,15 +98,20 @@
 								<option value='C'>내용</option>
 							</select> <input id='txtKeyWord' /> <a href="">검색</a>
 						</div>
+					<div>
+						<button type="button" class="btn btn-sm btn-primary" id="btnList"
+							onclick="location.href='03.one_insert.jsp'">1대1 문의하기</button>
+					</div>
 					</li>
+
 				</article>
 
 			</div>
 		</div>
-	</div>
+<%-- 	</div>
 
 
-	<jsp:include page="../inc/footerV3.jsp" />
+	<jsp:include page="../inc/footerV3.jsp" /> --%>
 
 	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>

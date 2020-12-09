@@ -8,11 +8,10 @@
 <head>
 
 <title>공지사항</title>
-<link rel="shortcut icon" href="favicon.ico">
+
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
 	rel="stylesheet">
-
 <link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
 <link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
@@ -31,8 +30,8 @@
 
 </head>
 <body>
-	<jsp:include page="../inc/headerV3.jsp" />
-	<div id="main-wrapper">
+<%-- 	<jsp:include page="../inc/headerV3.jsp" />
+	<div id="main-wrapper"> --%>
 		<div class="container">
 			<div id="content">
 
@@ -103,10 +102,10 @@
 
 			</div>
 		</div>
-	</div>
+<%-- 	</div>
 
 
-	<jsp:include page="../inc/footerV3.jsp" />
+	<jsp:include page="../inc/footerV3.jsp" /> --%>
 
 	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
