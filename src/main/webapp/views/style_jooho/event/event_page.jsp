@@ -22,21 +22,21 @@
 
 		<div class="tot">
 		
-		<c:forEach begin="0" end="2" var="i">
+		
 			<div class="big">
 				
-			<c:forEach items="${eventSel }" var="arr">
+			<c:forEach items="${data }" var="arr">
 				<div class="small_div">
 					<div class="main_img">
-						<a href="${arr[0] }?event_no=${data.get(i).event_no}"><img src="<c:url value="${path }/resource/images/${data.get(i).main_img }"/>"></a>
+						<a href="event_detail?event_no=${arr.event_no}"><img src="<c:url value="${path }/resource/images/${arr.main_img }"/>"></a>
 					</div>
-					<div class="main_text"><a href="${arr[0] }?${data.get(i).event_no}"">${data.get(i).title }</a></div>
+					<div class="main_text"><a href="event_detail?event_no=${arr.event_no}">${arr.title }</a></div>
 				</div>
 				
 			</c:forEach>
 	
 			</div>
-		</c:forEach>
+	
 		</div>
 
      </div>

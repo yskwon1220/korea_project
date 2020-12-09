@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<form action="successpay.jsp">
+<form action="successpay" method="post">
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" href="#">원클릭 간편결제</a>
@@ -28,7 +28,7 @@
   <tbody>
     <tr>
       <td>카드번호</td>
-      <td>5137-****-****-*666</td>
+      <td>${vo.card_num1 }-****-****-${vo.card_num4 }</td>
     </tr>
     <tr>
       <td>주민등록번호(법인,사업자번호)</td>
