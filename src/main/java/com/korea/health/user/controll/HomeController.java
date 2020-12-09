@@ -22,7 +22,7 @@ public class HomeController {
 		return "MainV3";
 	}
 	
-	@RequestMapping("/style_seongmin/community")
+	@RequestMapping("/community")
 	public void community() {
 		
 		System.out.println("comu");  
