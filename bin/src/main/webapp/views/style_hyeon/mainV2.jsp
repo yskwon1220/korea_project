@@ -13,7 +13,7 @@
 
 <body class="is-preload homepage">
 	<div id="page-wrapper">
-<jsp:include page="inc/header2.jsp" />
+<jsp:include page="../inc/header2.jsp" />
 		<!-- Banner -->
 		<div id="banner-wrapper">
 			<div id="banner" class="box container">
