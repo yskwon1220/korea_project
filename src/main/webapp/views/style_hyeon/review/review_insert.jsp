@@ -26,7 +26,7 @@
             <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-   <jsp:include page="inc/headerV3.jsp" />
+   <jsp:include page="../../inc/headerV3.jsp" />
    <div id="page-wrapper">
 
       <!-- Main -->
@@ -197,7 +197,7 @@
     </div>
     <ul id='logs' style='user-select: none;'></ul>
 
-	<jsp:include page="inc/footerV3.jsp" />
+	<jsp:include page="../../inc/footerV3.jsp" />
 
 	<script> 
 		// 이미지 미리보기

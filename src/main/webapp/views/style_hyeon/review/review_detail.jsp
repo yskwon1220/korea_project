@@ -37,7 +37,7 @@
 <body>
 
 <body class="is-preload homepage">
-<jsp:include page="inc/headerV3.jsp" />
+<jsp:include page="../../inc/headerV3.jsp" />
 
 <table border="" width="100%">
 	<tr>
@@ -68,7 +68,7 @@
 		</td>
 	</tr>
 </table>
-<jsp:include page="inc/footerV3.jsp" />
+<jsp:include page="../../inc/footerV3.jsp" />
 	
 
 	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>

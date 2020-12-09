@@ -25,7 +25,7 @@
       
    </head>
    <body>
-<jsp:include page="../inc/headerV3.jsp" />
+<jsp:include page="../../inc/headerV3.jsp" />
       <div id="page-wrapper">
 
          
@@ -110,7 +110,7 @@ marker.setMap(map);
      </div>
 
 
-<jsp:include page="../inc/footerV3.jsp" />
+<jsp:include page="../../inc/footerV3.jsp" />
 	
 
 	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
