@@ -29,8 +29,8 @@
 
 
 </head>
-<body>
-	<jsp:include page="../inc/headerV3.jsp" />
+<%-- <body>
+	<jsp:include page="../inc/headerV3.jsp" /> --%>
 	<div id="main-wrapper">
 		<div class="container">
 			<div id="content">
@@ -69,10 +69,10 @@
 
 			</div>
 		</div>
-	</div>
+<%-- 	</div>
 
 
-	<jsp:include page="../inc/footerV3.jsp" />
+	<jsp:include page="../inc/footerV3.jsp" /> --%>
 
 	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>

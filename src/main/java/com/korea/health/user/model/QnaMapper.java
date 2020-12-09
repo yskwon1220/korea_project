@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface QnaMapper {
-	List<QnaVO> qna_list();
+	List<QnaVO> qnalist();
 }

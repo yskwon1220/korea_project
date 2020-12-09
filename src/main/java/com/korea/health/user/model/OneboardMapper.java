@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface OneboardMapper {
-	List<OneboardVO> one_list();
+	List<OneboardVO> onelist();
 }
