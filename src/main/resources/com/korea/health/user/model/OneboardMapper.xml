@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.korea.health.user.model.OneboardMapper">
-	<select id="one_list" resultType="OneBoardVO">
+	<select id="onelist" resultType="OneBoardVO">
 		select * from oneboard
 	</select>
 </mapper>
