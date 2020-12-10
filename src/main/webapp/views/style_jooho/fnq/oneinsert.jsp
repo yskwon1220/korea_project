@@ -39,7 +39,7 @@
 				<article>
 			<h2>1대1 문의</h2>
 
-			<form name="form" id="form" role="form" method="post" action="">
+			<form method="post" enctype="multipart/form-data">
 
 				<div class="mb-3">
 					<label for="title">제목</label> <input type="text"
@@ -63,9 +63,9 @@
 				<button type="button" class="btn btn-sm btn-primary" id="btnList"
 					onclick="location.href='03.one_list.jsp'">목록</button>
 			</div>
-		</div>
 			</form>
 				</article>
+		</div>
 
 			</div>
 		</div>

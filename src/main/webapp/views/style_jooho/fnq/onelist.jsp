@@ -59,11 +59,11 @@
 								</tr>
 							</thead>
 							<tbody>
-							<c:forEach items="${data }" var="vo" varStatus="no">
+							<c:forEach items="${data }" var="sm">
 							<tr>
-								<th>${vo.one_no }</th>
-								<td><a href="detail?no=${vo.one_no }">${vo.title }</a></td>
-								<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd HH:mm"/></td>
+								<th>${sm.one_no }</th>
+								<td><a href="onedetail?board_no=${sm.board_no }">${sm.title }</a></td>
+								<td><fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm"/></td>
 								<td>${vo.no }</td>
 								<td>${vo.rep }</td>
 							</tr>
@@ -99,8 +99,9 @@
 							</select> <input id='txtKeyWord' /> <a href="">검색</a>
 						</div>
 					<div>
-						<button type="button" class="btn btn-sm btn-primary" id="btnList"
-							onclick="location.href='03.one_insert.jsp'">1대1 문의하기</button>
+						<!-- <button type="button" class="btn btn-sm btn-primary" id="btnList"
+							onclick="location.href='oneinsert'">1대1 문의하기</button> -->
+							<a href="oneinsert?board_no=${sm.board_no }">글쓰기</a>
 					</div>
 					</li>
 

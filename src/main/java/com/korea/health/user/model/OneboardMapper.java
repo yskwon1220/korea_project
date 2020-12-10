@@ -9,7 +9,7 @@ public interface OneboardMapper {
 	List<OneboardVO> onelist();
 	List<OneboardVO> listSch(OneboardVO vo);
 	
-	OneboardVO detail(int no);
+	OneboardVO detail(int board_no);
 	
 	void insert(OneboardVO vo);
 	void modify(int no);

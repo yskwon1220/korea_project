@@ -4,8 +4,16 @@ package com.korea.health.user.controll;
 
 
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.korea.health.user.model.OneboardMapper;
+import com.korea.health.user.model.OneboardVO;
+
 
 
 
@@ -13,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+	
+	@Resource
+	OneboardMapper onmapp;
+	
 	@RequestMapping("/style_hyeji/introMain")
 	public String intro() {
 
@@ -31,8 +43,5 @@ public class HomeController {
 
 		System.out.println("comu");
 	}
-
-	
-
 	
 }

@@ -61,7 +61,7 @@
 							<c:forEach items="${data }" var="sm">
 							<tr>
 								<th>${sm.qna_no }</th>
-								<td><a href="detail?no=${sm.qna_no }">${sm.title }</a></td>
+								<td><a href="qnadetail?qna_no=${sm.qna_no }">${sm.title }</a></td>
 								<td><fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm"/></td>
 								<td>${sm.no }</td>
 								<td>${sm.cnt }</td>

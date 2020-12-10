@@ -9,5 +9,5 @@ public interface QnaMapper {
 	List<QnaVO> qnalist();
 	List<QnaVO> listSch(QnaVO vo);
 	
-	QnaVO detail(int no);
+	QnaVO detail(int qna_no);
 }

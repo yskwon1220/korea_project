@@ -44,6 +44,7 @@ public class EventPageController {
          @PathVariable("cate")String cate,
          @PathVariable("list")String list,
          @ModelAttribute("event_no")String en ,
+         @ModelAttribute("board_no")String bn ,
          cardVO vo,
          NoticeVO nvo,
          OneboardVO ovo,
@@ -60,6 +61,7 @@ public class EventPageController {
  
       map.put("service", cate+list);
       map.put("event_no", en);
+      map.put("board_no", bn);
       map.put("nvo", nvo);
       map.put("ovo", ovo);
       map.put("qvo", qvo);

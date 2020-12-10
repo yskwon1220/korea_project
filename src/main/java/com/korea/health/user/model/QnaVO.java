@@ -6,7 +6,9 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("qnaVO")
 public class QnaVO {
-	Integer qna_no, no, cnt;
+	public Integer qna_no;
+	Integer no;
+	Integer cnt;
 	String kind, title, context, file_0;
 	Date regdate;
 	public Integer getQna_no() {
