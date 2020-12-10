@@ -14,7 +14,7 @@ import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
 
-@Controller
+@Controller			//	/joohopage/review/list
 @RequestMapping("/admin_page_/{cate}/{service}")
 public class ProviderController {
 	
@@ -33,7 +33,6 @@ public class ProviderController {
 		kind.setMainUrl(cate + "/" + service + ".jsp");
 		System.out.println(kind.getMainUrl());
 		return kind;
-		
 	}
 	
 	@ModelAttribute("data")
@@ -45,7 +44,8 @@ public class ProviderController {
 		System.out.println("메인데이터에서는? : " + cate);
 		
 		Action action = provider.getContext().getBean("admin_page_"+cate, Action.class);	// Action을 왼쪽의 이름을 가진 빈으로 만듦
-																													// admin_page_ + trainer 로 된 TrainerAction을 빈으로 만듦
+																		// admin_page_ + trainer 로 된 TrainerAction을 빈으로 만듦
+		
 		HashMap <String, Object> map = new HashMap<String, Object>();
 		
 		map.put("service", service);		// 그리고 뒤에 따라오는 주소를 통해서 각 기능을 다르게 하는 service를 map에 넣어서 보내기

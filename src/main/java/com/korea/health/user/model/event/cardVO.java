@@ -1,4 +1,4 @@
-package com.korea.health.user.model;
+package com.korea.health.user.model.event;
 
 import org.apache.ibatis.type.Alias;
 

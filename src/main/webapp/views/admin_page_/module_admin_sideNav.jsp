@@ -2,33 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<link rel="stylesheet" href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/ad_index_styles.css" />">
-	<link href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css"/>" rel="stylesheet" crossorigin="anonymous" />
-	<script src="<c:url value="${path}/resource/bootstrap-4.5.3-dist/js/all.min.js"/>" crossorigin="anonymous"></script>
-<style>
-	body {
-		font-family: "Helvetica Nene", Helvetica, Arial, 맑은 고딕;
-		,"
-		malgun
-		gothic",
-		sans-serif;
-	}
-</style>
-</head>
-<body>
-	<!--좌측 네비게이션 세팅-->
-	<div id="layoutSidenav_nav">
-		<nav class="sb-sidenav accordion sb-sidenav-dark"
-			id="sidenavAccordion">
+
+			<!--좌측 네비게이션 세팅-->
 			<div class="sb-sidenav-menu">
 				<div class="nav">
 					<div class="sb-sidenav-menu-heading"></div>
@@ -193,7 +168,3 @@
 				<div class="small">Logged in as:</div>
 				사용자 로그인 정보
 			</div>
-		</nav>
-	</div>
-</body>
-</html>

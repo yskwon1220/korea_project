@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.korea.health.user.model.NoticeMapper">
-	<select id="noticelist" resultType="NoticeVO">
+	<select id="noticeList" resultType="com.korea.health.user.model.NoticeVO">
 		select * from notice
 	</select>
 </mapper>

@@ -2,29 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<link rel="stylesheet" href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/ad_index_styles.css"/>">
-	<link href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css"/> rel="stylesheet" />
-	<script src="<c:url value="${path}/resource/bootstrap-4.5.3-dist/js/all.min.js"/>"></script>
-<style>
-	body {
-		font-family: "Helvetica Nene", Helvetica, Arial, 맑은 고딕;
-		,"
-		malgun
-		gothic",
-		sans-serif;
-	}
-</style>
-</head>
-<body>
+
 	<footer class="py-4 bg-light mt-auto">
 		<div class="container-fluid">
 			<div class="d-flex align-items-center justify-content-between small">
@@ -37,5 +15,3 @@
 			</div>
 		</div>
 	</footer>
-</body>
-</html>

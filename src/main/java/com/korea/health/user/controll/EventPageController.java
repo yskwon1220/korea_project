@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Myprovider;
-import com.korea.health.user.model.cardVO;
 import com.korea.health.user.model.event.EventMapper;
+import com.korea.health.user.model.event.cardVO;
 
 @Controller
 @RequestMapping("/style_jooho/{cate}/{list}")
