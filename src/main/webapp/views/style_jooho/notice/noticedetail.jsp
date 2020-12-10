@@ -2,30 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 
 <html>
 <head>
 <title>공지사항</title>
-<link
-	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
-	rel="stylesheet">
-  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3bootstrap.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3flexslider.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3owl.carousel.min.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3owl.theme.default.min.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/notice.css"/>" />
 
-<script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
-
+<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 
 </head>
 <body>
@@ -54,22 +38,9 @@
 					</div>
 				</div>
 				<div class="bottomB">
-					<button type="button" class="btn btn-sm btn-primary" id="btnList"
-						onclick="location.href='noticelist.jsp'">목록</button>
+					<a href="noticelist">목록으로</a>
 				</div>
 			</div>
 		</div>
-<%-- 	</div>
-
-
-	<jsp:include page="../inc/footerV3.jsp" /> --%>
-
-	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
 </body>
 </html>

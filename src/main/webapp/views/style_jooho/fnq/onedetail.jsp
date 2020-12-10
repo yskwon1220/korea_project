@@ -6,6 +6,11 @@
 
 <html>
 <head>
+<title>1대1 문의</title>
+
+<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
+
+</head>
 <body>
 <%-- 	<jsp:include page="../inc/headerV3.jsp" />
 	<div id="main-wrapper "> --%>
@@ -39,18 +44,5 @@
 				</div>
 			</div>
 		</div>
-<%-- 	</div>
-
-
-
-	<jsp:include page="../inc/footerV3.jsp" /> --%>
-
-<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
 </body>
 </html>
