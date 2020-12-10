@@ -9,6 +9,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface NoticeMapper {
 	List<NoticeVO> noticeList();
-
-	Object detail(Integer notice_no);
+	NoticeVO detail(int notice_no);
 }
