@@ -7,4 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface QnaMapper {
 	List<QnaVO> qnalist();
+	List<QnaVO> listSch(QnaVO vo);
+	
+	QnaVO detail(int no);
 }

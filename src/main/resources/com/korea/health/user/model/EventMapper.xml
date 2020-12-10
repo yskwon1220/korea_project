@@ -6,7 +6,5 @@
 	<select id = "list" resultType ="eventVO">
 		SELECT * FROM event order by event_no desc
 	</select>
-	<select id = "event2" resultType ="eventVO">
-		SELECT title, detail_img1, detail_img2, detail_img3 FROM event Where event_no=#{en}
-	</select>
+	
 </mapper>

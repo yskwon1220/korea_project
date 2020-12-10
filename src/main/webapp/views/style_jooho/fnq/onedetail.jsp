@@ -26,37 +26,7 @@
 				<hr>
 				<div class="OutTextBox animate-box">
 					<div>
-						<div>Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit. Modi incidunt porro adipisci nam voluptatibus ab ducimus
-							dolorem numquam amet maiores atque consequatur iure sunt
-							doloribus deserunt itaque corrupti. Eum obcaecati! Lorem ipsum
-							dolor sit amet, consectetur adipisicing elit. Voluptate expedita
-							explicabo doloribus sapiente eveniet vero ea asperiores
-							voluptates repudiandae modi laudantium dolor sint voluptatem
-							harum minima ipsum officiis quo vitae? Lorem ipsum dolor sit
-							amet, consectetur adipisicing elit. Quam harum facere nobis
-							laboriosam laborum sapiente non numquam esse ratione rerum
-							perspiciatis pariatur explicabo corporis iure consequuntur
-							accusantium id ducimus debitis. Lorem ipsum dolor sit amet,
-							consectetur adipisicing elit. Possimus iusto obcaecati quae!
-							Perspiciatis illo libero cum eius deserunt voluptatum repudiandae
-							nobis vel dignissimos mollitia magni eos aperiam facere in quo!
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
-							vel perferendis amet fuga laudantium magnam quos animi
-							necessitatibus maxime optio est nisi earum consectetur unde quae
-							quibusdam magni deleniti accusantium. Lorem ipsum dolor sit amet,
-							consectetur adipisicing elit. Repellendus omnis obcaecati
-							provident minima ut tempora at magnam eaque iusto harum error
-							molestiae odit cum quaerat fugit aut tenetur! Corporis odit.
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-							amet consectetur magni iure eos sint neque quisquam tenetur natus
-							iste odit voluptatem nobis necessitatibus ea quasi beatae
-							adipisci? Pariatur quam. Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Quam harum facere nobis laboriosam laborum
-							sapiente non numquam esse ratione rerum perspiciatis pariatur
-							explicabo corporis iure consequuntur accusantium id ducimus
-							debitis. Lorem ipsum dolor sit amet, consectetur adipisicing
-							adipisci? Pariatur quam.</div>
+						<div></div>
 					</div>
 				</div>
 				<div class="bottomB">

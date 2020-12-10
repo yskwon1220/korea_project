@@ -4,9 +4,11 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("NoticeVO")
+@Alias("noticeVO")
 public class NoticeVO {
-	Integer notice_no, no, cnt;
+	public Integer notice_no;
+	Integer no;
+	Integer cnt;
 	String title, context, file_0;
 	Date regdate;
 	

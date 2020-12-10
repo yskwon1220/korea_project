@@ -1,9 +1,7 @@
 package com.korea.health.user.controll;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.korea.health.service.Action;
 
 import com.korea.health.service.Myprovider;
-import com.korea.health.user.model.EventMapper;
+import com.korea.health.user.model.NoticeVO;
+import com.korea.health.user.model.OneboardVO;
+import com.korea.health.user.model.QnaVO;
 import com.korea.health.user.model.cardVO;
 
 
@@ -45,6 +45,9 @@ public class EventPageController {
          @PathVariable("list")String list,
          @ModelAttribute("event_no")String en ,
          cardVO vo,
+         NoticeVO nvo,
+         OneboardVO ovo,
+         QnaVO qvo,
          Model mm,
          HttpServletRequest req) {
       
@@ -57,6 +60,9 @@ public class EventPageController {
  
       map.put("service", cate+list);
       map.put("event_no", en);
+      map.put("nvo", nvo);
+      map.put("ovo", ovo);
+      map.put("qvo", qvo);
       
       Object res = action.execute(map, req);
       
@@ -64,6 +70,8 @@ public class EventPageController {
       
       return res;
    }
+   
+   
    
    
 

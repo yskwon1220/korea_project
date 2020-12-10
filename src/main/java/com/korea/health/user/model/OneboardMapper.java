@@ -7,4 +7,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OneboardMapper {
 	List<OneboardVO> onelist();
+	List<OneboardVO> listSch(OneboardVO vo);
+	
+	OneboardVO detail(int no);
+	
+	void insert(OneboardVO vo);
+	void modify(int no);
+	int delete(OneboardVO vo);
 }

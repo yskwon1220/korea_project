@@ -50,7 +50,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/notice/noticelist" class="item-grid">
+					<a href="/style_jooho/notice/noticelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">공지사항</h3>
@@ -61,7 +61,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/qna/qnalist" class="item-grid">
+					<a href="/style_jooho/qna/qnalist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">자주 묻는질문</h3>
@@ -72,7 +72,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/fnq/onelist" class="item-grid">
+					<a href="/style_jooho/fnq/onelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">1대1 문의</h3>

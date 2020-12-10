@@ -40,16 +40,6 @@
 			<h2>1대1 문의</h2>
 
 			<form name="form" id="form" role="form" method="post" action="">
-				<label for="title">카테고리 선택</label>
-				<div class="mb-3">
-					<select class="form-control">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
 
 				<div class="mb-3">
 					<label for="title">제목</label> <input type="text"

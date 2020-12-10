@@ -62,7 +62,7 @@
 							<c:forEach items="${data }" var="vo" varStatus="no">
 							<tr>
 								<th>${vo.one_no }</th>
-								<td>${vo.title }</td>
+								<td><a href="detail?no=${vo.one_no }">${vo.title }</a></td>
 								<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd HH:mm"/></td>
 								<td>${vo.no }</td>
 								<td>${vo.rep }</td>

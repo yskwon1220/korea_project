@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("OneboardVO")
+@Alias("oneboardVO")
 public class OneboardVO {
 	Integer board_no, no, gid, seq, lev;
 	String title, context, file_0, rep;

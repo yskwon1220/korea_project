@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.korea.health.user.model.QnaMapper">
 	<select id="qnalist" resultType="QnaVO">
-		select * from qna
+		SELECT * FROM QNA ORDER BY QNA_NO DESC
 	</select>
+	<select id="detail" resultType="qnaVO" parameterType="java.lang.Integer">
+		SELECT * FROM QNA WHERE QNA_NO = #{qna_no}
+	</select>
+
 </mapper>
 

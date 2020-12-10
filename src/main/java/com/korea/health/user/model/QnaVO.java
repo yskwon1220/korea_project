@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("QnaVO")
+@Alias("qnaVO")
 public class QnaVO {
 	Integer qna_no, no, cnt;
 	String kind, title, context, file_0;
