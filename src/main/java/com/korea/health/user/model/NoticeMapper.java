@@ -10,4 +10,9 @@ import org.apache.ibatis.annotations.Mapper;
 public interface NoticeMapper {
 	List<NoticeVO> noticeList();
 	NoticeVO detail(int notice_no);
+	
+	
+	
+	
+	
 }
