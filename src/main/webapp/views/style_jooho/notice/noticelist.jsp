@@ -6,17 +6,15 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
 <title>공지사항</title>
 
-<link rel="stylesheet" href="<c:url value="${path}/assets/css/notice.css"/>" />
-
-
+<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 
 </head>
 <body>
-<%-- 	<jsp:include page="../inc/headerV3.jsp" />
-	<div id="main-wrapper"> --%>
+
 		<div class="container">
 			<div id="content">
 
@@ -27,9 +25,6 @@
 					</div>
 					<h2>공지사항</h2>
 					<hr>
-					<%-- 						<div style="">
-							<jsp:include page="../user_page/notice_list.jsp" />
-						</div> --%>
 
 					<div class="table-responsive animate-box">
 						<table class="table table-striped">

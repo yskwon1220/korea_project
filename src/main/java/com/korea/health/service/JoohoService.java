@@ -57,10 +57,7 @@ public class JoohoService implements Action {
 			return qnmapp.detail(qvo.qna_no);
 		case "fnqonedetail":
 			return onmapp.detail(ovo.board_no);
-		case "fnqoneinsert":
-			onmapp.insert(ovo);
-			System.out.println("새로운 번호 들어오나???"+ovo.getBoard_no());
-			return "redirect:detail?no=" + ovo.getBoard_no();
+
 		
 	}
 		return null;

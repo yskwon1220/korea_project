@@ -6,8 +6,7 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-<head>
+
 <head>
 <title>자주묻는 질문</title>
 
@@ -15,8 +14,7 @@
 
 </head>
 <body>
-<%-- 	<jsp:include page="../inc/headerV3.jsp" />
-	<div id="main-wrapper"> --%>
+
 		<div class="container">
 			<div id="content">
 

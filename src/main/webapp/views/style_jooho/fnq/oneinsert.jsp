@@ -12,8 +12,6 @@
 <link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 
 </head>
-<%-- <body>
-	<jsp:include page="../inc/headerV3.jsp" /> --%>
 	<div id="main-wrapper">
 		<div class="container">
 			<div id="content">

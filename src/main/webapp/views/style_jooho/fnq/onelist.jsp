@@ -6,19 +6,17 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
 <title>1대1 문의</title>
-
-<link rel="stylesheet" href="<c:url value="${path}/assets/css/notice.css"/>" />
-
-
+</head>
+<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 
 </head>
 <body>
-<%-- 	<jsp:include page="${path}/inc/headerV3.jsp" />
-	<div id="main-wrapper"> --%>
+
 		<div class="container">
-			<div id="content"><!--  -->
+			<div id="content">
 
 				<!-- Content -->
 				<article>
@@ -27,9 +25,6 @@
 					</div>
 					<h2>1대1 문의</h2>
 					<hr>
-					<%-- 						<div style="">
-							<jsp:include page="../user_page/notice_list.jsp" />
-						</div> --%>
 
 					<div class="table-responsive animate-box">
 						<table class="table table-striped">
@@ -58,6 +53,7 @@
 
 
 
+
 					<div class="pag">
 						<ul class="pagination pagination-sm">
 							<li class="disabled"><a href="#"> <span>«</span>
@@ -81,13 +77,7 @@
 								<option value='C'>내용</option>
 							</select> <input id='txtKeyWord' /> <a href="">검색</a>
 						</div>
-					<div>
-						<!-- <button type="button" class="btn btn-sm btn-primary" id="btnList"
-							onclick="location.href='oneinsert'">1대1 문의하기</button> -->
-							<a href="oneinsert?board_no=${sm.board_no }">글쓰기</a>
-					</div>
 					</li>
-
 				</article>
 
 			</div>
