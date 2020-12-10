@@ -11,7 +11,7 @@
 	<div id="main-wrapper "> --%>
 		<div id="board">
 			<div id="titleList">
-				<div id="category">공지사항</div>
+				<div id="category">자주묻는 질문</div>
 				<div id="titleName">
 					<svg width="1em" height="1em" viewBox="0 0 16 16"
 						class="bi bi-chat-right-dots-fill" fill="currentColor"

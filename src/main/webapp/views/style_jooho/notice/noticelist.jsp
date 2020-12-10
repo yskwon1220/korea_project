@@ -26,17 +26,17 @@ function hidestatus(){
 			var no = $(this).find("td:first").text();
 			location = "noticedetail?notice_no=" + no // 글번호를 전달한다.
 					+ "&page=${cri.page}" // 페이지 전달.
-					+ "&perPageNum=${cri.perPageNum}" // 한 페이지에 몇 개를 출력할지 결정.
+/* 					+ "&perPageNum=${cri.perPageNum}" // 한 페이지에 몇 개를 출력할지 결정.
 					+ "&searchType=${cri.searchType}" // 서치 타입을 결정
-					+ "&keyword=${cri.keyword}"; // 키워드 설정
+					+ "&keyword=${cri.keyword}"; // 키워드 설정 */
 		});
 		// 표시하는 글 수를 바꾸면 이벤트 처리를 해서 다시 리스트를 불러온다.
 		$("#perPageNum").change(function() {
 			// 		alert("select change!");
 			location = "noticelist?" + "page=1" // 페이지 전달한다.
-					+ "&perPageNum=" + $("#perPageNum").val() // 페이지 당 글수 전달
+/* 					+ "&perPageNum=" + $("#perPageNum").val() // 페이지 당 글수 전달
 					+ "&searchType=${cri.searchType}" // 서치 타입을 결정
-					+ "&keyword=${cri.keyword}"; // 키워드 설정	
+					+ "&keyword=${cri.keyword}"; // 키워드 설정	 */
 		});
 	});
 </script>
@@ -92,14 +92,14 @@ function hidestatus(){
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${data }" var="ary">
+							<c:forEach items="${data }" var="sm">
 								<tr>
-									<th>${ary.notice_no }</th>
-									<td><a href="noticedetail?notice_no=${ary.notice_no }">${ary.title }</a></td>
+									<th>${sm.notice_no }</th>
+									<td><a href="noticedetail?notice_no=${sm.notice_no }">${sm.title }</a></td>
 									<td><fmt:formatDate value="${ary.regdate }"
 											pattern="yy-MM-dd HH:mm" /></td>
-									<td>${ary.no }</td>
-									<td>${ary.cnt }</td>
+									<td>${sm.no }</td>
+									<td>${sm.cnt }</td>
 								</tr>
 							</c:forEach>
 						</tbody>

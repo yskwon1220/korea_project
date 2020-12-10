@@ -58,13 +58,13 @@
 								</tr>
 							</thead>
 							<tbody>
-							<c:forEach items="${data }" var="vo" varStatus="no">
+							<c:forEach items="${data }" var="sm">
 							<tr>
-								<th>${vo.one_no }</th>
-								<td><a href="detail?no=${vo.qna_no }">${vo.title }</a></td>
-								<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd HH:mm"/></td>
-								<td>${vo.no }</td>
-								<td>${vo.cnt }</td>
+								<th>${sm.qna_no }</th>
+								<td><a href="detail?no=${sm.qna_no }">${sm.title }</a></td>
+								<td><fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm"/></td>
+								<td>${sm.no }</td>
+								<td>${sm.cnt }</td>
 							</tr>
 							</c:forEach>
 							</tbody>
