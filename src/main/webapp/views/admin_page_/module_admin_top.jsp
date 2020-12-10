@@ -2,31 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<link rel="stylesheet" href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/ad_index_styles.css" />">
-	<link href="<c:url value="${path}/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css" />" rel="stylesheet" crossorigin="anonymous" />
-	<script src="<c:url value="${path}/resource/bootstrap-4.5.3-dist/js/all.min.js" />" crossorigin="anonymous"/></script>
-<style>
-	body {
-		font-family: "Helvetica Nene", Helvetica, Arial, 맑은 고딕;
-		,"
-		malgun
-		gothic",
-		sans-serif;
-	}
-</style>
-</head>
+
 <body>
 	   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-         <a class="navbar-brand" href="<c:url value="/admin_page/admin_index.jsp"/>">로고자리</a>
+         <a class="navbar-brand" href="/MainV3"><h2>FitNess Club</h2></a>
             <!-- 상단 네비게이션 검색 창-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">

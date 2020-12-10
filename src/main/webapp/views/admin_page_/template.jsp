@@ -11,7 +11,6 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>관리자 - ${kind.cate}</title>
-        
         <link rel="stylesheet" type="text/css" href="/resource/bootstrap-4.5.3-dist/css/ad_member_styles.css" />
         <link rel="stylesheet" type="text/css" href="/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css"/>
         <script src="/resource/bootstrap-4.5.3-dist/js/all.min.js"/></script>
