@@ -1,26 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-
 <html>
 <head>
-<title>community</title>
-	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>FitNess Club</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="shortcut icon" href="favicon.ico">
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3bootstrap.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3flexslider.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3owl.carousel.min.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3owl.theme.default.min.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" /> 
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" /> 
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
 
-            <script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
-
-
+<script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 </head>
 <body>
 		<jsp:include page="inc/headerV3.jsp" />
@@ -50,7 +59,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/notice/noticelist" class="item-grid">
+					<a href="/style_jooho/notice/noticelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">공지사항</h3>
@@ -61,7 +70,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/qna/qnalist" class="item-grid">
+					<a href="/style_jooho/qna/qnalist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">자주 묻는질문</h3>
@@ -72,7 +81,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_seongmin/fnq/onelist" class="item-grid">
+					<a href="/style_jooho/fnq/onelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">1대1 문의</h3>
@@ -88,12 +97,14 @@
 				</div>
 	<jsp:include page="inc/footerV3.jsp" />
 
-<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
+
+	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
+
 </body>
 </html>

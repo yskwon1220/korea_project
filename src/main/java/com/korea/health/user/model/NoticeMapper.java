@@ -4,7 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+
+
 @Mapper
 public interface NoticeMapper {
 	List<NoticeVO> noticeList();
+
+	Object detail(Integer notice_no);
 }
