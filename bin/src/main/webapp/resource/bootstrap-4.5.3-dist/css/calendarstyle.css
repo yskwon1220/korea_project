@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+
+/* html,body{
+  height:100%;
+} */
+table.type09 {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+
+}
+table.type09 thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+ /*  color: #ec524b; */
+  border-bottom: 3px solid #ec524b;
+	text-align:center;
+
+}
+table.type09 tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+table.type09 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+
+body{
+  text-align:center;
+}
+body:before{
+  content:'';
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
+}
+button{
+  background:#ec524b;
+  color:white;
+  border:none;
+  position:relative;
+  width:100px;
+   height:30px; 
+ /*  font-size:1.6em; */
+/*   padding:0 2em; */
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  /*  border-radius: 12px; */
+}
+button:hover{
+  background:#fff;
+  color:#ec524b;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #ec524b;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+
+    * {
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            /* background-color: #dfe6e9; */
+           /*  width: 20vw; */
+           /*  height: 100vh; */
+            display: flex;
+            margin: auto;
+            float:left;
+            margin-left:100px;
+            margin-bottom:20px;
+        }
+        #page-wrapper {
+            /* background-color: #dfe6e9; */
+           /*  width: 20vw; */
+            height: 1000px; 
+          /*   display: flex; */
+           /*  margin: auto; */
+            margin:50px;
+            padding:50px;
+        }
+
+        .calendar {
+            margin: auto;
+            width: 500px;
+            background-color: #fff;
+            /* box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2); */
+       
+        }
+
+        .month {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+           /*  padding: 40px 30px; */
+            text-align: center;
+            /* background-color: #2ecc71; */
+            color: #fff;
+        }
+
+        .weekdays {
+            background-color: #ec524b;
+            color: #fff;
+            padding: 7px 0;
+            display: flex;
+        }
+
+        .days {
+            font-weight: 300;
+            padding: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .weekdays div,
+        .days div {
+            text-align: center;
+            width: 14.28%;
+        }
+
+        .days div {
+            padding: 10px 0;
+            margin-bottom: 10px;
+            transition: all 0.4s;
+        }
+
+        .prev_date {
+            color: #999;
+        }
+
+        .today {
+            background-color: #ec524b;
+            color: #fff;
+        }
+
+        .days div:hover {
+            cursor: pointer;
+            background-color: #dfe6e9
+        }
+
+        .prev,
+        .next {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 23px;
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+        }
+
+        .prev:hover,
+        .next:hover {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #month {
+            font-size: 30px;
+            font-weight: 500;
+        }
