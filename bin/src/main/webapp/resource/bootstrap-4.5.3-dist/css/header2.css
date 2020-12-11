@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+        li ul{
+            height: 0px;
+            overflow: hidden;
+            transition-duration: 0.5s;
+        }
+        
+         li:hover ul{
+            height: 124px;
+        }
+        
