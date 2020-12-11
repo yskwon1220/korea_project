@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/intromain.css"/>" /> 
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/intromain.css"/>" /> 
 <title>Insert title here</title>
 </head>
 	<body class="landing is-preload">
@@ -44,13 +44,13 @@
 			</div>
 
 			
-		 <script src="<c:url value="/assets/js/introjquery.min.js"/>"></script>
-         <script src="<c:url value="/assets/js/introjquery.scrollex.min.js"/>"></script>
-         <script src="<c:url value="/assets/js/introjquery.scrolly.min.js"/>"></script>
-         <script src="<c:url value="/assets/js/introbrowser.min.js"/>"></script>
-         <script src="<c:url value="/assets/js/introbreakpoints.min.js"/>"></script>
-         <script src="<c:url value="/assets/js/introutil.js"/>"></script>
-         <script src="<c:url value="/assets/js/intromain.js"/>"></script>
+		 <script src="<c:url value="${path }/resource/js/introjquery.min.js"/>"></script>
+         <script src="<c:url value="${path }/resource/js/introjquery.scrollex.min.js"/>"></script>
+         <script src="<c:url value="${path }/resource/js/introjquery.scrolly.min.js"/>"></script>
+         <script src="<c:url value="${path }/resource/js/introbrowser.min.js"/>"></script>
+         <script src="<c:url value="${path }/resource/js/introbreakpoints.min.js"/>"></script>
+         <script src="<c:url value="${path }/resource/js/introutil.js"/>"></script>
+         <script src="<c:url value="${path }/resource/js/intromain.js"/>"></script>
 
 	</body>
 </html>

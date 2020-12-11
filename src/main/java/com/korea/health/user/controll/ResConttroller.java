@@ -18,18 +18,18 @@ import com.korea.health.user.model.Res.ResVO;
 import com.korea.health.user.model.Trai.TraiVO;
 
 @Controller
-@RequestMapping("prov/{cate}/{service}")
+@RequestMapping("/user_page_/hyeji/{cate}/{service}")
 public class ResConttroller {
 	@Resource
 	Myprovider provider;
 
 	@ModelAttribute
 	Kind kind(@PathVariable("cate") String cate, 
-			@PathVariable("list") String service) {
+			@PathVariable("service") String service) {
 		Kind kind = new Kind();
 		kind.setCate(cate);
 		kind.setService(service);
-		kind.setMainUrl(cate + "/" + service + ".jsp");
+		kind.setMainUrl("user_page_/hyeji/"+cate + "/" + service + ".jsp");
 		return kind;
 	}
 
@@ -39,12 +39,12 @@ public class ResConttroller {
 			LocaVO lovo, 
 			TraiVO tvo,
 
-			@PathVariable("menu") String menu, 
+			@PathVariable("cate") String cate, 
 			@PathVariable("service") String service,
 			HttpServletRequest req) {
 
 		
-		Action action = provider.getContext().getBean(menu + service, Action.class);
+		Action action = provider.getContext().getBean(cate + service, Action.class);
 		HashMap<String, Object> map = new HashMap<>();
 		
 		
@@ -52,7 +52,7 @@ public class ResConttroller {
 		map.put("lovo", lovo);
 		map.put("tvo", tvo);
 		
-		System.out.println("현재 JSP 페이지 : " + menu + "/" + service);
+		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
 		System.out.println("##################");
 
 		System.out.println(map);

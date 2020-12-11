@@ -11,7 +11,7 @@
 <jsp:include page="inc/headerV3.jsp"/>
 
 
-<jsp:include page="${kind.serviceUrl }"/>
+<jsp:include page="${kind.mainUrl }"/>
 
 
 <jsp:include page="inc/footerV3.jsp"/>
