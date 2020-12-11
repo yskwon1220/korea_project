@@ -1,4 +1,4 @@
-package com.korea.health.user.model;
+package com.korea.health.user.model.fnq;
 
 import java.util.Date;
 
@@ -6,41 +6,41 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("oneboardVO")
 public class OneboardVO {
-	public Integer board_no;
-	Integer no;
-	Integer gid;
-	Integer seq;
-	Integer lev;
-	String title, context, file_0, rep;
+	public int board_no;
+	int no;
+	int gid;
+	int seq;
+	int lev;
+	String title="", context="", file_0="", rep="";
 	Date regdate;
-	public Integer getBoard_no() {
+	public int getBoard_no() {
 		return board_no;
 	}
-	public void setBoard_no(Integer board_no) {
+	public void setBoard_no(int board_no) {
 		this.board_no = board_no;
 	}
-	public Integer getNo() {
+	public int getNo() {
 		return no;
 	}
-	public void setNo(Integer no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
-	public Integer getGid() {
+	public int getGid() {
 		return gid;
 	}
-	public void setGid(Integer gid) {
+	public void setGid(int gid) {
 		this.gid = gid;
 	}
-	public Integer getSeq() {
+	public int getSeq() {
 		return seq;
 	}
-	public void setSeq(Integer seq) {
+	public void setSeq(int seq) {
 		this.seq = seq;
 	}
-	public Integer getLev() {
+	public int getLev() {
 		return lev;
 	}
-	public void setLev(Integer lev) {
+	public void setLev(int lev) {
 		this.lev = lev;
 	}
 	public String getTitle() {
@@ -50,8 +50,6 @@ public class OneboardVO {
 		this.title = title;
 	}
 	public String getContext() {
-		if(context == null)
-			context = "";
 		
 		return context;
 	}
@@ -71,12 +69,19 @@ public class OneboardVO {
 	}
 	public void setFile_0(String file_0) {
 		this.file_0 = file_0;
+		if(file_0 == null)
+			this.file_0 = "";
+		
 	}
 	public String getRep() {
 		return rep;
 	}
 	public void setRep(String rep) {
-		this.rep = rep;
+		
+		if(rep=="")
+			rep="처리중";
+			
+			this.rep = rep;
 	}
 	public Date getRegdate() {
 		return regdate;

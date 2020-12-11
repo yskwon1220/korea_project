@@ -1,4 +1,4 @@
-package com.korea.health.user.model;
+package com.korea.health.user.model.fnq;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface OneboardMapper {
-	List<OneboardVO> onelist();
+	List<OneboardVO> fnqList();
 	List<OneboardVO> listSch(OneboardVO vo);
 	
 	OneboardVO detail(int board_no);

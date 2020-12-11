@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Myprovider;
-import com.korea.health.user.model.NoticeVO;
-import com.korea.health.user.model.OneboardVO;
-import com.korea.health.user.model.QnaVO;
 import com.korea.health.user.model.event.cardVO;
+import com.korea.health.user.model.fnq.OneboardVO;
+import com.korea.health.user.model.notice.NoticeVO;
+import com.korea.health.user.model.qna.QnaVO;
 
 @Controller
 @RequestMapping("/style_jooho/{cate}/{list}")
@@ -39,12 +39,7 @@ public class EventPageController {
    Object mainData(
          @PathVariable("cate")String cate,
          @PathVariable("list")String list,
-         @ModelAttribute("event_no")String en ,
-         @ModelAttribute("board_no")String bn ,
          cardVO vo,
-         NoticeVO nvo,
-         OneboardVO ovo,
-         QnaVO qvo,
          Model mm,
          HttpServletRequest req) {
       
@@ -56,11 +51,7 @@ public class EventPageController {
       HashMap<String, Object> map = new HashMap<>(); 
  
       map.put("service", cate+list);
-      map.put("event_no", en);
-      map.put("board_no", bn);
-      map.put("nvo", nvo);
-      map.put("ovo", ovo);
-      map.put("qvo", qvo);
+
       
       Object res = action.execute(map, req);
       

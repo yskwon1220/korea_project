@@ -1,4 +1,4 @@
-package com.korea.health.user.model;
+package com.korea.health.user.model.notice;
 
 import java.util.List;
 

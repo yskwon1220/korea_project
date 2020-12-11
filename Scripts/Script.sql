@@ -89,3 +89,10 @@ tr_name  varchar2(99),
  content  varchar2(99)
 );
 
+
+SELECT MAX(BOARD_NO)+1 FROM ONEBOARD;
+
+		INSERT INTO ONEBOARD 
+		(BOARD_NO, NO, TITLE, CONTEXT, REGDATE, FILE_0, REP, GID, SEQ, LEV) 
+		VALUES 
+		(3, 1, '제목제목제목', '내용내용내용', sysdate,'','처리중',3,0,0 );

@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
-import com.korea.health.user.model.NoticeMapper;
-import com.korea.health.user.model.NoticeVO;
-import com.korea.health.user.model.OneboardMapper;
-import com.korea.health.user.model.OneboardVO;
-import com.korea.health.user.model.QnaMapper;
-import com.korea.health.user.model.QnaVO;
 import com.korea.health.user.model.event.EventMapper;
+import com.korea.health.user.model.fnq.OneboardMapper;
+import com.korea.health.user.model.fnq.OneboardVO;
+import com.korea.health.user.model.notice.NoticeMapper;
+import com.korea.health.user.model.notice.NoticeVO;
+import com.korea.health.user.model.qna.QnaMapper;
+import com.korea.health.user.model.qna.QnaVO;
 
 
 

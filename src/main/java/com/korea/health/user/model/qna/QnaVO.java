@@ -1,4 +1,4 @@
-package com.korea.health.user.model;
+package com.korea.health.user.model.qna;
 
 import java.util.Date;
 

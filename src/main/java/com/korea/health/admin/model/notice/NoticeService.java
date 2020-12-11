@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
-import com.korea.health.user.model.NoticeMapper;
+import com.korea.health.user.model.notice.NoticeMapper;
 
 // trainer 들어왔을 때 액션들 집합
 @Service("admin_page_notice")	// providerController에서 bean 만들어줄때 이름
