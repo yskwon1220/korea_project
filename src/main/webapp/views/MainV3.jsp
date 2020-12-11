@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,37 +17,29 @@
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
-	href="<c:url value="/assets/css/V3bootstrap.css"/>" />
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
 <link rel="stylesheet"
-	href="<c:url value="/assets/css/V3flexslider.css"/>" />
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
 <link rel="stylesheet"
-	href="<c:url value="/assets/css/V3owl.carousel.min.css"/>" />
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
 <link rel="stylesheet"
-	href="<c:url value="/assets/css/V3owl.theme.default.min.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" />
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
 
-<script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
-
-
+<script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 
 </head>
 <body>
-
-
 	<jsp:include page="inc/headerV3.jsp" />
-
-
 	<div id="fh5co-page">
-
-
 		<div class="container"></div>
 		<aside id="fh5co-hero" class="js-fullheight">
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
-					<li style="background-image: url(../images/intro01.jpg);">
+					<li style="background-image: url(../resource/images/intro01.jpg);">
 						<div class="overlay-gradient"></div>
 						<div class="container">
 							<div
@@ -62,7 +54,7 @@
 							</div>
 						</div>
 					</li>
-					<li style="background-image: url(../images/intro02.jpg);">
+					<li style="background-image: url(../resource/images/intro02.jpg);">
 						<div class="container">
 							<div
 								class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
@@ -76,7 +68,7 @@
 							</div>
 						</div>
 					</li>
-					<li style="background-image: url(../images/intro03.jpg);">
+					<li style="background-image: url(../resource/images/intro03.jpg);">
 						<div class="container">
 							<div
 								class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
@@ -189,7 +181,7 @@
 					<div class="col-md-4 animate-box">
 						<a href="#" class="item-grid text-center">
 							<div class="image"
-								style="background-image: url(../images/fit05.jpg)"></div>
+								style="background-image: url(../resource/images/fit05.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">2020년11월 소식</h3>
@@ -201,7 +193,7 @@
 					<div class="col-md-4 animate-box">
 						<a href="#" class="item-grid text-center">
 							<div class="image"
-								style="background-image: url(../images/fit06.jpg)"></div>
+								style="background-image: url(../resource/images/fit06.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">2020년 12월 소식</h3>
@@ -213,7 +205,7 @@
 					<div class="col-md-4 animate-box">
 						<a href="#" class="item-grid text-center">
 							<div class="image"
-								style="background-image: url(../images/fit01.jpg)"></div>
+								style="background-image: url(../resource/images/fit01.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">시설 이용안내</h3>
@@ -225,7 +217,7 @@
 					<div class="col-md-4 animate-box">
 						<a href="#" class="item-grid text-center">
 							<div class="image"
-								style="background-image: url(../images/fit03.jpg)"></div>
+								style="background-image: url(../resource/images/fit03.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">지점별 소식</h3>
@@ -237,7 +229,7 @@
 					<div class="col-md-4 animate-box">
 						<a href="#" class="item-grid text-center">
 							<div class="image"
-								style="background-image: url(../images/fit04.jpg)"></div>
+								style="background-image: url(../resource/images/fit04.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">시설 이용시 주의사항</h3>
@@ -249,7 +241,7 @@
 					<div class="col-md-4 animate-box">
 						<a href="#" class="item-grid text-center">
 							<div class="image"
-								style="background-image: url(../images/fit11.jpg)"></div>
+								style="background-image: url(../resource/images/fit11.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">새 소식</h3>
@@ -282,7 +274,7 @@
 					<div class="col-md-4 col-sm-4 animate-box">
 						<a href="#" class="item-grid">
 							<div class="image"
-								style="background-image: url(../images/fitmain01.jpg)"></div>
+								style="background-image: url(../resource/images/fitmain01.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">역시 꾸준히 운동한 보람이 있습니다.</h3>
@@ -298,7 +290,7 @@
 					<div class="col-md-4 col-sm-4 animate-box">
 						<a href="#" class="item-grid">
 							<div class="image"
-								style="background-image: url(../images/1.jpg)"></div>
+								style="background-image: url(../resource/images/1.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">정말 감사합니다.</h3>
@@ -314,7 +306,7 @@
 					<div class="col-md-4 col-sm-4 animate-box">
 						<a href="#" class="item-grid">
 							<div class="image"
-								style="background-image: url(../images/01.jpg)"></div>
+								style="background-image: url(../resource/images/01.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
 									<h3 class="title">정말 최고입니다.</h3>
@@ -494,13 +486,13 @@
 	<jsp:include page="inc/footerV3.jsp" />
 
 
-	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 
 </body>
 </html>

@@ -6,32 +6,14 @@
 
 <html>
 <head>
-<title>1대1문의 수정</title>
-<link rel="shortcut icon" href="favicon.ico">
-<link
-	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
-	rel="stylesheet">
+<head>
+<title>1대1 문의</title>
 
-<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3bootstrap.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3flexslider.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3owl.carousel.min.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="/assets/css/V3owl.theme.default.min.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" />
-<link rel="stylesheet" href="<c:url value="/assets/css/notice.css"/>" />
-
-<script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
-
+<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 
 </head>
 <body>
-<%-- 	<jsp:include page="../inc/headerV3.jsp" />
-	<div id="main-wrapper"> --%>
+
 		<div class="container">
 			<div id="content">
 
@@ -40,16 +22,6 @@
 			<h2>1대1 문의</h2>
 
 			<form name="form" id="form" role="form" method="post" action="">
-				<label for="title">카테고리 선택</label>
-				<div class="mb-3">
-					<select class="form-control">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
 
 				<div class="mb-3">
 					<label for="title">제목</label> <input type="text"
@@ -79,17 +51,5 @@
 
 			</div>
 		</div>
-<%-- 	</div>
-
-
-	<jsp:include page="../inc/footerV3.jsp" /> --%>
-
-	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
 </body>
 </html>

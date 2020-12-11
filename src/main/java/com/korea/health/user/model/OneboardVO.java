@@ -4,9 +4,13 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("OneboardVO")
+@Alias("oneboardVO")
 public class OneboardVO {
-	Integer board_no, no, gid, seq, lev;
+	public Integer board_no;
+	Integer no;
+	Integer gid;
+	Integer seq;
+	Integer lev;
 	String title, context, file_0, rep;
 	Date regdate;
 	public Integer getBoard_no() {
@@ -46,11 +50,22 @@ public class OneboardVO {
 		this.title = title;
 	}
 	public String getContext() {
+		if(context == null)
+			context = "";
+		
 		return context;
 	}
-	public void setContext(String context) {
+
+	public void setContext (String context) {
+		if(context == null)
+			context = "";
 		this.context = context;
 	}
+	
+	public String getContextBr() {
+		return getContext().replaceAll("\n", "<br>");
+	}
+
 	public String getFile_0() {
 		return file_0;
 	}
