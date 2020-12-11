@@ -22,11 +22,11 @@ public class HomeController {
 	@Resource
 	OneboardMapper onmapp;
 	
-	@RequestMapping("/style_hyeji/introMain")
+	@RequestMapping("/introMain")
 	public String intro() {
 
 		System.out.println("intro comin");
-		return "style_hyeji/introMain";
+		return "introMain";
 	}
 
 	@RequestMapping("/MainV3")
@@ -40,5 +40,6 @@ public class HomeController {
 
 		System.out.println("comu");
 	}
+
 	
 }
