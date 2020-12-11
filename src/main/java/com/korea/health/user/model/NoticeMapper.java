@@ -8,6 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface NoticeMapper {
-	List<NoticeVO> nlist();
+	List<NoticeVO> noticeList();
 	NoticeVO detail(int notice_no);
 }
