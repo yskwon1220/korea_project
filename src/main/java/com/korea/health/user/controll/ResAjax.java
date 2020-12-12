@@ -19,8 +19,8 @@ import com.korea.health.user.model.Res.ResVO;
 import com.korea.health.user.model.Trai.TraiVO;
 
 @Controller
-@RequestMapping("/user_page_/{cate}/{service}")
-public class ResConttroller {
+@RequestMapping("/resAjax/{cate}/{service}")
+public class ResAjax {
 	@Resource
 	Myprovider provider;
 
@@ -30,7 +30,7 @@ public class ResConttroller {
 		Kind kind = new Kind();
 		kind.setCate(cate);
 		kind.setService(service);
-		kind.setMainUrl("user_page_/"+cate + "/" + service + ".jsp");
+		//kind.setMainUrl("user_page_/"+cate + "/" + service + ".jsp");
 		return kind;
 	}
 
@@ -54,8 +54,7 @@ public class ResConttroller {
 		map.put("tvo", tvo);
 		map.put("testvo", testvo);
 		
-		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
-
+		
 		System.out.println(map);
 		Object res = action.execute(map, req);
 		System.out.println(res);
@@ -63,8 +62,11 @@ public class ResConttroller {
 	}
 	
 	@RequestMapping
-	String view() {
-		return "template";
+	String view(@PathVariable("cate") String cate, 
+			    @PathVariable("service") String service) {
+		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
+
+		return "resAjax/"+cate + "/" + service;
 	}
 	
 	

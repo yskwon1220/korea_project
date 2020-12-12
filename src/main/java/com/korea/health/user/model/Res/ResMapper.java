@@ -8,10 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ResMapper {
 
 	List<ResVO> list();
-
-
-
-	 void insert(ResVO rvo);
-	  
-	
+	void insert(ResVO rvo);
+	List<ResTestVO> selectByRes(ResTestVO testVO);	
 }

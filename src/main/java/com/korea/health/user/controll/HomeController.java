@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.korea.health.user.model.OneboardMapper;
 
 
 
@@ -19,8 +18,6 @@ import com.korea.health.user.model.OneboardMapper;
 public class HomeController {
 
 	
-	@Resource
-	OneboardMapper onmapp;
 	
 	@RequestMapping("/introMain")
 	public String intro() {

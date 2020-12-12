@@ -22,13 +22,15 @@ public class ResInsertForm implements Action{
 
 		
 		ResVO rvo = (ResVO) map.get("rvo");
-		req.setAttribute("no", (String)req.getParameter("no"));
+		String no = (String)req.getParameter("no");
+		req.setAttribute("no", no);
 		req.setAttribute("lo_name", (String)req.getParameter("lo_name"));
 		req.setAttribute("tr_name", (String)req.getParameter("tr_name"));
 		req.setAttribute("type", (String)req.getParameter("type"));
 		req.setAttribute("restime", (String)req.getParameter("restime"));
 		
 		System.out.println(req.getAttribute("no"));
+		System.out.println(no);
 		System.out.println(req.getAttribute("lo_name"));
 		System.out.println(req.getAttribute("tr_name"));
 		System.out.println(req.getAttribute("type"));

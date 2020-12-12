@@ -87,12 +87,12 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
 
+<a href="../res/timedataajax?no=${no}&lo_name=${lo_name}&type=pt&restime=2020-12-12">dddddddddddddddd</a>
 
 
 
 
-
-						<form action="insertForm">
+						<form action="restimetest">
 						
 						<input type="hidden" name="no" value="${no}"/>
 						<input type="hidden" name="lo_name" value="${lo_name}"/>
@@ -115,49 +115,49 @@
 									<td><input type="radio" name="restime" value="05" /></td>
 									<td><button id="button">05:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_5">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="07" /></td>
 									<td><button id="button">07:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_7">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="09" /></td>
 									<td><button id="button">09:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_9">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="11" /></td>
 									<td><button id="button">11:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_11">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="15" /></td>
 									<td><button id="button">15:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_15">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="17" /></td>
 									<td><button id="button">17:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_17">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="19" /></td>
 									<td><button id="button">19:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td id="time_19">10 / 30</td>
 								</tr>
 								<tr>
 									<td><input type="radio" name="restime" value="21" /></td>
 									<td><button id="button">21:00</button></td>
 									<td>예약가능</td>
-									<td>10 / 30</td>
+									<td  id="time_21">10 / 30</td>
 								</tr>
 							</tbody>
 						</table>
@@ -194,13 +194,44 @@
 			}
 			console.log(day);
 			for (i = 1; i <= endDate; i++) {
+
+
+				var ee = "'"+dt.getFullYear()+"_"+(dt.getMonth() +1)+"_"+i+"'"
 				if (i == today.getDate() && dt.getMonth() == today.getMonth())
-					cells += "<div class='today'>" + i + "</div>";
+					cells += "<div class='today' onclick=resAjaxGo("+ee+")>" + i + "</div>";
 				else
-					cells += "<div>" + i + "</div>";
+					cells += "<div onclick=resAjaxGo("+ee+")>" + i + "</div>";
 			}
 			document.getElementsByClassName("days")[0].innerHTML = cells;
 
+		}
+
+
+
+		function resAjaxGo(dt){
+			$.ajax({
+	            url:'../../resAjax/res/restimetest?lo_no=${no}&resDateStr='+dt,
+	            dataType:'json',
+	            success:function(data){
+	            	//console.log(data)
+	            	//console.log(data.responseText);
+	                for(i in data){
+	                    console.log(i, data[i])
+
+	                    $("#time_"+i).html(data[i].nowCnt+" / 30")
+	                }
+	            },
+	            
+	            error:function(e){    ///실패 리스너
+	                alert(e.responseText);///에러메세지
+
+	                //console.log(e);
+	            }
+	            
+	        });
+
+			
+			
 		}
 
 		function moveDate(para) {

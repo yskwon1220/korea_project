@@ -25,7 +25,7 @@ public class ResSuccess implements Action{
 		
 		ResVO rvo = new ResVO();
 		
-		rvo.setNo(req.getParameter("no")); 
+		rvo.setLo_no(req.getParameter("lo_no")); 
 		rvo.setLo_name(req.getParameter("lo_name"));
 		rvo.setTr_name(req.getParameter("tr_name"));
 		rvo.setType(req.getParameter("type"));
@@ -36,7 +36,7 @@ public class ResSuccess implements Action{
 		rvo.setRestime(req.getParameter("restime"));
 
 		
-		req.setAttribute("no", (String)req.getParameter("no"));
+		req.setAttribute("no", (String)req.getParameter("lo_no"));
 		req.setAttribute("lo_name", (String)req.getParameter("lo_name"));
 		req.setAttribute("tr_name", (String)req.getParameter("tr_name"));
 		req.setAttribute("type", (String)req.getParameter("type"));
@@ -47,6 +47,7 @@ public class ResSuccess implements Action{
 		req.setAttribute("restime", (String)req.getParameter("restime"));
 		
 		System.out.println(req.getAttribute("no"));
+		System.out.println(req.getAttribute("lo_no"));
 		System.out.println(req.getAttribute("lo_name"));
 		System.out.println(req.getAttribute("tr_name"));
 		System.out.println(req.getAttribute("type"));

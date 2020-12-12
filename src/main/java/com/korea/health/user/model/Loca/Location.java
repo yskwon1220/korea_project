@@ -20,7 +20,6 @@ public class Location implements Action{
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 
-		System.out.println("loca list execute() 실행");
 		return mapper.list();
 	}
 

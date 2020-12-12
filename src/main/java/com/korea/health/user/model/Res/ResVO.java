@@ -7,17 +7,27 @@ import org.apache.ibatis.type.Alias;
 @Alias("resVO")
 public class ResVO {
 
-	String no, lo_name, type, tr_name, user_name, user_pw, user_tel, content, restime;
+	String lo_no, lo_name, type, tr_name, user_name, user_pw, user_tel, content, restime, res_no;
 	Date resdate;
+
+	
 	
 	
 
-	public String getNo() {
-		return no;
+	public String getLo_no() {
+		return lo_no;
 	}
 
-	public void setNo(String no) {
-		this.no = no;
+	public void setLo_no(String lo_no) {
+		this.lo_no = lo_no;
+	}
+
+	public String getRes_no() {
+		return res_no;
+	}
+
+	public void setRes_no(String res_no) {
+		this.res_no = res_no;
 	}
 
 	public String getLo_name() {

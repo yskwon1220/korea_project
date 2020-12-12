@@ -11,8 +11,8 @@ import com.korea.health.provider.Action;
 
 
 
-@Service("resschedule")
-public class ResSchedule implements Action{
+@Service("restimedataajax")
+public class ResTimeDataAjax implements Action{
 	
 	@Resource
 	ResMapper mapper;
