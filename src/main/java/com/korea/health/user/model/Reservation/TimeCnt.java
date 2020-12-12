@@ -31,10 +31,10 @@ public class TimeCnt implements Action{
 		LinkedHashMap<Integer,ResTimeVO> data = new LinkedHashMap<>();
 		
 		
-		
 		String res = "{";
 		for (int i = 5; i <=21; i+=2) {
 			res+="\""+i+"\":";
+			
 			ResTimeVO buf = new ResTimeVO();
 			buf.setLo_no(timeVO.getLo_no());
 			buf.setResDate(timeVO.getResDate());
@@ -56,6 +56,9 @@ public class TimeCnt implements Action{
 		}
 		res += "}";
 		//System.out.println(data);
+		/*
+		 * ReservationVO rvo = new ReservationVO(); rvo.setResdate(timeVO.getResDate());
+		 */
 		return res;
 	}
 
