@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
@@ -18,8 +19,8 @@ import com.korea.health.user.model.Reservation.ReservationVO;
 import com.korea.health.user.model.Trainer.TrainerVO;
 
 @Controller
-@RequestMapping("/resAjax/{cate}/{service}")
-public class ResAjax {
+@RequestMapping("/user_page_/{cate}/{service}")
+public class ResController {
 	@Resource
 	Myprovider provider;
 
@@ -29,7 +30,7 @@ public class ResAjax {
 		Kind kind = new Kind();
 		kind.setCate(cate);
 		kind.setService(service);
-		//kind.setMainUrl("user_page_/"+cate + "/" + service + ".jsp");
+		kind.setMainUrl("user_page_/"+cate + "/" + service + ".jsp");
 		return kind;
 	}
 
@@ -38,7 +39,7 @@ public class ResAjax {
 			ReservationVO rvo, 
 			LocationVO lovo, 
 			TrainerVO tvo,
-			ResTimeVO timeVO,
+			ResTimeVO timevo,
 			@PathVariable("cate") String cate, 
 			@PathVariable("service") String service,
 			HttpServletRequest req) {
@@ -51,19 +52,18 @@ public class ResAjax {
 		map.put("rvo", rvo);
 		map.put("lovo", lovo);
 		map.put("tvo", tvo);
-		map.put("timeVO", timeVO);
+		map.put("timevo", timevo);
 		
+		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
+
 		Object res = action.execute(map, req);
 		System.out.println(res);
 		return res;
 	}
 	
 	@RequestMapping
-	String view(@PathVariable("cate") String cate, 
-			    @PathVariable("service") String service) {
-		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
-
-		return "resAjax/"+cate + "/" + service;
+	String view() {
+		return "template";
 	}
 	
 	

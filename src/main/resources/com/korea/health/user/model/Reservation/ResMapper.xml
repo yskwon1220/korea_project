@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.user.model.Reservation.ResMapper">
+
+	<select id="list"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO">
+		select * from reservation
+	</select>
+
+<!-- 	<select id="delete"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO">
+		delete from reservation where = user_name = #{user_name}
+	</select>
+ -->
+
+	<sql id="noMax">
+		(select max(no)+1 from reservation)
+	</sql>
+
+
+	<insert id="insert" 
+		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
+		<!-- <selectKey keyProperty="no" resultType="java.lang.String" order="BEFORE"> 
+			<include refid="noMax"/> </selectKey> -->
+		insert into reservation
+		(re_no, lo_no, lo_name, type, tr_name,resdate, restime,
+		user_name, user_pw, user_tel, content)
+		values
+		(re_noidx.nextval,#{lo_no},#{lo_name},#{type}, #{tr_name},#{resdate},#{restime},#{user_name}
+		,#{user_pw},#{user_tel},#{content})
+
+	</insert>
+	
+	<select id="selectByRes" parameterType="com.korea.health.user.model.Reservation.ResTimeVO"
+	resultType="com.korea.health.user.model.Reservation.ResTimeVO">
+		SELECT		*
+		FROM		restime
+		WHERE		resdate = #{resDate} AND lo_no = #{lo_no}
+		ORDER BY	restime
+	</select>
+
+</mapper>
+

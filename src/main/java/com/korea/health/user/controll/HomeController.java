@@ -32,11 +32,6 @@ public class HomeController {
 		return "MainV3";
 	}
 
-	@RequestMapping("/community")
-	public void community() {
-
-		System.out.println("comu");
-	}
 
 	
 }

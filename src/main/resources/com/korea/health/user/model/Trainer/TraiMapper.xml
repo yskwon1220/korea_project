@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.korea.health.user.model.Trainer.TraiMapper">
+
+
+ 	<select id="detail" resultType="com.korea.health.user.model.Trainer.TrainerVO" parameterType="java.lang.String"> 
+		select * from trainer where lo_no in 
+		(select lo_no from location where lo_no = #{lo_no, jdbcType=VARCHAR})
+	</select>
+	
+</mapper>
+
