@@ -41,55 +41,33 @@
                                     <table class="table table-bordered" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>예약번호</th>
-                                                <th>제목</th>
-                                                <th>트레이너 명</th>
-                                                <th>예약자 명</th>
+                                                <th>번호</th>
+                                                <th>지점이름</th>
+                                                <th>타입</th>
+                                                <th>트레이너 이름</th>
+                                                <th>예약 날짜</th>
                                                 <th>예약 시간</th>
-                                                <th>상태</th>
+                                                <th>예약자 이름</th>
+                                                <th>예약 비밀번호</th>
+                                                <th>예약자 연락처</th>
+                                                <th>예약 내용</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <c:forEach items="${data}" var="data">
                                             <tr>
-                                                <td>234</td>
-                                                <td>이두근과 함께하는 이두박살 PT</td>
-                                                <td>이두근</td>
-                                                <td>김삼두</td>
-                                                <td>2020/04/25</td>
-                                                <td>예약 진행중</td>
+                                                <td>${data.no}</td>
+                                                <td>${data.lo_name}</td>
+                                                <td>${data.type}</td>
+                                                <td>${data.tr_name}</td>
+                                                <td>${data.resdate}</td>
+                                                <td>${data.restime}</td>
+                                                <td>${data.user_name}</td>
+                                                <td>${data.user_pw}</td>
+                                                <td>${data.user_tel}</td>
+                                                <td>${data.content}</td>
                                             </tr>
-                                            <tr>
-                                                <td>233</td>
-                                                <td>삼두근과 함께하는 삼두박살 PT</td>
-                                                <td>삼두근</td>
-                                                <td>강이두</td>
-                                                <td>2020/07/25</td>
-                                                <td>예약 완료</td>
-                                            </tr>
-                                            <tr>
-                                                <td>232</td>
-                                                <td>소돼지와 달려봐요</td>
-                                                <td>소돼지</td>
-                                                <td>강한말</td>
-                                                <td>2020/01/12</td>
-                                                <td>예약 취소</td>
-                                            </tr>
-                                            <tr>
-                                                <td>231</td>
-                                                <td>김자전거와 함께하는 자전자전 스피닝</td>
-                                                <td>김자전거</td>
-                                                <td>김오토바이</td>
-                                                <td>2020/03/29</td>
-                                                <td>예약 완료</td>
-                                            </tr>
-                                            <tr>
-                                                <td>230</td>
-                                                <td>김자전거와 함께하는 자전자전 스피닝</td>
-                                                <td>김자전거</td>
-                                                <td>김신발</td>
-                                                <td>2020/03/29</td>
-                                                <td>예약 완료</td>
-                                            </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

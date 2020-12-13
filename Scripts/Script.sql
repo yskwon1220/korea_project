@@ -78,6 +78,30 @@ user_name     varchar2(99),
 user_tel          varchar2(99),
 content varchar2(99) );
 
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('1', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('2', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('3', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('4', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('5', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('6', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('7', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('8', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('9', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('10', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('11', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
+INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
+VALUES ('12', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
 
 create table location (
 no            varchar2(99),
@@ -89,3 +113,45 @@ tr_name  varchar2(99),
  content  varchar2(99)
 );
 
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('3', '1002', '곰', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '3.jpg');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('4', '1002', '말', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '4.jpg');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('5', '1002', '돼지', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '5.jpg');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('6', '1002', '소', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '1.jpg');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('7', '1002', '너구리', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '2.jpg');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('8', '1002', '오리', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '3.jpg');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES ('9', '1002', '닭', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '4.jpg');
+
+DROP TABLE TRAINER;
+
+CREATE TABLE TRAINER (
+	tr_no number PRIMARY KEY,
+	lo_no varchar2(30),
+	tr_name varchar2(20),
+	ismanage NUMBER,
+	tr_info varchar2(300),
+	stars NUMBER,
+	tr_pic varchar2(60),
+	regdate timestamp
+);
+
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (1, '1002', '곰', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg', '201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (2, '1002', '말', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg', '201211');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (3, '1002', '돼지', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '5.jpg','201211');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (4, '1002', '소', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '1.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (5, '1002', '너구리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '2.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (6, '1002', '오리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (7, '1002', '닭', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');

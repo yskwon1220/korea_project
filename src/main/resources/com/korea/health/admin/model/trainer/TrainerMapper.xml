@@ -8,4 +8,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="trainerList" resultType="com.korea.health.admin.model.trainer.TrainerVO">
 		SELECT * FROM TRAINER
 	</select>
+	
+	<select id="trainerDetail" resultType="com.korea.health.admin.model.trainer.TrainerVO"
+		parameterType="java.lang.String">
+		SELECT * FROM TRAINER WHERE TR_NAME = #{tr_name}
+	</select>
+	
+	<sql id="noMax">
+		(select max(tr_no)+1 from trainer)
+	</sql>
+	
+	<insert id="insert" parameterType="com.korea.health.admin.model.trainer.TrainerVO">
+		<selectKey keyProperty="tr_no" resultType="java.lang.Integer" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey>
+		insert into trainer (tr_no, lo_no, tr_name, ismanage, tr_info, stars, tr_pic, regdate)
+		values
+		(#{tr_no}, #{lo_no}, #{tr_name}, #{ismanage}, #{tr_info}, #{stars}, #{tr_pic}, #{regdate})
+	</insert>
+	
 </mapper>

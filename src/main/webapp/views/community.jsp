@@ -96,8 +96,6 @@
 				</div>
 				</div>
 	<jsp:include page="inc/footerV3.jsp" />
-
-
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>

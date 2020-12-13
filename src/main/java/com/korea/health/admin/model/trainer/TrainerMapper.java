@@ -8,6 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TrainerMapper {
 	
 	List<TrainerVO> trainerList();	// db에 존재하는 트레이너 리스트
-
+	
+	TrainerVO trainerDetail(String tr_name);	// 트레이너 디테일
+	
+	String trainerInsert(TrainerVO vo);
 }
 
