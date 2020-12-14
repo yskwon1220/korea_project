@@ -1,5 +1,6 @@
 package com.korea.health.admin.model.trainer;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,18 +9,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Alias("trainerVO")
 public class TrainerVO {
-	Integer tr_no;
+	Integer tr_no = 0;
 	String lo_no;
+	String lo_name;
 	String tr_name;
 	Integer isManage;
 	String tr_info;
-	Integer stars;
+	Integer stars = 0;
 	Date regdate;
 	MultipartFile pic;
 	String tr_pic;
 	String manager;
 	String welcomeDate;
-	String lo_name;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
@@ -35,13 +36,13 @@ public class TrainerVO {
 	public void setLo_no(String lo_no) {
 		switch (lo_no) {
 		case "1001":
-			lo_name = "강남점";
+			lo_name = "gangnam";
 			break;
 		case "1002":
-			lo_name = "강북점";
+			lo_name = "gangbuk";
 			break;
 		case "1003":
-			lo_name = "강서점";
+			lo_name = "gangseo";
 			break;
 		default:
 			break;
@@ -59,8 +60,8 @@ public class TrainerVO {
 	}
 	public void setIsManage(Integer isManage) {
 		this.isManage = isManage;
-		if(isManage == 1)	manager = "지점장";
-		manager = "일반";
+		if(isManage == 1)	manager = "leader";
+		manager = "normal";
 	}
 	public String getTr_info() {
 		if(tr_info == null)
@@ -73,7 +74,6 @@ public class TrainerVO {
 	public void setTr_info(String tr_info) {
 		if(tr_info == null)
 			tr_info = "";
-		
 		this.tr_info = tr_info;
 	}
 	public Integer getStars() {
@@ -106,7 +106,7 @@ public class TrainerVO {
 		return manager;
 	}
 	public void setManager(String manager) {
-		if(manager.equals("지점장")) isManage = 1;
+		if(manager.equals("leader")) isManage = 1;
 		
 		isManage = 0;
 		
@@ -116,6 +116,11 @@ public class TrainerVO {
 		return welcomeDate;
 	}
 	public void setWelcomeDate(String welcomeDate) {
+		try {
+			regdate = sdf.parse(welcomeDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		this.welcomeDate = welcomeDate;
 	}
 	public String getLo_name() {
@@ -123,13 +128,13 @@ public class TrainerVO {
 	}
 	public void setLo_name(String lo_name) {
 		switch (lo_name) {
-		case "강남점":
+		case "gangnam":
 			lo_no = "1001";
 			break;
-		case "강북점":
+		case "gangbuk":
 			lo_no = "1002";
 			break;
-		case "강서점":
+		case "gangseo":
 			lo_no = "1003";
 			break;
 		default:

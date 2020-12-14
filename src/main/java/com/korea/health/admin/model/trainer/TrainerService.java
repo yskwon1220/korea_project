@@ -1,11 +1,15 @@
 package com.korea.health.admin.model.trainer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.korea.health.provider.Action;
 
@@ -24,15 +28,36 @@ public class TrainerService implements Action {
 			case "info":
 				System.out.println("switch case : info에 들어왔다.");
 				return mapper.trainerList();
+				
 			case "detail":
 				System.out.println("switch case : detail에 들어왔다.");
-				System.out.println(request.getParameter("tr_name"));
-				System.out.println(mapper.trainerDetail(request.getParameter("tr_name")));
-				return mapper.trainerDetail(request.getParameter("tr_name"));
+				System.out.println(request.getParameter("tr_no"));
+				System.out.println(mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no"))));
+				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
+				
+			case "insertForm":
+				System.out.println("switch case : insertForm에 들어왔다.");
+				return null;
+				
 			case "insert":
 				System.out.println("switch case : insert에 들어왔다.");
-				System.out.println(map.get("trVO"));
-				return mapper.trainerDetail(mapper.trainerInsert((TrainerVO)map.get("trVO")));
+				System.out.println((TrainerVO)map.get("trVO"));
+				TrainerVO vo = (TrainerVO)map.get("trVO");
+				
+				MultipartFile upload = vo.getPic();
+				File file = new File("C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\" + vo.getTr_pic());
+				
+				if(file.exists())	{
+					mapper.trainerInsert(vo);
+					return mapper.trainerDetail(vo.getTr_no());
+				}
+
+				fileUpload(upload, request);
+
+				mapper.trainerInsert(vo);
+				
+				return mapper.trainerDetail(vo.getTr_no());
+				
 			default:
 				break;
 			}
@@ -40,5 +65,19 @@ public class TrainerService implements Action {
 			e.printStackTrace();
 		} 
 		return null;
+	}
+	
+	public void fileUpload(MultipartFile mf, HttpServletRequest req) {
+		String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images";
+		
+		try {
+			FileOutputStream fos = new FileOutputStream(path + "/" + mf.getOriginalFilename());
+			
+			fos.write(mf.getBytes());
+			fos.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 }

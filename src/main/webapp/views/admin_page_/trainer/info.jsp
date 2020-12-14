@@ -35,10 +35,10 @@
                                         <tbody id="showTable">
                                         <c:forEach items="${data}" var="data">
                                             <tr>
-                                                <td>${data.tr_no}</td>
+                                                <td><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> ${data.tr_no}</a></td>
                                                 <td>${data.lo_no}</td>
-                                                <td><a href="/admin_page_/trainer/detail?tr_no="${data.tr_no}"> <img alt="" src="/resource/images/${data.pic}"></a></td>
-                                                <td><a href="/admin_page_/trainer/detail?tr_name=${data.tr_name}">${data.tr_name}</a></td>
+                                                <td><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/${data.tr_pic}"></a></td>
+                                                <td><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}">${data.tr_name}</a></td>
                                                 <td>${data.tr_info}</td>
                                                 <td>${data.stars}</td>
                                             </tr>
@@ -49,7 +49,7 @@
                                 <ol>
                                 </ol>
                              		<div class="col-sm-1" style="float: none; margin: 0 auto;">
-                                            <a href="/admin_page_/trainer/insert" class="btn btn-info btn-primary btn-sm">신규 등록</a>
+                                            <a href="/admin_page_/trainer/insertForm" class="btn btn-info btn-primary btn-sm">신규 등록</a>
                                     </div>
                             </div>
                         </div>

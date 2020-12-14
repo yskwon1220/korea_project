@@ -19,18 +19,18 @@
                                                 <tbody>
                                                     <tr>
                                                         <td  class="align-middle" rowspan="7">
-                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.pic}"/>
+                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.tr_pic}"/>
                                                         </td>
                                                         <td class="align-middle">이름</td>
                                                         <td  class="align-middle">${data.tr_name}</td>
                                                     </tr>
                                                 <tr>
                                                     <td class="align-middle">입사 일자</td>
-                                                    <td  class="align-middle">${data.welcomeDate}</td>
+                                                    <td  class="align-middle">${data.regdate}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직책</td>
-                                                    <td  class="align-middle">${data.manager}</td>
+                                                    <td  class="align-middle">${data.isManage}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직원 번호</td>
@@ -41,7 +41,7 @@
                                                     <td  class="align-middle">${data.tr_info}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">소속 지점 번호</td>
+                                                    <td class="align-middle">소속 지점</td>
                                                     <td  class="align-middle">${data.lo_no}</td>
                                                 </tr>
                                                 <tr>
@@ -53,9 +53,10 @@
                                     </div>
                                     <ol>
                                     </ol>
-                                    <div class="col-sm-1" style="float: none; margin: 0 auto;">
+                                    <div class="col-sm-2" style="float: none; margin: 0 auto;">
                                             <a href="/admin_page_/trainer/" class="btn btn-info btn-primary btn-sm">수정</a>
                                             <a href="정보 삭제 모듈로" class="btn btn-info btn-danger btn-sm">삭제</a>
+                                            <a href="/admin_page_/trainer/info" class="btn btn-info btn-danger btn-sm">목록으로</a>
                                     </div>
                             </div>
                             </div>

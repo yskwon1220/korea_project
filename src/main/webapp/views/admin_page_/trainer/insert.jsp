@@ -1,126 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>                        
-<!-- container fluid 아래부터  -->
-                        <h1 class="mt-4">트레이너 정보</h1>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script type="text/javascript">
+	$(document).ready(function(){
+	        $("#myModal").modal();
+	});
+</script>
+                     <h1 class="mt-4">트레이너 관리</h1>
                         <ol>
-                        </ol>
-                        <div class="card mb-4">
+						</ol>
+                              <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-id-badge"></i>
-                                <a href="">직원 등록</a>
+                                <i class="far fa-address-card"></i>
+                                <a href="">직원 상세</a>
                             </div>
+                            <!--직원 가입 폼 확인 후 수정-->
                             <div class="card-body">
                                 <div class="table-responsive">
                                         <div class="col-sm-6" style="float: none; margin: 0 auto;">
-                                            <form method="POST" enctype="multipart/form-data">
-                                                <table class="table table-bordered" width="0%" cellspacing="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="align-middle">트레이너 명</td>
-                                                            <td  class="align-middle">
-                                                            	<input class="form-control" type="text" name="tr_name">
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="align-middle">직책</td>
-                                                            <td>
-                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                                    <label class="btn btn-info">
-                                                                        <input type="radio" name="manager" id="인턴"> 인턴
-                                                                    </label>
-                                                                    <label class="btn btn-info">
-                                                                        <input type="radio" name="manager" id="일반"> 일반
-                                                                    </label>
-                                                                    <label class="btn btn-info">
-                                                                        <input type="radio" name="manager" id="지점장"> 지점장
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                             						<tr>
-                                                        <td class="align-middle">입사 일자</td>
-                                                        <td  class="align-middle">
-                                                            <input class="form-control" type="text" id="regdate">
-                                                        </td>
-                                                    </tr>
+                                            <table class="table table-bordered" width="0%" cellspacing="0">
+                                                <tbody>
                                                     <tr>
-                                                        <td class="align-middle">소속 지점</td>
-                                                    <td  class="align-middle">                                                          
-                                                        <select class="form-control">
-                                                            <option value="lo_name">강남점</option>
-                                                            <option value="lo_name">강북점</option>
-                                                            <option value="lo_name">강서점</option>
-                                                        </select>
-                                                    </td>
+                                                        <td  class="align-middle" rowspan="7">
+                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.pic}"/>
+                                                        </td>
+                                                        <td class="align-middle">이름</td>
+                                                        <td  class="align-middle">${data.tr_name}</td>
+                                                    </tr>
+                                                <tr>
+                                                    <td class="align-middle">입사 일자</td>
+                                                    <td  class="align-middle">${data.welcomeDate}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">
-                                                        대표 사진 업로드
-                                                    </td>
-                                                    <td class="align-middle">
-                                                        <div class="filebox preview-image"> 
-                                                            <input class="upload-name" value="파일선택" disabled="disabled">
-                                                            <label for="input-file">업로드</label> 
-                                                            <input type="file" id="input-file" class="upload-hidden"> 
-                                                        </div>
-                                                    </td>
+                                                    <td class="align-middle">직책</td>
+                                                    <td  class="align-middle">${data.manager}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">경력사항</td>
-                                                    <td  class="align-middle">
-                                                        <textarea class="form-control col-sm-12" rows="5"></textarea>
-                                                    </td>
+                                                    <td class="align-middle">직원 번호</td>
+                                                    <td  class="align-middle">${data.tr_no}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2">
-                                                        <div class="col-sm-3" style="float: none; margin: 0 auto;">
-                                                            <input class="btn btn-info btn-primary btn-sm" type="submit" value="등록">
-                                                            <input class="btn btn-info btn-danger btn-sm" type="reset" value="초기화">
-                                                        </div>
-                                                    </td>
+                                                    <td class="align-middle">직원 경력</td>
+                                                    <td  class="align-middle">${data.tr_info}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="align-middle">소속 지점 번호</td>
+                                                    <td  class="align-middle">${data.lo_no}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="align-middle">회원 평가 점수</td>
+                                                    <td  class="align-middle">${data.stars}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                    </form>
                                     </div>
                                     <ol>
                                     </ol>
+                                    <div class="col-sm-1" style="float: none; margin: 0 auto;">
+                                            <a href="/admin_page_/trainer/" class="btn btn-info btn-primary btn-sm">수정</a>
+                                            <a href="정보 삭제 모듈로" class="btn btn-info btn-danger btn-sm">삭제</a>
+                                    </div>
+                            </div>
                             </div>
                         </div>
-                        </div>
-                        <script>
-						$(document).ready(function(){
-				            var fileTarget = $('.filebox .upload-hidden');
-				             fileTarget.on('change', function(){
-				                  // 값이 변경되면
-				                  if(window.FileReader){ 
-				                      // modern browser
-				                       var filename = $(this)[0].files[0].name; 
-				                      } else { 
-				                           // old IE 
-				                           var filename = $(this).val().split('/').pop().split('\\').pop();
-				                            // 파일명만 추출 
-				                        } 
-				                        // 추출한 파일명 삽입 
-				                        $(this).siblings('.upload-name').val(filename);
-				           	});
-						});
-				             
-				            $('#regdate').datepicker({
-				                format: "yyyymmdd",	//데이터 포맷 형식(yyyy : 년 mm : 월 dd : 일 )
-				                startDate: '-3m',	//달력에서 선택 할 수 있는 가장 빠른 날짜. 이전으로는 선택 불가능 ( d : 일 m : 달 y : 년 w : 주)
-				                endDate: '+3m',	//달력에서 선택 할 수 있는 가장 느린 날짜. 이후로 선택 불가 ( d : 일 m : 달 y : 년 w : 주)
-				                autoclose : true,	//사용자가 날짜를 클릭하면 자동 캘린더가 닫히는 옵션
-				                title: "입사일 선택",	//캘린더 상단에 보여주는 타이틀
-				                todayHighlight : true ,	//오늘 날짜에 하이라이팅 기능 기본값 :false 
-				                toggleActive : true,	//이미 선택된 날짜 선택하면 기본값 : false인경우 그대로 유지 true인 경우 날짜 삭제
-				                defaultDate : new Date(),
-				                language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
-				                }).on("changeDate", function(e){
-				                })
-				                
-
-       					 </script>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						      </div>
+						      <div class="modal-body">
+						        ...
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Save changes</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
