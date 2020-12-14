@@ -49,7 +49,7 @@
 					
 						<c:forEach items="${data}" var="vo" varStatus="no">
 							<div class="col-md-3 animate-box">
-								<div class="price-box"  style="width:250px; margin-right:100px;">
+								<div class="price-box"  style="width:250px; height:450px;">
 									<h2 class="pricing-plan">${vo.tr_name} 강사</h2>
 									 <img src="<c:url value="${path }/resource/images/gangsa/${vo.tr_pic}"/>" alt=""
 										style="border-radius: 50px;" width="200px" height="200px" /> 

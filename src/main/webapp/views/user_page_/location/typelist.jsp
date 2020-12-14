@@ -48,18 +48,18 @@
 					<div class="pricing">
 
 						<div class="col-md-3 animate-box">
-							<div class="price-box">
-								<h2 class="pricing-plan">PT</h2>
-								<img src="<c:url value="${path }/resource/images/fit02.jpg"/>"alt="" width="100%" height="100%" />
+							<div class="price-box" style="width:300px; height:500px; margin-right:500px;">
+								<h2 class="pricing-plan" >PT</h2>
+								<img src="<c:url value="${path }/resource/images/fit02.jpg"/>"alt="" width="100%" height="250px" />
 								<p>there live the blind texts.
 								</p>
 								<a href="../trainer/trainerlist?lo_no=${data.lo_no}&lo_name=${data.lo_name}&type=pt" class="btn btn-select-plan btn-sm">Select Plan</a>
 							</div>
 						</div>
- 						<div class="col-md-3 animate-box">
-							<div class="price-box">
+ 						<div class="col-md-3 animate-box" >
+							<div class="price-box" style="width:300px; height:500px; margin-right:500px;">
 								<h2 class="pricing-plan">Health</h2>
-								<img src="<c:url value="${path }/resource/images/fit01.jpg"/>"alt="" width="100%" height="100%" />
+								<img src="<c:url value="${path }/resource/images/fit01.jpg"/>"alt="" width="100%" height="250px" />
 
 								<p>there live the blind texts.
 								</p>

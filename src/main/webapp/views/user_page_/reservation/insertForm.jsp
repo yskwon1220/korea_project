@@ -52,7 +52,7 @@
 				<div class="row">
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
-<table border="1" width="500px">
+<%-- <table border="1" width="500px">
 <tr>
 <td>${tr_name}</td>
 <td>${lo_name}</td>
@@ -66,9 +66,9 @@
 <td>${date_str}</td>
 <td>${ee}</td>
 </tr>
-</table>
+</table> --%>
 
-						<form action="success" method="get">
+						<form action="success" method="post">
 							<table class="type08">
 								<thead>
 

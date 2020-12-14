@@ -2,6 +2,8 @@ package com.korea.health.user.controll;
 import java.util.HashMap;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -47,7 +49,6 @@ public class ResController {
 		
 		Action action = provider.getContext().getBean(cate + service, Action.class);
 		HashMap<String, Object> map = new HashMap<>();
-		
 		
 		map.put("rvo", rvo);
 		map.put("lovo", lovo);

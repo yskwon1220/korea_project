@@ -1140,7 +1140,9 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-pricing-section {
   padding: 7em 0;
   background: #fcfcfc;
+  height:1200px;
 }
+
 @media screen and (max-width: 768px) {
   #fh5co-pricing-section {
     padding: 3em 0;
@@ -1150,6 +1152,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: block;
   float: left;
   margin-bottom: 30px;
+  margin-right:-100px;
 }
 #fh5co-pricing-section .price-box {
   text-align: center;

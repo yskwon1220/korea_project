@@ -25,18 +25,19 @@ public class ResTimeVO {
 	public void setResTime(String resTime) {
 		this.resTime = resTime;
 	}
-	public Date getResDate() {
-		return resDate;
-	}
-	public void setResDate(Date resDate) {
-		this.resDate = resDate;
-	}
 	public Integer getNowCnt() {
 		return nowCnt;
 	}
 	public void setNowCnt(Integer nowCnt) {
 		this.nowCnt = nowCnt;
 	}
+	public Date getResDate() {
+		return resDate;
+	}
+	public void setResDate(Date resDate) {
+		this.resDate = resDate;
+	}
+	
 	public String getResDateStr() {
 		return sdf.format(resDate);
 	}

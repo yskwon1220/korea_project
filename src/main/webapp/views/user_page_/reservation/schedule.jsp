@@ -41,7 +41,7 @@
 
 	<div id="fh5co-page">
 
-		<div id="fh5co-pricing-section">
+		<div id="fh5co-pricing-section2">
 			<div class="container">
 
 
@@ -94,7 +94,7 @@
 
 
 
-						<form action="insertForm">
+						<form action="insertForm" action="post">
 
 
 							<input type="hidden" name="lo_no" value="${lo_no}" /> <input

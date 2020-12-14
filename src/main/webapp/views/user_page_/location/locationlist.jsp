@@ -52,12 +52,12 @@
 
 						<c:forEach items="${data}" var="vo" varStatus="no">
 							<div class="col-md-3 animate-box">
-								<div class="price-box" >
+								<div class="price-box" style="width:300px; height:500px; margin-right:250px;">
 									<h2 class="pricing-plan">${vo.lo_name}</h2>
 									<div class="price">
 										<small>${vo.lo_tel}</small>
 									</div>
-									<img src="<c:url value="${path }/resource/images/${vo.lo_pic}"/>"alt="" width="100%" height="100%" />
+									<img src="<c:url value="${path }/resource/images/${vo.lo_pic}"/>"alt="" width="100%" height="170px" />
 									<p>${vo.lo_addr}</p>
 
 									<a href="typelist?lo_no=${vo.lo_no}&lo_name=${vo.lo_name}"
