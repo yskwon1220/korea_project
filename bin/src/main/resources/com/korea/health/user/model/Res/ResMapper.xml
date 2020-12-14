@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.user.model.Res.ResMapper">
+
+ 	<select id="list" resultType="com.korea.health.user.model.Res.ResVO"> 
+		select * from reservation
+	</select>
+	
+
+
+	
+	<sql id="noMax">
+		(select max(no)+1 from reservation)
+	</sql>
+	
+	
+	<insert id="insert" parameterType="com.korea.health.user.model.Res.ResVO">
+	<!-- 	<selectKey keyProperty="no" resultType="java.lang.String" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey> -->
+		insert into reservation
+		(no, lo_name, type, tr_name, restime, user_name, user_pw, user_tel, content)
+		values
+		(#{no},#{lo_name}
+		,#{type}
+		, #{tr_name}
+		,#{restime}
+		,#{user_name}
+		,#{user_pw}
+		,#{user_tel}
+		,#{content}
+		)
+	
+	</insert>
+	
+
+<!-- 
+		insert into reservation
+		(no, lo_name, type, tr_name, restime, user_name, user_pw, user_tel, content)
+		values
+		(#{no,jdbcType=VARCHAR},
+		#{lo_name,jdbcType=VARCHAR}
+		,#{type ,jdbcType=VARCHAR}
+		, #{tr_name ,jdbcType=VARCHAR}
+		,#{restime ,jdbcType=VARCHAR}
+		,#{user_name ,jdbcType=VARCHAR}
+		,#{user_pw ,jdbcType=VARCHAR}
+		,#{user_tel ,jdbcType=VARCHAR}
+		,#{content ,jdbcType=VARCHAR}
+		) -->
+</mapper>
+

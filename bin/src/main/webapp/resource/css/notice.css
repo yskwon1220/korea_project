@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+body {
+	line-height: 2em;
+	color: black;
+}
+
+ul, li {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	list-style:none;
+}
+
+td
+tr {
+	height: 40px;
+}
+
+#mainWrapper {
+	width: 800px;
+	margin: 0 auto;
+	
+}
+
+.header01 {
+	height: 150px;
+	opacity: 0.1;
+	text-align: center;
+	line-height: 150px;
+}
+
+#divPaging {
+	clear: both;
+	margin: 0 auto;
+	text-align:center;
+	width: 220px;
+	height: 50px;
+}
+
+#divPaging>div {
+	float: left;
+	width: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+#liSearchOption {
+	clear: both;
+}
+
+#liSearchOption>div {
+	margin: 0 auto;
+	margin-top: 30px;
+	width: auto;
+	height: 100px;
+}
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+
+/*상세 페이지*/
+#board {
+  width:910px;
+  height:750px;
+  margin:30px auto 10px;
+}
+#titleList{
+	width:100%;
+	height: 150px;
+	
+}
+#category{
+	width:100%;
+	height: 10px;
+	font-size: small;
+	line-height: 20px;
+	color:red;
+	font-weight: bold;
+}
+#titleName{
+	width:100%;
+	height: 80px;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 80px;
+}
+.titleDetail{
+	width:15%;
+	line-height: 10px;
+	height: 10px;
+	font-size: small;
+	float: left;
+	text-align: center;
+}
+
+.OutTextBox{
+	width:900px;
+	height:auto;
+	
+	
+	
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 5px 5px 0px #efefef;
+}
+.OutTextBox > div{
+	width:890px;
+	height:auto;
+	border-radius: 10px 10px 10px 10px;
+	margin: 5px;
+	background: white;
+}
+.OutTextBox > div > div{
+	width:880px;
+	height:480px;
+	margin: 5px;
+	overflow: auto;
+	font-size: small;
+}
+.bottomB{
+	width:900px;
+	height:60px;
+	line-height:80px;
+	float: left;
+	text-align: center;
+}
+.bottomB > div{
+	width:30%;
+}
+.pag {
+	clear: both;
+	text-align: center;
+}
