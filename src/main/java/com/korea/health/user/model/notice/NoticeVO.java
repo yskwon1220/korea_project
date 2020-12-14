@@ -6,6 +6,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("noticeVO")
 public class NoticeVO {
+<<<<<<< HEAD
 	public Integer notice_no;
 	Integer no;
 	Integer cnt;
@@ -28,6 +29,30 @@ public class NoticeVO {
 		return cnt;
 	}
 	public void setCnt(Integer cnt) {
+=======
+	public int notice_no;
+	int no;
+	int cnt;
+	String title, context, file_0;
+	Date regdate;
+	
+	public int getNotice_no() {
+		return notice_no;
+	}
+	public void setNotice_no(int notice_no) {
+		this.notice_no = notice_no;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+>>>>>>> refs/remotes/origin/yongseok
 		this.cnt = cnt;
 	}
 	public String getTitle() {

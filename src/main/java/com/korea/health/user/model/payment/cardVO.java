@@ -1,4 +1,4 @@
-package com.korea.health.user.model.event;
+package com.korea.health.user.model.payment;
 
 import org.apache.ibatis.type.Alias;
 

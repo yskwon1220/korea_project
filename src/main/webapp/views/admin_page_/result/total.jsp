@@ -17,7 +17,7 @@
                            <i class="fas fa-chart-area mr-1"></i> 통계현황1
                         </div>
                         <div class="card-body">
-                           <canvas id="myAreaChart" width="100%" height="40"></canvas>
+                           <canvas id="myTotalChart" width="100%" height="40"></canvas>
                         </div>
                         <div class="card-body">
                            <table class="table" width="100%" cellspacing="0">
@@ -154,9 +154,10 @@
                                  <td>27</td>
                                  <td></td>
                               </tr>
-
                            </tbody>
                         </table>
                      </div>
                   </div>
                </div>
+                  
+

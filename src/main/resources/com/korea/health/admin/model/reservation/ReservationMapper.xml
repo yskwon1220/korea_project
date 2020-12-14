@@ -8,4 +8,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="reservationList" resultType="com.korea.health.admin.model.reservation.ReservationVO">
 		SELECT * FROM RESERVATION
 	</select>
+	
 </mapper>

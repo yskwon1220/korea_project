@@ -27,9 +27,22 @@
 						<li><a href="<c:url value="/style_hyeon/membership.jsp"/>">MemberShip</a></li>
 						<li><a href="<c:url value="${path }/user_page_/hyeji/loca/location"/>">reservation</a></li>
 						<li><a href="<c:url value="/community"/>">community</a></li>
-						<li><a href="<c:url value="${path }/style_jooho/event/event_page"/>">eventlist</a></li>
-						<li><a href="<c:url value="${path }/style_jooho/payment/payment"/>">payment_main</a></li>
-						<li class="cta"><a href="#">Get Join</a></li>
+						<li><a href="<c:url value="${path }/user_page_/pay/event/event_page"/>">eventlist</a></li>
+              		    <li><a href="<c:url value="${path }/user_page_/pay/payment/payment"/>">payment_main</a></li>
+						<%
+			                  if(session.getAttribute("id")==null){
+			                	  //세션 id값이 null일때 join보여주세요 
+			                	  %> 
+			                  <li class="cta"><a href="<c:url value="${path }/style_minjoo/usermember/login"/>">Login</a></li>
+			                  <%
+			                  }else{ //로그인 된 화면 
+			                	  String id = (String)session.getAttribute("id"); //Object타입이므로 다운캐스팅 
+			                	  %> 
+			                	   <li><a href="<c:url value="${path }/style_minjoo/usermember/myPage"/>">${id }'s PAGE</a></li>
+			                      <li class="cta"><a href="<c:url value="${path }/style_minjoo/usermember/logout"/>">Logout</a></li>
+			                      <%
+			                  }
+            		      %>
 					</ul>
 				</nav>
 			</div>

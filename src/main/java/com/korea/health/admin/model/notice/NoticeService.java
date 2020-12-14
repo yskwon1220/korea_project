@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
 import com.korea.health.user.model.notice.NoticeMapper;
+<<<<<<< HEAD
+=======
+import com.korea.health.user.model.notice.NoticePageInfo;
+>>>>>>> refs/remotes/origin/yongseok
 
 // trainer 들어왔을 때 액션들 집합
 @Service("admin_page_notice")	// providerController에서 bean 만들어줄때 이름
@@ -19,11 +23,14 @@ public class NoticeService implements Action {
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
+		NoticePageInfo infonoticeVo = (NoticePageInfo) map.get("infonoticeVo");
 		System.out.println("execute에 들어온건? " + map.get("service"));
 		switch ((String)map.get("service")) {
 		case "info":
 			System.out.println("switch case : info에 들어왔다.");
-			return mapper.noticeList();
+			 infonoticeVo.init(mapper.totalCnt());
+			 infonoticeVo.setVoArr(mapper.noticeList(infonoticeVo));
+			return infonoticeVo;
 		default:
 			break;
 		}

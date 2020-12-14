@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.user.model.fnq.FnqboardMapper">
+
+	<select id="totalCnt" resultType="java.lang.Integer"  >
+		select count(*) from fnqboard
+	</select>
+
+
+	<select id="fnqList" resultType="com.korea.health.user.model.fnq.FnqboardVO" 
+	parameterType="com.korea.health.user.model.fnq.FnqPageInfo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* from 
+					(select * from FNQBOARD order by BOARD_NO DESC) t1) 
+					 where rnum >= #{start} and rnum <= #{end}
+		]]>
+
+	</select>
+
+	<select id="detail" resultType="com.korea.health.user.model.fnq.FnqboardVO" parameterType="java.lang.Integer">
+		SELECT 
+		BOARD_NO as board_no, NO as no, TITLE as title, CONTENT as content, REGDATE as regdate, FILE_0 as file_0
+		FROM FNQBOARD WHERE BOARD_NO = #{board_no}
+	</select>	
+	
+	<sql id="noMax">
+		(SELECT MAX(BOARD_NO)+1 FROM FNQBOARD)
+	</sql>
+	
+	<insert id="insert" parameterType="com.korea.health.user.model.fnq.FnqboardVO">
+		<selectKey keyProperty="board_no" resultType="java.lang.Integer" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey>
+		INSERT INTO FNQBOARD 
+		(BOARD_NO, NO, TITLE, CONTENT, REGDATE, FILE_0, REP, GID, SEQ, LEV)
+		values
+		(#{board_no},#{no}, #{title}, #{content}, SYSDATE, #{file_0}, #{rep}, #{board_no},0,0)
+	</insert>
+
+
+	
+<update id="modify" parameterType="com.korea.health.user.model.fnq.FnqboardVO">
+			UPDATE FNQBOARD SET TITLE = #{title}, CONTENT = #{content} WHERE BOARD_NO = #{board_no}
+	</update>	
+	
+	
+	<delete id = "delete" parameterType="java.lang.Integer">
+		DELETE FROM FNQBOARD WHERE BOARD_NO = #{board_no}
+	</delete>
+</mapper>
+

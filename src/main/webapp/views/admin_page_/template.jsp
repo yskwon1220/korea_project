@@ -11,9 +11,22 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>관리자 - ${kind.cate}</title>
-        <link rel="stylesheet" type="text/css" href="/resource/bootstrap-4.5.3-dist/css/ad_member_styles.css" />
+        <link rel="stylesheet" type="text/css" href="/resource/bootstrap-4.5.3-dist/css/ad_member_styles.css?ver=8" />
         <link rel="stylesheet" type="text/css" href="/resource/bootstrap-4.5.3-dist/css/dataTables.bootstrap4.min.css"/>
+       	<link rel="stylesheet" type="text/css" href="/resource/bootstrap-4.5.3-dist/css/bootstrap-datepicker.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.standalone.min.css">
+       	<script src="/resource/bootstrap-4.5.3-dist/js/jquery-3.5.1.min.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/Chart.js" /></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/jquery.dataTables.min.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/dataTables.bootstrap4.min.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/demo/chart-bar-demo.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/demo/chart-area-demo.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/scripts.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/demo/datatables-demo.js"/></script>
         <script src="/resource/bootstrap-4.5.3-dist/js/all.min.js"/></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/bootstrap-datepicker.js"></script>
+        <script src="/resource/bootstrap-4.5.3-dist/js/bootstrap-datepicker.ko.min.js"></script>
     </head>
      <body class="sb-nav-fixed">
     	<jsp:include page="/views/admin_page_/module_admin_top.jsp"/>
@@ -35,16 +48,6 @@
                 <!--Footer 푸터 삽입 영역-->
 				<jsp:include page="/views/admin_page_/module_admin_footer.jsp"/>
             </div>
-        </div>
+        </div>     
     </body>
-        <script src="/resource/bootstrap-4.5.3-dist/js/jquery-3.5.1.min.js"/></script>
-        <script src="/resource/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"/></script>
-        <script src="/resource/bootstrap-4.5.3-dist/js/Chart.js" /></script>
-        <script src="/resource/bootstrap-4.5.3-dist/js/jquery.dataTables.min.js"/></script>
-        <script src="/resource/bootstrap-4.5.3-dist/js/dataTables.bootstrap4.min.js"/></script>
-
-        <script src="/resource/bootstrap-4.5.3-dist/demo/chart-bar-demo.js"/></script>
-        <script src="/resource/bootstrap-4.5.3-dist/demo/chart-area-demo.js"/></script>
-        <script src="/resource/bootstrap-4.5.3-dist/js/scripts.js"/></script>
-        <script src="/resource/bootstrap-4.5.3-dist/demo/datatables-demo.js"/></script>
 </html>

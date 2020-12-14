@@ -6,6 +6,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("qnaVO")
 public class QnaVO {
+<<<<<<< HEAD
 	public Integer qna_no;
 	Integer no;
 	Integer cnt;
@@ -27,6 +28,29 @@ public class QnaVO {
 		return cnt;
 	}
 	public void setCnt(Integer cnt) {
+=======
+	public int qna_no;
+	int no;
+	int cnt;
+	String kind, title, context, file_0;
+	Date regdate;
+	public int getQna_no() {
+		return qna_no;
+	}
+	public void setQna_no(int qna_no) {
+		this.qna_no = qna_no;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+>>>>>>> refs/remotes/origin/yongseok
 		this.cnt = cnt;
 	}
 	public String getKind() {

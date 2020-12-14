@@ -7,6 +7,15 @@
 		SELECT * FROM event order by event_no desc
 	</select>
 	<select id = "event2" resultType ="com.korea.health.user.model.event.EventVO">
-		SELECT title, detail_img1, detail_img2, detail_img3 FROM event Where event_no=#{en}
+		SELECT event_no,title, detail_img1, detail_img2, detail_img3,e_price, discount FROM event Where event_no=#{en}
 	</select>
+	<select id ="user_serch" resultType="com.korea.health.user.model.payment.payMember">
+		SELECT a.*, b.*, c.*
+		FROM UserMember a join One_Pay_list b
+		ON a.CUSTOMER_NO = b.USER_NO
+			join coupon_join c
+		ON a.CUSTOMER_NO= c.USER_NO
+		WHERE A.id=#{id} 
+	</select>
+	
 </mapper>

@@ -7,9 +7,16 @@ package com.korea.health.user.controll;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+<<<<<<< HEAD
 import com.korea.health.user.model.fnq.OneboardMapper;
+=======
+import com.korea.health.user.model.notice.NoticeMapper;
+>>>>>>> refs/remotes/origin/yongseok
 
 
 
@@ -20,7 +27,7 @@ public class HomeController {
 
 	
 	@Resource
-	OneboardMapper onmapp;
+	NoticeMapper mapper;
 	
 	@RequestMapping("/introMain")
 	public String intro() {
@@ -30,7 +37,9 @@ public class HomeController {
 	}
 
 	@RequestMapping("/MainV3")
-	public String home() {
+	public String home(Model mm) {
+//		List<NoticeVO> data = mapper.noticeList();
+//		mm.addAttribute("data",data);
 		System.out.println("main comin");
 		return "MainV3";
 	}
@@ -41,5 +50,30 @@ public class HomeController {
 		System.out.println("comu");
 	}
 
+	
+	@RequestMapping("/introduce")
+	public void introduce() {
+
+		System.out.println("introduce");
+		
+	}
+	
+	@RequestMapping("/membership")
+	public void membership() {
+
+		System.out.println("membership");
+		
+	}
+	
+	@RequestMapping("/find")
+	public void find() {
+		
+		System.out.println("comu");
+		
+	}
+
+	@RequestMapping(value = "user_page_/location/{service}", method = RequestMethod.GET )
+	public void location_1(@PathVariable("service")String service) {
+	}
 	
 }
