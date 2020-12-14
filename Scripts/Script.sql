@@ -155,3 +155,54 @@ INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, RE
 VALUES (6, '1002', '오리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg','201213');
 INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
 VALUES (7, '1002', '닭', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+
+CREATE TABLE qna (
+   qna_no number(5),
+   NO number(20),
+   kind varchar2(20),
+   title varchar2(100),
+   context varchar2(999),
+   regdate timestamp,
+   cnt number(5),
+   file_0 varchar2(100)
+);
+DROP TABLE NOTICE;
+CREATE TABLE notice (
+   notice_no NUMBER(5),
+   NO NUMBER(20),
+   title varchar2(100),
+   context varchar2(999),
+   regdate timestamp,
+   cnt number(5),
+   file_0 varchar2(100)
+);
+CREATE TABLE fnqboard (
+   board_no number(5),
+   NO number(20),
+   title varchar2(100),
+   content varchar2(999),
+   regdate timestamp,
+   file_0 varchar2(100),
+   rep varchar2(20),
+   gid number(5),
+   seq number(5),
+   lev number(5)
+);
+      INSERT INTO FNQBOARD 
+      (BOARD_NO, NO, TITLE, CONTENT, REGDATE, FILE_0, REP, GID, SEQ, LEV) 
+      VALUES 
+      (3, 1, '제목제목제목', '내용내용내용', sysdate,'','처리중',3,0,0 );
+     
+     DROP  TABLE USERMEMBER;
+ CREATE TABLE "WEB"."USERMEMBER" 
+   (   "ID" VARCHAR2(50), 
+   "PW" VARCHAR2(50), 
+   "NAME" VARCHAR2(50), 
+   "EMAIL" VARCHAR2(50), 
+   "TEL" VARCHAR2(50), 
+   "GENDER" VARCHAR2(10), 
+   "ADMIN" VARCHAR2(50), 
+   "ADDR" VARCHAR2(100), 
+   "RESERVE_CNT" NUMBER, 
+   "REGDATE" DATE
+   ) ;

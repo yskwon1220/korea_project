@@ -12,5 +12,13 @@ public interface TrainerMapper {
 	TrainerVO trainerDetail(int tr_no);	// 트레이너 디테일
 	
 	Integer trainerInsert(TrainerVO vo);
+	
+	Integer fileDelete(int tr_no);
+	
+	Integer trainerModify(TrainerVO vo);
+	
+	Integer trainerDelete(TrainerVO vo);
+	
+	Integer newNum(TrainerVO vo);
 }
 

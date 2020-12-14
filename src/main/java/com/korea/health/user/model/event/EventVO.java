@@ -9,6 +9,24 @@ public class EventVO {
 
 	String event_no,user_no, title, main_img,detail_img1,detail_img2,detail_img3;
 	Date d_day;
+	Integer e_price, discount;
+	
+	
+	public Integer getE_price() {
+		return e_price;
+	}
+
+	public void setE_price(Integer e_price) {
+		this.e_price = e_price;
+	}
+
+	public Integer getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(Integer discount) {
+		this.discount = discount;
+	}
 
 	public String getUser_no() {
 		return user_no;
@@ -78,8 +96,10 @@ public class EventVO {
 	public String toString() {
 		return "EventVO [event_no=" + event_no + ", user_no=" + user_no + ", title=" + title + ", main_img=" + main_img
 				+ ", detail_img1=" + detail_img1 + ", detail_img2=" + detail_img2 + ", detail_img3=" + detail_img3
-				+ ", d_day=" + d_day + "]";
+				+ ", d_day=" + d_day + ", e_price=" + e_price + ", discount=" + discount + "]";
 	}
+
+
 	
 	
 	

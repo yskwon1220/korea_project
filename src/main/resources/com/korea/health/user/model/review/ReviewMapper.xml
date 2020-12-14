@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.user.model.review.ReviewMapper">
+
+	<select id = "totalCnt" resultType = "java.lang.Integer">
+		select count(*) from review
+	</select>
+	
+	
+	<select id="reviewlist" resultType="com.korea.health.user.model.review.ReviewVO" parameterType="com.korea.health.user.model.review.ReviewPagingInfo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* from 
+					(select * from review order by review_NO DESC) t1) 
+					 where rnum >= #{start} and rnum <= #{end}
+		]]>
+	
+	</select>
+
+	<select id="listsch" resultType="com.korea.health.user.model.review.ReviewVO" parameterType="com.korea.health.user.model.review.ReviewVO"> 
+		<!-- select * from board where title like '%'||#{title}||'%' -->
+		select * from review where title like '%${title}%'
+	</select>
+
+	<select id="detail" resultType="com.korea.health.user.model.review.ReviewVO" parameterType="java.lang.Integer">
+		SELECT * FROM REVIEW WHERE REVIEW_NO = #{review_no}
+	</select>
+	
+	
+	<sql id="noMax">
+		(SELECT MAX(REVIEW_NO)+1 FROM REVIEW)
+	</sql>
+	
+	 <sql id="includeNum">
+		(SELECT REVIEW_NO FROM REVIEW WHERE REVIEW_NO = #{review_no})
+	</sql>
+
+	
+	<insert id="insert" parameterType="com.korea.health.user.model.review.ReviewVO">
+	 <selectKey keyProperty="review_no" resultType="java.lang.Integer" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey>
+		INSERT INTO REVIEW
+		(review_no, PID, TITLE, CONTENT, REGDATE, Review_file, tr_no, lo_no, cnt, star, pw)
+		values
+		(#{review_no},#{pid}, #{title}, #{content}, SYSDATE, #{review_file_name}, #{tr_no}, #{lo_no},0, #{star}, #{pw})
+	</insert>
+	
+	<update id="modify" parameterType="com.korea.health.user.model.review.ReviewVO">
+		update review
+		set
+		title = #{title}, content =  #{content}, review_file = #{review_file_name}, tr_no = #{tr_no}, lo_no = #{lo_no},  star = #{star}
+		where review_no = #{review_no} 
+	</update>
+	
+	<delete id = "delete"  parameterType="com.korea.health.user.model.review.ReviewVO">
+		delete from review where review_no = #{review_no} 
+	</delete>
+	
+</mapper>
+

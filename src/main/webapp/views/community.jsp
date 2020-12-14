@@ -59,7 +59,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_jooho/notice/noticelist" class="item-grid">
+					<a href="/user_page_/notice/noticelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">공지사항</h3>
@@ -70,7 +70,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_jooho/qna/qnalist" class="item-grid">
+					<a href="/user_page_/qna/qnalist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">자주 묻는질문</h3>
@@ -81,7 +81,7 @@
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-3 animate-box">
-					<a href="/style_jooho/fnq/onelist" class="item-grid">
+					<a href="/user_page_/fnq/onelist" class="item-grid">
 						<div class="v-align">
 							<div class="testimony-slide active text-center">
 								<h3 class="title">1대1 문의</h3>
@@ -96,6 +96,8 @@
 				</div>
 				</div>
 	<jsp:include page="inc/footerV3.jsp" />
+
+
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>

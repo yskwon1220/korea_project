@@ -23,7 +23,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td  class="align-middle" rowspan="7">
-                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.pic}"/>
+                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.tr_pic}"/>
                                                         </td>
                                                         <td class="align-middle">이름</td>
                                                         <td  class="align-middle">${data.tr_name}</td>
@@ -34,7 +34,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직책</td>
-                                                    <td  class="align-middle">${data.manager}</td>
+                                                    <td  class="align-middle">${data.isManage}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직원 번호</td>
@@ -57,26 +57,28 @@
                                     </div>
                                     <ol>
                                     </ol>
-                                    <div class="col-sm-1" style="float: none; margin: 0 auto;">
+                                    <div class="col-sm-2" style="float: none; margin: 0 auto;">
                                             <a href="/admin_page_/trainer/" class="btn btn-info btn-primary btn-sm">수정</a>
                                             <a href="정보 삭제 모듈로" class="btn btn-info btn-danger btn-sm">삭제</a>
+                                    		   <a href="/admin_page_/trainer/info" class="btn btn-info btn-info btn-sm">목록으로</a>
                                     </div>
                             </div>
                             </div>
                         </div>
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						  <div class="modal-dialog">
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						        <h4 class="modal-title" id="exampleModalLabel">Notice</h4>
+						        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						        <span aria-hidden="true">X</span>
+						        </button>
 						      </div>
 						      <div class="modal-body">
-						        ...
+						      		트레이너 추가가 완료되었습니다.
 						      </div>
 						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Save changes</button>
+						        <button type="button" class="btn btn-info" data-dismiss="modal">확인</button>
 						      </div>
 						    </div>
 						  </div>

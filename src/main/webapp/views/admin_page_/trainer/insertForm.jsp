@@ -26,15 +26,12 @@
                                                         <tr>
                                                             <td class="align-middle">직책</td>
                                                             <td>
-                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons" id="grade">
                                                                     <label class="btn btn-info">
-                                                                        <input type="radio" name="manager" value="intern"> 인턴
+                                                                        <input type="radio" name="manager" value="사원" checked="checked"> 사원
                                                                     </label>
                                                                     <label class="btn btn-info">
-                                                                        <input type="radio" name="manager" value="normal"> 일반
-                                                                    </label>
-                                                                    <label class="btn btn-info">
-                                                                        <input type="radio" name="manager" value="leader"> 지점장
+                                                                        <input type="radio" name="manager" value="지점장"> 지점장
                                                                     </label>
                                                                 </div>
                                                         </td>
@@ -48,15 +45,15 @@
                                                  <tr>
                                                             <td class="align-middle">소속 지점</td>
                                                             <td>
-                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                <div class="btn-group btn-group-toggle" data-toggle="buttons" id="branch">
                                                                     <label class="btn btn-info">
-                                                                        <input type="radio" name="lo_name" value="gangnam">강남점
+                                                                        <input type="radio" name="lo_name" value="강남점" checked="checked">강남점
                                                                     </label>
                                                                     <label class="btn btn-info">
-                                                                        <input type="radio" name="lo_name" value="gangbuk">강북점
+                                                                        <input type="radio" name="lo_name" value="강북점">강북점
                                                                     </label>
                                                                     <label class="btn btn-info">
-                                                                        <input type="radio" name="lo_name" value="gangseo">강서점
+                                                                        <input type="radio" name="lo_name" value="강서점">강서점
                                                                     </label>
                                                                 </div>
                                                         </td>
@@ -116,7 +113,7 @@
 						});
 				             
 				            $('#regdate').datepicker({
-				                format: "yyyymmdd",	//데이터 포맷 형식(yyyy : 년 mm : 월 dd : 일 )
+				                format: "yyyy년mm월dd일",	//데이터 포맷 형식(yyyy : 년 mm : 월 dd : 일 )
 				                startDate: '-3m',	//달력에서 선택 할 수 있는 가장 빠른 날짜. 이전으로는 선택 불가능 ( d : 일 m : 달 y : 년 w : 주)
 				                endDate: '+3m',	//달력에서 선택 할 수 있는 가장 느린 날짜. 이후로 선택 불가 ( d : 일 m : 달 y : 년 w : 주)
 				                autoclose : true,	//사용자가 날짜를 클릭하면 자동 캘린더가 닫히는 옵션

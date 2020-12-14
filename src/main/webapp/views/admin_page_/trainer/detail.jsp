@@ -26,11 +26,11 @@
                                                     </tr>
                                                 <tr>
                                                     <td class="align-middle">입사 일자</td>
-                                                    <td  class="align-middle">${data.regdate}</td>
+                                                    <td  class="align-middle">${data.welcomeDate}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직책</td>
-                                                    <td  class="align-middle">${data.isManage}</td>
+                                                    <td  class="align-middle">${data.manager}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직원 번호</td>
@@ -38,11 +38,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직원 경력</td>
-                                                    <td  class="align-middle">${data.tr_info}</td>
+                                                    <td  class="align-middle">${data.tr_infoTrans}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">소속 지점</td>
-                                                    <td  class="align-middle">${data.lo_no}</td>
+                                                    <td  class="align-middle">${data.lo_name}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">회원 평가 점수</td>
@@ -54,10 +54,17 @@
                                     <ol>
                                     </ol>
                                     <div class="col-sm-2" style="float: none; margin: 0 auto;">
-                                            <a href="/admin_page_/trainer/" class="btn btn-info btn-primary btn-sm">수정</a>
-                                            <a href="정보 삭제 모듈로" class="btn btn-info btn-danger btn-sm">삭제</a>
-                                            <a href="/admin_page_/trainer/info" class="btn btn-info btn-danger btn-sm">목록으로</a>
+                                            <a href="/admin_page_/trainer/modifyForm?tr_no=${data.tr_no}" class="btn btn-info btn-primary btn-sm">수정</a>
+                                            <a href="javascript:deleteChk('/admin_page_/trainer/delete?tr_no=${data.tr_no}')" class="btn btn-info btn-danger btn-sm">삭제</a>
+                                            <a href="/admin_page_/trainer/info" class="btn btn-info btn-info btn-sm">목록으로</a>
                                     </div>
                             </div>
                             </div>
                         </div>
+                        <script>
+					         function deleteChk(url){
+					            	if (confirm("정보를 삭제 하시겠습니까?")){
+					            		location = url;
+					            	}
+					      	}
+                        </script>

@@ -3,6 +3,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -30,7 +32,21 @@
 <link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
 
 <script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
+<script type="text/javascript">
+$('.optionModifyBtn').click(function(event){  //버튼을 클릭 했을시 popupOpen 함수 출력 
+    console.log('click');
+    popupOpen();	//Popup Open 함수
+});
 
+function popupOpen(){
+	var url= "/orderController/modiftCartPopup";    //팝업창 페이지 URL
+	var winWidth = 700;
+    var winHeight = 600;
+    var popupOption= "width="+winWidth+", height="+winHeight;    //팝업창 옵션(optoin)
+	window.open(url,"",popupOption);
+}
+
+</script>
 </head>
 <body>
 	<jsp:include page="inc/headerV3.jsp" />
@@ -98,7 +114,7 @@
 				<div class="row">
 					<div class="col-md-4 animate-box">
 						<div class="services">
-							<i class="icon-laptop"></i>
+						
 							<div class="desc">
 								<h3>시설 방역</h3>
 								<p>
@@ -109,7 +125,7 @@
 					</div>
 					<div class="col-md-4 animate-box">
 						<div class="services">
-							<i class="icon-laptop"></i>
+					
 							<div class="desc">
 								<h3>전면 예약제</h3>
 								<p>
@@ -120,7 +136,7 @@
 					</div>
 					<div class="col-md-4 animate-box">
 						<div class="services">
-							<i class="icon-money"></i>
+					
 							<div class="desc">
 								<h3>합리적인 비용</h3>
 								<p>
@@ -132,7 +148,7 @@
 					</div>
 					<div class="col-md-4 animate-box">
 						<div class="services">
-							<i class="icon-tablet"></i>
+			
 							<div class="desc">
 								<h3>방역지침 준수</h3>
 								<p>감염병 예방을 위해 시설 출입시 체온 측정 및 출입명부 작성, 거리두기 유지로
@@ -143,7 +159,7 @@
 					</div>
 					<div class="col-md-4 animate-box">
 						<div class="services">
-							<i class="icon-line-chart"></i>
+					
 							<div class="desc">
 								<h3>전문적인 PT</h3>
 								<p>
@@ -155,7 +171,7 @@
 					</div>
 					<div class="col-md-4 animate-box">
 						<div class="services">
-							<i class="icon-pie-chart"></i>
+		
 							<div class="desc">
 								<h3>최신 시설</h3>
 								<p>
@@ -178,78 +194,20 @@
 					</div>
 				</div>
 				<div class="row">
+				<c:forEach items="${data }" var="sm" begin="0" end="5">
+				<input type = "hidden" name = "notice_no" value = "${sm.notice_no }">
 					<div class="col-md-4 animate-box">
-						<a href="#" class="item-grid text-center">
-							<div class="image"
-								style="background-image: url(../resource/images/fit05.jpg)"></div>
-							<div class="v-align">
-								<div class="v-align-middle">
-									<h3 class="title">2020년11월 소식</h3>
-									<h5 class="category">소식 안내</h5>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box">
-						<a href="#" class="item-grid text-center">
-							<div class="image"
-								style="background-image: url(../resource/images/fit06.jpg)"></div>
-							<div class="v-align">
-								<div class="v-align-middle">
-									<h3 class="title">2020년 12월 소식</h3>
-									<h5 class="category">소식 안내</h5>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box">
-						<a href="#" class="item-grid text-center">
+						<a href="/noticedetail?notice_no=${sm.notice_no }" class="item-grid text-center">
 							<div class="image"
 								style="background-image: url(../resource/images/fit01.jpg)"></div>
 							<div class="v-align">
 								<div class="v-align-middle">
-									<h3 class="title">시설 이용안내</h3>
-									<h5 class="category">상세보기</h5>
+									<h3 class="title">${sm.title }</h3>
 								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-md-4 animate-box">
-						<a href="#" class="item-grid text-center">
-							<div class="image"
-								style="background-image: url(../resource/images/fit03.jpg)"></div>
-							<div class="v-align">
-								<div class="v-align-middle">
-									<h3 class="title">지점별 소식</h3>
-									<h5 class="category">지점별 소식 모음</h5>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box">
-						<a href="#" class="item-grid text-center">
-							<div class="image"
-								style="background-image: url(../resource/images/fit04.jpg)"></div>
-							<div class="v-align">
-								<div class="v-align-middle">
-									<h3 class="title">시설 이용시 주의사항</h3>
-									<h5 class="category">주의사항 보기</h5>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 animate-box">
-						<a href="#" class="item-grid text-center">
-							<div class="image"
-								style="background-image: url(../resource/images/fit11.jpg)"></div>
-							<div class="v-align">
-								<div class="v-align-middle">
-									<h3 class="title">새 소식</h3>
-									<h5 class="category">새소식 상세</h5>
-								</div>
-							</div>
-						</a>
-					</div>
+				</c:forEach>
 <!-- 					<div class="col-md-12 text-center animate-box">
 						<p>
 							<a href="#" class="btn btn-primary with-arrow">View More
@@ -484,7 +442,7 @@
 
 
 	<jsp:include page="inc/footerV3.jsp" />
-
+ddd
 
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>

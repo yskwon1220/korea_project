@@ -15,14 +15,14 @@ public class TrainerVO {
 	String tr_name;
 	Integer isManage;
 	String tr_info;
-	Integer stars = 0;
+	Integer stars;
 	Date regdate;
 	MultipartFile pic;
 	String tr_pic;
 	String manager;
 	String welcomeDate;
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
 
 	public Integer getTr_no() {
 		return tr_no;
@@ -36,13 +36,13 @@ public class TrainerVO {
 	public void setLo_no(String lo_no) {
 		switch (lo_no) {
 		case "1001":
-			lo_name = "gangnam";
+			lo_name = "강남점";
 			break;
 		case "1002":
-			lo_name = "gangbuk";
+			lo_name = "강북점";
 			break;
 		case "1003":
-			lo_name = "gangseo";
+			lo_name = "강서점";
 			break;
 		default:
 			break;
@@ -59,9 +59,12 @@ public class TrainerVO {
 		return isManage;
 	}
 	public void setIsManage(Integer isManage) {
+		if(isManage == 1) {
+			manager = "지점장";
+		}else {
+			manager = "사원";
+		}
 		this.isManage = isManage;
-		if(isManage == 1)	manager = "leader";
-		manager = "normal";
 	}
 	public String getTr_info() {
 		if(tr_info == null)
@@ -77,6 +80,9 @@ public class TrainerVO {
 		this.tr_info = tr_info;
 	}
 	public Integer getStars() {
+		if(stars == null) {
+			stars = 0;
+		}
 		return stars;
 	}
 	public void setStars(Integer stars) {
@@ -86,8 +92,8 @@ public class TrainerVO {
 		return pic;
 	}
 	public void setPic(MultipartFile pic) {
-		this.pic = pic;
 		tr_pic = pic.getOriginalFilename();
+		this.pic = pic;
 	}
 	public String getTr_pic() {
 		return tr_pic;
@@ -106,10 +112,11 @@ public class TrainerVO {
 		return manager;
 	}
 	public void setManager(String manager) {
-		if(manager.equals("leader")) isManage = 1;
-		
-		isManage = 0;
-		
+		if(manager.equals("지점장")) {
+			isManage = 1;
+		}else {
+			isManage = 0;
+		}
 		this.manager = manager;
 	}
 	public String getWelcomeDate() {
@@ -128,13 +135,13 @@ public class TrainerVO {
 	}
 	public void setLo_name(String lo_name) {
 		switch (lo_name) {
-		case "gangnam":
+		case "강남점":
 			lo_no = "1001";
 			break;
-		case "gangbuk":
+		case "강북점":
 			lo_no = "1002";
 			break;
-		case "gangseo":
+		case "강서점":
 			lo_no = "1003";
 			break;
 		default:

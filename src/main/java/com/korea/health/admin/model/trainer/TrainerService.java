@@ -31,7 +31,6 @@ public class TrainerService implements Action {
 				
 			case "detail":
 				System.out.println("switch case : detail에 들어왔다.");
-				System.out.println(request.getParameter("tr_no"));
 				System.out.println(mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no"))));
 				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
 				
@@ -57,6 +56,48 @@ public class TrainerService implements Action {
 				mapper.trainerInsert(vo);
 				
 				return mapper.trainerDetail(vo.getTr_no());
+				
+			case "modifyForm":
+				System.out.println("switch case : modifyForm에 들어왔다.");
+				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
+				
+			case "fileDelete":
+				System.out.println("switch case : fileDelete에 들어왔다.");
+				TrainerVO tr = (TrainerVO)map.get("trVO");
+				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
+				
+				mapper.fileDelete(tr.getTr_no());
+				
+				if (tr.getTr_pic() != null) {
+					new File(path + "\\" + tr.getTr_pic()).delete();
+				}
+				
+				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
+				
+			case "modify":
+				System.out.println("switch case : modify에 들어왔다.");
+				System.out.println((TrainerVO)map.get("trVO"));
+				TrainerVO tvo = (TrainerVO)map.get("trVO");
+				MultipartFile uploadPic = tvo.getPic();
+				
+					fileUpload(uploadPic, request);
+					mapper.trainerModify(tvo);
+					return mapper.trainerDetail(tvo.getTr_no());
+			case "delete":
+				System.out.println("switch case : delete에 들어왔다.");
+				
+				String fileName = ((TrainerVO)map.get("trVO")).getTr_pic();
+				path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
+				
+				int cnt = mapper.trainerDelete((TrainerVO)map.get("trVO"));
+				mapper.newNum((TrainerVO)map.get("trVO"));
+				if(cnt == 0) {
+					return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
+				}else {
+					new File(path + "\\" + fileName).delete();
+				}
+				
+				return null;
 				
 			default:
 				break;
