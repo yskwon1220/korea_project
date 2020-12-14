@@ -23,7 +23,7 @@ public class DeleteForm implements Action {
 		
 		req.setAttribute("user_name", user_name);
 		
-		mapper.MyDetailList(rvo.re_no);
+		/* mapper.MyDetailList(rvo.re_no); */
 		
 
 		return null;

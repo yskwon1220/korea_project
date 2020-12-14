@@ -21,10 +21,11 @@ public class DeleteSuccess implements Action {
 		ReservationVO rvo = (ReservationVO) map.get("rvo");
 		rvo.setUser_name((String) req.getParameter("user_name"));
 
-//		String url = "redirect:deleteForm?re_no=" + rvo.getRe_no();
-//		if (mapper.delete(rvo) > 0) {
-//			url = "redirect:myResList";
-//		}
+		String url = "redirect:deleteSuccess";
+		if (mapper.delete(rvo) > 0) {
+			url = "myResList";
+		}
+		req.setAttribute("url", url);
 //		System.out.println("delete들어옴:" + rvo);
 //		return url;
 
@@ -37,7 +38,7 @@ public class DeleteSuccess implements Action {
 //		} else {
 //			return mapper.MyDetailList((String) req.getParameter("re_no"));
 //		}
-		return mapper.delete(rvo);
+		return url;
 	}
 
 }
