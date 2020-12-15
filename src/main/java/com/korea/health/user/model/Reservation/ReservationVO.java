@@ -1,8 +1,7 @@
 package com.korea.health.user.model.Reservation;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
 
 import org.apache.ibatis.type.Alias;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,17 +9,34 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Alias("reservationVO")
 public class ReservationVO {
 
-	String re_no, lo_no, lo_name, type, tr_name, restime, user_name, user_pw, user_tel, content,resdate;
+	String re_no, lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
+	java.sql.Date sqlDate;
+	@DateTimeFormat(pattern = "yyyy_M_d")
+	java.util.Date resdate;
+	//
 	
-//	@DateTimeFormat(pattern = "yyyy_MM_d")
-//	Date 
-	//위아래는 반드시 같아야해!!
+	
 	//SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
 	
+
 	
 	public String getRe_no() {
 		return re_no;
 	}
+
+
+
+	public java.sql.Date getSqlDate() {
+		return sqlDate;
+	}
+
+
+
+	public void setSqlDate(java.sql.Date sqlDate) {
+		this.sqlDate = sqlDate;
+	}
+
+
 
 	public void setRe_no(String re_no) {
 		this.re_no = re_no;
@@ -58,12 +74,12 @@ public class ReservationVO {
 		this.tr_name = tr_name;
 	}
 
-	public String getRestime() {
-		return restime;
+	public String getresTime() {
+		return resTime;
 	}
 
-	public void setRestime(String restime) {
-		this.restime = restime;
+	public void setresTime(String resTime) {
+		this.resTime = resTime;
 	}
 
 	public String getUser_name() {
@@ -98,26 +114,30 @@ public class ReservationVO {
 		this.content = content;
 	}
 
-	public String getResdate() {
+	public java.util.Date getResdate() {
 		return resdate;
 	}
 
-	public void setResdate(String resdate) {
+	public void setResdate(java.util.Date resdate) {
 		this.resdate = resdate;
 	}
+
+
+	
+//	
+//	public String getResdateStr() {
+//		return sdf.format(resdate);
+//	}
+//	public void setResdateStr(String resdateStr) {
+//		try {
+//			this.resdate = sdf.parse(resdateStr);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
 	/*
-	public String getResdateStr() {
-		return sdf.format(resdate);
-	}
-	public void setResdateStr(String resdateStr) {
-		try {
-			this.resdate = sdf.parse(resdateStr);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	public String getContent() {
 		if(content == null)
 			content = "";

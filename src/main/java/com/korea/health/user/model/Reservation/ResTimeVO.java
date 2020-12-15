@@ -4,15 +4,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class ResTimeVO {
-	private String lo_no;
-	private String resTime;
+	String lo_no;
+	String resTime;
 	
-//	@DateTimeFormat(pattern = "yyyy_MM_d")
-	private Date resDate;
-	private Integer nowCnt;
+	//@DateTimeFormat(pattern = "yyyy_M_d")
+	Date resDate;
+	Integer nowCnt;
 	
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");

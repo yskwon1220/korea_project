@@ -43,7 +43,7 @@ public class ResController {
 			LocationVO lovo, 
 			TrainerVO tvo,
 			ResTimeVO timevo,
-			HttpSession ses, 
+			//HttpSession ses, 
 			HttpServletRequest req,
 			Model mm,
 			@PathVariable("cate") String cate, 
@@ -64,20 +64,20 @@ public class ResController {
 			@ModelAttribute("lo_pic") String lo_pic
 			
 			) {
-		mm.addAttribute("re_no",re_no);
-		mm.addAttribute("lo_no",lo_no);
-		mm.addAttribute("user_name",user_name);
-		mm.addAttribute("user_pw",user_pw);
-		mm.addAttribute("type",type);
-		mm.addAttribute("tr_name",tr_name);
-		mm.addAttribute("resdate",resdate);
-		mm.addAttribute("restime",restime);
-		mm.addAttribute("user_tel",user_tel);
-		mm.addAttribute("content",content);
-		mm.addAttribute("lo_tel",lo_tel);
-		mm.addAttribute("lo_addr",lo_addr);
-		mm.addAttribute("lo_name",lo_name);
-		mm.addAttribute("lo_pic",lo_pic);
+//		mm.addAttribute("re_no",re_no);
+//		mm.addAttribute("lo_no",lo_no);
+//		mm.addAttribute("user_name",user_name);
+//		mm.addAttribute("user_pw",user_pw);
+//		mm.addAttribute("type",type);
+//		mm.addAttribute("tr_name",tr_name);
+//		mm.addAttribute("resdate",resdate);
+//		mm.addAttribute("restime",restime);
+//		mm.addAttribute("user_tel",user_tel);
+//		mm.addAttribute("content",content);
+//		mm.addAttribute("lo_tel",lo_tel);
+//		mm.addAttribute("lo_addr",lo_addr);
+//		mm.addAttribute("lo_name",lo_name);
+//		mm.addAttribute("lo_pic",lo_pic);
 		
 		mm.addAttribute("rvo", rvo);
 		mm.addAttribute("lovo", lovo);

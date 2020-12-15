@@ -14,14 +14,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insert" 
 		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
 
-		insert into reservation
+		insert into reservation(re_no, lo_no, lo_name, type, tr_name, 
+		resdate,
+		restime,
 		
-		(re_no, lo_no, lo_name, type, tr_name, restime,
 		user_name, user_pw, user_tel, content)
 		
-		values
+		values(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name},  
 		
-		(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name}, #{restime}, 
+		#{resdate},
+		#{resTime},
 		#{user_name}, #{user_pw}, #{user_tel}, #{content})
 
 <!-- 

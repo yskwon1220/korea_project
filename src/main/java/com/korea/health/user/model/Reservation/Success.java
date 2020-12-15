@@ -33,8 +33,8 @@ public class Success implements Action{
 		rvo.setUser_pw(req.getParameter("user_pw"));
 		rvo.setUser_tel(req.getParameter("user_tel"));
 		rvo.setContent(req.getParameter("content"));
-		rvo.setRestime(req.getParameter("resTime"));
-		rvo.setRestime(req.getParameter("resdate"));
+		rvo.setresTime(req.getParameter("resTime"));
+		//rvo.setResDate(req.getParameter("resdate"));
 
 		
 		req.setAttribute("lo_no", (String)req.getParameter("lo_no"));
@@ -45,7 +45,7 @@ public class Success implements Action{
 		req.setAttribute("user_pw", (String)req.getParameter("user_pw"));
 		req.setAttribute("user_tel", (String)req.getParameter("user_tel"));
 		req.setAttribute("content", (String)req.getParameter("content"));
-		req.setAttribute("restime", (String)req.getParameter("restime"));
+		req.setAttribute("resTime", (String)req.getParameter("resTime"));
 		req.setAttribute("resdate", (String)req.getParameter("resdate"));
 		
 

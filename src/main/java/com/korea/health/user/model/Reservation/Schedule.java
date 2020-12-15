@@ -36,15 +36,15 @@ public class Schedule implements Action{
 		rvo.setUser_pw(req.getParameter("user_pw"));
 		rvo.setUser_tel(req.getParameter("user_tel"));
 		rvo.setContent(req.getParameter("content"));
-		rvo.setRestime(req.getParameter("restime"));
-		/* rvo.setResdate(req.getParameter("resdate")); */
+		rvo.setresTime(req.getParameter("resTime"));
+		// rvo.setResdate(req.getParameter("resdate")); 
 		
 		
 		/*
 		 * ReservationVO rvo = new ReservationVO(); rvo.setResdate(timeVO.getResDate());
 		 */
 		
-		System.out.println("너맞아용? >>>"+rvo.getResdate());
+	//	System.out.println("너맞아용? >>>"+rvo.getResdateStr());
 		
 		return null;
 	}
