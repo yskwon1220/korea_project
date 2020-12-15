@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="fnqList" resultType="com.korea.health.user.model.fnq.FnqboardVO" 
 	parameterType="com.korea.health.user.model.fnq.FnqPageInfo">
+		
 		<![CDATA[
 			select * from (select rownum rnum, t1.* from 
 					(select * from FNQBOARD order by BOARD_NO DESC) t1) 

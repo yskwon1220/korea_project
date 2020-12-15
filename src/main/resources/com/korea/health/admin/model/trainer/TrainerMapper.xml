@@ -5,8 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.korea.health.admin.model.trainer.TrainerMapper">
 
-	<select id="trainerList" resultType="com.korea.health.admin.model.trainer.TrainerVO">
-		SELECT * FROM TRAINER
+	<select id="trainerList" resultType="com.korea.health.admin.model.trainer.TrainerVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+			select * from 
+				(SELECT * FROM 
+					( SELECT rownum rnum, TRAINER.* FROM TRAINER)
+						pagetable where rnum <= #{endList} ) 
+			where rnum >= #{startList}
+		]]>
 	</select>
 	
 	<select id="trainerDetail" resultType="com.korea.health.admin.model.trainer.TrainerVO"
@@ -41,5 +48,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update trainer set tr_no = tr_no - 1 where #{tr_no} < tr_no
 	]]>
 	</update>
+	
+	<select id="totalCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM TRAINER
+	</select>
 	
 </mapper>

@@ -108,4 +108,9 @@ ALTER TABLE temporary_payment_card DROP column payment_pass;
 INSERT INTO TEMPORARY_Payment_Card 
 values(1,1234567812345678,527,337,45,'신한',123456,'이주호');
    
+select * from 
+	(SELECT * FROM 
+		( SELECT rownum rnum, TRAINER.* FROM TRAINER)
+			pagetable where rnum <= 10) 
+where rnum >= 6;
 

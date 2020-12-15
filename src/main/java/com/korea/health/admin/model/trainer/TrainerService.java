@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.korea.health.provider.Action;
+import com.korea.health.service.Pagenation;
 
 // trainer 들어왔을 때 액션들 집합
 @Service("admin_page_trainer")	// providerController에서 bean 만들어줄때 이름
@@ -24,10 +25,29 @@ public class TrainerService implements Action {
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
 		try {
 			System.out.println("execute에 들어온건? " + map.get("service"));
+			Pagenation pageCtl = (Pagenation)map.get("pageCtl");
+			
 			switch ((String)map.get("service")) {
 			case "info":
 				System.out.println("switch case : info에 들어왔다.");
-				return mapper.trainerList();
+				
+				int listCnt = (int)mapper.totalCnt();
+				int page = (int)map.get("page");
+				int range = (int)map.get("range");
+				System.out.println("전체 페이지 수 : " + listCnt);
+
+				pageCtl.pageInfo(page, range, listCnt);
+
+				System.out.println("출력 페이지 시작 : " + pageCtl.getStartList());
+				System.out.println("출력 페이지 끝 : " + pageCtl.getEndList());
+				System.out.println("Prev 버튼 작동 : " + pageCtl.isPrev());
+				System.out.println("Next 버튼 작동 : " + pageCtl.isNext());
+				
+				System.out.println(mapper.trainerList(pageCtl));
+				
+				pageCtl.setPageSet(mapper.trainerList(pageCtl));
+				
+				return pageCtl;	// data에는 pagenation이 담기게 된다. 거기 안에 pageSet에 trainerVO가 담김
 				
 			case "detail":
 				System.out.println("switch case : detail에 들어왔다.");
@@ -43,20 +63,11 @@ public class TrainerService implements Action {
 				System.out.println((TrainerVO)map.get("trVO"));
 				TrainerVO vo = (TrainerVO)map.get("trVO");
 				
-				MultipartFile upload = vo.getPic();
-				File file = new File("C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\" + vo.getTr_pic());
+				vo.setTr_pic(fileUpload(vo.getPic(), request));
 				
-				if(file.exists())	{
-					mapper.trainerInsert(vo);
-					return mapper.trainerDetail(vo.getTr_no());
-				}
-
-				fileUpload(upload, request);
-
 				mapper.trainerInsert(vo);
-				
 				return mapper.trainerDetail(vo.getTr_no());
-				
+
 			case "modifyForm":
 				System.out.println("switch case : modifyForm에 들어왔다.");
 				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
@@ -64,13 +75,8 @@ public class TrainerService implements Action {
 			case "fileDelete":
 				System.out.println("switch case : fileDelete에 들어왔다.");
 				TrainerVO tr = (TrainerVO)map.get("trVO");
-				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
 				
 				mapper.fileDelete(tr.getTr_no());
-				
-				if (tr.getTr_pic() != null) {
-					new File(path + "\\" + tr.getTr_pic()).delete();
-				}
 				
 				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
 				
@@ -87,7 +93,7 @@ public class TrainerService implements Action {
 				System.out.println("switch case : delete에 들어왔다.");
 				
 				String fileName = ((TrainerVO)map.get("trVO")).getTr_pic();
-				path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
+				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
 				
 				int cnt = mapper.trainerDelete((TrainerVO)map.get("trVO"));
 				mapper.newNum((TrainerVO)map.get("trVO"));
@@ -108,17 +114,49 @@ public class TrainerService implements Action {
 		return null;
 	}
 	
-	public void fileUpload(MultipartFile mf, HttpServletRequest req) {
-		String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images";
-		
-		try {
-			FileOutputStream fos = new FileOutputStream(path + "/" + mf.getOriginalFilename());
-			
-			fos.write(mf.getBytes());
-			fos.close();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-	}
+	   String fileUpload(MultipartFile mf, HttpServletRequest req) {
+		      String path = req.getRealPath("/images");
+		      path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images";
+		      
+		      String res = fileNewName(path,mf.getOriginalFilename());
+		      
+		      try {
+		         FileOutputStream fos = new FileOutputStream(path+"\\"+res);
+		         
+		         fos.write(mf.getBytes());
+		         
+		         fos.close();
+		         
+		      } catch (Exception e) {
+		         e.printStackTrace();
+		      }
+		      return res;   
+		   }
+	  
+	   String fileNewName(String path, String temp) {
+		      path+="\\";
+		        try {
+		            int pos = temp.lastIndexOf(".");
+		            String domain = temp.substring(0,pos);
+		            String ext = temp.substring(pos);
+		           
+		            
+		            File newFile = new File(path+temp);
+		            
+		            int i = 0;
+		            
+		            while(newFile.exists()) {
+		                i++;
+		                temp = domain + "_" + i + ext;
+		            
+		                newFile = new File(path+temp);
+		                
+		            }
+		           // System.out.println(newFile.getPath());
+		            
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		        return temp;
+		    }
 }

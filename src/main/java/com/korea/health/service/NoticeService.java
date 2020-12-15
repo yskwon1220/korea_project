@@ -18,7 +18,6 @@ public class NoticeService implements Action {
 
 	int detailNum;
 	
-	
 	@Resource
 	NoticeMapper mapper;
 
@@ -32,6 +31,7 @@ public class NoticeService implements Action {
 			 infonoticeVo.init(mapper.totalCnt());
 			 infonoticeVo.setVoArr(mapper.noticeList(infonoticeVo));
 			return infonoticeVo;
+			
 		case "noticenoticedetail":
 			return mapper.detail(nvo.notice_no);
 		}

@@ -112,21 +112,64 @@ tr_name  varchar2(99),
    tr_pic    varchar2(99),
  content  varchar2(99)
 );
-
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('3', '1002', '곰', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '3.jpg');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('4', '1002', '말', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '4.jpg');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('5', '1002', '돼지', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '5.jpg');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('6', '1002', '소', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '1.jpg');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('7', '1002', '너구리', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '2.jpg');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('8', '1002', '오리', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '3.jpg');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
-VALUES ('9', '1002', '닭', '1', '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', '4', '4.jpg');
+INSERT ALL
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (6, '1002', '원숭이', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (7, '1002', '하이에나', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (8, '1002', '호랑이', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (9, '1002', '사자', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (10, '1002', '여우', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (11, '1002', '늑대', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (12, '1002', '낙타', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (13, '1002', '전갈', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (14, '1002', '나비', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (15, '1002', '돌고래', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (16, '1002', '혹등고래', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (17, '1002', '상어', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (18, '1002', '구름이', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (19, '1002', '아주가끔은', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (20, '1002', '웃던', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (21, '1002', '너의 얼굴을', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (22, '1002', '괜찮다 믿은것', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (23, '1002', '모를리 있니', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (24, '1002', '너는 떠나가고', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (25, '1002', '아니 어쩜', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (26, '1002', '이미 떠나갔', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (27, '1002', '해질녘 노을이', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (28, '1002', '더 아름다운 것', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (29, '1002', '끝사랑이', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (30, '1002', '더 아름다워', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (31, '1002', '너의 마음은', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (32, '1002', '시계바늘', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC)
+VALUES (33, '1002', '권진아', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg')
+SELECT * FROM dual;
 
 DROP TABLE TRAINER;
 
@@ -153,8 +196,40 @@ INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, RE
 VALUES (5, '1002', '너구리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '2.jpg','201213');
 INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
 VALUES (6, '1002', '오리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg','201213');
+
 INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (7, '1002', '닭', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+VALUES (7, '1002', 'ASDSD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (8, '1002', 'SAGG', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (9, '1002', 'FGFD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (10, '1002', 'WERER', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (11, '1002', 'ZXCZX', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (12, '1002', 'ASSA', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (13, '1002', 'RTREW', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (14, '1002', 'ASDS', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (15, '1002', 'GFG', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (16, '1002', 'YTU', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (17, '1002', 'FGF', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (18, '1002', 'DFS', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (19, '1002', 'CBC', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (20, '1002', 'DSFD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (21, '1002', 'SDFDX', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
+VALUES (22, '1002', 'XCV', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
+
 
 CREATE TABLE qna (
    qna_no number(5),
