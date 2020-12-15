@@ -52,21 +52,7 @@
 				<div class="row">
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
-<%-- <table border="1" width="500px">
-<tr>
-<td>${tr_name}</td>
-<td>${lo_name}</td>
-<td>${lo_no}</td>
-<td>${type}</td>
-<td>${resTime}</td>
-<td>${resDate}</td>
-<td>${resdate}</td>
-<td>${days}</td>
-<td>${resDateStr}</td>
-<td>${date_str}</td>
-<td>${ee}</td>
-</tr>
-</table> --%>
+
 
 						<form action="success" method="post">
 							<table class="type08">
@@ -95,14 +81,14 @@
 									</tr>
 									<tr>
 										<td>예약날짜</td>
-										<td><input type="text" value="" readonly="readonly" disabled="disabled" /> 
-										<input type="hidden" name="" value="" /></td>
+										<td><input type="text" value="${resdate}" readonly="readonly" disabled="disabled" /> 
+										<input type="hidden" name="resdate" value="${resdate}" /></td>
 									</tr>
 									<tr>
 										<td>예약시간</td>
 										<td><input type="text" value="${resTime}:00"
 											readonly="readonly" disabled="disabled" /> <input
-											type="hidden" name="restime" value="${resTime}" /></td>
+											type="hidden" name="resTime" value="${resTime}" /></td>
 									</tr>
 									<tr>
 										<td>잔여회차</td>

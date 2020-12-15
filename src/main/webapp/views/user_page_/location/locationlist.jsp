@@ -47,7 +47,7 @@
 					</div>
 				</div>
 
-				<div class="row">
+				<div class="row" style="margin-bottom:100px;">
 					<div class="pricing">
 
 						<c:forEach items="${data}" var="vo" varStatus="no">

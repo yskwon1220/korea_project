@@ -1,15 +1,23 @@
 package com.korea.health.user.model.Reservation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Alias("reservationVO")
 public class ReservationVO {
 
-	String re_no, lo_no, lo_name, type, tr_name, restime, user_name, user_pw, user_tel, content;
-	Date resdate;
-
+	String re_no, lo_no, lo_name, type, tr_name, restime, user_name, user_pw, user_tel, content,resdate;
+	
+//	@DateTimeFormat(pattern = "yyyy_MM_d")
+//	Date 
+	//위아래는 반드시 같아야해!!
+	//SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
+	
+	
 	public String getRe_no() {
 		return re_no;
 	}
@@ -90,30 +98,42 @@ public class ReservationVO {
 		this.content = content;
 	}
 
-	public Date getResdate() {
+	public String getResdate() {
 		return resdate;
 	}
 
-	public void setResdate(Date resdate) {
+	public void setResdate(String resdate) {
 		this.resdate = resdate;
 	}
+	
+	/*
+	public String getResdateStr() {
+		return sdf.format(resdate);
+	}
+	public void setResdateStr(String resdateStr) {
+		try {
+			this.resdate = sdf.parse(resdateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public String getContent() {
+		if(content == null)
+			content = "";
 
-//	public String getContent() {
-//		if(content == null)
-//			content = "";
-//
-//		return content;
-//	}
-//	
-//	public String getContentBr() {
-//		return getContent().replaceAll("\n", "<br>");
-//	}
-//
-//	public void setContent(String content) {
-//		if(content == null)
-//			content = "";
-//		this.content = content;
-//	}
-//
-//	
+		return content;
+	}
+	
+	public String getContentBr() {
+		return getContent().replaceAll("\n", "<br>");
+	}
+
+	public void setContent(String content) {
+		if(content == null)
+			content = "";
+		this.content = content;
+	}
+*/
+	
 }

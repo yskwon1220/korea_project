@@ -161,6 +161,8 @@
 										<td><button id="button">21:00</button></td>
 										<td>예약가능</td>
 										<td id="time_21">/ 30</td>
+										<td><input id="hidden_real" type="text" name="resdate">
+										</td>
 									</tr>
 									<tr>
 										<td><input type="submit" value="전송"></td>
@@ -199,7 +201,8 @@
 						cells += "<div class='prev_date'>" + (prevDate - x + 1)
 								+ "</div>";
 					}
-					console.log(day);
+					
+					
 					for (i = 1; i <= endDate; i++) {
 
 						var ee = "'" + dt.getFullYear() + "_"
@@ -211,8 +214,11 @@
 						else
 							cells += "<div onclick=resAjaxGo(" + ee + ")>" + i
 									+ "</div>";
+
 					}
 					document.getElementsByClassName("days")[0].innerHTML = cells;
+
+
 
 				}
 
@@ -223,12 +229,19 @@
 										+ dt,
 								dataType : 'json',
 								success : function(data) {
-									for (i in data) {
+									$("#hidden_real").val(data[5].resDate);
+								for (i in data) {
 										console.log(i, data[i])
 
 										$("#time_" + i).html(
 												data[i].nowCnt + " / 30")
 									}
+							/* 		for(var index = 0; index < data.length - 1; index++) {
+										console.log(index, data[index]);
+
+										$("#time_" + index).html(
+												data[index].nowCnt + " / 30");
+									} */
 								},
 
 								error : function(e) { ///실패 리스너

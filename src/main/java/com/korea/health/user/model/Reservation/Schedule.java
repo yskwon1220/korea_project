@@ -37,7 +37,14 @@ public class Schedule implements Action{
 		rvo.setUser_tel(req.getParameter("user_tel"));
 		rvo.setContent(req.getParameter("content"));
 		rvo.setRestime(req.getParameter("restime"));
-		rvo.setRestime(req.getParameter("resdate"));
+		/* rvo.setResdate(req.getParameter("resdate")); */
+		
+		
+		/*
+		 * ReservationVO rvo = new ReservationVO(); rvo.setResdate(timeVO.getResDate());
+		 */
+		
+		System.out.println("너맞아용? >>>"+rvo.getResdate());
 		
 		return null;
 	}

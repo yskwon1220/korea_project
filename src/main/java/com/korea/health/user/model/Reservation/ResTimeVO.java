@@ -4,9 +4,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class ResTimeVO {
 	private String lo_no;
 	private String resTime;
+	
+//	@DateTimeFormat(pattern = "yyyy_MM_d")
 	private Date resDate;
 	private Integer nowCnt;
 	
@@ -59,7 +63,6 @@ public class ResTimeVO {
 	public String ajaxEle() {
 		return "{\"lo_no\":"+ lo_no + ",\"resTime\":"+ Integer.parseInt(resTime) + ",\"resDate\":\""+getResDateStr()+"\",\"nowCnt\": "+ nowCnt + " }";
 	}
-	
 	
 	
 }

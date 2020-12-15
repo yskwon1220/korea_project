@@ -78,7 +78,7 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
 
-						<form action="deleteSuccess" name="f"
+						<form action="deleteSuccess" name="f" method="post"
 							onsubmit="return formCheck(this)">
 
 							<%-- 							<input type="text" value="${data.user_name}" />

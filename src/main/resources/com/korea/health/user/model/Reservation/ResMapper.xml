@@ -15,11 +15,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
 
 		insert into reservation
+		
 		(re_no, lo_no, lo_name, type, tr_name, restime,
 		user_name, user_pw, user_tel, content)
+		
 		values
-		(re_noidx.nextval,#{lo_no},#{lo_name},#{type}, #{tr_name},#{restime},#{user_name}
-		,#{user_pw},#{user_tel},#{content})
+		
+		(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name}, #{restime}, 
+		#{user_name}, #{user_pw}, #{user_tel}, #{content})
+
+<!-- 
+INSERT INTO TABLE_NAME(
+  date_column
+)values(
+  TO_DATE('2016-10-05 10:53:56', 'SYYYY-MM-DD HH24:MI:SS')
+)
+ -->
 
 	</insert>
 	

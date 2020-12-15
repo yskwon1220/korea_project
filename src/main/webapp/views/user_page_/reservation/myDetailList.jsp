@@ -65,7 +65,7 @@
 
 							</thead>
 							<tbody>
-<c:set var="rvo" value="${data }"/>
+								<c:set var="rvo" value="${data }" />
 								<tr>
 									<td>예약번호</td>
 									<td>${rvo.re_no }</td>
@@ -89,7 +89,8 @@
 								</tr> --%>
 								<tr>
 									<td>예약 날짜</td>
-									<td>${rvo.resdate }</td>
+									<td><fmt:formatDate value="${rvo.resdate }"
+											pattern="yy-MM-dd (E)" /></td>
 								</tr>
 								<tr>
 									<td>예약 시간</td>
@@ -108,13 +109,11 @@
 									<td>${rvo.content }</td>
 								</tr>
 								<tr>
-									<td colspan="2" align="right">
-									
-
-									<a
+									<td colspan="2" align="right"><a
 										href="deleteForm?re_no=${rvo.re_no}&user_name=${rvo.user_name}">삭제</a>
-										
-										</td>
+
+										<input type="button" value="되돌아가기"
+										onclick="location.href='javascript:history.back()'"></td>
 								</tr>
 
 							</tbody>
