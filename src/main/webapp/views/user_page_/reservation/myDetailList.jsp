@@ -94,7 +94,7 @@
 								</tr>
 								<tr>
 									<td>예약 시간</td>
-									<td>${rvo.resTime }</td>
+									<td>${rvo.restime }</td>
 								</tr>
 								<tr>
 									<td>성함</td>

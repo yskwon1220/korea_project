@@ -3,16 +3,19 @@ package com.korea.health.user.model.Reservation;
 //import java.text.ParseException;
 //import java.text.SimpleDateFormat;
 
-import org.apache.ibatis.type.Alias;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Alias("reservationVO")
 public class ReservationVO {
 
-	String re_no, lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
+	String re_no, lo_no, lo_name, type, tr_name, restime, user_name, user_pw, user_tel, content;
+	
+	
 	java.sql.Date sqlDate;
+	
+	
 	@DateTimeFormat(pattern = "yyyy_M_d")
 	java.util.Date resdate;
+	
 	//
 	
 	
@@ -22,18 +25,6 @@ public class ReservationVO {
 	
 	public String getRe_no() {
 		return re_no;
-	}
-
-
-
-	public java.sql.Date getSqlDate() {
-		return sqlDate;
-	}
-
-
-
-	public void setSqlDate(java.sql.Date sqlDate) {
-		this.sqlDate = sqlDate;
 	}
 
 
@@ -74,12 +65,12 @@ public class ReservationVO {
 		this.tr_name = tr_name;
 	}
 
-	public String getresTime() {
-		return resTime;
+	public String getRestime() {
+		return restime;
 	}
 
-	public void setresTime(String resTime) {
-		this.resTime = resTime;
+	public void setRestime(String restime) {
+		this.restime = restime;
 	}
 
 	public String getUser_name() {
