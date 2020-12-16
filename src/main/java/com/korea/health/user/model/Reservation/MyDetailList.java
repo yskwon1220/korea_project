@@ -19,11 +19,11 @@ public class MyDetailList implements Action {
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 
-		ReservationVO rvo = (ReservationVO)map.get("rvo");
-		//ResTimeVO timevo = (ResTimeVO)map.get("timevo");
-		
-		rvo.setRe_no(Integer.parseInt(req.getParameter("re_no")));
-		req.setAttribute("re_no",Integer.parseInt(req.getParameter("re_no")));
+		// ReservationVO rvo = (ReservationVO)map.get("rvo");
+		// ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		int re_no = Integer.parseInt(req.getParameter("re_no"));
+		// rvo.setRe_no(Integer.parseInt(req.getParameter("re_no")));
+		req.setAttribute("re_no", re_no);
 
 		/*
 		 * 
@@ -32,13 +32,10 @@ public class MyDetailList implements Action {
 		 * System.out.println((String)req.getParameter("re_no") + rvo.re_no +
 		 * rvo.lo_name + rvo.lo_no + rvo.user_name);
 		 */
-		//System.out.println("계세요?"+ req.getParameter("resDate"));
-		//System.out.println("계세요?"+ req.getParameter("resdate"));
+		// System.out.println("계세요?"+ req.getParameter("resDate"));
+		// System.out.println("계세요?"+ req.getParameter("resdate"));
 		
-		
-		mapper.MyDetailList(rvo.re_no);
-		return null;
-		
+		return mapper.MyDetailList(re_no);
 
 	}
 

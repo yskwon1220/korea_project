@@ -65,13 +65,13 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${data }" var="vo" varStatus="no">
+								<c:forEach items="${data }" var="rvo" varStatus="no">
 									<tr>
-										<td>${vo.re_no }</td>
-										<td>${vo.lo_name }</td>
-										<td><fmt:formatDate value="${vo.resdate }"
+										<td>${rvo.re_no }</td>
+										<td>${rvo.lo_name }</td>
+										<td><fmt:formatDate value="${rvo.resdate }"
 												pattern="yy-MM-dd (E)" /></td>
-										<td><a href="myDetailList?re_no=${vo.re_no}">클릭</a></td>
+										<td><a href="myDetailList?re_no=${rvo.re_no}">클릭</a></td>
 									</tr>
 								</c:forEach>
 

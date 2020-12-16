@@ -19,6 +19,8 @@ public interface ResMapper {
 	//내 모든 예약 리스트
 
 	
+	ReservationVO MyDetailList(int re_no);
+	//내 예약 리스트1개의 디테일
 	
 	
 	//----------------------쌉중요!인서트할 때 단일테이블과 다중테이블을위한 mapper 메소드-----------------------
@@ -54,11 +56,9 @@ public interface ResMapper {
 	List<ReservationVO> PagingList (ResPageInfo resInfoVO);
 	
 	Integer totalCnt();
-	
-	List<ReservationVO> MyDetailList(int re_no);
-	//내 예약 리스트1개의 디테일
-	
-	
+
+	List<ReservationVO> MyDetailList2(int re_no);
+	//toomany떠서 새로 만듬..
 	
 	
 	
