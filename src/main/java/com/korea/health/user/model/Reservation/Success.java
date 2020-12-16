@@ -44,7 +44,6 @@ public class Success implements Action{
 			
 			int cnt = mapper.selectCount(timevo);
 			
-			
 			if(cnt != 0 ) {
 				System.out.println("이것은?:"+cnt);
 				mapper.addCount(timevo);
@@ -55,18 +54,10 @@ public class Success implements Action{
 				//만약 존재하지않다면 다중테이블의 nowCnt에 1을 대입한다.(insert)
 			}
 			
-			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-		
 		return null;
-
 	}
-
 }

@@ -14,9 +14,6 @@ public interface ResMapper {
 	
 	//List<ReservationVO> list();
 	//
-
-	int delete(ReservationVO rvo);
-	//내 예약 리스트 1개 삭제
 	
 	List<ReservationVO> MyResList(String user_name);
 	//내 모든 예약 리스트
@@ -42,6 +39,17 @@ public interface ResMapper {
 	
 	void addCount(ResTimeVO timevo);
 	//값이 이미 존재한다면 nowCnt를 +1해주기 위한 것
-
+	
+	
+	
+	//----------------------쌉중요!delete할 때 단일테이블과 다중테이블을위한 mapper 메소드-----------------------
+	
+	int delete(ReservationVO rvo);
+	//내 예약 리스트 1개 삭제
+	
+	void MinusCount(ResTimeVO timevo);
+	//삭제가 성공되면 , restime테이블에서 update문으로 nowCnt 를 -1 해야한다. 예약을 취소했기 때문에 인원카운트가 작아져야함.
+	
+	
 	
 }

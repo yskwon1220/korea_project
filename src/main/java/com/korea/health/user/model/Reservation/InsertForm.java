@@ -30,7 +30,7 @@ public class InsertForm implements Action{
 		req.setAttribute("resdate", (String)req.getParameter("resdate"));
 //		req.setAttribute("resdateStr", (String)req.getParameter("resdateStr"));
 
-		ResTimeVO timevo = new ResTimeVO();
+//		ResTimeVO timevo = new ResTimeVO();
 //		timevo.setResDateStr(req.getParameter("resDate"));
 //		timevo.setResDateStr(req.getParameter("resDateStr"));
 //		System.out.println("값가져왔니?:"+timevo.getResdate());
