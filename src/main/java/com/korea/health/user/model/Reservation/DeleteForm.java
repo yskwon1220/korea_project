@@ -18,7 +18,7 @@ public class DeleteForm implements Action {
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 
-		ReservationVO rvo = (ReservationVO) map.get("rvo");
+		//ReservationVO rvo = (ReservationVO) map.get("rvo");
 		String user_name = req.getParameter("user_name");
 		
 		req.setAttribute("user_name", user_name);

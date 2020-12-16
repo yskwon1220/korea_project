@@ -115,53 +115,53 @@
 								<tbody>
 
 									<tr>
-										<td><input type="radio" name="restime" value="05" /></td>
+										<td><input type="radio" name="resTime" value="05" /></td>
 										<td><button id="button">05:00</button></td>
 										<td>예약가능</td>
 										<td id="time_5">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="07" /></td>
+										<td><input type="radio" name="resTime" value="07" /></td>
 										<td><button id="button">07:00</button></td>
 										<td>예약가능</td>
 										<td id="time_7">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="09" /></td>
+										<td><input type="radio" name="resTime" value="09" /></td>
 										<td><button id="button">09:00</button></td>
 										<td>예약가능</td>
 										<td id="time_9">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="11" /></td>
+										<td><input type="radio" name="resTime" value="11" /></td>
 										<td><button id="button">11:00</button></td>
 										<td>예약가능</td>
 										<td id="time_11">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="15" /></td>
+										<td><input type="radio" name="resTime" value="15" /></td>
 										<td><button id="button">15:00</button></td>
 										<td>예약가능</td>
 										<td id="time_15">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="17" /></td>
+										<td><input type="radio" name="resTime" value="17" /></td>
 										<td><button id="button">17:00</button></td>
 										<td>예약가능</td>
 										<td id="time_17">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="19" /></td>
+										<td><input type="radio" name="resTime" value="19" /></td>
 										<td><button id="button">19:00</button></td>
 										<td>예약가능</td>
 										<td id="time_19">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="restime" value="21" /></td>
+										<td><input type="radio" name="resTime" value="21" /></td>
 										<td><button id="button">21:00</button></td>
 										<td>예약가능</td>
 										<td id="time_21">/ 30</td>
-										<td><input id="hidden_real" type="text" name="hidden_resdate">
+										<td><input id="hidden_real" type="text" name="resdate">
 										</td>
 									</tr>
 									<tr>
@@ -181,86 +181,87 @@
 
 			<script>
 				var dt = new Date();
-				//Date 생성
 				function renderDate() {
 					dt.setDate(1);
-					//시작은 1
 					var day = dt.getDay();
-					//Day
 					var today = new Date();
-					//오늘을 표현하기 위한 변수 today
-					var endDate = new Date(dt.getFullYear(), dt.getMonth() + 1,0).getDate();
-					//마지막날짜
-					var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
-					// 이전
-					var months = [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
-					// 월 을 표현하기 위한 배열을 만든다 
-					
-					document.getElementById("month").innerHTML = months[dt.getMonth()];
-					document.getElementById("date_str").innerHTML = dt.toDateString();
-					
+					var endDate = new Date(dt.getFullYear(), dt.getMonth() + 1,
+							0).getDate();
+
+					var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0)
+							.getDate();
+					var months = [ "1월", "2월", "3월", "4월", "5월", "6월", "7월",
+							"8월", "9월", "10월", "11월", "12월" ]
+					document.getElementById("month").innerHTML = months[dt
+							.getMonth()];
+					document.getElementById("date_str").innerHTML = dt
+							.toDateString();
 					var cells = "";
 					for (x = day; x > 0; x--) {
-						cells += "<div class='prev_date'>" + (prevDate - x + 1)+ "</div>";
+						cells += "<div class='prev_date'>" + (prevDate - x + 1)
+								+ "</div>";
 					}
 					
+					
 					for (i = 1; i <= endDate; i++) {
-						//for문을 돈다. i는 1부터 마지막 날짜(31)까지 증가하면서
 
-						var ee = "'" + dt.getFullYear() + "_"+ (dt.getMonth() + 1) + "_" + i + "'"
-						//날짜 형태는 yyyy_M_d 
-						
-						if (i == today.getDate() && dt.getMonth() == today.getMonth())
-							cells += "<div class='today' onclick=resAjaxGo("+ ee + ")>" + i + "</div>";
-							// 오늘날짜는 요롷게 ( 색깔 )
+						var ee = "'" + dt.getFullYear() + "_"
+								+ (dt.getMonth() + 1) + "_" + i + "'"
+						if (i == today.getDate()
+								&& dt.getMonth() == today.getMonth())
+							cells += "<div class='today' onclick=resAjaxGo("
+									+ ee + ")>" + i + "</div>";
 						else
-							cells += "<div onclick=resAjaxGo(" + ee + ")>" + i+ "</div>";
-						    // 다른 날짜는 요롷게
+							cells += "<div onclick=resAjaxGo(" + ee + ")>" + i
+									+ "</div>";
 
 					}
 					document.getElementsByClassName("days")[0].innerHTML = cells;
+
+
+
+				}
+
+				function resAjaxGo(dt) {
+					$
+							.ajax({
+								url : '../../resAjax/reservation/timecnt?lo_no=${lo_no}&resDateStr='
+										+ dt,
+								dataType : 'json',
+								success : function(data) {
+									$("#hidden_real").val(data[5].resDate);
+								for (i in data) {
+										console.log(i, data[i])
+
+										$("#time_" + i).html(
+												data[i].nowCnt + " / 30")
+									}
+							/* 		for(var index = 0; index < data.length - 1; index++) {
+										console.log(index, data[index]);
+
+										$("#time_" + index).html(
+												data[index].nowCnt + " / 30");
+									} */
+								},
+
+								error : function(e) { ///실패 리스너
+									alert(e.responseText);///에러메세지
+
+									//console.log(e);
+								}
+
+							});
 
 				}
 
 				function moveDate(para) {
 					if (para == "prev") {
 						dt.setMonth(dt.getMonth() - 1);
-						// 이전 달로 이동하자
 					} else if (para == 'next') {
 						dt.setMonth(dt.getMonth() + 1);
-						//다음 달로 이동하자
 					}
 					renderDate();
 				}
-				
-
-				function resAjaxGo(dt) {
-					$
-							.ajax({
-								url : '../../resAjax/reservation/timecnt?lo_no=${lo_no}&resdateStr='+ dt,
-								//url 주소 !!!!!!
-								dataType : 'json',
-								//제이슨 형태 ㅜㅜ
-								success : function(data) {
-									//성공 시
-									$("#hidden_real").val(data[5].resdate);
-									//내가 선택한 날짜를 뽑기 위한 input type hidden id임
-								for (i in data) {
-										console.log(i, data[i])
-										//for문을 돌면서 해당 데이터를 뽑는다
-
-										$("#time_" + i).html(data[i].nowCnt + " / 30")
-										//현재 인원을 표현한다. id 명은 time_으로 시작함
-									}
-								},
-								error : function(e) { 
-									///실패 리스너
-									alert(e.responseText);
-									///에러메세지
-								}
-							});
-				}
-
 			</script>
 
 			<script

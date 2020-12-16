@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,15 +13,14 @@
 <title>FitNess Club</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<c:set var="path" value="${pageContext.request.contextPath}" />
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
 	rel="stylesheet">
 
-<link rel="stylesheet"
-	href="<c:url value="${path }/resource/css/V3animate.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
 <link rel="stylesheet"
@@ -30,8 +29,7 @@
 	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
-<link rel="stylesheet"
-	href="<c:url value="${path }/resource/css/V3style.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/calendarstyle.css"/>" />
 
@@ -71,29 +69,26 @@
 
 									<tr>
 										<td>지점</td>
-										<td><input type="hidden" name="lo_no" value="${lo_no}" />
-											<input type="hidden" name="type" value="${type}" /> <input
-											type="text" value="${lo_name}" readonly="readonly"
-											disabled="disabled" /> <input type="hidden" name="lo_name"
-											value="${lo_name}" /></td>
+										<td><input type="hidden" name="lo_no" value="${lo_no}" /> 
+										<input type="hidden" name="type" value="${type}" /> 
+										<input type="text" value="${lo_name}" readonly="readonly" disabled="disabled" /> 
+										<input type="hidden" name="lo_name" value="${lo_name}" /></td>
 									</tr>
 									<tr>
 										<td>트레이너</td>
-										<td><input type="text" value="${tr_name}"
-											readonly="readonly" disabled="disabled" /> <input
-											type="hidden" name="tr_name" value="${tr_name}" /></td>
+										<td><input type="text" value="${tr_name}"readonly="readonly" disabled="disabled" /> 
+											<input type="hidden" name="tr_name" value="${tr_name}" /></td>
 									</tr>
 									<tr>
 										<td>예약날짜</td>
-										<td><input type="text" value="${resdate}"
-											readonly="readonly" disabled="disabled" /> <input
-											type="hidden" name="resdate" value="${resdate}" /></td>
+										<td><input type="text" value="${resdate}" readonly="readonly" disabled="disabled" /> 
+										<input type="hidden" name="resdate" value="${resdate}" /></td>
 									</tr>
 									<tr>
 										<td>예약시간</td>
-										<td><input type="text" value="${restime}:00"
+										<td><input type="text" value="${resTime}:00"
 											readonly="readonly" disabled="disabled" /> <input
-											type="hidden" name="restime" value="${restime}" /></td>
+											type="hidden" name="resTime" value="${resTime}" /></td>
 									</tr>
 									<tr>
 										<td>잔여회차</td>
@@ -103,8 +98,8 @@
 									<tr>
 										<td>이름</td>
 										<td><input type="text" value="홍길동" readonly="readonly"
-											disabled="disabled" /> <input type="hidden" name="user_name"
-											value="홍길동" /></td>
+											disabled="disabled" />
+											<input type="hidden" name="user_name" value="홍길동" /></td>
 									</tr>
 									<tr>
 										<td>비밀번호</td>
@@ -140,18 +135,13 @@
 	</div>
 
 
-	<script
-		src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
+<script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
-	<script
-		src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
-	<script
-		src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
-	<script
-		src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
-	<script
-		src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 </body>
 </html>

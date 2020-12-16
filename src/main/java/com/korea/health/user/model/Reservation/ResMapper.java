@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.korea.health.user.model.Trainer.TrainerVO;
 
 
 @Mapper
 public interface ResMapper {
-	
 	List<ResTimeVO> selectByRes(ResTimeVO timeVO);	
 	//제이슨 출력 
 	
@@ -42,7 +42,6 @@ public interface ResMapper {
 	
 	void addCount(ResTimeVO timevo);
 	//값이 이미 존재한다면 nowCnt를 +1해주기 위한 것
-	
-	
+
 	
 }

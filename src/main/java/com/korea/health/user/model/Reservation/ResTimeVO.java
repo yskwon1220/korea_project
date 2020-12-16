@@ -7,23 +7,14 @@ import java.util.Date;
 
 public class ResTimeVO {
 	String lo_no;
-	String restime;
+	String resTime;
 	
 	//@DateTimeFormat(pattern = "yyyy_M_d")
-	private Date resdate;
+	Date resDate;
 	Integer nowCnt;
 	
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
-	
-	
-	public void setResdate(String resdate) {
-		try {
-			this.resdate = sdf.parse(resdate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	public String getLo_no() {
 		return lo_no;
@@ -31,11 +22,11 @@ public class ResTimeVO {
 	public void setLo_no(String lo_no) {
 		this.lo_no = lo_no;
 	}
-	public String getRestime() {
-		return restime;
+	public String getResTime() {
+		return resTime;
 	}
-	public void setRestime(String restime) {
-		this.restime = restime;
+	public void setResTime(String resTime) {
+		this.resTime = resTime;
 	}
 	public Integer getNowCnt() {
 		return nowCnt;
@@ -43,32 +34,33 @@ public class ResTimeVO {
 	public void setNowCnt(Integer nowCnt) {
 		this.nowCnt = nowCnt;
 	}
-	public Date getResdate() {
-		return resdate;
+	public Date getResDate() {
+		return resDate;
 	}
-	public void setResdate(Date resdate) {
-		this.resdate = resdate;
+	public void setResDate(Date resDate) {
+		this.resDate = resDate;
 	}
 	
-	public String getResdateStr() {
-		return sdf.format(resdate);
+	public String getResDateStr() {
+		return sdf.format(resDate);
 	}
-	public void setResdateStr(String resdateStr) {
+	public void setResDateStr(String resDateStr) {
 		try {
-			this.resdate = sdf.parse(resdateStr);
+			this.resDate = sdf.parse(resDateStr);
 		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	@Override
 	public String toString() {
-		return "ResTestVO [lo_no=" + lo_no + ", restime=" + restime + ", resdate=" + resdate + ", nowCnt=" + nowCnt
+		return "ResTestVO [lo_no=" + lo_no + ", resTime=" + resTime + ", resDate=" + resDate + ", nowCnt=" + nowCnt
 				+ "]";
 	}
 	
 	
 	public String ajaxEle() {
-		return "{\"lo_no\":"+ lo_no + ",\"restime\":"+ Integer.parseInt(restime) + ",\"resdate\":\""+getResdateStr()+"\",\"nowCnt\": "+ nowCnt + " }";
+		return "{\"lo_no\":"+ lo_no + ",\"resTime\":"+ Integer.parseInt(resTime) + ",\"resDate\":\""+getResDateStr()+"\",\"nowCnt\": "+ nowCnt + " }";
 	}
 	
 	

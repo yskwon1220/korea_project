@@ -36,7 +36,7 @@ public class Schedule implements Action{
 		rvo.setUser_pw(req.getParameter("user_pw"));
 		rvo.setUser_tel(req.getParameter("user_tel"));
 		rvo.setContent(req.getParameter("content"));
-		rvo.setRestime(req.getParameter("restime"));
+		rvo.setresTime(req.getParameter("resTime"));
 		// rvo.setResdate(req.getParameter("resdate")); 
 		
 		
