@@ -1,5 +1,8 @@
 package com.korea.health.user.model.Reservation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
@@ -19,9 +22,9 @@ public class Success implements Action{
 
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
-		ReservationVO resVO = (ReservationVO)map.get("rvo");
+//		ReservationVO resVO = (ReservationVO)map.get("rvo");
 
-		mapper.insert(resVO);
+		//mapper.insert(resVO);
 		
 //		ReservationVO rvo = new ReservationVO();
 		
@@ -33,8 +36,6 @@ public class Success implements Action{
 //		rvo.setUser_pw(req.getParameter("user_pw"));
 //		rvo.setUser_tel(req.getParameter("user_tel"));
 //		rvo.setContent(req.getParameter("content"));
-//		rvo.setresTime(req.getParameter("resTime"));
-//		//rvo.setResDate(req.getParameter("resdate"));
 //
 //		
 //		req.setAttribute("lo_no", (String)req.getParameter("lo_no"));
@@ -49,21 +50,38 @@ public class Success implements Action{
 //		req.setAttribute("resdate", (String)req.getParameter("resdate"));
 		
 		
-		ReservationVO rvo = (ReservationVO)map.get("rvo");
-		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		String resdateStr = req.getParameter("resdate");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
+		Date resdate;
+		try {
+			ReservationVO rvo = (ReservationVO)map.get("rvo");
+			mapper.insert(rvo);
+			
+			
+			
+			ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+			timevo.setResTime(req.getParameter("resTime"));
+			resdate = sdf.parse(resdateStr);
+			timevo.setResDate(resdate);
+			
+			
+			mapper.addCount(timevo);
+			
+//			if(mapper.selectCount() > 0 ) {
+//				mapper.addCount(timevo);
+//			}else {
+//				mapper.noCount(timevo);
+//			}
+//			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		
-		mapper.insert(rvo);
 		
 		
-//		if(mapper.selectCount() > 0 ) {
-//			mapper.addCount(timevo);
-//		}else {
-//			mapper.noCount(timevo);
-//		}
 		
-		mapper.noCount(timevo);
-//		
+		
 		return null;
 
 	}

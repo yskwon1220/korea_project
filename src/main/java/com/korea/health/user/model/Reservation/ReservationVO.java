@@ -9,10 +9,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Alias("reservationVO")
 public class ReservationVO {
 
-	String re_no, lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
-	java.sql.Date sqlDate;
+	 String re_no, lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
 	@DateTimeFormat(pattern = "yyyy_M_d")
-	java.util.Date resdate;
+	 java.util.Date resdate;
 	//
 	
 	
@@ -23,19 +22,6 @@ public class ReservationVO {
 	public String getRe_no() {
 		return re_no;
 	}
-
-
-
-	public java.sql.Date getSqlDate() {
-		return sqlDate;
-	}
-
-
-
-	public void setSqlDate(java.sql.Date sqlDate) {
-		this.sqlDate = sqlDate;
-	}
-
 
 
 	public void setRe_no(String re_no) {

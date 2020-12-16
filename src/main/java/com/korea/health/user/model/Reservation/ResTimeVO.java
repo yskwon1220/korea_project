@@ -6,12 +6,12 @@ import java.util.Date;
 
 
 public class ResTimeVO {
-	String lo_no;
-	String resTime;
+	 String lo_no;
+	 String resTime;
 	
 	//@DateTimeFormat(pattern = "yyyy_M_d")
-	Date resDate;
-	Integer nowCnt;
+	 Date resDate;
+	 Integer nowCnt;
 	
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");

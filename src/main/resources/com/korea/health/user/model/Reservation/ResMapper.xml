@@ -72,36 +72,17 @@ INSERT INTO TABLE_NAME(
 	<insert id="noCount"
 		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 
-		insert into RESTIME(lo_no, resdate, resTime, nowCnt)
-		values (#{lo_no},#{resdate}, #{resTime}, 1)
+		insert into RESTIME(lo_no, resDate, resTime, nowCnt)
+		values (#{lo_no},#{resDate}, #{resTime}, 1)
 
 	</insert>
 
 
 	<update id="addCount" parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 		<![CDATA[
-		update RESTIME set nowCnt = nowCnt + 1 where lo_no = #{lo_no} and resdate = #{resdate} and restime = #{restime}
+		update RESTIME set nowCnt = nowCnt + 1 where lo_no = #{lo_no} and resDate = #{resDate} and resTime = #{resTime}
         ]]>
 	</update>
-
-<!-- <insert id="insert"
-		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
-
-		insert 
-		into reservation
-		(re_no, lo_no, lo_name, type, tr_name,
-		resdate,restime,user_name, user_pw, user_tel, content)
-
-		values
-		(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name},
-		#{resdate},#{restime},#{user_name}, #{user_pw}, #{user_tel},#{content})
-
-		INSERT INTO TABLE_NAME( date_column )values( TO_DATE('2016-10-05 10:53:56', 
-			'SYYYY-MM-DD HH24:MI:SS') )
-
-	</insert>
-	 -->
-	
 
 </mapper>
 
