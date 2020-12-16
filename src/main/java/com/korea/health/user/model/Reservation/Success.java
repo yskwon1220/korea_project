@@ -65,14 +65,20 @@ public class Success implements Action{
 			timevo.setResDate(resdate);
 			
 			
-			mapper.addCount(timevo);
+			int cnt = mapper.selectCount(timevo);
 			
-//			if(mapper.selectCount() > 0 ) {
-//				mapper.addCount(timevo);
-//			}else {
-//				mapper.noCount(timevo);
-//			}
-//			
+			
+			if(cnt != 0 ) {
+				System.out.println("이것은?:"+cnt);
+				mapper.addCount(timevo);
+				//만약 데이터가 이미 존재한다면 다중테이블의 nowCnt를 1씩증가시킨다.(update)
+			}else {
+				System.out.println("이것은?:"+cnt);
+				mapper.noCount(timevo);
+				//만약 존재하지않다면 다중테이블의 nowCnt에 1을 대입한다.(insert)
+			}
+			
+			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

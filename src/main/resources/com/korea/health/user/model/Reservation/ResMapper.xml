@@ -61,12 +61,15 @@ INSERT INTO TABLE_NAME(
 	</delete>
 	
 	
-		<select id="selectCount" parameterType="java.lang.Integer">
-		<!-- resultType="com.korea.health.user.model.Reservation.restieVO" -->
+		<select id="selectCount" resultType="java.lang.Integer"
+		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
+		
+	
 		select count(*) 
 		from RESTIME 
-		where restime = #{restime} and resdate = #{resdate}
-	</select>
+		 where  lo_no = #{lo_no} and  resDate = #{resDate} and resTime = #{resTime}  
+	
+		</select>
 
 
 	<insert id="noCount"

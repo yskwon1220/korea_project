@@ -32,7 +32,7 @@ public interface ResMapper {
 	//단일테이블 ( 회원한명의 예약)
 	
 	
-	int selectCount();
+	int selectCount(ResTimeVO timevo);
 	//select count(*)  from RESTIME where restime = #{restime} and resdate = #{resdate}
 	
 	
