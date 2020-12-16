@@ -17,6 +17,7 @@ import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
 import com.korea.health.user.model.Location.LocationVO;
+import com.korea.health.user.model.Reservation.ResPageInfo;
 import com.korea.health.user.model.Reservation.ResTimeVO;
 import com.korea.health.user.model.Reservation.ReservationVO;
 import com.korea.health.user.model.Trainer.TrainerVO;
@@ -43,6 +44,7 @@ public class ResController {
 			LocationVO lovo, 
 			TrainerVO tvo,
 			ResTimeVO timevo,
+			ResPageInfo resInfoVO,
 			//HttpSession ses, 
 			HttpServletRequest req,
 //			Model mm,
@@ -59,6 +61,7 @@ public class ResController {
 		map.put("lovo", lovo);
 		map.put("tvo", tvo);
 		map.put("timevo", timevo);
+		map.put("resInfoVO", resInfoVO); 
 		
 		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
 

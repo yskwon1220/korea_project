@@ -65,49 +65,49 @@
 
 							</thead>
 							<tbody>
-								<c:set var="rvo" value="${data }" />
+								<c:set var="sm" value="${data }" />
 								<tr>
 									<td>예약번호</td>
-									<td>${rvo.re_no }</td>
+									<td>${sm.re_no }</td>
 								</tr>
 								<tr>
 									<td>지점명</td>
-									<td>${rvo.lo_name }</td>
+									<td>${sm.lo_name }</td>
 								</tr>
 								<tr>
 									<td>트레이너</td>
-									<td>${rvo.tr_name } 강사</td>
+									<td>${sm.tr_name } 강사</td>
 								</tr>
 								<tr>
 									<td>선택</td>
-									<td>${rvo.type }</td>
+									<td>${sm.type }</td>
 								</tr>
 
 								<tr>
 									<td>예약 날짜</td>
-									<td><fmt:formatDate value="${rvo.resdate }"
+									<td><fmt:formatDate value="${sm.resdate }"
 											pattern="yyyy-MM-dd (E)" /></td>
 								</tr>
 								<tr>
 									<td>예약 시간</td>
-									<td>${rvo.resTime }:00</td>
+									<td>${sm.resTime }:00</td>
 								</tr>
 								<tr>
 									<td>성함</td>
-									<td>${rvo.user_name}</td>
+									<td>${sm.user_name}</td>
 								</tr>
 								<tr>
 									<td>연락처</td>
-									<td>${rvo.user_tel }</td>
+									<td>${sm.user_tel }</td>
 								</tr>
 								<tr>
 									<td>내용</td>
-									<td>${rvo.content }</td>
+									<td>${sm.content }</td>
 								</tr>
 							</tbody>
 						</table>
 <br><br>
-						<a href="deleteForm?re_no=${rvo.re_no}&user_name=${rvo.user_name}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}">예약취소</a>
+						<a href="deleteForm?re_no=${sm.re_no}&user_name=${sm.user_name}&resdate=<fmt:formatDate value='${sm.resdate}' pattern="yyyy_M_d" />&resTime=${sm.resTime}">예약취소</a>
 							
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" value="되돌아가기"

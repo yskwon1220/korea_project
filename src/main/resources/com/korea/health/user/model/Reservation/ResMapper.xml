@@ -10,7 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reservation
 	</select>
 
-
+	
+			
+	<select id="MyResList" 
+	resultType="com.korea.health.user.model.Reservation.ReservationVO" 
+	parameterType="java.lang.String"> 
+		 select * from reservation where user_name = #{user_name} 
+	</select>
+	
+	
 	<insert id="insert" 
 		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
 
@@ -44,15 +52,6 @@ INSERT INTO TABLE_NAME(
 		ORDER BY	restime
 	</select>
 	
-		
-	<select id="MyResList" resultType="com.korea.health.user.model.Reservation.ReservationVO" parameterType="java.lang.String"> 
-		 select * from reservation where user_name = #{user_name} order by resdate DESC
-	</select>
-	
-	
-	<select id="MyDetailList" resultType="com.korea.health.user.model.Reservation.ReservationVO" parameterType="java.lang.String"> 
-		 select * from reservation where re_no = #{re_no}
-	</select>
 
 
 	<delete id = "delete"  parameterType="com.korea.health.user.model.Reservation.ReservationVO">
@@ -95,6 +94,43 @@ INSERT INTO TABLE_NAME(
 		where lo_no = #{lo_no,jdbcType=VARCHAR} and resDate = #{resDate,jdbcType=DATE} and resTime = #{resTime,jdbcType=VARCHAR}
         ]]>
 	</update>
+	
+	<!-- 페이징을 하기 위한  -->
+	<select id="PagingList" 
+	resultType="com.korea.health.user.model.Reservation.ReservationVO" 
+	parameterType="com.korea.health.user.model.Reservation.ResPageInfo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* 
+			from (select * from reservation order by re_no DESC) t1) 
+			where rnum >= #{start} and rnum <= #{end}
+		]]>
+	</select>
+	
+	<select id="totalCnt" resultType="java.lang.Integer" >
+		select count(*) from reservation
+	</select>
+	
+
+	<select id="MyDetailList" 
+	resultType="com.korea.health.user.model.Reservation.ReservationVO" 
+	parameterType="java.lang.Integer"> 
+	<!-- String이엿음원래 임시로바꾸기 -->
+		 SELECT 
+		 
+		 LO_NAME as lo_name, 
+		 TYPE as type, 
+		 TR_NAME as tr_name, 
+		 RESDATE as resdate, 
+		 RESTIME as restime, 
+		 USER_NAME as user_name, 
+		 USER_TEL as user_tel, 
+		 CONTENT as content
+		 
+		 FROM RESERVATION
+		 
+		 WHERE  RE_NO = #{re_no}
+	</select>
+	
 
 </mapper>
 

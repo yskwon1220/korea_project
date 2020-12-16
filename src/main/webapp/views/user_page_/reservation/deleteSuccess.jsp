@@ -56,7 +56,9 @@
 				<div class="row">
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
-						<form action="myResList" method="post">
+					<%-- 	<form action="myResList" method="post"> --%>
+					
+						<form action="resPagingList" method="post">
 							<input type=hidden name="user_name" value="${param.user_name}">
 
 							<input type="submit" value="예약 목록으로">

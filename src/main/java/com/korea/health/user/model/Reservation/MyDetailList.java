@@ -20,11 +20,13 @@ public class MyDetailList implements Action {
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
-		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		//ResTimeVO timevo = (ResTimeVO)map.get("timevo");
 		
+		rvo.setRe_no(Integer.parseInt(req.getParameter("re_no")));
+		req.setAttribute("re_no",Integer.parseInt(req.getParameter("re_no")));
 
 		/*
-		 * rvo.setRe_no((String)req.getParameter("re_no"));
+		 * 
 		 * rvo.setLo_name((String)req.getParameter("lo_name"));
 		 * 
 		 * System.out.println((String)req.getParameter("re_no") + rvo.re_no +
@@ -34,8 +36,9 @@ public class MyDetailList implements Action {
 		//System.out.println("계세요?"+ req.getParameter("resdate"));
 		
 		
+		mapper.MyDetailList(rvo.re_no);
+		return null;
 		
-		return mapper.MyDetailList(rvo.re_no);
 
 	}
 

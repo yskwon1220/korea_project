@@ -9,7 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Alias("reservationVO")
 public class ReservationVO {
 
-	 String re_no, lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
+	 String lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
 	@DateTimeFormat(pattern = "yyyy_M_d")
 	 java.util.Date resdate;
 	//
@@ -18,13 +18,15 @@ public class ReservationVO {
 	//SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
 	
 
+	Integer re_no;
 	
-	public String getRe_no() {
+	
+
+	public Integer getRe_no() {
 		return re_no;
 	}
 
-
-	public void setRe_no(String re_no) {
+	public void setRe_no(Integer re_no) {
 		this.re_no = re_no;
 	}
 
