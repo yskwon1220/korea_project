@@ -46,7 +46,7 @@ INSERT INTO TABLE_NAME(
 	
 		
 	<select id="MyResList" resultType="com.korea.health.user.model.Reservation.ReservationVO" parameterType="java.lang.String"> 
-		 select * from reservation where user_name = #{user_name}
+		 select * from reservation where user_name = #{user_name} order by resdate DESC
 	</select>
 	
 	

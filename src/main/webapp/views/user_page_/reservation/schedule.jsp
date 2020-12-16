@@ -41,7 +41,7 @@
 
 	<div id="fh5co-page">
 
-		<div id="fh5co-pricing-section2">
+		<div id="fh5co-pricing-section">
 			<div class="container">
 
 
@@ -88,7 +88,7 @@
 					</div>
 				</div>
 
-				<div class="row">
+				<div class="row" style="margin-bottom:30px;">
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
@@ -161,14 +161,12 @@
 										<td><button id="button">21:00</button></td>
 										<td>예약가능</td>
 										<td id="time_21">/ 30</td>
-										<td><input id="hidden_real" type="hidden" name="resdate">
-										</td>
-									</tr>
-									<tr>
-										<td><input type="submit" value="전송"></td>
+
 									</tr>
 								</tbody>
 							</table>
+										<input id="hidden_real" type="hidden" name="resdate">
+										<input type="submit" value="다음">
 
 						</form>
 					</div>

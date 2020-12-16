@@ -86,21 +86,28 @@
 							<input type="hidden" name="user_name" value="${param.user_name}" />
 							<%-- <input type="text" value="${user_name}" /> --%>
 							<input type="hidden" name="re_no" value="${param.re_no }" /> <input
-								type="text" name="resdate" value="${param.resdate}"> <input
-								type="text" name="resTime" value="${param.resTime}">
+								type="hidden" name="resdate" value="${param.resdate}"> <input
+								type="hidden" name="resTime" value="${param.resTime}">
 
-							<table>
-								<tr>
-									<td>암호</td>
-									<td><input type="password" name="user_pw" /></td>
-								</tr>
+							<table class="type07">
+								<thead>
+									<tr>
 
-								<tr>
-									<td colspan="2" align="right"><input type="submit"
-										value="예약취소하기"> <input type="button" value="되돌아가기"
-										onclick="location.href='javascript:history.back()'"></td>
-								</tr>
+										<th colspan="2"></th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="2">비밀번호&nbsp;:&nbsp;&nbsp;<input type="password" name="user_pw" /></td>
+
+									</tr>
+
+								</tbody>
 							</table>
+							<input type="submit" value="예약취소하기"> &nbsp;&nbsp; <input
+								type="button" value="되돌아가기"
+								onclick="location.href='javascript:history.back()'">
 						</form>
 
 					</div>

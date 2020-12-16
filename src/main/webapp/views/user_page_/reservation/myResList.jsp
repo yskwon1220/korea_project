@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -57,34 +56,29 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 						<table class="type08">
 
-
 							<thead>
 								<tr>
-									<td>예약번호</td>
-									<td>예약지점</td>
-									<td>예약날짜</td>
-									<td>상세보기</td>
+									<th>예약번호</th>
+									<th>예약지점</th>
+									<th>예약날짜</th>
+									<th>상세보기</th>
 								</tr>
 							</thead>
-								<tbody>
-
-							<c:forEach items="${data }" var="vo" varStatus="no">
-
+							<tbody>
+								<c:forEach items="${data }" var="vo" varStatus="no">
 									<tr>
 										<td>${vo.re_no }</td>
 										<td>${vo.lo_name }</td>
-										<td><fmt:formatDate value="${vo.resdate }" pattern="yy-MM-dd (E)"/></td>
+										<td><fmt:formatDate value="${vo.resdate }"
+												pattern="yy-MM-dd (E)" /></td>
 										<td><a href="myDetailList?re_no=${vo.re_no}">클릭</a></td>
 									</tr>
-							</c:forEach>
+								</c:forEach>
 
-									<tr>
-										<td colspan="3" align="right"><a
-											href="../location/locationlist">새 예약 하러가기</a></td>
-									</tr>
-
-								</tbody>
+							</tbody>
 						</table>
+						<br><br>
+						<a href="../location/locationlist">새 예약 하러가기</a>
 					</div>
 				</div>
 

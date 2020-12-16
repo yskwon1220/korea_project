@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"  errorPage="error.jsp"%>
+	pageEncoding="UTF-8" errorPage="error.jsp"%>
 <%-- <%@ page contentType="text/html;charset=UTF-8" errorPage="error.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -60,7 +60,7 @@
 							<thead>
 
 								<tr>
-									<th colspan="2" height="100">예약정보</th>
+									<th colspan="2" style="height:75px;" >예약정보</th>
 								</tr>
 
 							</thead>
@@ -76,7 +76,7 @@
 								</tr>
 								<tr>
 									<td>트레이너</td>
-									<td>${rvo.tr_name }</td>
+									<td>${rvo.tr_name } 강사</td>
 								</tr>
 								<tr>
 									<td>선택</td>
@@ -104,24 +104,14 @@
 									<td>내용</td>
 									<td>${rvo.content }</td>
 								</tr>
-								<tr>
-									<td colspan="2" align="right"><a
-										href="deleteForm?
-										re_no=${rvo.re_no}
-										&
-										user_name=${rvo.user_name}
-										&
-										resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />
-										&
-										resTime=${rvo.resTime}">삭제</a>
-
-										<input type="button" value="되돌아가기"
-										onclick="location.href='javascript:history.back()'"></td>
-								</tr>
-
 							</tbody>
 						</table>
-
+<br><br>
+						<a href="deleteForm?re_no=${rvo.re_no}&user_name=${rvo.user_name}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}">예약취소</a>
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" value="되돌아가기"
+							onclick="location.href='javascript:history.back()'">
 
 
 					</div>

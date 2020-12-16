@@ -11,6 +11,11 @@ input[type=submit], input[type=reset] {
   
 }
 
+input[type=password] {
+	width:200px;
+	height:50px;
+}
+
 
 #inputbutton {
 background: #ec524b;
@@ -134,11 +139,11 @@ table.type08 {
 table.type08 thead th {
 	padding: 10px;
 	font-weight: bold;
-	vertical-align: top;
+	/* vertical-align: top; */
 	/*  color: #ec524b; */
 	border-bottom: 3px solid #ec524b;
 	text-align: center;
-	height:150px;
+	/* height:150px; */
 }
 
 table.type08 tbody th {
@@ -153,8 +158,45 @@ table.type08 tbody th {
 table.type08 td {
 	 width: 600px; 
 	padding: 10px;
+	/* vertical-align: top; */
+	border-bottom: 1px solid #ccc;
+	height:60px;
+}
+table.type07 {
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 1.5;
+	text-align: center; 
+	margin: auto;
+	 height: 200px; 
+	}
+
+
+table.type07 thead th {
+	padding: 10px;
+	font-weight: bold;
+	/* vertical-align: top; */
+	/*  color: #ec524b; */
+	border-bottom: 3px solid #ec524b;
+	text-align: center;
+	/* height:150px; */
+}
+
+table.type07 tbody th {
+	width: 250px;
+	padding: 10px;
+	font-weight: bold;
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
+	background: #f3f6f7;
+}
+
+table.type07 td {
+	 width: 600px; 
+	padding: 10px;
+	/* vertical-align: top; */
+	border-bottom: 1px solid #ccc;
+	height:60px;
 }
 
 body {
