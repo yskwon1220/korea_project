@@ -52,7 +52,7 @@
 						<br>
 						<br>
 						<form action = "myResList" method="post">
-						<input type="hidden" name="user_name" value="${user_name}">
+						<input type="text" name="user_name" value="${user_name}">
 						<input type="submit" value="마이페이지">
 						</form>
 					</div>

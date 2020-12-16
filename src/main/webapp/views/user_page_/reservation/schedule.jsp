@@ -161,7 +161,7 @@
 										<td><button id="button">21:00</button></td>
 										<td>예약가능</td>
 										<td id="time_21">/ 30</td>
-										<td><input id="hidden_real" type="text" name="resdate">
+										<td><input id="hidden_real" type="hidden" name="resdate">
 										</td>
 									</tr>
 									<tr>
@@ -236,12 +236,7 @@
 										$("#time_" + i).html(
 												data[i].nowCnt + " / 30")
 									}
-							/* 		for(var index = 0; index < data.length - 1; index++) {
-										console.log(index, data[index]);
 
-										$("#time_" + index).html(
-												data[index].nowCnt + " / 30");
-									} */
 								},
 
 								error : function(e) { ///실패 리스너
