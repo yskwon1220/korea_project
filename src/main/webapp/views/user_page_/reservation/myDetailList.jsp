@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+	pageEncoding="UTF-8"  errorPage="error.jsp"%>
+<%-- <%@ page contentType="text/html;charset=UTF-8" errorPage="error.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -82,23 +82,19 @@
 									<td>선택</td>
 									<td>${rvo.type }</td>
 								</tr>
-								<%-- <tr>
-									<td>작성일</td>
-									<td><fmt:formatDate value="${vo.regdate }"
-											pattern="yy-MM-dd (E) HH:mm:ss" /></td>
-								</tr> --%>
+
 								<tr>
 									<td>예약 날짜</td>
 									<td><fmt:formatDate value="${rvo.resdate }"
-											pattern="yy-MM-dd (E)" /></td>
+											pattern="yyyy-MM-dd (E)" /></td>
 								</tr>
 								<tr>
 									<td>예약 시간</td>
-									<td>${rvo.resTime }</td>
+									<td>${rvo.resTime }:00</td>
 								</tr>
 								<tr>
 									<td>성함</td>
-									<td>${rvo.user_name }</td>
+									<td>${rvo.user_name}</td>
 								</tr>
 								<tr>
 									<td>연락처</td>
@@ -110,7 +106,14 @@
 								</tr>
 								<tr>
 									<td colspan="2" align="right"><a
-										href="deleteForm?re_no=${rvo.re_no}&user_name=${rvo.user_name}">삭제</a>
+										href="deleteForm?
+										re_no=${rvo.re_no}
+										&
+										user_name=${rvo.user_name}
+										&
+										resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />
+										&
+										resTime=${rvo.resTime}">삭제</a>
 
 										<input type="button" value="되돌아가기"
 										onclick="location.href='javascript:history.back()'"></td>

@@ -56,7 +56,6 @@ INSERT INTO TABLE_NAME(
 
 
 	<delete id = "delete"  parameterType="com.korea.health.user.model.Reservation.ReservationVO">
-	 	<!-- delete from reservation where re_no = #{re_no} and user_pw = #{user_pw}   -->
 	 delete from reservation where re_no = #{re_no} and user_pw = #{user_pw}
 	</delete>
 	
@@ -83,7 +82,17 @@ INSERT INTO TABLE_NAME(
 
 	<update id="addCount" parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 		<![CDATA[
-		update RESTIME set nowCnt = nowCnt + 1 where lo_no = #{lo_no} and resDate = #{resDate} and resTime = #{resTime}
+		update RESTIME 
+		set nowCnt = nowCnt + 1 
+		where lo_no = #{lo_no} and resDate = #{resDate} and resTime = #{resTime}
+        ]]>
+	</update>
+	
+	<update id="MinusCount" parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
+		<![CDATA[
+		update RESTIME 
+		set nowCnt = nowCnt - 1 
+		where lo_no = #{lo_no,jdbcType=VARCHAR} and resDate = #{resDate,jdbcType=DATE} and resTime = #{resTime,jdbcType=VARCHAR}
         ]]>
 	</update>
 

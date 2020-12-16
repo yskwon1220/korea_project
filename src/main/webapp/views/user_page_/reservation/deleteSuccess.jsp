@@ -57,7 +57,8 @@
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 						<form action="myResList" method="post">
-							<input type="hidden" name="user_name" value="${param.user_name}">
+							<input type=hidden name="user_name" value="${param.user_name}">
+
 							<input type="submit" value="다시 리스트로">
 						</form>
 					</div>

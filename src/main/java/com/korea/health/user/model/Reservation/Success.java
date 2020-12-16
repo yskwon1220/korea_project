@@ -38,11 +38,13 @@ public class Success implements Action{
 
 			ResTimeVO timevo = (ResTimeVO)map.get("timevo");
 			timevo.setResTime(req.getParameter("resTime"));
+			
 			resdate = sdf.parse(resdateStr);
 			timevo.setResDate(resdate);
 			
 			
 			int cnt = mapper.selectCount(timevo);
+			//count(*) 갯수가 0이다 
 			
 			if(cnt != 0 ) {
 				System.out.println("이것은?:"+cnt);

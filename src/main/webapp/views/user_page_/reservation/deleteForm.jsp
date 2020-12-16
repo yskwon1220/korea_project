@@ -85,7 +85,10 @@
 							<input type="text" value="${rvo.user_name}" /> 안됌 --%>
 							<input type="hidden" name="user_name" value="${param.user_name}" />
 							<%-- <input type="text" value="${user_name}" /> --%>
-							<input type="hidden" name="re_no" value="${param.re_no }" />
+							<input type="hidden" name="re_no" value="${param.re_no }" /> <input
+								type="text" name="resdate" value="${param.resdate}"> <input
+								type="text" name="resTime" value="${param.resTime}">
+
 							<table>
 								<tr>
 									<td>암호</td>
@@ -93,10 +96,8 @@
 								</tr>
 
 								<tr>
-									<td colspan="2" align="right">
-									<input type="submit" value="예약취소하기">
-									 <input type="button"
-										value="되돌아가기"
+									<td colspan="2" align="right"><input type="submit"
+										value="예약취소하기"> <input type="button" value="되돌아가기"
 										onclick="location.href='javascript:history.back()'"></td>
 								</tr>
 							</table>

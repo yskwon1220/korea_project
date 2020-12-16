@@ -63,7 +63,6 @@ public class ResController {
 		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
 
 		Object res = action.execute(map, req);
-		System.out.println(res);
 		return res;
 	}
 	
