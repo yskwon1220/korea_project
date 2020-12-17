@@ -51,7 +51,7 @@
 						<p>예약 현황은 마이페이지에서 확인할 수 있습니다.</p>
 						<br>
 						<br>
-						<form action = "myResList" method="post">
+						<form action = "resPagingList" method="post">
 						<input type="hidden" name="user_name" value="${user_name}">
 						<input type="submit" value="마이페이지">
 						</form>

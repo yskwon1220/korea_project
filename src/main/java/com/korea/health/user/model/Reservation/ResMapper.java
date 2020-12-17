@@ -57,7 +57,7 @@ public interface ResMapper {
 	
 	Integer totalCnt();
 
-	List<ReservationVO> MyDetailList2(int re_no);
+	ReservationVO MyDetailList2(int re_no);
 	//toomany떠서 새로 만듬..
 	
 	

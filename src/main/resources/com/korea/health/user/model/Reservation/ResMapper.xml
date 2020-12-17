@@ -112,7 +112,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.korea.health.user.model.Reservation.ResPageInfo">
 		<![CDATA[
 			select * from (select rownum rnum, t1.* 
-			from (select * from reservation order by re_no DESC) t1) 
+			from (select * from reservation where user_name=#{user_name} 
+			order by re_no DESC) t1) 
 			where rnum >= #{start} and rnum <= #{end}
 		]]>
 	</select>
@@ -122,28 +123,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		count(*) from reservation
 	</select>
 
-<!-- 
+ 
 	<select id="MyDetailList2"
-		resultType="Map"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO"
 		parameterType="java.lang.Integer">
-		String이엿음원래 임시로바꾸기
+		<!-- String이엿음원래 임시로바꾸기 -->
 		SELECT
-		LO_NAME as lo_name,
-		TYPE as type,
-		TR_NAME as tr_name,
-		RESDATE as resdate,
-		RESTIME as restime,
+		LO_NAME,
+		TYPE,
+		TR_NAME,
+		RESDATE,
+		RESTIME,
 		USER_NAME as user_name,
 		USER_TEL as user_tel,
 		CONTENT as content
-		
-		*
 
 		FROM RESERVATION
 
-		WHERE RE_NO = #{re_no}
+		WHERE RE_NO = #{re_no} 
 	</select>
- -->
+
 
 </mapper>
 
