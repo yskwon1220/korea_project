@@ -47,8 +47,8 @@ public class ProviderController {
 				@RequestParam(required = false, defaultValue = "1") int page,
 				@RequestParam(required = false, defaultValue = "1") int range,
 				Pagenation pageCtl,
-				ReservationVO reservationVO,
-				ReservationTimeVO reservationTimeVO,
+				ReservationVO rvo,
+				ReservationTimeVO timevo,
 				HttpServletRequest request
 			) {
 		
@@ -63,8 +63,8 @@ public class ProviderController {
 		map.put("pageCtl", pageCtl);
 		map.put("page", page);
 		map.put("range", range);
-		map.put("reservVO", reservationVO);
-		map.put("reservTimeVO", reservationTimeVO);
+		map.put("rvo", rvo);
+		map.put("timevo", timevo);
 		
 		Object res = action.execute(map, request);		// 해당 action의 execute를 실행하여 db들렸다가 반환되는 걸 담아옴 
 		

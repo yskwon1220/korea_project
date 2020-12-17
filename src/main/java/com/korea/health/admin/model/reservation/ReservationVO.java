@@ -7,7 +7,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("reservationVO")
 public class ReservationVO {
-	Integer re_no = 0;
+	Integer re_no;
 	String lo_no;
 	String lo_name;
 	String type;

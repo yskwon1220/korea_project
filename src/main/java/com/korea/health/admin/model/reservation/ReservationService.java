@@ -19,8 +19,8 @@ public class ReservationService implements Action{
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
 		
-		BranchVO bvo = (BranchVO)map.get("brVO");
-		ReservationVO rvo = (ReservationVO)map.get("reservVo");
+		//BranchVO bvo = (BranchVO)map.get("brVO");
+		ReservationVO rvo = (ReservationVO)map.get("rvo");
 
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
 
@@ -49,8 +49,18 @@ public class ReservationService implements Action{
 			
 		case "detail":
 			System.out.println("switch case : detail에 들어왔다.");
-			int re_no = rvo.getRe_no();
-			return mapper.reservationDetail(re_no);
+			//System.out.println("너계쎄요?"+Integer.parseInt(request.getParameter("re_no")));
+			//System.out.println("너계쎄요?"+request.getParameter("lo_name"));
+			request.setAttribute("re_no", Integer.parseInt(request.getParameter("re_no")));
+			//request.setAttribute("lo_name", request.getParameter("lo_name"));
+			int re_no = Integer.parseInt(request.getParameter("re_no"));
+			
+			rvo.setRe_no(re_no);
+			//rvo.getRe_no();
+			//System.out.println("너계쎄요?"+re_no);
+			//System.out.println("너계쎄요?"+lo_name);
+			//return mapper.reservationDetail(rvo.getRe_no());
+			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
 			
 		case "delete":
 			System.out.println("switch case : delete에 들어왔다.");
