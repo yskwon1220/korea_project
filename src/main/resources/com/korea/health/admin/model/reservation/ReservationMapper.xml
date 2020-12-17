@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.reservation.ReservationMapper">
+	
+	<select id="branchList" resultType="com.korea.health.admin.model.branch.BranchVO">
+		SELECT * FROM LOCATION
+	</select>
+
+	<select id="reservationList" resultType="com.korea.health.admin.model.reservation.ReservationVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from reservation WHERE lo_no = #{locationNo}
+         order by re_no desc) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	
+	<select id="reservationDetail" resultType="com.korea.health.admin.model.reservation.ReservationVO"
+		parameterType="java.lang.Integer">
+		SELECT * FROM reservation WHERE re_NO = #{re_no}
+	</select>
+	
+	<insert id="reservationInsert" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+		<selectKey keyProperty="re_no" resultType="java.lang.Integer" order="BEFORE">
+			select max(re_no)+1 from reservation
+		</selectKey>
+		insert into reservation (re_no, lo_no, lo_name, type, tr_name, resdate, restime, user_name, user_pw, user_tel, content)
+		values
+		(#{re_no}, #{lo_no}, #{lo_name}, #{type}, #{tr_name}, #{resdate}, #{restime}, #{user_name}, #{user_pw}, #{user_tel}, #{content})
+	</insert>
+	
+	<delete id="reservationDelete" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+		delete from reservation where re_no = #{re_no}
+	</delete>
+	
+	<update id="newNum" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+	<![CDATA[
+		update reservation set re_no = re_no - 1 where #{re_no} < re_no
+	]]>
+	</update>
+	
+	<select id="totalCnt" resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT COUNT(*) FROM reservation where lo_no = #{lo_no}
+	</select>
+	
+</mapper>
