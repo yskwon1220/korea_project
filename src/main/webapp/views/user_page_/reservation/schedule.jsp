@@ -112,49 +112,49 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td><input type="radio" name="resTime" value="05" /></td>
+										<td><input id ="rad_5" type="radio" name="resTime" value="05" /></td>
 										<td><button id="button">05:00</button></td>
 												<td  id="res_5">예약가능</td>
 											<td id="time_5">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="07" /></td>
+										<td><input id ="rad_7" type="radio" name="resTime" value="07" /></td>
 										<td><button id="button">07:00</button></td>
 										<td id="res_7">예약가능</td>
 										<td id="time_7">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="09" /></td>
+										<td><input id ="rad_9" type="radio" name="resTime" value="09" /></td>
 										<td><button id="button">09:00</button></td>
 										<td id="res_9">예약가능</td>
 										<td id="time_9">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="11" /></td>
+										<td><input id ="rad_11" type="radio" name="resTime" value="11" /></td>
 										<td><button id="button">11:00</button></td>
 										<td id="res_11">예약가능</td>
 										<td id="time_11">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="15" /></td>
+										<td><input id ="rad_15" type="radio" name="resTime" value="15" /></td>
 										<td><button id="button">15:00</button></td>
 										<td id="res_15">예약가능</td>
 										<td id="time_15">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="17" /></td>
+										<td><input id ="rad_17" type="radio" name="resTime" value="17" /></td>
 										<td><button id="button">17:00</button></td>
 										<td id="res_17">예약가능</td>
 										<td id="time_17">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="19" /></td>
+										<td><input id ="rad_19" type="radio" name="resTime" value="19" /></td>
 										<td><button id="button">19:00</button></td>
 										<td id="res_19">예약가능</td>
 										<td id="time_19">/ 30</td>
 									</tr>
 									<tr>
-										<td><input type="radio" name="resTime" value="21" /></td>
+										<td><input id ="rad_19" type="radio" name="resTime" value="21" /></td>
 										<td><button id="button">21:00</button></td>
 										<td id="res_21">예약가능</td>
 										<td id="time_21">/ 30</td>
@@ -173,6 +173,8 @@
 
 
 			<script>
+
+				var ajaxGoFirst = true;
 				var dt = new Date();
 				function renderDate() {
 					dt.setDate(1);
@@ -180,10 +182,12 @@
 					var today = new Date();
 					var endDate = new Date(dt.getFullYear(), dt.getMonth() + 1,0).getDate();
 
-					//console.log("'" + today.getFullYear() + "_"+ (today.getMonth() + 1) + "_" + today.getDate() + "'")
-					//resAjaxGo("'" + today.getFullYear() + "_"+ (today.getMonth() + 1) + "_" + today.getDate() + "'") 
-					//resAjaxGo("' + today.getFullYear() + "_"+ (today.getMonth() + 1) + "_" + today.getDate() + '") 
-					
+					if(!ajaxGoFirst){
+						resAjaxGo( dt.getFullYear() + "_"+ (dt.getMonth() + 1) + "_" + dt.getDate() ) 
+						
+					}
+
+					ajaxGoFirst = false
 
 					var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
 					var months = [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
@@ -197,13 +201,16 @@
 					for (i = 1; i <= endDate; i++) {
 
 						var ee = "'" + dt.getFullYear() + "_"+ (dt.getMonth() + 1) + "_" + i + "'"
+
 						if (i == today.getDate()&& dt.getMonth() == today.getMonth())
 							cells += "<div class='today' onclick=resAjaxGo("+ ee + ")>" + i + "</div>";
 						else
 							cells += "<div onclick=resAjaxGo(" + ee + ")>" + i+ "</div>";
 					}
 					document.getElementsByClassName("days")[0].innerHTML = cells;
+
 				}
+
 
 				function resAjaxGo(dt) {
 					
@@ -211,22 +218,38 @@
 								url : '../../resAjax/reservation/timecnt?lo_no=${lo_no}&resDateStr='+ dt,
 								dataType : 'json',
 								success : function(data) {
+									
 									$("#hidden_real").val(data[5].resDate);
+									
 									for (i in data) {
-										//console.log(i, data[i])
+										console.log(i, data[i])
+										//콘솔에 데이터를 출력한다
+										
 										var ttt = "예약가능"
-											
-										if(data[i].nowCnt >=30) ttt = "예약불가"
+										// 변수 ttt를 초기화한다
 
+										if(data[i].nowCnt >=30) { 
+
+											ttt = "예약불가"
+										// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
+										
+										$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false)
+										// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
+
+										$("#rad_" + i).attr('disabled','true')
+										//input type radio 의 id가 rad_ i 인것을 비활성화한다.
+										}
+										
 										$("#res_" + i).html(ttt)
-
+										//div id가 res_i인 요소를 예약가능/예약 불가 로 표현한다
+										
 										$("#time_" + i).html(data[i].nowCnt + " / 30")
+										//div id가 time_i인 요소를 인원수로 표현한다
 									}
 								},
 
 								error : function(e) { 
 									alert(e.responseText);
-									//console.log(e);
 								}
 							});
 
@@ -242,6 +265,7 @@
 				}
 				
 			</script>
+			
 
 			<script
 				src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
@@ -257,12 +281,11 @@
 			<script
 				src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
 			<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
-			<script type="text/javascript">
-			//resAjaxGo("' + today.getFullYear() + "_"+ (today.getMonth() + 1) + "_" + today.getDate() + '") 
-			/* var nowDD = new Date()
 			
-			console.log("'" + nowDD.getFullYear() + "_"+ (nowDD.getMonth() + 1) + "_" + nowDD.getDate() + "'")
-			*/
+			<script type="text/javascript">
+				var nowDD = new Date()
+				var nowEE = nowDD.getFullYear() + "_"+ (nowDD.getMonth() + 1) + "_" + nowDD.getDate() ;
+				resAjaxGo(nowEE) 
 			</script>
 </body>
 </html>

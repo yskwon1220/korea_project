@@ -363,14 +363,22 @@ body {
 	color: #999;
 }
 
+/* 마우스 오늘날짜  */
 .today {
 	background-color: #ec524b;
 	color: #fff;
 }
 
+
+/* 마우스 올렸을 시  */
 .days div:hover {
 	cursor: pointer;
-	background-color: #dfe6e9
+	background-color: #dfe6e9;
+}
+
+.days div:visited {
+	/* cursor: pointer; */
+	background-color: #000000;
 }
 
 .prev, .next {
