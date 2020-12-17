@@ -26,16 +26,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM reservation WHERE re_NO = #{re_no}
 	</select>
 	
-	
-	
-	<insert id="reservationInsert" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
-		<selectKey keyProperty="re_no" resultType="java.lang.Integer" order="BEFORE">
-			select max(re_no)+1 from reservation
-		</selectKey>
-		insert into reservation (re_no, lo_no, lo_name, type, tr_name, resdate, restime, user_name, user_pw, user_tel, content)
+
+	<insert id="reservationInsert" 
+		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+
+
+		insert into reservation
+		(re_no, lo_no,
+		lo_name, type, tr_name,
+		restime, user_name, 
+		user_pw, user_tel, content)
+
 		values
-		(#{re_no}, #{lo_no}, #{lo_name}, #{type}, #{tr_name}, #{resdate}, #{restime}, #{user_name}, #{user_pw}, #{user_tel}, #{content})
+		
+		(re_noidx.nextval, #{lo_no},
+		#{lo_name}, #{type}, #{tr_name},
+		#{restime}, #{user_name}, 
+		#{user_pw}, #{user_tel}, #{content})
+
+
 	</insert>
+	
+	<update id="reservationModify"
+		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+		
+		UPDATE reservation SET 
+		
+		lo_no=#{lo_no},
+		
+		re_no=#{re_no},
+		
+		lo_name=#{lo_name}, 
+		
+		type=#{type},
+		
+		tr_name=#{tr_name}, 
+		
+		RESTIME=#{restime},
+		
+		user_name=#{user_name},
+		
+		user_pw=#{user_pw},
+		
+		user_tel=#{user_tel},
+		
+		content=#{content}
+		
+		WHERE re_no = #{re_no}
+		
+	</update>
+	
+	
 	
 	<delete id="reservationDelete" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
 		delete 

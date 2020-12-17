@@ -27,15 +27,11 @@ public class ReservationService implements Action{
 		
 		
 		
-		
-		
 		case "info":
 			System.out.println("switch case : info에 들어왔다.");
 			System.out.println(mapper.branchList());
 			return mapper.branchList();
 
-			
-			
 			
 			
 			
@@ -58,8 +54,6 @@ public class ReservationService implements Action{
 			
 			
 			
-			
-			
 		case "detail":
 			System.out.println("switch case : detail에 들어왔다.");
 			request.setAttribute("re_no", Integer.parseInt(request.getParameter("re_no")));
@@ -70,19 +64,18 @@ public class ReservationService implements Action{
 			
 			
 			
-			
 		case "delete":
 			System.out.println("switch case : delete에 들어왔다.");
 			
-			 re_no =  Integer.parseInt(request.getParameter("re_no"));
-			 rvo.setRe_no(re_no);
+			re_no =  Integer.parseInt(request.getParameter("re_no"));
+			rvo.setRe_no(re_no);
 			
 			
 			if(mapper.reservationDelete(rvo) == 0) {
 				return mapper.reservationDetail(re_no);
 			}
-
-			//뭔지몰라서 주석
+			
+			//뭔지몰라서 주석했는데 굳이안해도될거같아요 오빠 확인좀요
 			/*
 				mapper.newNum(rvo);
 				int listCnt2 = (int)mapper.totalCnt(lo_no2);
@@ -96,7 +89,58 @@ public class ReservationService implements Action{
 			pageCtl.setReservSet(mapper.reservationList(pageCtl));
 			
 			return pageCtl;
-			*/
+			 */
+			
+			
+			
+			
+		case "modifyForm":
+			System.out.println("switch case : modfifyForm에 들어왔다.");
+			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
+			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
+
+			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
+			
+			
+			
+			
+		case "modify":
+			System.out.println("switch case : modfify에 들어왔다.");
+			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
+			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
+
+			re_no =  Integer.parseInt(request.getParameter("re_no"));
+			rvo.setRe_no(re_no);
+
+			mapper.reservationModify(rvo);
+			//return mapper.reservationDetail(rvo.getRe_no());
+			return mapper.branchList();
+			
+			
+			
+		case "insertForm":
+			System.out.println("switch case : insertForm에 들어왔다.");
+			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
+			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
+			return null;
+
+
+			
+		case "insert":
+			System.out.println("switch case : insert에 들어왔다.");
+			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
+			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
+
+			mapper.reservationInsert(rvo);
+
+			//return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
+			return mapper.branchList();
+			
+			
+		default:
+			break;
+			
+			
 		}
 		return null;
 	}

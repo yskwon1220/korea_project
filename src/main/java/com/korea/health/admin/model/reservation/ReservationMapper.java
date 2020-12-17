@@ -9,7 +9,9 @@ import com.korea.health.service.Pagenation;
 
 @Mapper
 public interface ReservationMapper {
+	
 	Integer totalCnt(String lo_no);
+	Integer newNum(ReservationVO rvo);
 	//페이징 처리를 위한 것
 	
 	
@@ -22,15 +24,24 @@ public interface ReservationMapper {
 	//페이징 하기 위한 각 지점별 list
 	
 	
+	/* 완료 */
 	ReservationVO reservationDetail(int re_no);
 	//위 각 지점 리스트 중 디테일로 감
 	
-	Integer reservationInsert(ReservationVO rvo);
-	//응 삽입
 	
+	/* 완료 */
 	Integer reservationDelete(ReservationVO rvo);
-	//응 삭제
 	
-	Integer newNum(ReservationVO rvo);
+	
+	
+	/* 완료 */
+	Integer reservationInsert(ReservationVO rvo);
+	
+	//Integer엿는데 void로바꿔보자
+	Integer reservationModify(ReservationVO rvo);
+	
+	
+	
+	
 	
 }
