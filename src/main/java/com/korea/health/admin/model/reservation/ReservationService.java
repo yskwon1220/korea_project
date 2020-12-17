@@ -21,16 +21,24 @@ public class ReservationService implements Action{
 		
 		//BranchVO bvo = (BranchVO)map.get("brVO");
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
-
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
-
 		
 		switch ((String)map.get("service")) {
+		
+		
+		
+		
+		
 		case "info":
 			System.out.println("switch case : info에 들어왔다.");
 			System.out.println(mapper.branchList());
 			return mapper.branchList();
 
+			
+			
+			
+			
+			
 		case "list":
 			String lo_no = request.getParameter("lo_no");
 			System.out.println("lo_no : " + lo_no);
@@ -47,31 +55,35 @@ public class ReservationService implements Action{
 			
 			return pageCtl;
 			
+			
+			
+			
+			
+			
 		case "detail":
 			System.out.println("switch case : detail에 들어왔다.");
-			//System.out.println("너계쎄요?"+Integer.parseInt(request.getParameter("re_no")));
-			//System.out.println("너계쎄요?"+request.getParameter("lo_name"));
 			request.setAttribute("re_no", Integer.parseInt(request.getParameter("re_no")));
-			//request.setAttribute("lo_name", request.getParameter("lo_name"));
 			int re_no = Integer.parseInt(request.getParameter("re_no"));
-			
 			rvo.setRe_no(re_no);
-			//rvo.getRe_no();
-			//System.out.println("너계쎄요?"+re_no);
-			//System.out.println("너계쎄요?"+lo_name);
-			//return mapper.reservationDetail(rvo.getRe_no());
 			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
+			
+			
+			
+			
 			
 		case "delete":
 			System.out.println("switch case : delete에 들어왔다.");
 			
-			String lo_no2 = request.getParameter("lo_no");
-			re_no = rvo.getRe_no();
+			 re_no =  Integer.parseInt(request.getParameter("re_no"));
+			 rvo.setRe_no(re_no);
 			
-			int cnt = mapper.reservationDelete(rvo);
-			if (cnt == 0) {
+			
+			if(mapper.reservationDelete(rvo) == 0) {
 				return mapper.reservationDetail(re_no);
 			}
+
+			//뭔지몰라서 주석
+			/*
 				mapper.newNum(rvo);
 				int listCnt2 = (int)mapper.totalCnt(lo_no2);
 				int page2 = (int)map.get("page");
@@ -84,6 +96,7 @@ public class ReservationService implements Action{
 			pageCtl.setReservSet(mapper.reservationList(pageCtl));
 			
 			return pageCtl;
+			*/
 		}
 		return null;
 	}
