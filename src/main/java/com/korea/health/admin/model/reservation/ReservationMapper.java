@@ -37,11 +37,14 @@ public interface ReservationMapper {
 	/* 완료 */
 	Integer reservationInsert(ReservationVO rvo);
 	
-	//Integer엿는데 void로바꿔보자
+	/* 완료 */
 	Integer reservationModify(ReservationVO rvo);
+	//Integer엿는데 void로바꿔보자
 	
 	
+	/*검색을 위한것 */
+	List<ReservationVO> listAll(String keyField, String keyWord);
 	
-	
+
 	
 }

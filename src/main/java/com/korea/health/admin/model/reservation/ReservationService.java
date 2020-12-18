@@ -2,6 +2,7 @@ package com.korea.health.admin.model.reservation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -22,7 +23,7 @@ public class ReservationService implements Action{
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
 		
-		//BranchVO bvo = (BranchVO)map.get("brVO");
+		BranchVO bvo = (BranchVO)map.get("bvo");
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
 		
@@ -35,19 +36,35 @@ public class ReservationService implements Action{
 			
 			
 		case "list":
-			String lo_no = request.getParameter("lo_no");
-			System.out.println("lo_no : " + lo_no);
+			
 			System.out.println("switch case : list에 들어왔다.");
+			String lo_no = request.getParameter("lo_no");
+			rvo.setLo_no(lo_no);
+			
+			request.setAttribute("lo_no", lo_no);
+			System.out.println("너님 누구? lo_no : " + lo_no);
 			
 			int listCnt = (int)mapper.totalCnt(lo_no);
 			int page = (int)map.get("page");
 			int range = (int)map.get("range");
 			System.out.println("전체 컬럼 수 : " + listCnt);
+			
+			
+			//혜지가 추가한 검색 부분!!
+			String keyField = request.getParameter("keyField");
+			String keyWord = request.getParameter("keyWord");
+			
+			
 			pageCtl.pageInfo(page, range, listCnt);
 			pageCtl.setLocationNo(lo_no);
 			
-			pageCtl.setReservSet(mapper.reservationList(pageCtl));
-			
+			//혜지가 추가한 검색 부분!!
+			if(keyField !=null && keyWord !=null) {
+				pageCtl.setReservSet(mapper.listAll(keyField, keyWord));
+				
+			}else {
+				pageCtl.setReservSet(mapper.reservationList(pageCtl));
+			}
 			return pageCtl;
 			
 			

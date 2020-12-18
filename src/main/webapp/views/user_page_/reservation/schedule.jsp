@@ -202,10 +202,14 @@
 
 						var ee = "'" + dt.getFullYear() + "_"+ (dt.getMonth() + 1) + "_" + i + "'"
 
-						if (i == today.getDate()&& dt.getMonth() == today.getMonth())
+						if (i == today.getDate()&& dt.getMonth() == today.getMonth()){
 							cells += "<div class='today' onclick=resAjaxGo("+ ee + ")>" + i + "</div>";
-						else
+						}else{
 							cells += "<div onclick=resAjaxGo(" + ee + ")>" + i+ "</div>";
+						}
+
+						
+							
 					}
 					document.getElementsByClassName("days")[0].innerHTML = cells;
 
@@ -230,14 +234,14 @@
 
 										if(data[i].nowCnt >=30) { 
 
-											ttt = "예약불가"
-										// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
-										
-										$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false)
-										// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
-
-										$("#rad_" + i).attr('disabled','true')
-										//input type radio 의 id가 rad_ i 인것을 비활성화한다.
+													ttt = "예약불가"
+												// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
+												
+												$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false)
+												// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
+		
+												$("#rad_" + i).attr('disabled','true')
+												//input type radio 의 id가 rad_ i 인것을 비활성화한다.
 										}
 										
 										$("#res_" + i).html(ttt)
@@ -257,9 +261,11 @@
 
 				function moveDate(para) {
 					if (para == "prev") {
-						dt.setMonth(dt.getMonth() - 1);
+						alert("이전 달은 예약할 수 없습니다.");
+						//dt.setMonth(dt.getMonth() - 1);
 					} else if (para == 'next') {
-						dt.setMonth(dt.getMonth() + 1);
+						alert("다음 달은 예약할 수 없습니다.");
+						//dt.setMonth(dt.getMonth() + 1);
 					}
 					renderDate();
 				}
@@ -286,6 +292,24 @@
 				var nowDD = new Date()
 				var nowEE = nowDD.getFullYear() + "_"+ (nowDD.getMonth() + 1) + "_" + nowDD.getDate() ;
 				resAjaxGo(nowEE) 
-			</script>
+			</script> 
+			
+
+<script>
+$(".days").click(function() {
+    toggleClass(".active-color");
+});
+</script>
+
+<script>
+$('#days').on('click', function(){
+$(this).addClass('active');
+});
+</script>
+<script>
+$('#days').on('click', function(){
+$(this).addClass('visited');
+});
+</script>
 </body>
 </html>

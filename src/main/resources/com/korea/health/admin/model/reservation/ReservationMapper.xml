@@ -3,14 +3,26 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.korea.health.admin.model.reservation.ReservationMapper">
-	
-	<select id="branchList" resultType="com.korea.health.admin.model.branch.BranchVO">
+<mapper
+	namespace="com.korea.health.admin.model.reservation.ReservationMapper">
+
+	<select id="branchList"
+		resultType="com.korea.health.admin.model.branch.BranchVO">
 		SELECT * FROM LOCATION order by lo_no
 		<!-- order by lo_no 추가하였음 -->
 	</select>
 
-	<select id="reservationList" resultType="com.korea.health.admin.model.reservation.ReservationVO"
+	<select id="listAll"
+		resultType="com.korea.health.admin.model.reservation.ReservationVO">
+		select *
+		from reservation
+		where
+		${keyField} like '%' || #{keyWord} || '%'
+
+	</select>
+
+	<select id="reservationList"
+		resultType="com.korea.health.admin.model.reservation.ReservationVO"
 		parameterType="com.korea.health.service.Pagenation">
 				<![CDATA[
         select * from (select rownum rnum, t1.* 
@@ -18,73 +30,76 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          order by re_no desc) t1) 
          where rnum >= #{startList} and rnum <= #{endList}
          ]]>
-         <!-- 페이징 하기위한 sql문 오빠근데 이거 lo_no=이부분 lo_no여야하지않나여?-->
 	</select>
-	
-	<select id="reservationDetail" resultType="com.korea.health.admin.model.reservation.ReservationVO"
+
+	<select id="reservationDetail"
+		resultType="com.korea.health.admin.model.reservation.ReservationVO"
 		parameterType="java.lang.Integer">
 		SELECT * FROM reservation WHERE re_NO = #{re_no}
 	</select>
-	
 
-	<insert id="reservationInsert" 
+
+	<insert id="reservationInsert"
 		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
-
 
 		insert into reservation
 		(
 		re_no, lo_no,
-		lo_name, type, tr_name,
-		resdate, restime, user_name, 
+		lo_name, type,
+		tr_name,
+		resdate, restime, user_name,
 		user_pw, user_tel, content)
 
 		values
-		
+
 		(re_noidx.nextval, #{lo_no},
 		#{lo_name}, #{type}, #{tr_name},
-		#{resdate}, #{restime}, #{user_name}, 
+		#{resdate}, #{restime},
+		#{user_name},
 		#{user_pw}, #{user_tel}, #{content}
 		)
 
 	</insert>
-	
+
 	<update id="reservationModify"
 		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
-		
-		UPDATE reservation SET 
-		
+
+		UPDATE reservation SET
+
 		re_no=#{re_no},
 		lo_no=#{lo_no},
-		lo_name=#{lo_name}, 
+		lo_name=#{lo_name},
 		type=#{type},
-		tr_name=#{tr_name}, 
+		tr_name=#{tr_name},
 		RESTIME=#{restime},
 		user_name=#{user_name},
 		user_pw=#{user_pw},
 		user_tel=#{user_tel},
 		content=#{content}
-		
+
 		WHERE re_no = #{re_no}
-		
+
 	</update>
-	
-	
-	
-	<delete id="reservationDelete" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
-		delete 
-		from reservation 
+
+
+	<delete id="reservationDelete"
+		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+		delete
+		from reservation
 		where re_no = #{re_no}
 	</delete>
-	
-	
-	<update id="newNum" parameterType="com.korea.health.admin.model.reservation.ReservationVO">
+
+
+	<update id="newNum"
+		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
 	<![CDATA[
 		update reservation set re_no = re_no - 1 where #{re_no} < re_no
 	]]>
 	</update>
-	
-	<select id="totalCnt" resultType="java.lang.Integer" parameterType="java.lang.String">
+
+	<select id="totalCnt" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
 		SELECT COUNT(*) FROM reservation where lo_no = #{lo_no}
 	</select>
-	
+
 </mapper>
