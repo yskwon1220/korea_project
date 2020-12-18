@@ -1,5 +1,8 @@
 package com.korea.health.admin.model.reservation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
@@ -25,14 +28,10 @@ public class ReservationService implements Action{
 		
 		switch ((String)map.get("service")) {
 		
-		
-		
 		case "info":
 			System.out.println("switch case : info에 들어왔다.");
 			System.out.println(mapper.branchList());
 			return mapper.branchList();
-
-			
 			
 			
 		case "list":
@@ -53,14 +52,12 @@ public class ReservationService implements Action{
 			
 			
 			
-			
 		case "detail":
 			System.out.println("switch case : detail에 들어왔다.");
 			request.setAttribute("re_no", Integer.parseInt(request.getParameter("re_no")));
 			int re_no = Integer.parseInt(request.getParameter("re_no"));
 			rvo.setRe_no(re_no);
 			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
-			
 			
 			
 			
@@ -92,22 +89,15 @@ public class ReservationService implements Action{
 			 */
 			
 			
-			
-			
 		case "modifyForm":
 			System.out.println("switch case : modfifyForm에 들어왔다.");
-			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
-			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
 
 			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
 			
 			
 			
-			
 		case "modify":
 			System.out.println("switch case : modfify에 들어왔다.");
-			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
-			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
 
 			re_no =  Integer.parseInt(request.getParameter("re_no"));
 			rvo.setRe_no(re_no);
@@ -117,22 +107,27 @@ public class ReservationService implements Action{
 			return mapper.branchList();
 			
 			
-			
 		case "insertForm":
 			System.out.println("switch case : insertForm에 들어왔다.");
-			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
-			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
 			return null;
-
 
 			
 		case "insert":
 			System.out.println("switch case : insert에 들어왔다.");
-			System.out.println("lo_no있으세요?ㅋㅋ" + request.getParameter("lo_no"));
-			System.out.println("re_no있으세요?ㅋㅋ" + request.getParameter("re_no"));
-
-			mapper.reservationInsert(rvo);
-
+			
+			String resdateStr = request.getParameter("resdateStr");
+			System.out.println("너님 타입이 뭐세여..?" + request.getParameter("resdateStr").getClass().getName());
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date resdate;
+			try {
+				resdate = sdf.parse(resdateStr);
+				rvo.setResdate(resdate);
+				System.out.println("너님은 누구세여..?" + rvo.getResdate().getClass().getName());
+				mapper.reservationInsert(rvo);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 			//return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
 			return mapper.branchList();
 			

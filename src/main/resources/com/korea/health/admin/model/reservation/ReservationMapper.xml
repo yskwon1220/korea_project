@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          order by re_no desc) t1) 
          where rnum >= #{startList} and rnum <= #{endList}
          ]]>
-         <!-- 페이징 하기위한 sql문 -->
+         <!-- 페이징 하기위한 sql문 오빠근데 이거 lo_no=이부분 lo_no여야하지않나여?-->
 	</select>
 	
 	<select id="reservationDetail" resultType="com.korea.health.admin.model.reservation.ReservationVO"
@@ -32,18 +32,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 		insert into reservation
-		(re_no, lo_no,
+		(
+		re_no, lo_no,
 		lo_name, type, tr_name,
-		restime, user_name, 
+		resdate, restime, user_name, 
 		user_pw, user_tel, content)
 
 		values
 		
 		(re_noidx.nextval, #{lo_no},
 		#{lo_name}, #{type}, #{tr_name},
-		#{restime}, #{user_name}, 
-		#{user_pw}, #{user_tel}, #{content})
-
+		#{resdate}, #{restime}, #{user_name}, 
+		#{user_pw}, #{user_tel}, #{content}
+		)
 
 	</insert>
 	
@@ -52,24 +53,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		UPDATE reservation SET 
 		
-		lo_no=#{lo_no},
-		
 		re_no=#{re_no},
-		
+		lo_no=#{lo_no},
 		lo_name=#{lo_name}, 
-		
 		type=#{type},
-		
 		tr_name=#{tr_name}, 
-		
 		RESTIME=#{restime},
-		
 		user_name=#{user_name},
-		
 		user_pw=#{user_pw},
-		
 		user_tel=#{user_tel},
-		
 		content=#{content}
 		
 		WHERE re_no = #{re_no}

@@ -84,7 +84,7 @@
 							<tr>
 								<td class="align-middle">예약 일자</td>
 								<td class="align-middle"><input class="form-control"
-									type="text" id="regdate" name=""></td>
+									type="date" id="regdate" name="resdateStr"></td>
 							</tr>
 							<tr>
 								<td class="align-middle">예약 시간</td>

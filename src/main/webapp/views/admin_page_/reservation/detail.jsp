@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <h1 class="mt-4">지점 관리</h1>
 <ol>
@@ -31,7 +33,17 @@
 						</tr>
 						<tr>
 							<td class="align-middle">예약 날짜</td>
-							<td class="align-middle">${rvo.resdate}</td>
+							<td class="align-middle">${rvo.resdate}
+							
+							</td> 
+							<%--
+							이 싯파새끼는 왜안되고 지랄이냐 
+							<fmt:parseDate var="resdateString" value="${rvo.resdate}"  pattern="yyyy-MM-dd(E)" />
+							<fmt:formatDate value="resdateString" pattern="yyyy-MM-dd(E)" />
+							--%>
+							<%-- <td class="align-middle"></td>  --%>
+							
+							
 						</tr>
 						<tr>
 							<td class="align-middle">예약 시간</td>

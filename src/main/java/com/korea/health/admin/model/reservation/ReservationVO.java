@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Alias("reservationVO")
 public class ReservationVO {
@@ -12,15 +13,18 @@ public class ReservationVO {
 	String lo_name;
 	String type;
 	String tr_name;
+	
+	/* @DateTimeFormat(pattern = "yyyy_M_d") */
 	Date resdate;
+	
 	String restime;
 	String user_name;
 	String user_pw;
 	String user_tel;
 	String content;
 	
-	String welcomeDate;
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
+	String resdateStr;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
 	public Integer getRe_no() {
 		return re_no;
@@ -52,13 +56,32 @@ public class ReservationVO {
 	public void setTr_name(String tr_name) {
 		this.tr_name = tr_name;
 	}
+	
 	public Date getResdate() {
 		return resdate;
 	}
 	public void setResdate(Date resdate) {
-		welcomeDate = sdf.format(resdate);
+		resdateStr = sdf.format(resdate);
 		this.resdate = resdate;
 	}
+	
+	
+//	public java.util.Date getResdate() {
+//		return resdate;
+//	}
+//
+//	public void setResdate(java.util.Date resdate) {
+//		this.resdate = resdate;
+//	}
+	
+//	public String getResdate() {
+//		return resdate;
+//	}
+//	public void setResdate(String resdate) {
+//		this.resdate = resdate;
+//	}
+	
+	
 	public String getRestime() {
 		return restime;
 	}
@@ -95,10 +118,10 @@ public class ReservationVO {
 		this.content = content;
 	}
 	public String getWelcomeDate() {
-		return welcomeDate;
+		return resdateStr;
 	}
 	public void setWelcomeDate(String welcomeDate) {
-		this.welcomeDate = welcomeDate;
+		this.resdateStr = welcomeDate;
 	}
 	
 	
