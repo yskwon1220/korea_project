@@ -17,11 +17,11 @@ public class TrainerVO {
 	String tr_info;
 	Integer stars;
 	Date regdate;
-	MultipartFile pic;
 	String tr_pic;
-	String manager;
-	String welcomeDate;
 	
+	String manager;
+	MultipartFile pic;
+	String welcomeDate;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
 
 	public Integer getTr_no() {

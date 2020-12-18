@@ -8,7 +8,7 @@
 				<div class="nav">
 					<div class="sb-sidenav-menu-heading"></div>
 					<a class="nav-link"
-						href="/admin_page_/main/dashboard">
+						href="/admin_page_/home/dashboard">
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-house-user"></i>
 						</div> 관리자 홈
@@ -54,7 +54,7 @@
 						data-target="#collapseTemps" aria-expanded="false"
 						aria-controls="collapseTemps">
 						<div class="sb-nav-link-icon">
-							<i class="fas fa-address-card"></i>
+							 <i class="fas fa-copy"></i>
 						</div> 컨텐츠 관리
 						<div class="sb-sidenav-collapse-arrow">
 							<i class="fas fa-angle-down"></i>
@@ -62,34 +62,51 @@
 					</a>
 					<div class="collapse" id="collapseTemps"
 						aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-						<nav class="sb-sidenav-menu-nested nav">
-							<a class="nav-link"
-								href="/admin_page_/branch/info">지점 관리</a>
-							<a class="nav-link"
-								href="/admin_page_/goods/info">상품 관리</a>
-							<a class="nav-link"
-								href="/admin_page_/inqury/info">고객 문의 관리</a>
+						<nav class="sb-sidenav-menu-nested nav accordion"
+							id="sidenavAccordionPages">
+							<a class="nav-link" href="/admin_page_/branch/info">지점 관리</a>
+							<a class="nav-link" href="/admin_page_/goods/info">상품 관리</a>
+							
+							<a class="nav-link collapsed" href="#" data-toggle="collapse" 
+							data-target="#pagesCollapseCus" aria-expanded="false" 
+							aria-controls="pagesCollapseCus">
+                                        고객문의 관리
+                            <div class="sb-sidenav-collapse-arrow">
+                            	<i class="fas fa-angle-down"></i>
+                            </div>
+                            </a>
+                             <div class="collapse" id="pagesCollapseCus" 
+                             aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="/admin_page_/faq/info">FAQ 관리</a>
+                                            <a class="nav-link" href="/admin_page_/one/info">1:1 문의 관리</a>
+                                        </nav>
+                                    </div>
+                                    
 							<a class="nav-link"
 								href="/admin_page_/event/info">이벤트 관리</a>
 						</nav>
 					</div>
 					<div class="sb-sidenav-menu-heading">Accounting</div>
-					<a class="nav-link"
-						href="<c:url value="/admin_page_/income/total"/>">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse"
+						data-target="#collapseResult" aria-expanded="false"
+						aria-controls="collapseResult">
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-coins"></i>
-						</div> 수입
-					</a> <a class="nav-link"
-						href="<c:url value="/admin_page_/outcome/total"/>">
-						<div class="sb-nav-link-icon">
-							<i class="fas fa-coins"></i>
-						</div> 지출
-					</a> <a class="nav-link"
-						href="<c:url value="/admin_page_/result/total"/>">
-						<div class="sb-nav-link-icon">
-							<i class="fas fa-chart-area"></i>
-						</div> 통계
+						</div> 정산
+						<div class="sb-sidenav-collapse-arrow">
+							<i class="fas fa-angle-down"></i>
+						</div>
 					</a>
+					<div class="collapse" id="collapseResult"
+						aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+						<nav class="sb-sidenav-menu-nested nav">
+							<a class="nav-link"
+								href="/admin_page_/result/total">판매 내역</a>
+							<a class="nav-link"
+								href="/admin_page_/payment/info">결제 관리</a>
+						</nav>
+					</div>
 				</div>
 			</div>
 			<div class="sb-sidenav-footer">

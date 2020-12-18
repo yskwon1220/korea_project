@@ -1,25 +1,38 @@
 package com.korea.health.admin.model.reservation;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("reservationVO")
 public class ReservationVO {
-	String no;
+	Integer re_no = 0;
+	String lo_no;
 	String lo_name;
 	String type;
 	String tr_name;
-	String resdate;
+	Date resdate;
 	String restime;
 	String user_name;
 	String user_pw;
 	String user_tel;
 	String content;
 	
-	public String getNo() {
-		return no;
+	String welcomeDate;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
+	
+	public Integer getRe_no() {
+		return re_no;
 	}
-	public void setNo(String no) {
-		this.no = no;
+	public void setRe_no(Integer re_no) {
+		this.re_no = re_no;
+	}
+	public String getLo_no() {
+		return lo_no;
+	}
+	public void setLo_no(String lo_no) {
+		this.lo_no = lo_no;
 	}
 	public String getLo_name() {
 		return lo_name;
@@ -39,10 +52,11 @@ public class ReservationVO {
 	public void setTr_name(String tr_name) {
 		this.tr_name = tr_name;
 	}
-	public String getResdate() {
+	public Date getResdate() {
 		return resdate;
 	}
-	public void setResdate(String resdate) {
+	public void setResdate(Date resdate) {
+		welcomeDate = sdf.format(resdate);
 		this.resdate = resdate;
 	}
 	public String getRestime() {
@@ -72,8 +86,19 @@ public class ReservationVO {
 	public String getContent() {
 		return content;
 	}
+	public String getContentTrans() {
+		return getContent().replaceAll("\n", "<br>");
+	}
 	public void setContent(String content) {
+		if(content == null)
+			content = "";
 		this.content = content;
+	}
+	public String getWelcomeDate() {
+		return welcomeDate;
+	}
+	public void setWelcomeDate(String welcomeDate) {
+		this.welcomeDate = welcomeDate;
 	}
 	
 	

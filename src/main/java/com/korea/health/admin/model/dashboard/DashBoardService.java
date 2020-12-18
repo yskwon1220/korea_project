@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
 // dashboard : 방문자 정보 , 예약 정보, 고객문의 정보
-@Service("admin_page_main")
+@Service("admin_page_home")
 public class DashBoardService implements Action{
 	
 	@Resource

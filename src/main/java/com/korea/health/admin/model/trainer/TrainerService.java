@@ -23,9 +23,10 @@ public class TrainerService implements Action {
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
-		try {
 			System.out.println("execute에 들어온건? " + map.get("service"));
+			
 			Pagenation pageCtl = (Pagenation)map.get("pageCtl");
+			TrainerVO vo = (TrainerVO)map.get("trVO");
 			
 			switch ((String)map.get("service")) {
 			case "info":
@@ -60,8 +61,7 @@ public class TrainerService implements Action {
 				
 			case "insert":
 				System.out.println("switch case : insert에 들어왔다.");
-				System.out.println((TrainerVO)map.get("trVO"));
-				TrainerVO vo = (TrainerVO)map.get("trVO");
+				System.out.println(vo);
 				
 				vo.setTr_pic(fileUpload(vo.getPic(), request));
 				
@@ -70,33 +70,34 @@ public class TrainerService implements Action {
 
 			case "modifyForm":
 				System.out.println("switch case : modifyForm에 들어왔다.");
+				System.out.println(vo);
 				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
 				
 			case "fileDelete":
 				System.out.println("switch case : fileDelete에 들어왔다.");
-				TrainerVO tr = (TrainerVO)map.get("trVO");
 				
-				mapper.fileDelete(tr.getTr_no());
+				mapper.fileDelete(vo.getTr_no());
 				
 				return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
 				
 			case "modify":
 				System.out.println("switch case : modify에 들어왔다.");
-				System.out.println((TrainerVO)map.get("trVO"));
-				TrainerVO tvo = (TrainerVO)map.get("trVO");
-				MultipartFile uploadPic = tvo.getPic();
-				
-					fileUpload(uploadPic, request);
-					mapper.trainerModify(tvo);
-					return mapper.trainerDetail(tvo.getTr_no());
+				System.out.println(vo);
+					
+				if(vo.getPic() != null)
+					fileUpload(vo.getPic(), request);
+					
+					mapper.trainerModify(vo);
+					return mapper.trainerDetail(vo.getTr_no());
+					
 			case "delete":
 				System.out.println("switch case : delete에 들어왔다.");
 				
-				String fileName = ((TrainerVO)map.get("trVO")).getTr_pic();
+				String fileName = vo.getTr_pic();
 				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
 				
-				int cnt = mapper.trainerDelete((TrainerVO)map.get("trVO"));
-				mapper.newNum((TrainerVO)map.get("trVO"));
+				int cnt = mapper.trainerDelete(vo);
+				mapper.newNum(vo);
 				if(cnt == 0) {
 					return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
 				}else {
@@ -108,9 +109,7 @@ public class TrainerService implements Action {
 			default:
 				break;
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
+		
 		return null;
 	}
 	
@@ -152,7 +151,6 @@ public class TrainerService implements Action {
 		                newFile = new File(path+temp);
 		                
 		            }
-		           // System.out.println(newFile.getPath());
 		            
 		        } catch (Exception e) {
 		            e.printStackTrace();

@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.korea.health.admin.model.branch.BranchVO;
+import com.korea.health.admin.model.goods.GoodsVO;
+import com.korea.health.admin.model.reservation.ReservationTimeVO;
+import com.korea.health.admin.model.reservation.ReservationVO;
+import com.korea.health.admin.model.result.ResultVO;
 import com.korea.health.admin.model.trainer.TrainerVO;
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
@@ -46,7 +51,12 @@ public class ProviderController {
 				@RequestParam(required = false, defaultValue = "1") int page,
 				@RequestParam(required = false, defaultValue = "1") int range,
 				Pagenation pageCtl,
-				TrainerVO trVO,
+				TrainerVO trVO,	// 트레이너
+				BranchVO brVO,	// 지점
+				GoodsVO goodsVO,	// 상품
+				ReservationVO reservationVO,	// 예약
+				ReservationTimeVO reservationTimeVO,	// 예약 시간
+				ResultVO resultVO,	// 정산
 				HttpServletRequest request
 			) {
 		
@@ -62,6 +72,11 @@ public class ProviderController {
 		map.put("page", page);
 		map.put("range", range);
 		map.put("trVO", trVO);
+		map.put("brVO", brVO);
+		map.put("goodsVO", goodsVO);
+		map.put("reservVO", reservationVO);
+		map.put("reservTimeVO", reservationTimeVO);
+		map.put("resultVO", resultVO);
 		
 		Object res = action.execute(map, request);		// 해당 action의 execute를 실행하여 db들렸다가 반환되는 걸 담아옴 
 		

@@ -1,7 +1,11 @@
 package com.korea.health.service;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
+import com.korea.health.admin.model.branch.BranchVO;
+import com.korea.health.admin.model.reservation.ReservationVO;
+import com.korea.health.admin.model.result.ResultVO;
 import com.korea.health.admin.model.trainer.TrainerVO;
 
 public class Pagenation {
@@ -17,7 +21,16 @@ public class Pagenation {
 	private Integer endPage;	// 각페이지 범위 끝 번호
 	private boolean prev;	// 이전페이지 여부
 	private boolean next;	// 다음페이지 여부
+	
 	private List<TrainerVO> pageSet;	// 트레이너 넣기 
+	private List<ReservationVO> reservSet;	// 예약 넣기
+	private String locationNo;
+	private Integer user_no;
+	private List<ResultVO> resultSet;	// 정산넣기
+	private Integer totalPayment;
+	private String showPayment;
+	
+	DecimalFormat fmt = new DecimalFormat("###,###");
 	
 	public Integer getListSize() {
 		return listSize;
@@ -96,6 +109,43 @@ public class Pagenation {
 	}
 	public void setPageSet(List<TrainerVO> pageSet) {
 		this.pageSet = pageSet;
+	}
+	public List<ReservationVO> getReservSet() {
+		return reservSet;
+	}
+	public void setReservSet(List<ReservationVO> reservSet) {
+		this.reservSet = reservSet;
+	}
+	public String getLocationNo() {
+		return locationNo;
+	}
+	public void setLocationNo(String locationNo) {
+		this.locationNo = locationNo;
+	}
+	public List<ResultVO> getResultSet() {
+		return resultSet;
+	}
+	public void setResultSet(List<ResultVO> resultSet) {
+		this.resultSet = resultSet;
+	}
+	public Integer getUser_no() {
+		return user_no;
+	}
+	public void setUser_no(Integer user_no) {
+		this.user_no = user_no;
+	}
+	public Integer getTotalPayment() {
+		return totalPayment;
+	}
+	public void setTotalPayment(Integer totalPayment) {
+		showPayment = fmt.format(totalPayment) + "원";
+		this.totalPayment = totalPayment;
+	}
+	public String getShowPayment() {
+		return showPayment;
+	}
+	public void setShowPayment(String showPayment) {
+		this.showPayment = showPayment;
 	}
 	// 현재 페이지 정보, 현재 페이지 범위 정보, 게시물의 총 개수
 	public void pageInfo(Integer page, Integer range, Integer listCnt) {

@@ -116,13 +116,14 @@
                                                     <td class="align-middle">
                                                         <div class="filebox preview-image"> 
                                                     <c:choose>
-                                                    	<c:when test="${data.tr_pic == 'basic.png'}">
+                                                    	<c:when test="${data.tr_pic == null}">
                                                     		<input class="upload-name" value="파일선택" disabled="disabled">
                                                             <label for="input-file">업로드</label> 
                                                             <input type="file" id="input-file" class="upload-hidden" name="pic"> 
                                                     	</c:when>
                                                     	<c:otherwise>
                                                             <input type="hidden" class="upload-name" name="pic" value="${data.pic}" disabled="disabled">${data.tr_pic}
+                                                             <input type="hidden"  name="tr_pic" value="${data.tr_pic}">
                                                             <input class="btn btn-info btn-primary btn-sm" type="button" value="파일 삭제" onclick="fileDelete()"/>
                                                     	</c:otherwise>
                                                     </c:choose>
@@ -140,7 +141,7 @@
                                                         <div class="col-sm-4" style="float: none; margin: 0 auto;">
                                                             <input class="btn btn-info btn-primary btn-sm" type="button" value="수정" onclick="complete()"/>
                                                             <input class="btn btn-info btn-danger btn-sm" type="reset" value="초기화">
-                                                            <a href="/admin_page_/trainer/detail?no=${data.tr_no}" class="btn btn-info btn-primary btn-sm">뒤로</a>
+                                                            <a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}" class="btn btn-info btn-primary btn-sm">뒤로</a>
                                                         </div>
                                                     </td>
                                                 </tr>
