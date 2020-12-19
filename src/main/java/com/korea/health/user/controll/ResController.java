@@ -49,7 +49,6 @@ public class ResController {
 			TrainerVO tvo,
 			ResTimeVO timevo,
 			ResPageInfo resInfoVO,
-			
 			ReviewVO rrvo,
 	         ReviewPagingInfo infoVo,
 			
@@ -57,16 +56,15 @@ public class ResController {
 			@PathVariable("cate") String cate, 
 			@PathVariable("service") String service
 			) {
-
 		  mm.addAttribute("reviewVO");
-		//  List<LocationVO> locaList =  locaMapper.list();
-		  
+		  //List<LocationVO> locaList =  locaMapper.list();	  
 		Action action = provider.getContext().getBean(cate + service, Action.class);
 		HashMap<String, Object> map = new HashMap<>();
 
-		 map.put("rrvo", rrvo);
+		  map.put("rrvo", rrvo);
 	      map.put("infoVo",infoVo);
-	     // map.put("locaList",locaList);
+	      //map.put("locaList",locaList);
+	      
 		
 		
 		map.put("rvo", rvo);

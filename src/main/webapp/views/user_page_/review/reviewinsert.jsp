@@ -310,8 +310,8 @@
 
 							<form action="reviewinsertreg" method="post"
 								enctype="multipart/form-data">
-								<input type="hidden" name="pid"
-									value="<%=session.getAttribute("id")%>" /> <input
+								<input type="hidden" name="user_id"
+									value="<%=session.getAttribute("user_id")%>" /> <input
 									type="hidden" name="starCnt" id="starCnt" value="10">
 								<h3>후기 작성</h3>
 								<div class="input-line label-box">
@@ -319,29 +319,36 @@
 									<!-- value="${vo.pid} -->
 								</div>
 								<div class="selecter-box">
-									<select class="selecter"
-										style="background-image: <c:url value="/images/arrow_down.png."/>">
-										<optgroup label="지점" name="tr_no">
-											<c:forEach var="locationVO" items="${vo}">
-												<option><c:out value="${locationVO.lo_name}" /></option>
+		               				<select id="selectLo" name="lo_no" class="selecter" style="background-image: <c:url value="/images/arrow_down.png."/>">
+			               				<optgroup label = "지점" name="lo_no">
+											<option selected hidden value="0">지점</option>
+			               					<c:forEach var="locationVO" items="${data.locaList}">
+											    <option value="${locationVO.lo_no}">${locationVO.lo_name}</option>
 											</c:forEach>
 											<!-- 
-											<option selected hidden value="0">지점</option>
 			               					<option>강남점</option>
 			               					<option>강동점</option>
 			               					<option>강서점</option>
 			               					 -->
-										</optgroup>
-									</select> <select name="lo_no" class="selecter">
-										<optgroup label="트레이너 ">
-											<option selected hidden value="0">트레이너</option>
-											<option>길성민</option>
-											<option>박민주</option>
-											<option>박혜지</option>
-											<option>이현희</option>
-										</optgroup>
-									</select>
-								</div>
+			               				</optgroup>
+			               			</select>
+
+			               			<select id="selectTr"  name="tr_no" class="selecter">
+		               					<optgroup label = "트레이너 ">
+											<option  selected hidden value="0" >트레이너</option>
+											<!-- 
+											<c:forEach var="trainerVO" items="${data.trList}">
+											    <option value="${trainerVO.tr_no}">${trainerVO.tr_name}</option>
+											</c:forEach>
+			               					<option>길성민</option>
+			               					<option>박민주</option>
+			               					<option>박혜지</option>
+			               					<option>이현희</option>
+			               					 -->
+			               				</optgroup>
+		               				</select>
+	               				</div>
+	               		
 
 
 								<div class="input-line label-box">
@@ -447,22 +454,40 @@
 	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 
 	<script>
-		$(document).ready(function() {
-			$.ajax({
-				type : "POST",
-				url : "../review/reviewinsert",
-				data : "",
-				//data : {				kor : "${kor}",					us : "${us}"				},
-				error : function(error) {
-					console.log("error");
-				},
-				success : function(data) {
-					console.log("success");
-					console.dir(data);
+	$(document).ready(function(){
+		var list = new Array();
 
+		<c:forEach items="${data.trList}" var="item">
+			list.push( { tr_no:"${item.tr_no}",
+						 lo_no:"${item.lo_no}",
+						 tr_name:"${item.tr_name}"
+					});
+		</c:forEach>
+
+		/*
+		for ( var i = 0; i < list.length; i++) {
+		    alert(list[i].tr_name);
+		}
+		*/
+		
+		
+		$("#selectLo").on('change',function() {
+			var lo_no = $(this).val();
+			$('#selectTr optgroup').empty();				
+			for ( var i = 0; i < list.length; i++) {
+				if( list[i].lo_no == lo_no ){
+
+					$('#selectTr optgroup').append("<option value=" + list[i].tr_no + ">" + list[i].tr_name + "</option>");						
 				}
-			});
+				
+			}
+
+			
+			
 		});
+
+		
+	});
 	</script>
 </body>
 </html>

@@ -9,7 +9,17 @@ public class ReviewVO {
 	//필드와 맞지 않는 데이터형일 경우 ==>db의 타입이랑 VO의 타입이랑 일치하지않으면 발생하는오류
 	public Integer review_no = 0 ;
 	Integer cnt=0, starCnt=0;
-	String tr_no="", lo_no="", title="", pw="", content="",  pid="";
+	String tr_no="", lo_no="", title="",  content="",  user_id="";
+	public String getUser_id() {
+		return user_id;
+	}
+
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+
 	String review_file_name="" ;
 	Date regdate;
 	
@@ -39,12 +49,6 @@ public class ReviewVO {
 	}
 	
 
-	public String getPid() {
-		return pid;
-	}
-	public void setPid(String pid) {
-		this.pid = pid;
-	}
 	
 	
 	public Integer getReview_no() {
@@ -79,12 +83,7 @@ public class ReviewVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getPw() {
-		return pw;
-	}
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
+
 	public String getContent() {
 		if(content == null)
 			content= "";
@@ -122,11 +121,13 @@ public class ReviewVO {
 	@Override
 	public String toString() {
 		return "ReviewVO [review_no=" + review_no + ", cnt=" + cnt + ", starCnt=" + starCnt + ", tr_no=" + tr_no
-				+ ", lo_no=" + lo_no + ", title=" + title + ", pw=" + pw + ", content=" + content + ", pid=" + pid
+				+ ", lo_no=" + lo_no + ", title=" + title + ", content=" + content + ", user_id=" + user_id
 				+ ", review_file_name=" + review_file_name + ", regdate=" + regdate + ", review_file=" + review_file
 				+ "]";
 	}
-	
+
+
+
 
 	
 }

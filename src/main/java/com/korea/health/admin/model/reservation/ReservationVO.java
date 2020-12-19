@@ -13,11 +13,18 @@ public class ReservationVO {
 	String lo_name;
 	String type;
 	String tr_name;
-	
 	/* @DateTimeFormat(pattern = "yyyy_M_d") */
 	Date resdate;
-	
 	String restime;
+	String user_id;
+	
+	
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 	String user_name;
 	String user_pw;
 	String user_tel;

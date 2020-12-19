@@ -85,18 +85,18 @@
 					<ul>
 						<li class="_9wicf" data-loc_plc-doc-id="1131800410">
 							<div class="_75bjI">
-								<div class="_2LKql">
+								<div class="_2LKql" >
 									
 									<mark>스페셜 피트니스</mark> 강남점</a><span class="_3ZgLm"></span>
 								</div>
 								<div class="_1qN5M"><span class="_3Ru_R">02-599-5747   서울 강남구 강남대로78길 8 (역삼동) 한국빌딩 B2층</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/user_page_/location/typelist"/>" class="_3Ru_R " role="button"> 예약
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/style_hyeon/location/gangnam"/>" class="_3Ru_R " role="button"> 상세보기
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/user_page_/location/gangnam"/>" class="_3Ru_R " role="button"> 상세보기
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</a>
 								</div>
 							</div>	
 						</li>
-						
+						<br>
 						<li class="_9wicf" data-loc_plc-doc-id="1131800410">
 							<div class="_75bjI">
 								<div class="_2LKql">
@@ -104,13 +104,14 @@
 									<mark>스페셜 피트니스</mark> 강서점</a><span class="_3ZgLm"></span>
 								</div>
 								<div class="_1qN5M"><span class="_3Ru_R">02-599-4747   강서구 공항대로41길 34 5층</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/user_page_/location/typelist"/>" class="_3Ru_R " role="button"> 예약
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/style_hyeon/location/gangseo"/>" class="_3Ru_R " role="button"> 상세보기
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/user_page_/location/gangseo"/>" class="_3Ru_R " role="button"> 상세보기
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</a>
 								</div>
 							</div>	
 						</li>
-						
+						<br>
+						<br>
 						<li class="_9wicf" data-loc_plc-doc-id="1131800410">
 							<div class="_75bjI">
 								<div class="_2LKql">
@@ -118,14 +119,14 @@
 									<mark>스페셜 피트니스</mark> 강동점</a><span class="_3ZgLm"></span>
 								</div>
 								<div class="_1qN5M"><span class="_3Ru_R">02-599-3747  강동구 천호대로56길 8 2층</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/user_page_/location/typelist"/>" class="_3Ru_R " role="button"> 예약
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/style_hyeon/location/gangdong"/>" class="_3Ru_R " role="button"> 상세보기
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<c:url value="/user_page_/location/gangdong"/>" class="_3Ru_R " role="button"> 상세보기
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</a>
 								</div>
 							</div>	
 						</li>
-						
-						
+						<br>
+						<br>
 					
 					
 					</ul>

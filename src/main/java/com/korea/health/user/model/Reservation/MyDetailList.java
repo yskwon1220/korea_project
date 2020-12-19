@@ -52,7 +52,7 @@ public class MyDetailList implements Action {
 		// System.out.println("계세요?"+ req.getParameter("resDate"));
 		// System.out.println("계세요?"+ req.getParameter("resdate"));
 
-		return mapper.MyDetailList2(rvo.re_no);
+		return mapper.MyDetailList(rvo.re_no);
 
 	}
 

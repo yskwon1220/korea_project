@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class ReservationTimeVO {
+public class ResTimeVO {
 	 String lo_no;
 	 String resTime;
 	

@@ -8,7 +8,22 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
+	<link
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+	
 	<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 	<link rel="stylesheet" href="<c:url value="${path }/resource/css/main.css"/>" />
 	<style>
@@ -71,7 +86,7 @@
                   <c:forEach items="${data.voArr }" var="vo" varStatus="no">
 						<tr>
 							<td>${vo.review_no}</td>
-							<td>${vo.pid }</td>
+							<td>${vo.user_id }</td>
 							<td>
 									<a href="review_detail?review_no=${vo.review_no }">
 									${vo.title }

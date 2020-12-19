@@ -26,7 +26,7 @@ public class ReservationService implements Action{
 		BranchVO bvo = (BranchVO)map.get("bvo");
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
-		ReservationTimeVO timevo = (ReservationTimeVO)map.get("timevo");
+		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
 		
 		
 		switch ((String)map.get("service")) {

@@ -9,11 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.korea.health.admin.model.branch.BranchVO;
-import com.korea.health.admin.model.reservation.ReservationTimeVO;
+import com.korea.health.admin.model.reservation.ResTimeVO;
 import com.korea.health.admin.model.reservation.ReservationVO;
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
@@ -48,14 +47,13 @@ public class ProviderController {
 			//혜지가 추가한 검색부분
 			@RequestParam(defaultValue="type") String keyField,
 		    @RequestParam(defaultValue="") String keyWord,
-		   
 			ReviewVO rrVo,
 			ReviewPagingInfo infoVo,
 			
 		    BranchVO bvo,
 			Pagenation pageCtl, 
 			ReservationVO rvo, 
-			ReservationTimeVO timevo, 
+			ResTimeVO timevo, 
 			HttpServletRequest request) {
 
 		System.out.println("메인데이터에서는? : " + cate);
@@ -74,8 +72,6 @@ public class ProviderController {
 	    
 	    map.put("rrVo", rrVo);
 		map.put("infoVo",infoVo);
-		
-	    
 	    
 		map.put("service", service); 
 		// 그리고 뒤에 따라오는 주소를 통해서 각 기능을 다르게 하는 service를 map에 넣어서 보내기

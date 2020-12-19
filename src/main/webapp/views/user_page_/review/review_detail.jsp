@@ -8,6 +8,22 @@
 <head>
 <title>자주묻는 질문</title>
 
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+
 <link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 <style>
 		.grade-box .grade { display: inline-block; width: 100px; height: 50px; position: relative; font-size: 20px; vertical-align: top; }
@@ -48,8 +64,8 @@
 					${vo.title }
 					
 				</div>
-				<input type = "hidden" name = "pid" value = "${vo.pid }">
-				<div class="titleDetail">${vo.pid }</div>
+				<input type = "hidden" name = "user_id" value = "${user_id }">
+				<div class="titleDetail">${vo.user_id }</div>
 				<div class="titleDetail">${vo.review_no }</div>
 				<div class="titleDetail"><fmt:formatDate value="${vo.regdate }"
 											pattern="yy-MM-dd HH:mm" /></div>

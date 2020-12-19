@@ -12,13 +12,21 @@ public class ReservationVO {
 	
 	Integer re_no;
 	
-	 String lo_no, lo_name, type, tr_name, resTime, user_name, user_pw, user_tel, content;
+	 String lo_no, lo_name, type, tr_name, resTime, user_id, user_name, user_pw, user_tel, content;
 	@DateTimeFormat(pattern = "yyyy_M_d")
 	 java.util.Date resdate;
 	//
 	
 	//SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
 	
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
 	public Integer getRe_no() {
 		return re_no;

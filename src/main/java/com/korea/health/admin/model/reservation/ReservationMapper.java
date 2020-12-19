@@ -26,11 +26,11 @@ public interface ReservationMapper {
 	//페이징 하기 위한 각 지점별 list
 	
 	
-	List<ReservationTimeVO> reservationresList(Pagenation pagenation);
+	List<ResTimeVO> reservationresList(Pagenation pagenation);
 	//페이징 하기 위한 각 지점별 인원 체크 list
 	
 	/*검색을 위한것 */
-	List<ReservationTimeVO> reslistAll(String keyField, String keyWord);
+	List<ResTimeVO> reslistAll(String keyField, String keyWord);
 	
 	
 	/* 완료 */

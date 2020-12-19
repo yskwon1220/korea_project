@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM REVIEW WHERE REVIEW_NO = #{review_no, jdbcType=INTEGER}
 	</select>
 	<select id="chkID" resultType="com.korea.health.user.model.review.ReviewVO" parameterType="java.lang.Integer">
-		SELECT PID FROM REVIEW WHERE REVIEW_NO = #{review_no, jdbcType=INTEGER}
+		SELECT user_id FROM REVIEW WHERE REVIEW_NO = #{review_no, jdbcType=INTEGER}
 	</select>
 	
 	
@@ -49,9 +49,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<include refid="noMax"/>
 		</selectKey>
 		INSERT INTO REVIEW
-		(review_no, PID, TITLE, CONTENT, REGDATE, Review_file_name, tr_no, lo_no, cnt, starCnt, pw)
+		(review_no, user_id, TITLE, CONTENT, REGDATE, Review_file_name, tr_no, lo_no, cnt, starCnt)
 		values
-		(SEQ_REVIEW.NEXTVAL,#{pid}, #{title}, #{content}, SYSDATE, #{review_file_name}, #{tr_no}, #{lo_no},0, #{starCnt}, #{pw})
+		(SEQ_REVIEW.NEXTVAL,#{user_id}, #{title}, #{content}, SYSDATE, #{review_file_name}, #{tr_no}, #{lo_no},0, #{starCnt})
 	</insert>
 	
 	<update id="modify" parameterType="com.korea.health.user.model.review.ReviewVO">
