@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Alias("branchVO")
 public class BranchVO {
-	//Integer lo_cnt = 0;
+	Integer lo_cnt = 0;
 	String lo_no;
 	String lo_name;
 	String lo_pic;
@@ -25,13 +25,13 @@ public class BranchVO {
 	String welcomeDate;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
 	
-//	public Integer getLo_cnt() {
-//		return lo_cnt;
-//	}
-//
-//	public void setLo_cnt(Integer lo_cnt) {
-//		this.lo_cnt = lo_cnt;
-//	}
+	public Integer getLo_cnt() {
+		return lo_cnt;
+	}
+
+	public void setLo_cnt(Integer lo_cnt) {
+		this.lo_cnt = lo_cnt;
+	}
 
 	public String getLo_no() {
 		return lo_no;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.korea.health.admin.model.trainer.TrainerVO;
 import com.korea.health.service.Pagenation;
 
 @Mapper
@@ -24,6 +25,8 @@ public interface BranchMapper {
 	Integer newNum(BranchVO vo);
 	
 	String branchCnt();
+	
+	List<TrainerVO> branchTrainerList(Pagenation pagenation);
 	
 	Integer totalCnt(String lo_no);
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.goods.GoodsMapper">
+
+	<select id="goodsList" resultType="com.korea.health.admin.model.goods.GoodsVO">
+		SELECT * FROM GOODS
+	</select>
+	
+	<select id="goodsDetail" resultType="com.korea.health.admin.model.goods.GoodsVO"
+		parameterType="java.lang.Integer">
+		SELECT * FROM goods WHERE goods_cnt = #{goods_cnt}
+	</select>
+	
+	<insert id="goodsInsert" parameterType="com.korea.health.admin.model.goods.GoodsVO">
+		<selectKey keyProperty="goods_cnt" resultType="java.lang.Integer" order="BEFORE">
+			select max(goods_cnt)+1 from goods
+		</selectKey>
+		insert into goods (goods_cnt, goods_no, goods_name, goods_price, regdate)
+		values
+		(#{goods_cnt}, #{goods_no}, #{goods_name}, #{goods_price}, #{regdate})
+	</insert>
+	
+	<update id="goodsModify" parameterType="com.korea.health.admin.model.goods.GoodsVO">
+		update goods set goods_cnt = #{goods_cnt}, goods_no = #{goods_no}, goods_name = #{goods_name}, goods_price = #{goods_price}, 
+		regdate = #{regdate} where goods_cnt = #{goods_cnt}
+	</update>
+	
+	<delete id="goodsDelete" parameterType="com.korea.health.admin.model.goods.GoodsVO">
+		delete from goods where goods_cnt = #{goods_cnt}
+	</delete>
+	
+	<update id="newNum" parameterType="com.korea.health.admin.model.goods.GoodsVO">
+	<![CDATA[
+		update goods set goods_cnt = goods_cnt - 1 where #{goods_cnt} < goods_cnt
+	]]>
+	</update>
+	
+	<select id="goodsCnt" resultType="java.lang.String">
+		select count(*)+1 from goods
+	</select>
+</mapper>

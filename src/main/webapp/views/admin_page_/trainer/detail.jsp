@@ -38,7 +38,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">직원 경력</td>
-                                                    <td  class="align-middle">${data.tr_infoTrans}</td>
+                                                    <td  class="align-middle">${data.contentTrans}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">소속 지점</td>
@@ -46,7 +46,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="align-middle">회원 평가 점수</td>
-                                                    <td  class="align-middle">${data.stars}</td>
+                                                    <td  class="align-middle">${data.star}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

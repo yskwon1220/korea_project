@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.branch.BranchMapper">
+
+	<select id="branchList" resultType="com.korea.health.admin.model.branch.BranchVO">
+		SELECT * FROM LOCATION
+	</select>
+	
+	<select id="branchDetail" resultType="com.korea.health.admin.model.branch.BranchVO"
+		parameterType="java.lang.Integer">
+		SELECT * FROM LOCATION WHERE LO_CNT = #{LO_CNT}
+	</select>
+	
+	<insert id="branchInsert" parameterType="com.korea.health.admin.model.branch.BranchVO">
+		<selectKey keyProperty="lo_cnt" resultType="java.lang.Integer" order="BEFORE">
+			select max(lo_cnt)+1 from location
+		</selectKey>
+		insert into location (lo_cnt, lo_no, lo_name, lo_pic, lo_tel, lo_addr, maximum, income, outcome, regdate, content)
+		values
+		(#{lo_cnt}, #{lo_no}, #{lo_name}, #{lo_pic}, #{lo_tel}, #{lo_addr}, #{maximum}, 0, 0, #{regdate}, #{content})
+	</insert>
+	
+	<update id="fileDelete" parameterType="java.lang.Integer">
+		update location set lo_pic = null where lo_cnt = #{lo_cnt}
+	</update>
+	
+	<update id="branchModify" parameterType="com.korea.health.admin.model.branch.BranchVO">
+		update location set lo_cnt = #{lo_cnt}, lo_no = #{lo_no}, lo_name = #{lo_name}, lo_pic = #{lo_pic}, lo_tel = #{lo_tel}, 
+		lo_addr = #{lo_addr}, maximum = #{maximum}, income = #{income}, outcome = #{outcome}, regdate = #{regdate}, 
+		content = #{content} where lo_cnt = #{lo_cnt}
+	</update>
+	
+	<delete id="branchDelete" parameterType="com.korea.health.admin.model.branch.BranchVO">
+		delete from location where lo_cnt = #{lo_cnt}
+	</delete>
+	
+	<update id="newNum" parameterType="com.korea.health.admin.model.branch.BranchVO">
+	<![CDATA[
+		update location set lo_cnt = lo_cnt - 1 where #{lo_cnt} < lo_cnt
+	]]>
+	</update>
+	
+	<select id="branchCnt" resultType="java.lang.String">
+		select max(lo_cnt)+1 from location
+	</select>
+	
+	<select id="branchTrainerList" resultType="com.korea.health.admin.model.trainer.TrainerVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+		 select * from (select rownum rnum, t1.* 
+         from (select * from TRAINER WHERE LO_NO = #{locationNo}) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+		]]>
+	</select>
+	
+	<select id="totalCnt" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		SELECT COUNT(*) FROM TRAINER WHERE LO_NO = #{lo_no}
+	</select>
+	
+</mapper>

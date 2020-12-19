@@ -4,10 +4,18 @@ package com.korea.health.user.controll;
 
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.korea.health.user.model.notice.NoticeMapper;
+import com.korea.health.user.model.notice.NoticeVO;
+import com.korea.health.user.model.review.ReviewMapper;
+import com.korea.health.user.model.review.ReviewVO;
 
 
 
@@ -16,6 +24,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+	
+	@Resource
+	NoticeMapper mapper;
+	@Resource
+	ReviewMapper revMapper;
+	
 
 	
 	
@@ -27,7 +41,11 @@ public class HomeController {
 	}
 
 	@RequestMapping("/MainV3")
-	public String home() {
+	public String home(Model mm) {
+		List<NoticeVO> data = mapper.allNoticeList();
+		List<ReviewVO> data_22 = revMapper.allReviewList();
+		mm.addAttribute("data",data);
+		mm.addAttribute("data_22",data_22);
 		System.out.println("main comin");
 		return "MainV3";
 	}

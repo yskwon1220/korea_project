@@ -9,7 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from review
 	</select>
 	
-	
+	   <select id="allReviewList" resultType="com.korea.health.user.model.review.ReviewVO">
+         select * from review order by REVIEW_NO DESC
+   </select>
 	<select id="reviewlist" resultType="com.korea.health.user.model.review.ReviewVO" parameterType="com.korea.health.user.model.review.ReviewPagingInfo">
 		<![CDATA[
 			select * from (select rownum rnum, t1.* from 

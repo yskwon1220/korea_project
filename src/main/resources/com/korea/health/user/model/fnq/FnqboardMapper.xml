@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.user.model.fnq.FnqboardMapper">
+
+	<select id="totalCnt" resultType="java.lang.Integer"  >
+		select count(*) from fnqboard
+	</select>
+	
+
+	<select id="fnqList" resultType="fnqboardVO" parameterType="fnqInfoVo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* from 
+					(select * from FNQBOARD order by BOARD_NO DESC) t1) 
+					 where rnum >= #{start} and rnum <= #{end}
+		]]>
+
+	</select>
+	
+	<select id="fnqList_2" resultType="fnqboardVO" parameterType="fnqInfoVo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* from 
+					(select * from FNQBOARD order by BOARD_NO DESC) t1) 
+					 where rnum >= #{start} and rnum <= #{end} and user_id = #{identify}
+		]]>
+
+	</select>
+
+	<select id="detail" resultType="fnqboardVO" parameterType="java.lang.Integer">
+		SELECT 
+		BOARD_NO as board_no, USER_ID as user_id, TITLE as title, CONTENT as content, REGDATE as regdate, REPLY as reply
+		FROM FNQBOARD WHERE BOARD_NO = #{board_no}
+	</select>	
+	
+	<sql id="noMax">
+		(SELECT MAX(BOARD_NO)+1 FROM FNQBOARD)
+	</sql>
+
+	
+	<insert id="insert" parameterType="fnqboardVO">
+		<selectKey keyProperty="board_no" resultType="java.lang.Integer" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey>
+		INSERT INTO FNQBOARD 
+		(BOARD_NO, USER_ID, TITLE, CONTENT, REGDATE, REP)
+		values
+		(#{board_no},#{user_id}, #{title}, #{content}, SYSDATE, '처리중')
+	</insert>
+
+
+	
+	<update id="modify" parameterType="fnqboardVO">
+			UPDATE FNQBOARD SET TITLE = #{title}, CONTENT = #{content} WHERE BOARD_NO = #{board_no}
+	</update>	
+	
+	
+	<delete id = "delete" parameterType="java.lang.Integer">
+		DELETE FROM FNQBOARD WHERE BOARD_NO = #{board_no}
+	</delete>
+	
+
+
+	
+		
+	<update id="reply" parameterType="fnqboardVO">
+			UPDATE FNQBOARD SET TITLE = #{title},CONTENT = #{content}, REP = #{rep},REPLY = #{reply} WHERE BOARD_NO = #{board_no}
+	</update>	
+</mapper>
+

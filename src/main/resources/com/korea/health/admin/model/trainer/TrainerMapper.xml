@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.trainer.TrainerMapper">
+
+	<select id="trainerList" resultType="com.korea.health.admin.model.trainer.TrainerVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+			select * from 
+				(SELECT * FROM 
+					( SELECT rownum rnum, TRAINER.* FROM TRAINER)
+						pagetable where rnum <= #{endList} ) 
+			where rnum >= #{startList}
+		]]>
+	</select>
+	
+	<select id="trainerDetail" resultType="com.korea.health.admin.model.trainer.TrainerVO"
+		parameterType="java.lang.Integer">
+		SELECT * FROM TRAINER WHERE TR_NO = #{tr_no}
+	</select>
+	
+	<insert id="trainerInsert" parameterType="com.korea.health.admin.model.trainer.TrainerVO">
+		<selectKey keyProperty="tr_no" resultType="java.lang.Integer" order="BEFORE">
+			select max(tr_no)+1 from trainer
+		</selectKey>
+		insert into trainer (tr_no, lo_no, tr_name, ismanage, content, star, tr_pic, regdate)
+		values
+		(#{tr_no}, #{lo_no}, #{tr_name}, #{isManage}, #{content}, #{star}, #{tr_pic}, #{regdate})
+	</insert>
+	
+	<update id="fileDelete" parameterType="java.lang.Integer">
+		update trainer set tr_pic = null where tr_no = #{tr_no}
+	</update>
+	
+	<update id="trainerModify" parameterType="com.korea.health.admin.model.trainer.TrainerVO">
+		update trainer set lo_no = #{lo_no}, tr_name = #{tr_name}, ismanage = #{isManage}, 
+		content = #{content}, star = #{star}, tr_pic = #{tr_pic}, regdate = #{regdate} where tr_no = #{tr_no}
+	</update>
+	
+	<delete id="trainerDelete" parameterType="com.korea.health.admin.model.trainer.TrainerVO">
+		delete from trainer where tr_no = #{tr_no}
+	</delete>
+	
+	<update id="newNum" parameterType="com.korea.health.admin.model.trainer.TrainerVO">
+	<![CDATA[
+		update trainer set tr_no = tr_no - 1 where #{tr_no} < tr_no
+	]]>
+	</update>
+	
+	<select id="totalCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM TRAINER
+	</select>
+	
+</mapper>

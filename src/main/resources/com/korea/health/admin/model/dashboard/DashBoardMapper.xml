@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.dashboard.DashBoardMapper">
+		
+		<select id="monthlyPayment" resultType="int" parameterType="java.lang.String">
+			SELECT sum(total_payment) FROM PAYMENT WHERE PAYMENT_DATE BETWEEN TO_DATE(#{startDate}) AND TO_DATE(#{endDate})
+		</select>
+		
+		<select id="reservationList" resultType="com.korea.health.admin.model.reservation.ReservationVO"
+			parameterType="int">
+			<![CDATA[
+			select * from (select rownum rnum, t1.* 
+	         from (select * from RESERVATION
+	         order by re_no desc) t1) 
+	         where rnum >= #{startCnt} and rnum <= #{endCnt}
+	         ]]>
+		</select>
+
+		<select id="fnqList" resultType="com.korea.health.user.model.fnq.FnqboardVO"
+			parameterType="int">
+			<![CDATA[
+			select * from (select rownum rnum, t1.* 
+	         from (select * from fnqboard
+	         order by board_no desc) t1) 
+	         where rnum >= #{startCnt} and rnum <= #{endCnt}
+	         ]]>
+		</select>
+		
+</mapper>

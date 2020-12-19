@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.user.model.notice.NoticeMapper">
+	<select id="totalCnt" resultType="java.lang.Integer"  >
+		select count(*) from notice
+	</select>
+
+
+	<select id="noticeList" resultType="noticeVO" parameterType="infonoticeVo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* from 
+					(select * from notice order by notice_NO DESC) t1) 
+					 where rnum >= #{start} and rnum <= #{end}
+		]]>
+	</select>
+	<select id="allNoticeList" resultType="noticeVO">
+			select * from notice order by notice_NO DESC
+	</select>
+	<sql id="noMax">
+		(SELECT MAX(NOTICE_NO)+1 FROM NOTICE)
+	</sql>		
+	<update id = "updateCnt" parameterType = "java.lang.Integer">
+		UPDATE NOTICE SET CNT = CNT + 1 WHERE NOTICE_NO = #{notice_no}
+	</update>
+	<select id="detail" resultType="noticeVO" parameterType="java.lang.Integer">
+		SELECT * FROM NOTICE WHERE NOTICE_NO = #{notice_no}
+	</select>
+		
+	<insert id="insert" parameterType="noticeVO">
+		<selectKey keyProperty="notice_no" resultType="java.lang.Integer" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey>
+		INSERT INTO NOTICE 
+		(NOTICE_NO, TITLE, CONTENT, REGDATE, CNT )
+		values
+		(#{notice_no}, #{title}, #{content}, SYSDATE, 0)
+	</insert>
+
+
+	
+	<update id="modify" parameterType="noticeVO">
+			UPDATE NOTICE SET TITLE = #{title}, CONTENT = #{content} WHERE NOTICE_NO = #{notice_no}
+	</update>	
+	
+	
+	<delete id = "delete" parameterType="java.lang.Integer">
+		DELETE FROM NOTICE WHERE NOTICE_NO = #{notice_no}
+	</delete>
+</mapper>
+

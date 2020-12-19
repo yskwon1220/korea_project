@@ -20,5 +20,5 @@ public interface ReviewMapper {
 	
 	boolean delete(int review_no);
 	
-	
+	List<ReviewVO> allReviewList();
 }

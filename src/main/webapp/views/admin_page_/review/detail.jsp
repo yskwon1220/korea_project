@@ -29,7 +29,7 @@
 					${vo.title }
 					
 				</div>
-				<div class="titleDetail">${vo.pid }</div>
+				<div class="titleDetail">${vo.user_id }</div>
 				<div class="titleDetail">${vo.review_no }</div>
 				<div class="titleDetail"><fmt:formatDate value="${vo.regdate }"
 											pattern="yy-MM-dd HH:mm" /></div>

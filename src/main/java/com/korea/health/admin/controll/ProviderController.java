@@ -12,12 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.korea.health.admin.model.branch.BranchVO;
+import com.korea.health.admin.model.goods.GoodsVO;
 import com.korea.health.admin.model.reservation.ResTimeVO;
 import com.korea.health.admin.model.reservation.ReservationVO;
+import com.korea.health.admin.model.result.ResultVO;
+import com.korea.health.admin.model.trainer.TrainerVO;
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
 import com.korea.health.service.Pagenation;
+import com.korea.health.user.model.fnq.FnqPageInfo;
+import com.korea.health.user.model.fnq.FnqboardVO;
+import com.korea.health.user.model.notice.NoticePageInfo;
+import com.korea.health.user.model.notice.NoticeVO;
+import com.korea.health.user.model.qna.QnaPageInfo;
+import com.korea.health.user.model.qna.QnaVO;
 import com.korea.health.user.model.review.ReviewPagingInfo;
 import com.korea.health.user.model.review.ReviewVO;
 
@@ -43,14 +52,30 @@ public class ProviderController {
 	Object mainData(@PathVariable("cate") String cate, @PathVariable("service") String service,
 			@RequestParam(required = false, defaultValue = "1") int page,
 			@RequestParam(required = false, defaultValue = "1") int range,
+			@RequestParam(required = false, defaultValue = "1") int month,
+			  @ModelAttribute("board_no")String fnqNum ,
+		        @ModelAttribute("notice_no")String noticeNum ,
+		        @ModelAttribute("qna_no")String qnaNum ,
 			
 			//혜지가 추가한 검색부분
 			@RequestParam(defaultValue="type") String keyField,
 		    @RequestParam(defaultValue="") String keyWord,
 			ReviewVO rrVo,
 			ReviewPagingInfo infoVo,
+			TrainerVO trVO,	// 트레이너
+			BranchVO brVO,	// 지점
+			GoodsVO goodsVO,	// 상품
 			
-		    BranchVO bvo,
+			ResultVO resultVO,	// 정산
+			
+			
+			FnqPageInfo fnqInfoVo,
+			NoticePageInfo infonoticeVo,
+			QnaPageInfo infoqnaVo, NoticeVO nvo,
+			FnqboardVO ovo,
+			QnaVO qvo,
+			
+			
 			Pagenation pageCtl, 
 			ReservationVO rvo, 
 			ResTimeVO timevo, 
@@ -66,10 +91,23 @@ public class ProviderController {
 		//혜지가 추가한 검색부분
 		map.put("keyField", keyField); 
 	    map.put("keyWord", keyWord); 
-	    map.put("bvo", bvo); 
+	    map.put("trVO", trVO);
+		map.put("brVO", brVO);
+		map.put("goodsVO", goodsVO);
 	    map.put("rvo", rvo);
 	    map.put("timevo", timevo);
 	    
+	    map.put("fnqInfoVo", fnqInfoVo);
+		map.put("infonoticeVo", infonoticeVo);
+		map.put("infoqnaVo", infoqnaVo);
+		map.put("board_no", fnqNum);
+		map.put("notice_no", noticeNum);
+		map.put("qna_no", qnaNum);
+		map.put("nvo", nvo);
+		map.put("ovo", ovo);
+		map.put("qvo", qvo);
+		map.put("month", month);
+		map.put("resultVO", resultVO);
 	    map.put("rrVo", rrVo);
 		map.put("infoVo",infoVo);
 	    

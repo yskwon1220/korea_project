@@ -50,7 +50,7 @@
 					<c:forEach items="${data.voArr }" var="vo">
 						<tr>
 							<th>${vo.review_no }</th>
-							<td>${vo.pid }</td>
+							<td>${vo.user_id }</td>
 							<td>
 			
 				

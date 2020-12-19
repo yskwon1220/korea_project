@@ -39,7 +39,7 @@
                                                     </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div class="col-md-3" style="float: none; margin: 0 auto;">
+                                                        <div class="col-md-2" style="float: none; margin: 0 auto;">
                                                             <input class="btn btn-info btn-primary btn-sm" type="submit" value="수정" onclick="complete()"/>
                                                             <input class="btn btn-info btn-danger btn-sm" type="reset" value="초기화">
                                                             <a href="/admin_page_/goods/info" class="btn btn-info btn-primary btn-sm">뒤로</a>

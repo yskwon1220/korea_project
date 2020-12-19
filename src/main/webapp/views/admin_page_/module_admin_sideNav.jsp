@@ -88,12 +88,25 @@
 						</nav>
 					</div>
 					<div class="sb-sidenav-menu-heading">Accounting</div>
-					</a> <a class="nav-link"
-						href="<c:url value="/admin_page_/result/total"/>">
+					<a class="nav-link collapsed" href="#" data-toggle="collapse"
+						data-target="#collapseResult" aria-expanded="false"
+						aria-controls="collapseResult">
 						<div class="sb-nav-link-icon">
-							<i class="fas fa-chart-area"></i>
-						</div> 통계
+							<i class="fas fa-coins"></i>
+						</div> 정산
+						<div class="sb-sidenav-collapse-arrow">
+							<i class="fas fa-angle-down"></i>
+						</div>
 					</a>
+					<div class="collapse" id="collapseResult"
+						aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+						<nav class="sb-sidenav-menu-nested nav">
+							<a class="nav-link"
+								href="/admin_page_/result/total">판매 내역</a>
+							<a class="nav-link"
+								href="/admin_page_/payment/info">결제 관리</a>
+						</nav>
+					</div>
 				</div>
 			</div>
 			<div class="sb-sidenav-footer">

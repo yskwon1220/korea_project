@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.result.ResultMapper">
+	
+	<select id="totalList" resultType="com.korea.health.admin.model.result.ResultVO"
+		parameterType="com.korea.health.service.Pagenation">
+		<![CDATA[
+		 select * from (select rownum rnum, t1.* 
+         from (select * from PAYMENT
+         order by payment_date desc) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+          ]]>
+	</select>
+	
+	<select id="calcTotal" resultType="int">
+		SELECT sum(total_payment) FROM PAYMENT
+	</select>
+	
+	<select id="calcBranch" resultType="int" parameterType="java.lang.String">
+		SELECT sum(total_payment) FROM PAYMENT where lo_no = #{lo_no}
+	</select>
+
+	<select id="branchList" resultType="com.korea.health.admin.model.result.ResultVO"
+		parameterType="com.korea.health.service.Pagenation">
+		<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from PAYMENT WHERE lo_no = #{locationNo}
+         order by PAYMENT_DATE DESC) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	
+	<select id="paymentDetail" resultType="com.korea.health.admin.model.result.ResultVO"
+		parameterType="java.lang.String">
+		SELECT * FROM payment WHERE payment_NO = #{payment_no}
+	</select>
+	
+	<select id="findUser" resultType="java.lang.String" parameterType="int">
+		SELECT user_name FROM usermember WHERE user_NO = #{user_no}
+	</select>
+	
+	<select id="userPaymentList" resultType="com.korea.health.admin.model.result.ResultVO"
+		parameterType="com.korea.health.service.Pagenation">
+		<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from PAYMENT WHERE user_no = #{user_no}
+         order by PAYMENT_DATE DESC) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	
+	<delete id="deleteResult" parameterType="com.korea.health.admin.model.result.ResultVO">
+		delete from payment where payment_no = #{payment_no}
+	</delete>
+	
+	<update id="newNum" parameterType="com.korea.health.admin.model.result.ResultVO">
+	<![CDATA[
+		update payment set payment_no = payment_no - 1 where #{payment_no} < payment_no
+	]]>
+	</update>
+	
+	<select id="totalCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM payment
+	</select>
+	<select id="locationCnt" resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT COUNT(*) FROM payment where lo_no = #{lo_no}
+	</select>
+	<select id="userCnt" resultType="java.lang.Integer" parameterType="int">
+		SELECT COUNT(*) FROM payment where user_no = #{user_no}
+	</select>
+	
+</mapper>
