@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -12,7 +11,6 @@
 <title>FitNess Club</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
@@ -37,11 +35,8 @@
 <body>
 
 	<div id="fh5co-page">
-
 		<div id="fh5co-pricing-section" style="margin-top:150px;">
 			<div class="container">
-
-
 				<div class="row">
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
@@ -52,15 +47,12 @@
 						<br>
 						<br>
 						<form action = "myResList" method="post">
-						<input type="hidden" name="user_name" value="${user_name}">
+						<input type="text" name="user_id" value="${user_id}">
 						<input type="submit" value="마이페이지">
 						</form>
 					</div>
 				</div>
-
 			</div>
-
-
 		</div>
 	</div>
 

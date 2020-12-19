@@ -12,7 +12,6 @@
 <title>FitNess Club</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"

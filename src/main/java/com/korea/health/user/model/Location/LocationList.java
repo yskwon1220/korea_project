@@ -19,6 +19,8 @@ public class LocationList implements Action{
 
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
+		
+		
 
 		return mapper.list();
 	}

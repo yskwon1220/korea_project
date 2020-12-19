@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" errorPage="error.jsp"%>
-<%-- <%@ page contentType="text/html;charset=UTF-8" errorPage="error.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -107,7 +106,7 @@
 							</tbody>
 						</table>
 <br><br>
-						<a href="deleteForm?re_no=${rvo.re_no}&user_name=${rvo.user_name}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}">예약취소</a>
+						<a href="deleteForm?re_no=${rvo.re_no}&user_id=${rvo.user_id}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}">예약취소</a>
 							
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" value="되돌아가기"

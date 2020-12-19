@@ -23,9 +23,9 @@ public class DeleteSuccess implements Action {
 		
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
 		rvo.setLo_no(req.getParameter("lo_no")); 
-		rvo.setUser_name(req.getParameter("user_name"));
+		rvo.setUser_name(req.getParameter("user_id"));
 		req.setAttribute("lo_no", (String)req.getParameter("lo_no"));
-		req.setAttribute("user_name", (String)req.getParameter("user_name"));
+		req.setAttribute("user_id", (String)req.getParameter("user_id"));
 		
 		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
 		String resdateStr = req.getParameter("resdate");

@@ -6,17 +6,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper
 	namespace="com.korea.health.user.model.Reservation.ResMapper">
 
-<!-- 	<select id="list"
-		resultType="com.korea.health.user.model.Reservation.ReservationVO">
-		select * from reservation
-	</select>
- -->
+
+ 	 		
+  	<!--회원정보 수정전 비밀번호 확인-->
+	  	 <select id="pwCheckOk" 
+	  	 parameterType="com.korea.health.user.model.usermember.UserMemberVO"
+	  	 resultType="com.korea.health.user.model.usermember.UserMemberVO">
+
+		select 
+			user_pw
+		from 
+			usermember 
+		where 
+			user_id = #{user_id} 
+			and 
+			user_pw = #{user_pw}
+				
+		</select>	
+
 
 
 	<select id="MyResList"
 		resultType="com.korea.health.user.model.Reservation.ReservationVO"
 		parameterType="java.lang.String">
-		select * from reservation where user_name = #{user_name}
+		select * from reservation where user_id = #{user_id}
 	</select>
 
 
@@ -26,8 +39,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="java.lang.Integer">
 		select * from reservation where re_no = #{re_no}
 	</select>
-
-
+	
+	
+	
+	<select id="userInfo" resultType="com.korea.health.user.model.usermember.UserMemberVO"
+	parameterType="java.lang.String">
+	
+	
+	select user_id, user_name, user_tel, user_pw
+	
+	from USERMEMBER
+	
+	where user_id = #{user_id}
+	
+	</select>
 
 
 	<insert id="insert"
@@ -36,14 +61,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into reservation(re_no, lo_no, lo_name, type, tr_name,
 		resdate,
 		restime,
-
-		user_name, user_pw, user_tel, content)
+		user_id,
+		user_pw,
+		user_name, 
+		user_tel, 
+		content)
 
 		values(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name},
 
 		#{resdate},
 		#{resTime},
-		#{user_name}, #{user_pw}, #{user_tel}, #{content})
+		#{user_id},
+		#{user_pw},
+		#{user_name}, 
+		#{user_tel}, 
+		#{content})
 
 		<!-- INSERT INTO TABLE_NAME( date_column )values( TO_DATE('2016-10-05 10:53:56', 
 			'SYYYY-MM-DD HH24:MI:SS') ) -->

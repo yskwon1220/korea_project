@@ -37,24 +37,7 @@
 	href="<c:url value="${path }/resource/css/calendarstyle.css"/>" />
 
 </head>
-<script type="text/javascript">
-	function formCheck(obj) {
-		var objPwd1 = document.getElementById("user_pw");
 
-		if (!obj.user_pw.value || obj.user_pw.value.trim().length == 0) {
-			alert('비밀번호를 입력하세요.');
-			obj.user_pw.value = '';
-			obj.user_pw.focus();
-			return false;
-		}
-
-		if (confirm("정말 취소 하시겠습니까?")) {
-			f.submit() ///frm 객체를 submit() 한다
-			return false;
-		}
-		return true;
-	}
-</script>
 
 <body onload="document.f.user_pw.focus()">
 
@@ -78,16 +61,14 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
 
-						<form action="deleteSuccess" name="f" method="post"
+						<form id="successForm" action="deleteSuccess" name="f" method="post"
 							onsubmit="return formCheck(this)">
 
-							<%-- 							<input type="text" value="${data.user_name}" />
-							<input type="text" value="${rvo.user_name}" /> 안됌 --%>
-							<input type="hidden" name="user_name" value="${param.user_name}" />
-							<%-- <input type="text" value="${user_name}" /> --%>
-							<input type="hidden" name="re_no" value="${param.re_no }" /> <input
+							<input type="hidden" name="user_id" value="${param.user_id}" />
+							<input type="hidden" name="re_no" value="${param.re_no}" /> <input
 								type="hidden" name="resdate" value="${param.resdate}"> <input
 								type="hidden" name="resTime" value="${param.resTime}">
+
 
 							<table class="type07">
 								<thead>
@@ -99,13 +80,15 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td colspan="2">비밀번호&nbsp;:&nbsp;&nbsp;<input type="password" name="user_pw" /></td>
+										<td colspan="2">비밀번호&nbsp;:&nbsp;&nbsp;<input id="pw" type="password" name="user_pw" /></td>
 
 									</tr>
 
 								</tbody>
 							</table>
-							<input type="submit" value="예약취소하기"> &nbsp;&nbsp; <input
+							<br>
+							<br>
+							<input type="button" onclick="gogo()" value="예약하기"> &nbsp;&nbsp; <input
 								type="button" value="되돌아가기"
 								onclick="location.href='javascript:history.back()'">
 						</form>
@@ -120,7 +103,8 @@
 
 
 	</div>
-
+	<script src="<c:url value="${path }/resource/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/jquery-3.5.1.js"/>"></script>
 
 	<script
 		src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
@@ -135,5 +119,19 @@
 	<script
 		src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
+	
+	
+	<script>
+	function gogo() {
+		var password = document.getElementById('pw').value;
+		var userPw = '${data.user_pw}';
+
+		if(password == userPw) {
+			document.getElementById('successForm').submit();
+		} else {
+			alert("비밀번호가 일치하지 않습니다.");
+		}
+	}
+</script>
 </body>
 </html>

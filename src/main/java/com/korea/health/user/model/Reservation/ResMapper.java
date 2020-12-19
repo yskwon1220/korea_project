@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.korea.health.user.model.Trainer.TrainerVO;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 
 @Mapper
@@ -15,7 +16,7 @@ public interface ResMapper {
 	//List<ReservationVO> list();
 	//
 	
-	List<ReservationVO> MyResList(String user_name);
+	List<ReservationVO> MyResList(String user_id);
 	//내 모든 예약 리스트
 
 	
@@ -60,7 +61,9 @@ public interface ResMapper {
 	ReservationVO MyDetailList2(int re_no);
 	//toomany떠서 새로 만듬..
 	
+	UserMemberVO userInfo(String user_id);
 	
-	
+	UserMemberVO pwCheckOk(UserMemberVO mvo);
+
 	
 }

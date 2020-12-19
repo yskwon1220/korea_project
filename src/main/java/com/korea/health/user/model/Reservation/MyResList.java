@@ -24,9 +24,9 @@ public class MyResList implements Action{
 		ReservationVO rvo = (ReservationVO) map.get("rvo");
 		//rvo.setRe_no(Integer.parseInt(req.getParameter("re_no")));
 		//req.setAttribute("re_no",Integer.parseInt(req.getParameter("re_no")));
-		req.setAttribute("user_name", (String)req.getParameter("user_name"));
+		req.setAttribute("user_id", (String)req.getParameter("user_id"));
 		
-		return mapper.MyResList(req.getParameter("user_name"));
+		return mapper.MyResList(req.getParameter("user_id"));
 		//위는 단순 리스트 뽑기위한것.
 		
 		

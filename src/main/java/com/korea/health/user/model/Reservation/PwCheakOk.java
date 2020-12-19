@@ -5,34 +5,30 @@ import java.util.HashMap;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.logging.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
 import com.korea.health.user.model.usermember.UserMemberVO;
 
 
+@Service("reservationpwCheckOk")
+public class PwCheakOk implements Action {
 
-@Service("reservationinsertForm")
-public class InsertForm implements Action{
-	
 	@Resource
 	ResMapper mapper;
-	
-	
 
+	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
-		ReservationVO rvo = new ReservationVO();
-		UserMemberVO mvo = (UserMemberVO)map.get("mvo");
-	
 		
+		System.out.println((String)req.getParameter("user_pw"));
 		
-		String user_id = (String)req.getSession().getAttribute("user_id");
-		System.out.println();
-		System.out.println("ㅎㅇ"+ user_id);
+		//비밀번호가 틀리면 에러화면이 뜨는데 그 처리를 여기서 해주는지 다음 화면에서 해주는지 .. 
+		UserMemberVO uvo =(UserMemberVO)map.get("mvo");
+		uvo.setUser_id((String)req.getSession().getAttribute("user_id"));
+		uvo.setUser_pw((String)req.getParameter("user_pw"));
 		
-		//mvo.setUser_id((String)req.getSession().getAttribute("user_id"));
-		//System.out.println("너님누구세요?"+mvo.getUser_id());
 		
 		String lo_no = (String)req.getParameter("lo_no");
 		req.setAttribute("lo_no", lo_no);
@@ -41,12 +37,18 @@ public class InsertForm implements Action{
 		req.setAttribute("type", (String)req.getParameter("type"));
 		req.setAttribute("resTime", (String)req.getParameter("resTime"));
 		req.setAttribute("resdate", (String)req.getParameter("resdate"));
-
-		UserMemberVO uvo = mapper.userInfo(user_id);
-		System.out.println(uvo.toString());
 		
-
-		return mapper.userInfo(user_id);
+		UserMemberVO mvo = mapper.pwCheckOk(uvo);
+		if(mvo==null) {
+			req.setAttribute("user_pw", "pwfailed");
+			return req;
+			
+		}else{
+			
+			return req;			
+		}
+		
+		
 	}
 
 }

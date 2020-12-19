@@ -22,7 +22,7 @@
 							단 8주,<br />
 							리얼 후기 당신이 될 수 있습니다.</p>
 							<ul class="actions special">
-								<li><a href="../MainV3" class="button primary">together</a></li>
+								<li><a href="main" class="button primary">together</a></li>
 							</ul>
 						</div>
 					</section>
