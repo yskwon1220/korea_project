@@ -27,8 +27,6 @@
 <link rel="stylesheet"
    href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
 <link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
-<link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/calendarstyle.css"/>" />
 
 
 

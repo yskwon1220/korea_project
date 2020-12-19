@@ -38,7 +38,7 @@
    
    </style>
    <body>
-<jsp:include page="inc/headerV3.jsp" />
+<jsp:include page="../inc/headerV3.jsp" />
       <div id="page-wrapper">
 
    
@@ -82,12 +82,12 @@
     </table>
     
       <input type="submit" value="구매하기" class="btn_buy" id="payBtn">
-      		<a href="<c:url value="${path }/user_page_/pay/payment/payment"/>"></a>
+      		<a href="<c:url value="user_page_/pay/payment/payment"/>"></a>
       
      </div>
 
 
-<jsp:include page="inc/footerV3.jsp" />
+<jsp:include page="../inc/footerV3.jsp" />
 	
 
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>

@@ -50,34 +50,32 @@ public class HomeController {
 		return "main";
 	}
 	
-	@RequestMapping("/introduce")
+	@RequestMapping("/navi/introduce")
 	public void introduce() {
 
 		System.out.println("introduce");
 		
 	}
 	
-	@RequestMapping("/membership")
+	@RequestMapping("/navi/community")
+	public void community() {
+		
+		System.out.println("community");
+		
+	}
+	
+	@RequestMapping("/navi/membership")
 	public void membership() {
 
 		System.out.println("membership");
 		
 	}
 	
-	@RequestMapping("/find")
+	@RequestMapping("/navi/find")
 	public void find() {
 		
 		System.out.println("comu");
 		
 	}
-	
-	@RequestMapping("/community")
-	public void community() {
-		
-		System.out.println("community");
-		
-	}
-
-
 	
 }

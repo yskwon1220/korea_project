@@ -22,13 +22,12 @@ li:hover ul {
 			</h1>
 			<nav role="navigation">
 				<ul>
-					<li><a href="<c:url value="/introduce"/>">Introduce</a></li>
-					<li><a href="<c:url value="/find"/>">Find</a></li>
-					<li><a href="<c:url value="/membership"/>">MemberShip</a></li>
-					<li><a
-						href="<c:url value="${path }/user_page_/location/locationlist"/>">reservation</a></li>
-					<li><a href="<c:url value="/community"/>">community</a></li>
-					<li><a href="<c:url value="#"/>">eventlist</a></li>
+					<li><a href="<c:url value="/navi/introduce"/>">Introduce</a></li>
+						 <li><a href="<c:url value="/navi/find"/>">Find</a></li>
+						<li><a href="<c:url value="/navi/membership"/>">MemberShip</a></li>
+						<li><a href="<c:url value="${path }/user_page_/location/locationlist"/>">reservation</a></li>
+						<li><a href="<c:url value="/navi/community"/>">community</a></li>
+						<li><a href="<c:url value="#"/>">eventlist</a></li>
 					<c:choose>
 						<c:when test="${not empty sessionScope.user_id }">
 							<!-- 로그인된 상태일때  -->

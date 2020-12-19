@@ -32,7 +32,7 @@
 <script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 </head>
 <body>
-		<jsp:include page="inc/headerV3.jsp" />
+	<jsp:include page="../inc/headerV3.jsp" /> 
 	<div id="page-wrapper">
 
 
@@ -95,7 +95,7 @@
 				</div>
 				</div>
 				</div>
-	<jsp:include page="inc/footerV3.jsp" />
+ 	<jsp:include page="../inc/footerV3.jsp" /> 
 
 
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>

@@ -8,6 +8,7 @@
 <html>
 <head>
 <title>비밀번호 수정완료</title>
+	<c:set var="path" value="${pageContext.request.contextPath}" /> 
 <c:if test="${modify  eq 'modifyFailed'}">
 <script> 
 alert("수정 실패");

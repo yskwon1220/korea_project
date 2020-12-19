@@ -34,7 +34,7 @@ public class Reviewinsert implements Action {
 		String user_id = (String)req.getSession().getAttribute("user_id");
 		ReviewVO vo = new ReviewVO();
 		List<LocationVO> lvo = locaMapper.list();
-		//List<TrainerVO> tvo = traiMapper.list();
+		List<TrainerVO> tvo = traiMapper.list();
 		
 		System.out.println("### @Reviewinsert.java ### ");
 		for (int i = 0; i < lvo.size(); i++) {
@@ -49,7 +49,7 @@ public class Reviewinsert implements Action {
 		System.out.println(vo.review_no);
 		map.put("vo", vo);
 		map.put("locationList", lvo);
-		//map.put("trList", tvo);
+		map.put("trList", tvo);
 		
 		return map;
 	

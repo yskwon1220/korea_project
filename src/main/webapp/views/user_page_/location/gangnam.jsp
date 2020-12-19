@@ -25,7 +25,7 @@
 
    </head>
    <body>
-<jsp:include page="../../inc/headerV3.jsp" />
+<%-- <jsp:include page="../../inc/headerV3.jsp" /> --%>
       <div id="page-wrapper">
 
          
@@ -52,7 +52,7 @@
             </div>
         </section>
         <p class= "loca">강남점</p>
-        <h3 class="ex1">상세설명</h3>
+        <!-- <h3 class="ex1">상세설명</h3> -->
         <hr class="hr">
         <p class="ex">
         1. 약 300여 평 강남역 최고 시설로 오픈한 스페셜피트니스 강남점은 헬스, 요가, 필라테스, 줌바 등 각종 G.X를 갖춘 대규모 종합 피트니스센터입니다. <br />
@@ -108,7 +108,7 @@ marker.setMap(map);
             </div>
             </div>
 
-<jsp:include page="../../inc/footerV3.jsp" />
+<%-- <jsp:include page="../../inc/footerV3.jsp" /> --%>
 	
 
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>

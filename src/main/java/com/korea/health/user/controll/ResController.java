@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
+import com.korea.health.user.model.Location.LocaMapper;
 import com.korea.health.user.model.Location.LocationVO;
 import com.korea.health.user.model.Reservation.ResPageInfo;
 import com.korea.health.user.model.Reservation.ResTimeVO;
@@ -40,6 +41,9 @@ public class ResController {
 	@Resource
 	Myprovider provider;
 
+	@Resource
+	LocaMapper locaMapper;
+	
 	@ModelAttribute
 	Kind kind(@PathVariable("cate") String cate, @PathVariable("service") String service) {
 		Kind kind = new Kind();
@@ -70,13 +74,13 @@ public class ResController {
 			@PathVariable("service") String service) {
 		
 		mm.addAttribute("reviewVO");
-		// List<LocationVO> locaList = locaMapper.list();
+		 List<LocationVO> locaList = locaMapper.list();
 		Action action = provider.getContext().getBean(cate + service, Action.class);
 		HashMap<String, Object> map = new HashMap<>();
 
 		map.put("rrvo", rrvo);
 		map.put("infoVo", infoVo);
-		// map.put("locaList",locaList);
+		map.put("locaList",locaList);
 
 		map.put("fnqInfoVo", fnqInfoVo);
 		map.put("infonoticeVo", infonoticeVo);
