@@ -40,14 +40,14 @@ public class HomeController {
 		return "introMain";
 	}
 
-	@RequestMapping("/MainV3")
+	@RequestMapping("/main")
 	public String home(Model mm) {
 		List<NoticeVO> data = mapper.allNoticeList();
 		List<ReviewVO> data_22 = revMapper.allReviewList();
 		mm.addAttribute("data",data);
 		mm.addAttribute("data_22",data_22);
 		System.out.println("main comin");
-		return "MainV3";
+		return "main";
 	}
 	
 	@RequestMapping("/introduce")
@@ -70,20 +70,13 @@ public class HomeController {
 		System.out.println("comu");
 		
 	}
-
-//	@RequestMapping(value = "style_hyeon/location/{service}", method = RequestMethod.GET )
-//	public void location_1(@PathVariable("service")String service) {
-//	}
-//	
-//	@RequestMapping(value = "user_page_/location/{service}", method = RequestMethod.GET )
-//	public void location(@PathVariable("service")String service) {
-//	}
-//	
-//	@RequestMapping(value = "user_page_/pay/payment/{service}", method = RequestMethod.GET )
-//	public void pay(@PathVariable("service")String service) {
-//	}
-//	
-//	
+	
+	@RequestMapping("/community")
+	public void community() {
+		
+		System.out.println("community");
+		
+	}
 
 
 	

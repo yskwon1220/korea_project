@@ -52,7 +52,8 @@ public interface ReservationMapper {
 	
 	
 	/*검색을 위한것 */
-	List<ReservationVO> listAll(String keyField, String keyWord);
+	//List<ReservationVO> listAll(String keyField, String keyWord);
+	List<ReservationVO> listAll(Pagenation pagenation);
 	
 	
 	

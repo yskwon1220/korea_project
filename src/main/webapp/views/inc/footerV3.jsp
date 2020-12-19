@@ -11,7 +11,7 @@
 		<div class="container">
 			<div class="col-md-12 text-center animate-box">
 				<h3>안전한 운동의 시작, FitNess Club</h3>
-				<p><a href="/MainV3" class="btn btn-primary btn-outline with-arrow">Go home! <i class="icon-arrow-right"></i></a></p>
+				<p><a href="/main" class="btn btn-primary btn-outline with-arrow">Go home! <i class="icon-arrow-right"></i></a></p>
 			</div>
 		</div>
 	</div>

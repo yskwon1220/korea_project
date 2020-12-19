@@ -23,6 +23,23 @@ public class Pagenation {
 	private boolean prev;	// 이전페이지 여부
 	private boolean next;	// 다음페이지 여부
 	private List<ReservationVO> reservSet;	// 예약 넣기
+	private String keyField;	
+	private String keyWord;	
+	
+	
+	public String getKeyField() {
+		return keyField;
+	}
+	public void setKeyField(String keyField) {
+		this.keyField = keyField;
+	}
+	public String getKeyWord() {
+		return keyWord;
+	}
+	public void setKeyWord(String keyWord) {
+		this.keyWord = keyWord;
+	}
+
 	private List<ResTimeVO> reservtimeSet;
 	private List<TrainerVO> pageSet;
 	private String locationNo;

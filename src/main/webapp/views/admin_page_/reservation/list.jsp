@@ -133,11 +133,7 @@
 
 		var page = ((range - 2) * rangeSize) + 1;
 		var range = range - 1;
-		var temp = $
-		{
-			data.locationNo
-		}
-		;
+		var temp = ${data.locationNo};
 
 		var url = "list?lo_no=" + temp;
 		url = url + "&page=" + page;

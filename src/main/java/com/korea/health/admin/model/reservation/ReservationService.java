@@ -52,6 +52,8 @@ public class ReservationService implements Action{
 			System.out.println("전체 컬럼 수 : " + listCnt);
 			
 			
+			
+			
 			//혜지가 추가한 검색 부분!!
 			String keyField = request.getParameter("keyField");
 			String keyWord = request.getParameter("keyWord");
@@ -60,9 +62,13 @@ public class ReservationService implements Action{
 			pageCtl.pageInfo(page, range, listCnt);
 			pageCtl.setLocationNo(lo_no);
 			
+			pageCtl.setKeyField(keyField);
+			pageCtl.setKeyWord(keyWord);
+			
+			
 			//혜지가 추가한 검색 부분!!
 			if(keyField !=null && keyWord !=null) {
-				pageCtl.setReservSet(mapper.listAll(keyField, keyWord));
+				pageCtl.setReservSet(mapper.listAll(pageCtl));
 				
 			}else {
 				pageCtl.setReservSet(mapper.reservationList(pageCtl));
@@ -93,13 +99,16 @@ public class ReservationService implements Action{
 			pageCtl.pageInfo(page, range, listCnt);
 			//pageCtl.setLocationNo(lo_no);
 			
+			
+			pageCtl.setKeyField(keyField);
+			pageCtl.setKeyWord(keyWord);
 			//혜지가 추가한 검색 부분!!
-			if(keyField !=null && keyWord !=null) {
-				pageCtl.setReservtimeSet(mapper.reslistAll(keyField, keyWord));
-				
-			}else {
-				pageCtl.setReservtimeSet(mapper.reservationresList(pageCtl));
-			}
+//			if(keyField !=null && keyWord !=null) {
+//				pageCtl.setReservtimeSet(mapper.reslistAll(pageCtl));
+//				
+//			}else {
+//				pageCtl.setReservtimeSet(mapper.reservationresList(pageCtl));
+//			}
 			return pageCtl;
 			
 			

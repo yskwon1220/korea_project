@@ -13,7 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="listAll"
-		resultType="com.korea.health.admin.model.reservation.ReservationVO">
+		resultType="com.korea.health.admin.model.reservation.ReservationVO"
+		parameterType="com.korea.health.service.Pagenation"
+		>
 		select *
 		from reservation
 		where
