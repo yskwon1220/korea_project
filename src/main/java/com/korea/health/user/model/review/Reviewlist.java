@@ -20,7 +20,9 @@ public class Reviewlist implements Action{
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		// TODO Auto-generated method stub
 		ReviewPagingInfo infoVo = (ReviewPagingInfo) map.get("infoVo");
+		ReviewVO rrvo = (ReviewVO)map.get("rrvo");
 		
+	
 		infoVo.init(mapper.totalCnt());
 		infoVo.setVoArr(mapper.reviewlist(infoVo));
 		return infoVo;

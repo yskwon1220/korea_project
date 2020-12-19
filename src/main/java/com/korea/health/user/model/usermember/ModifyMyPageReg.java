@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
@@ -13,48 +15,43 @@ import com.korea.health.provider.Action;
 @Service("usermembermodifyMyPageReg")
 public class ModifyMyPageReg implements Action {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ModifyMyPageReg.class);
+
 	@Resource
 	UserMemberMapper mapper;
 
-	UserMemberVO mvo;	
+		
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		
-		HttpSession session = req.getSession();
+		
+		
+		UserMemberVO mvo =(UserMemberVO)map.get("mvo"); //폼에서 입력한 값 가져옴  
 
-		UserMemberVO uvo =(UserMemberVO)map.get("mvo");
-		uvo.setId((String)session.getAttribute("id"));
-		String id =(String)session.getAttribute("id");
+		LOGGER.info("usermembermodifyMyPageReg Service : "+mvo.toString());
 
-		System.out.println("#####1");
-		System.out.println(id);
 
-		
-		
-//		UserMemberVO uvo =(UserMemberVO)map.get("mvo");
-		System.out.println("usermembermodifyMyPageReg Service : "+uvo);
-		System.out.println(uvo.getId()+" "+uvo.getName()+" "+uvo.getTel()+" "+uvo.getPw());
-		
-		Integer a = mapper.modifyMyPage(uvo) ; //인서트 업데이트 딜리트는 resulttype이 없고 행의갯수의 결과가 숫자로 나옴 1이 나오면 성공임 (업뎃되는 행의 숫자가 나옴) 
-		
-		
-		
-		if(a==0) {
-			System.out.println("### 수정 X");
+//		Select - Select문에 해당하는결과
+//		Insert - 1 (여러개일경우도 1)
+//		Update - Update된 행의 개수 반환 (없다면 0)
+//		delete - Delete된 행의개수 (없다면 0)
+		Integer result = mapper.modifyMyPage(mvo) ; 
+
+// 어차피 나의 행하나만 바꾸는거라서 0또는 1의 반환값으로 생각하고 if else만 사용
+		if(result==0) {
+			LOGGER.info("###modifyNO");
 			req.setAttribute("modify", "modifyFailed");
+			
 			return req;
 
-		}else if(a==1) {
+		}else{
 			System.out.println("###modifyOk");
-			req.setAttribute("modify", "modifySuccess");
-//		return req;
-			return mapper.mypage(id);
-			
-		}
-		
 
-return null;
+//			return mapper.mypage((String)req.getSession().getId());
+			return req;
+		}
+
 
 	}
 

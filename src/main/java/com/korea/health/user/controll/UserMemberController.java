@@ -63,7 +63,7 @@ public class UserMemberController {
       System.out.println("[UserMemberController] [mainData] id : "+id);
       
       System.out.println("현재 페이지 :" + cate + "/" + list);
-      System.out.println("mvo  : " +mvo.getId());
+      System.out.println("mvo  : " +mvo.getUser_id());
       
       Object res = action.execute(map, req);
       

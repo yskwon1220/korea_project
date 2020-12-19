@@ -10,4 +10,6 @@ public interface TraiMapper {
 
 	List<TrainerVO> detail(String lo_no);
 	
+	List<TrainerVO> list();
+	
 }

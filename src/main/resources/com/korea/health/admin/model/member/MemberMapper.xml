@@ -4,9 +4,85 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.korea.health.admin.model.member.MemberMapper">
-
-	<select id="memberList" resultType="com.korea.health.admin.model.member.MemberVO">
-		SELECT * FROM USERMEMBER
+	
+	<!--총회원수-->
+	<select id="totalCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM USERMEMBER
 	</select>
 	
+	<!--회원 리스트 보기-->
+<!-- 	<select id="memberList" resultType="com.korea.health.user.model.usermember.UserMemberVO">
+		SELECT 
+		customer_no, id, name, regDate, admin
+		 FROM 
+		 USERMEMBER
+	</select> -->
+	
+	<select id="memberList" resultType="com.korea.health.user.model.usermember.UserMemberVO"
+		parameterType="com.korea.health.service.Pagenation">
+		<![CDATA[
+       
+        select * from 
+        
+        (select rownum rnum, t1.* from 
+        
+        (select * from USERMEMBER ) t1) 
+         
+         
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+        
+	</select>
+	
+	
+	
+	<!--회원리스트 검색-->
+	<select id="listSch" 
+	resultType="com.korea.health.user.model.usermember.UserMemberVO" 
+	parameterType="com.korea.health.user.model.usermember.UserMemberVO"> 
+		<!-- select * from board where name like '%'||#{name}||'%' -->
+		select * from USERMEMBER where user_name like '%${user_name}%'
+	</select>
+	
+	<!--회원 정보 보기-->
+	<select id="memberDetail" resultType="com.korea.health.user.model.usermember.UserMemberVO"
+		parameterType="java.lang.Integer">
+		SELECT 
+			user_no, user_name, user_id, user_birth, regDate, user_email, user_tel, admin, gender
+		FROM USERMEMBER 
+		WHERE user_no = #{user_no}
+	</select>
+	
+	<!--회원 정보 삭제-->	
+	<delete id="memberDelete" 
+		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+		
+		delete from USERMEMBER where user_no = #{user_no}
+		
+	</delete>
+	
+	
+	<!--회원 관리자 등급 주기-->
+	<update id="modifyAdmin" 
+	  	 parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+
+			update usermember 
+			set 
+				admin = 'admin'
+			where 
+				user_no = #{user_no}
+				
+		</update>
+	
+	<!--회원 관리자 등급 뺏기-->
+	<update id="modifyUser" 
+	  	 parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+
+			update usermember 
+			set 
+				admin = 'user'
+			where 
+				user_no = #{user_no}
+				
+		</update>
 </mapper>

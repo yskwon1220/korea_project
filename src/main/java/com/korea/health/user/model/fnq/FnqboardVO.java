@@ -7,96 +7,91 @@ import org.apache.ibatis.type.Alias;
 @Alias("fnqboardVO")
 public class FnqboardVO {
 	public int board_no;
-	int no;
-	int gid;
-	int seq;
-	int lev;
-	String title="", content="", file_0="", rep="";
+	String user_id="";
+	String title = "", content = "", reply = "", rep = "";
 	Date regdate;
+
+	
+
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
 	public int getBoard_no() {
 		return board_no;
 	}
+
 	public void setBoard_no(int board_no) {
 		this.board_no = board_no;
 	}
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
-	}
-	public int getGid() {
-		return gid;
-	}
-	public void setGid(int gid) {
-		this.gid = gid;
-	}
-	public int getSeq() {
-		return seq;
-	}
-	public void setSeq(int seq) {
-		this.seq = seq;
-	}
-	public int getLev() {
-		return lev;
-	}
-	public void setLev(int lev) {
-		this.lev = lev;
-	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getContent() {
-		
+
 		return content;
 	}
 
-	public void setContent (String content) {
-		if(content == null)
+	public void setContent(String content) {
+		if (content == null)
 			content = "";
 		this.content = content;
 	}
-	
+
 	public String getContentBr() {
 		return getContent().replaceAll("\n", "<br>");
 	}
 
-	public String getFile_0() {
-		return file_0;
-	}
-	public void setFile_0(String file_0) {
-		this.file_0 = file_0;
-		if(file_0 == null)
-			this.file_0 = "";
-		
-	}
+	
 	public String getRep() {
 		return rep;
 	}
+
 	public void setRep(String rep) {
-		
-		if(rep=="")
-			rep="처리중";
-			
-			this.rep = rep;
+
+
+		this.rep = rep;
 	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
+
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+
+
+	
+	
 	}
+
+	public String getReply() {
+		return reply;
+	}
+	public String getReplyBr() {
+		return getReply().replaceAll("\n", "<br>");
+	}
+
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+
 	@Override
 	public String toString() {
-		return "OneboardVO [board_no=" + board_no + ", no=" + no + ", gid=" + gid + ", seq=" + seq + ", lev=" + lev
-				+ ", title=" + title + ", content=" + content + ", file_0=" + file_0 + ", rep=" + rep + ", regdate="
-				+ regdate + "]";
+		return "FnqboardVO [board_no=" + board_no + ", user_id=" + user_id + ", title=" + title + ", content=" + content
+				+ ", reply=" + reply + ", rep=" + rep + ", regdate=" + regdate + "]";
 	}
-	
-	
-	
+
 	
 }

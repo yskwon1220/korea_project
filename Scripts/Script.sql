@@ -66,18 +66,6 @@ reserve_cnt NUMBER,
 regdate DATE
 );
 
-create table reservation(
-no           varchar2(99),
- lo_name        varchar2     (99),
-type             varchar2(99),
- tr_name   varchar2(99),
-  resdate  varchar2(99),
-  restime       varchar2(99),
-user_name     varchar2(99),
- user_pw           varchar2(99),
-user_tel          varchar2(99),
-content varchar2(99) );
-
 INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
 VALUES ('1', '권용석', '타입', '박혜지', '123123', '12313123', 'ㅎㅇㅎㅇㅎㅇ', 'ㅁㄴㅇㅁㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㄴ', 'ㅁㄴㅇㅁㄴㅇㅁㄴ');
 INSERT INTO RESERVATION (NO, LO_NAME, TYPE, TR_NAME, RESDATE, RESTIME, USER_NAME, USER_PW, USER_TEL, CONTENT)
@@ -178,58 +166,58 @@ CREATE TABLE TRAINER (
 	lo_no varchar2(30),
 	tr_name varchar2(20),
 	ismanage NUMBER,
-	tr_info varchar2(300),
-	stars NUMBER,
+	content varchar2(300),
+	star NUMBER,
 	tr_pic varchar2(60),
 	regdate timestamp
 );
 
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (1, '1002', '곰', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg', '201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (2, '1002', '말', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg', '201211');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (3, '1002', '돼지', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '5.jpg','201211');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (4, '1002', '소', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '1.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (5, '1002', '너구리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '2.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (6, '1002', '오리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg','201213');
-
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (7, '1002', 'ASDSD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (8, '1002', 'SAGG', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (9, '1002', 'FGFD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (10, '1002', 'WERER', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (11, '1002', 'ZXCZX', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (12, '1002', 'ASSA', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (13, '1002', 'RTREW', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (14, '1002', 'ASDS', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (15, '1002', 'GFG', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (16, '1002', 'YTU', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (17, '1002', 'FGF', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (18, '1002', 'DFS', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (19, '1002', 'CBC', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (20, '1002', 'DSFD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (21, '1002', 'SDFDX', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-INSERT INTO TRAINER (TR_NO, LO_NO, TR_NAME, ISMANAGE, TR_INFO, STARS, TR_PIC, REGDATE)
-VALUES (22, '1002', 'XCV', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213');
-
+INSERT ALL
+INTO TRAINER
+VALUES (1, '1002', '곰', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg', '201213')
+INTO TRAINER
+VALUES (2, '1002', '말', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg', '201211')
+INTO TRAINER
+VALUES (3, '1002', '돼지', 1, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '5.jpg','201211')
+INTO TRAINER
+VALUES (4, '1002', '소', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '1.jpg','201213')
+INTO TRAINER
+VALUES (5, '1002', '너구리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '2.jpg','201213')
+INTO TRAINER
+VALUES (6, '1002', '오리', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '3.jpg','201213')
+INTO TRAINER
+VALUES (7, '1002', 'ASDSD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (8, '1002', 'SAGG', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (9, '1002', 'FGFD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (10, '1002', 'WERER', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (11, '1002', 'ZXCZX', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (12, '1002', 'ASSA', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (13, '1002', 'RTREW', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (14, '1002', 'ASDS', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (15, '1002', 'GFG', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (16, '1002', 'YTU', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (17, '1002', 'FGF', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (18, '1002', 'DFS', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (19, '1002', 'CBC', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (20, '1002', 'DSFD', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (21, '1002', 'SDFDX', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+INTO TRAINER
+VALUES (22, '1002', 'XCV', 0, '수상경력입니다ㅁㄴㅇㄴㅁㅇㅁㄴㅇ', 4, '4.jpg','201213')
+SELECT * FROM dual;
 
 CREATE TABLE qna (
    qna_no number(5),
@@ -281,3 +269,16 @@ CREATE TABLE fnqboard (
    "RESERVE_CNT" NUMBER, 
    "REGDATE" DATE
    ) ;
+
+  DROP TABLE qna;
+ 
+  CREATE TABLE QNA(
+ QNA_NO NUMBER,
+ KIND VARCHAR2(100),
+ TITLE VARCHAR2(500),
+ CONTENT VARCHAR2(999),
+ REGDATE TIMESTAMP,
+ CNT NUMBER
+ );
+ 
+SELECT COUNT(*) FROM TRAINER WHERE LO_NO = '1001';

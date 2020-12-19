@@ -1,16 +1,18 @@
 package com.korea.health.user.model.review;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.korea.health.provider.Action;
 
-@Service("reviewreviewmodifyreg")
+@Service("reviewreviewmodify")
 public class Reviewmodify implements Action {
 
 	@Resource
@@ -22,19 +24,17 @@ public class Reviewmodify implements Action {
 		
 		System.out.println("reviewmodify");
 		
-		ReviewVO vo = (ReviewVO)map.get("rvo");
+		ReviewVO vo = (ReviewVO)map.get("rrvo");
+		int review_no = vo.getReview_no();
 		
-		System.out.println("====================");
-		System.out.println(vo.toString());
+	
 		
-		if(1 == mapper.modify(vo)) {
-			System.out.println("OOOOOOOOOOOOOOOOOOOOOO");
-		} else {
-			System.out.println("XXXXXXXXXXXXXXXXXXXXXX");
-		}
+		ReviewVO review = mapper.detail(review_no);
 		
-		return mapper.modify(vo);
+		
+		
+		return review;
 		
 	}
-
+	
 }

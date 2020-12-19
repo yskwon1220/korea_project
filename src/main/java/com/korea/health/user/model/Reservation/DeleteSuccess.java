@@ -1,5 +1,8 @@
 package com.korea.health.user.model.Reservation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
@@ -17,28 +20,36 @@ public class DeleteSuccess implements Action {
 
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
-
-		ReservationVO rvo = (ReservationVO) map.get("rvo");
-		rvo.setUser_name((String) req.getParameter("user_name"));
-
-		String url = "redirect:deleteSuccess";
-		if (mapper.delete(rvo) > 0) {
-			url = "myResList";
+		
+		ReservationVO rvo = (ReservationVO)map.get("rvo");
+		rvo.setLo_no(req.getParameter("lo_no")); 
+		rvo.setUser_name(req.getParameter("user_name"));
+		req.setAttribute("lo_no", (String)req.getParameter("lo_no"));
+		req.setAttribute("user_name", (String)req.getParameter("user_name"));
+		
+		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		String resdateStr = req.getParameter("resdate");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
+		Date resDate;
+		
+		try {
+			resDate = sdf.parse(resdateStr);
+			timevo.setResTime(req.getParameter("resTime")); 
+			timevo.setResDate(resDate);
+			req.setAttribute("resDate", timevo.getResDate());
+			req.setAttribute("resTime", (String)req.getParameter("resTime"));
+			System.out.println("타입확인 resDateStr : " + timevo.getResDateStr().getClass().getName());
+			System.out.println("타입확인 resDate : " + timevo.getResDate().getClass().getName());
+			System.out.println("타입확인 resTime : " + timevo.getResTime().getClass().getName());
+			
+			if(mapper.delete(rvo) != 0) {
+				mapper.MinusCount(timevo);	
+			}
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
-		req.setAttribute("url", url);
-//		System.out.println("delete들어옴:" + rvo);
-//		return url;
-
-//		int cnt = mapper.delete(rvo);
-//
-//		if (cnt != 0) {
-//
-//			return mapper.MyResList((String) req.getParameter("user_name"));
-//
-//		} else {
-//			return mapper.MyDetailList((String) req.getParameter("re_no"));
-//		}
-		return url;
+		return null;
 	}
 
 }

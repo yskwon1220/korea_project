@@ -11,14 +11,14 @@ import org.springframework.web.multipart.MultipartFile;
 public class TrainerVO {
 	Integer tr_no = 0;
 	String lo_no;
-	String lo_name;
 	String tr_name;
 	Integer isManage;
-	String tr_info;
-	Integer stars;
+	String content;
+	Integer star;
 	Date regdate;
 	String tr_pic;
 	
+	String lo_name;
 	String manager;
 	MultipartFile pic;
 	String welcomeDate;
@@ -66,27 +66,27 @@ public class TrainerVO {
 		}
 		this.isManage = isManage;
 	}
-	public String getTr_info() {
-		if(tr_info == null)
-			tr_info = "";
-		return tr_info;
+	public String getContent() {
+		if(content == null)
+			content = "";
+		return content;
 	}
-	public String getTr_infoTrans() {
-		return getTr_info().replaceAll("\n", "<br>");
+	public String getContentTrans() {
+		return getContent().replaceAll("\n", "<br>");
 	}
-	public void setTr_info(String tr_info) {
-		if(tr_info == null)
-			tr_info = "";
-		this.tr_info = tr_info;
+	public void setContent(String content) {
+		if(content == null)
+			content = "";
+		this.content = content;
 	}
-	public Integer getStars() {
-		if(stars == null) {
-			stars = 0;
+	public Integer getStar() {
+		if(star == null) {
+			star = 0;
 		}
-		return stars;
+		return star;
 	}
-	public void setStars(Integer stars) {
-		this.stars = stars;
+	public void setStar(Integer star) {
+		this.star = star;
 	}
 	public MultipartFile getPic() {
 		return pic;
@@ -152,8 +152,10 @@ public class TrainerVO {
 	@Override
 	public String toString() {
 		return "TrainerVO [tr_no=" + tr_no + ", lo_no=" + lo_no + ", tr_name=" + tr_name + ", isManage=" + isManage
-				+ ", tr_info=" + tr_info + ", stars=" + stars + ", regdate=" + regdate + ", tr_pic=" + tr_pic + ", pic="
-				+ pic + ", manager=" + manager + "]";
+				+ ", content=" + content + ", star=" + star + ", regdate=" + regdate + ", tr_pic=" + tr_pic
+				+ ", lo_name=" + lo_name + ", manager=" + manager + ", pic=" + pic + ", welcomeDate=" + welcomeDate
+				+ ", sdf=" + sdf + "]";
 	}
+	
 	
 }

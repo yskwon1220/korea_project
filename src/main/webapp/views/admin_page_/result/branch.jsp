@@ -42,7 +42,7 @@
                                                 <td class="align-middle">${data.showPayment}</td>
                                                 <td class="align-middle">${data.welcomeDate}</td>
                                                 <td class="align-middle">
-                                                    <a href="/admin_page_/result/detail?payment_no=${data.payment_no}" class="btn btn-info btn-primary btn-sm">정보</a>
+                                                    <a href="/admin_page_/result/paymentdetail?payment_no=${data.payment_no}" class="btn btn-info btn-primary btn-sm">정보</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>

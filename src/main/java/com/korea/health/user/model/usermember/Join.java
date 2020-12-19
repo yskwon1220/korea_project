@@ -16,7 +16,6 @@ public class Join implements Action {
 	UserMemberMapper mapper;
 
 
-	UserMemberVO mvo;	
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {

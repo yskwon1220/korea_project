@@ -5,14 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
+import com.korea.health.admin.model.reservation.ReservationVO;
 import com.korea.health.admin.model.result.ResultVO;
 import com.korea.health.provider.Action;
+import com.korea.health.user.model.fnq.FnqboardVO;
 // dashboard : 방문자 정보 , 예약 정보, 고객문의 정보
 @Service("admin_page_home")
 public class DashBoardService implements Action{
@@ -23,8 +26,9 @@ public class DashBoardService implements Action{
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
 		
-		ResultVO rvo = (ResultVO)map.get("resultVO");
-		
+		List<ReservationVO> reservList;
+		List<FnqboardVO> faqList;
+		List<ResultVO> paymentList;
 		ArrayList<Integer> chartList = new ArrayList<Integer>();
 		HashMap<String, Object> temp = new HashMap<String, Object>();
 		
@@ -34,6 +38,9 @@ public class DashBoardService implements Action{
 			System.out.println("switch case : dashboard에 들어왔따.");
 			String startDate;
 			String endDate;
+			int startCnt = 1;
+			int endCnt = 5;
+			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 			DecimalFormat fmt = new DecimalFormat("###,###");
 			int year = 2020;
@@ -45,7 +52,17 @@ public class DashBoardService implements Action{
 				chartList.add(mapper.monthlyPayment(startDate, endDate));
 			}
 			
+			reservList = mapper.reservationList(startCnt, endCnt);
+			faqList = mapper.fnqList(startCnt, endCnt);
+			paymentList = mapper.paymentList(startCnt, endCnt);
 			
+			for (ResultVO vo : paymentList) {
+				vo.setUser_name(mapper.findUser(vo.getUser_no()));
+			}
+			
+			temp.put("reservList", reservList);
+			temp.put("faqList", faqList);
+			temp.put("paymentList", paymentList);
 			temp.put("chartList", chartList);
 			
 			return temp;

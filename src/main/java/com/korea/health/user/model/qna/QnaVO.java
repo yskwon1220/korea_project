@@ -7,21 +7,23 @@ import org.apache.ibatis.type.Alias;
 @Alias("qnaVO")
 public class QnaVO {
 	public int qna_no;
-	int no;
+	int customer_no;
 	int cnt;
-	String kind, title, context, file_0;
+	String kind="", title="", content="", file_0="";
 	Date regdate;
+	
+	
 	public int getQna_no() {
 		return qna_no;
 	}
 	public void setQna_no(int qna_no) {
 		this.qna_no = qna_no;
 	}
-	public int getNo() {
-		return no;
+	public int getCustomer_no() {
+		return customer_no;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setCustomer_no(int customer_no) {
+		this.customer_no = customer_no;
 	}
 	public int getCnt() {
 		return cnt;
@@ -41,21 +43,21 @@ public class QnaVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContext() {
-		if(context == null)
-			context = "";
+	public String getContent() {
+		if(content == null)
+			content = "";
 		
-		return context;
+		return content;
 	}
 
-	public void setContext (String context) {
-		if(context == null)
-			context = "";
-		this.context = context;
+	public void setContent (String content) {
+		if(content == null)
+			content = "";
+		this.content = content;
 	}
 	
-	public String getContextBr() {
-		return getContext().replaceAll("\n", "<br>");
+	public String getContentBr() {
+		return getContent().replaceAll("\n", "<br>");
 	}
 
 	public String getFile_0() {
@@ -72,9 +74,10 @@ public class QnaVO {
 	}
 	@Override
 	public String toString() {
-		return "QnaVO [qna_no=" + qna_no + ", no=" + no + ", cnt=" + cnt + ", kind=" + kind + ", title=" + title
-				+ ", context=" + context + ", file_0=" + file_0 + ", regdate=" + regdate + "]";
+		return "QnaVO [qna_no=" + qna_no + ", customer_no=" + customer_no + ", cnt=" + cnt + ", kind=" + kind
+				+ ", title=" + title + ", content=" + content + ", file_0=" + file_0 + ", regdate=" + regdate + "]";
 	}
+
 	
 	
 }

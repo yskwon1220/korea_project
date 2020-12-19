@@ -30,13 +30,13 @@
                                                         <tr>
                                                            <td class="align-middle">지점 주소 </td>
                                                            <td  class="align-middle">
-                                                               <input class="form-control" type="text" name="addr" value="${data.lo_addr}">
+                                                               <input class="form-control" type="text" name="lo_addr" value="${data.lo_addr}">
                                                            </td>
                                                        </tr>
                                                         <tr>
                                                             <td class="align-middle">지점 연락처</td>
                                                             <td  class="align-middle">
-                                                            	<input class="form-control" type="text" name="tel" value="${data.lo_tel}">
+                                                            	<input class="form-control" type="text" name="lo_tel" value="${data.lo_tel}">
                                                             </td>
                                                     </tr>
                              						<tr>

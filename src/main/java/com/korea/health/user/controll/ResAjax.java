@@ -62,6 +62,7 @@ public class ResAjax {
 	String view(@PathVariable("cate") String cate, 
 			    @PathVariable("service") String service) {
 		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
+		//나만의 아작스 데이터는 굳이 템플릿을 안거쳐두 되기 때문에 컨트롤러를 하나더 생성했당 ! 
 
 		return "resAjax/"+cate + "/" + service;
 	}

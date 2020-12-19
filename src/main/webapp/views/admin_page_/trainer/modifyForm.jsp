@@ -133,7 +133,7 @@
                                                 <tr>
                                                     <td class="align-middle">경력사항</td>
                                                     <td  class="align-middle">
-                                                        <textarea class="form-control col-sm-12" rows="5" name="tr_info"> ${data.tr_info}</textarea>
+                                                        <textarea class="form-control col-sm-12" rows="5" name="content"> ${data.content}</textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>

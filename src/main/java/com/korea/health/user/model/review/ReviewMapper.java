@@ -7,17 +7,18 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ReviewMapper {
 	List<ReviewVO> reviewlist(ReviewPagingInfo infoVo);
-	List<ReviewVO> listsch(ReviewVO vo);
 	
 	Integer totalCnt();
 	
 	ReviewVO detail(int review_no);
+	ReviewVO chkID(int review_no);
 	void insert(ReviewVO vo);
 	
-	int modify(ReviewVO vo);
+	void modify(ReviewVO vo);
+	void fileDelete(ReviewVO vo);
+	int updateCnt(int review_no);
 	
+	boolean delete(int review_no);
 	
-	boolean delete(int review_vo);
-	
-	
+	List<ReviewVO> allReviewList();
 }

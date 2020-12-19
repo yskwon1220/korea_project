@@ -78,8 +78,8 @@
                              <div class="collapse" id="pagesCollapseCus" 
                              aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="/admin_page_/faq/info">FAQ 관리</a>
-                                            <a class="nav-link" href="/admin_page_/one/info">1:1 문의 관리</a>
+                                            <a class="nav-link" href="/admin_page_/fnq/info">FAQ 관리</a>
+                                            <a class="nav-link" href="/admin_page_/qna/info">1:1 문의 관리</a>
                                         </nav>
                                     </div>
                                     

@@ -1,5 +1,6 @@
 package com.korea.health.user.model.Reservation;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;

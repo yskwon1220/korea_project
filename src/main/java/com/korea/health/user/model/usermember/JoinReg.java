@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
@@ -14,39 +16,43 @@ import com.korea.health.provider.Action;
 @Service("usermemberjoinReg")
 public class JoinReg implements Action {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(JoinReg.class);
+
 	@Resource
 	UserMemberMapper mapper;
+	
 	
 	
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		
-		UserMemberVO uvo =(UserMemberVO)map.get("mvo");
-		mapper.joinReg(uvo) ;
+		UserMemberVO mvo =(UserMemberVO)map.get("mvo");
 		
-		UserMemberVO mvo = new UserMemberVO();
+		mapper.joinReg(mvo);
 		
-		uvo.setId(req.getParameter("id"));
-		uvo.setPw(req.getParameter("pw"));
-		uvo.setName(req.getParameter("name"));
-	
-		uvo.setEmail(req.getParameter("email"));		
-		uvo.setTel(req.getParameter("tel"));
-		uvo.setGender(req.getParameter("gender"));
+		LOGGER.info((String)req.getParameter("user_id"));
+		LOGGER.info((String)req.getParameter("user_name"));
 		
-		req.setAttribute("id", (String)req.getParameter("id"));
-		req.setAttribute("pw", (String)req.getParameter("pw"));
-		req.setAttribute("name", (String)req.getParameter("name"));
-
-		req.setAttribute("email", (String)req.getParameter("email"));
-		req.setAttribute("tel", (String)req.getParameter("tel"));
-		req.setAttribute("gender", (String)req.getParameter("gender"));
+		String user_id = (String)req.getParameter("user_id");
+		String user_name = (String)req.getParameter("user_name");
 		
-		System.out.println( "service " +mvo.getId());
-		System.out.println("service request" + req.getParameter("id"));
+		LOGGER.info("String user_id : "+user_id);
+		LOGGER.info("String user_name : "+user_name);
 		
-		return null ;
+		UserMemberVO member = new UserMemberVO();
+//		
+		member.setUser_id(user_id);
+		member.setUser_name(user_name);
+		
+//		member.setId((String)req.getParameter("id"));
+//		member.setName((String)req.getParameter("name"));
+		
+		LOGGER.info(member.toString());
+//		
+		req.setAttribute("member", member);
+		
+		return req;
 	}
 
 }

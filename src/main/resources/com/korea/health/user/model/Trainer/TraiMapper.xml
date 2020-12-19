@@ -8,5 +8,10 @@
 		(select lo_no from location where lo_no = #{lo_no, jdbcType=VARCHAR})
 	</select>
 	
+	<select id="list" resultType="com.korea.health.user.model.Trainer.TrainerVO" parameterType="java.lang.String"> 
+      select * from trainer  
+   </select>
+	
+	
 </mapper>
 

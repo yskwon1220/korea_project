@@ -25,9 +25,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="tr_no" resultType="java.lang.Integer" order="BEFORE">
 			select max(tr_no)+1 from trainer
 		</selectKey>
-		insert into trainer (tr_no, lo_no, tr_name, ismanage, tr_info, stars, tr_pic, regdate)
+		insert into trainer (tr_no, lo_no, tr_name, ismanage, content, star, tr_pic, regdate)
 		values
-		(#{tr_no}, #{lo_no}, #{tr_name}, #{isManage}, #{tr_info}, #{stars}, #{tr_pic}, #{regdate})
+		(#{tr_no}, #{lo_no}, #{tr_name}, #{isManage}, #{content}, #{star}, #{tr_pic}, #{regdate})
 	</insert>
 	
 	<update id="fileDelete" parameterType="java.lang.Integer">
@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="trainerModify" parameterType="com.korea.health.admin.model.trainer.TrainerVO">
 		update trainer set lo_no = #{lo_no}, tr_name = #{tr_name}, ismanage = #{isManage}, 
-		tr_info = #{tr_info}, stars = #{stars}, tr_pic = #{tr_pic}, regdate = #{regdate} where tr_no = #{tr_no}
+		content = #{content}, star = #{star}, tr_pic = #{tr_pic}, regdate = #{regdate} where tr_no = #{tr_no}
 	</update>
 	
 	<delete id="trainerDelete" parameterType="com.korea.health.admin.model.trainer.TrainerVO">

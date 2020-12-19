@@ -23,7 +23,6 @@ public class ResultService implements Action{
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
 		int page = (int)map.get("page");
 		int range = (int)map.get("range");
-		HashMap<String, Object> temp = new HashMap<String, Object>();
 		
 		switch ((String)map.get("service")) {
 		case "total":

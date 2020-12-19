@@ -15,7 +15,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select * from (select rownum rnum, t1.* 
 	         from (select * from RESERVATION
 	         order by re_no desc) t1) 
-	         where rnum >= #{startCnt} and rnum <= #{endDate};
+	         where rnum >= #{startCnt} and rnum <= #{endCnt}
 	         ]]>
 		</select>
+
+		<select id="fnqList" resultType="com.korea.health.user.model.fnq.FnqboardVO"
+			parameterType="int">
+			<![CDATA[
+			select * from (select rownum rnum, t1.* 
+	         from (select * from fnqboard
+	         order by board_no desc) t1) 
+	         where rnum >= #{startCnt} and rnum <= #{endCnt}
+	         ]]>
+		</select>
+		
+		<select id="paymentList" resultType="com.korea.health.admin.model.result.ResultVO"
+			parameterType="int">
+			<![CDATA[
+			select * from (select rownum rnum, t1.* 
+	         from (select * from payment
+	         order by payment_date desc) t1) 
+	         where rnum >= #{startCnt} and rnum <= #{endCnt}
+	         ]]>
+		</select>
+		
+	<select id="findUser" resultType="java.lang.String" parameterType="int">
+		SELECT user_name FROM usermember WHERE user_NO = #{user_no}
+	</select>
+		
 </mapper>

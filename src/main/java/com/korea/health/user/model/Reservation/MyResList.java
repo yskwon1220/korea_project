@@ -20,9 +20,22 @@ public class MyResList implements Action{
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		
-		req.setAttribute("user_name", (String)req.getParameter("user_name"));
 
+		ReservationVO rvo = (ReservationVO) map.get("rvo");
+		//rvo.setRe_no(Integer.parseInt(req.getParameter("re_no")));
+		//req.setAttribute("re_no",Integer.parseInt(req.getParameter("re_no")));
+		req.setAttribute("user_name", (String)req.getParameter("user_name"));
+		
 		return mapper.MyResList(req.getParameter("user_name"));
+		//위는 단순 리스트 뽑기위한것.
+		
+		
+//		ResPageInfo resInfoVO = (ResPageInfo) map.get("resInfoVO");
+//		
+//		resInfoVO.init(mapper.totalCnt());
+//		resInfoVO.setVoArr(mapper.PagingList(resInfoVO));
+//		
+//		return resInfoVO;
 	}
 
 }

@@ -4,30 +4,51 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
-@Alias("reviewVO")
+
 public class ReviewVO {
 	//필드와 맞지 않는 데이터형일 경우 ==>db의 타입이랑 VO의 타입이랑 일치하지않으면 발생하는오류
-	public Integer review_no =0;
-	Integer no =0;
-	Integer cnt=0;
-	String tr_no="", lo_no="", title="", pw="", content="", star="", pid="";
-	String review_file_name = "";
+	public Integer review_no = 0 ;
+	Integer cnt=0, starCnt=0;
+	String tr_no="", lo_no="", title="",  content="",  user_id="";
+	public String getUser_id() {
+		return user_id;
+	}
+
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+
+	String review_file_name="" ;
 	Date regdate;
 	
 	private MultipartFile review_file;
 	
+	public String getReview_file_name() {
+		if(review_file_name != null && review_file_name.trim().equals(""))
+			review_file_name = null;
+		
+		return review_file_name;
+	}
+
+
+	public void setReview_file_name(String review_file_name) {
+		this.review_file_name = review_file_name;
+	}
+
+
+	public MultipartFile getReview_file() {
+		return review_file;
+	}
+
+
 	public void setReview_file(MultipartFile review_file) {
 		review_file_name = review_file.getOriginalFilename();
 		this.review_file = review_file;
 	}
 	
 
-	public String getPid() {
-		return pid;
-	}
-	public void setPid(String pid) {
-		this.pid = pid;
-	}
 	
 	
 	public Integer getReview_no() {
@@ -36,12 +57,7 @@ public class ReviewVO {
 	public void setReview_no(Integer review_no) {
 		this.review_no = review_no;
 	}
-	public Integer getNo() {
-		return no;
-	}
-	public void setNo(Integer no) {
-		this.no = no;
-	}
+
 	public Integer getCnt() {
 		return cnt;
 	}
@@ -67,12 +83,7 @@ public class ReviewVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getPw() {
-		return pw;
-	}
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
+
 	public String getContent() {
 		if(content == null)
 			content= "";
@@ -88,24 +99,35 @@ public class ReviewVO {
 		return getContent().replaceAll("\n", "<br>");
 	}
 	
-	public String getStar() {
-		return star;
+	
+	public Integer getStarCnt() {
+		return starCnt;
 	}
-	public void setStar(String star) {
-		this.star = star;
+
+
+	public void setStarCnt(Integer starCnt) {
+		this.starCnt = starCnt;
 	}
+
+
 	public Date getRegdate() {
 		return regdate;
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+
+
 	@Override
 	public String toString() {
-		return "ReviewVO [review_no=" + review_no + ", no=" + no + ", cnt=" + cnt + ", tr_no=" + tr_no + ", lo_no="
-				+ lo_no + ", review_file=" + review_file + ", title=" + title + ", pw=" + pw + ", content=" + content
-				+ ", star=" + star + ", pid=" + pid + ", regdate=" + regdate + "]";
+		return "ReviewVO [review_no=" + review_no + ", cnt=" + cnt + ", starCnt=" + starCnt + ", tr_no=" + tr_no
+				+ ", lo_no=" + lo_no + ", title=" + title + ", content=" + content + ", user_id=" + user_id
+				+ ", review_file_name=" + review_file_name + ", regdate=" + regdate + ", review_file=" + review_file
+				+ "]";
 	}
+
+
+
 
 	
 }

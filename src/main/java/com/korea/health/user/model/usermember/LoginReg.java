@@ -6,63 +6,73 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
 
 @Service("usermemberloginReg")
 public class LoginReg implements Action {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoginReg.class);
+
 
 	@Resource
 	UserMemberMapper mapper;
 
-	UserMemberVO mvo;	
+//	UserMemberVO mvo;
+	
+	
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		
-		System.out.println("#####1");
-		System.out.println((String)req.getParameter("id"));
-		System.out.println((String)req.getParameter("pw"));
-		UserMemberVO uvo =(UserMemberVO)map.get("mvo");
-		UserMemberVO a = mapper.loginReg(uvo) ;
-		if(a==null) {
-			System.out.println("###id no");
-			req.setAttribute("id", "idfailed");
-			return req;
-//			return (Object)("failed");
-		}else if(a.getId().equals((String)req.getParameter("id"))) {
-			System.out.println("###id ok");
-			//1) 세션 가져오기
-			HttpSession session = req.getSession();
-			
-	
-			//2) 세션 유지시간 설정
-			//session.setMaxInactiveInterval(1800); // 1800 = 60s*30 (30분) 
-	        
-			//3) 회원정보 설정
-			session.setAttribute("id", (Object)(a.getId()));
-			session.setAttribute("pw", (Object)(a.getPw()));
-//			session.setAttribute("name", a.getName());
-//			session.setAttribute("", a.getName());
-			return req;
-			
+		
+		
+//		System.out.println("#####1");
+//		System.out.println((String)req.getParameter("id"));
+//		System.out.println((String)req.getParameter("pw"));
+		
+		LOGGER.info("(String)req.getParameter(\"id\") :"+(String)req.getParameter("user_id"));
+
+		UserMemberVO mvo =(UserMemberVO)map.get("mvo"); //폼에서 넘어온 값 
+		
+		LOGGER.info(mvo.toString());
+		
+		UserMemberVO uvo = mapper.loginReg(mvo) ;
+		
+		if(uvo!=null) {
+			LOGGER.info(uvo.toString());
 		}
 		
-		/*
-		req.setAttribute("id", (String)req.getParameter("id"));
-		req.setAttribute("pw", (String)req.getParameter("pw"));
+				if(uvo==null) {
+					LOGGER.info("id 없음");
+					req.setAttribute("user_id", "idfailed");
+					return req;
+		
+				}else if(uvo.getUser_id().equals((String)req.getParameter("user_id"))) {
+					LOGGER.info("login id ok");
+					
+					
+					if(uvo.getAdmin()==null) {
+						LOGGER.info("admin if 진입 admin아님");
+						req.getSession().setAttribute("admin", "user");
+						
+					}else if(uvo.getAdmin().equals("admin")) {
+						LOGGER.info("admin elseif 진입 admin임");
+						req.getSession().setAttribute("admin", "admin");
+						LOGGER.info((String)req.getSession().getAttribute("admin"));
+					}  
+					//회원정보 설정
+					req.getSession().setAttribute("user_id", uvo.getUser_id());
+		
+					return req;
+					
+				}
 
+		return null;
 		
-		System.out.println( "service " +mvo.getId());
-		System.out.println("service request" + req.getParameter("id"));
-		
-		System.out.println(req);
-		*/
-return null;
-		
-		
-//		return mapper.loginReg();
 	}
 
 }

@@ -102,6 +102,8 @@ public class BranchService implements Action {
 			
 			pageCtl.setPageSet(mapper.branchTrainerList(pageCtl));
 			
+			System.out.println(pageCtl.getPageSet());
+			
 			return pageCtl;
 				
 		default:

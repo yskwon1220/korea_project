@@ -16,9 +16,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					 where rnum >= #{start} and rnum <= #{end}
 		]]>
 	</select>
+	<sql id="noMax">
+		(SELECT MAX(QNA_NO)+1 FROM QNA)
+	</sql>		
+	<update id = "updateCnt" parameterType = "java.lang.Integer">
+		UPDATE QNA SET CNT = CNT + 1 WHERE QNA_NO = #{qna_no}
+	</update>
 	<select id="detail" resultType="qnaVO" parameterType="java.lang.Integer">
 		SELECT * FROM QNA WHERE QNA_NO = #{qna_no}
 	</select>
+		
+	<insert id="insert" parameterType="qnaVO">
+		<selectKey keyProperty="qna_no" resultType="java.lang.Integer" order="BEFORE">
+			<include refid="noMax"/>
+		</selectKey> 
+		INSERT INTO QNA (QNA_NO, KIND, TITLE, CONTENT, REGDATE, CNT)
+		values
+		(#{qna_no}, #{kind}, #{title}, #{content}, SYSDATE, 0)
+	</insert>
 
+
+	
+	<update id="modify" parameterType="qnaVO">
+			UPDATE QNA SET TITLE = #{title}, CONTENT = #{content} WHERE QNA_NO = #{qna_no}
+	</update>	
+	
+	
+	<delete id = "delete" parameterType="java.lang.Integer">
+		DELETE FROM QNA WHERE QNA_NO = #{qna_no}
+	</delete>
 </mapper>
 

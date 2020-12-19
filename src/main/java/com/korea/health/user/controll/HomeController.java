@@ -4,15 +4,19 @@ package com.korea.health.user.controll;
 
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.korea.health.user.model.notice.NoticeMapper;
+import com.korea.health.user.model.notice.NoticeVO;
+import com.korea.health.user.model.review.ReviewMapper;
+import com.korea.health.user.model.review.ReviewVO;
+
 
 
 
@@ -20,10 +24,14 @@ import com.korea.health.user.model.notice.NoticeMapper;
 
 @Controller
 public class HomeController {
-
 	
 	@Resource
 	NoticeMapper mapper;
+	@Resource
+	ReviewMapper revMapper;
+	
+
+	
 	
 	@RequestMapping("/introMain")
 	public String intro() {
@@ -32,43 +40,42 @@ public class HomeController {
 		return "introMain";
 	}
 
-	@RequestMapping("/MainV3")
+	@RequestMapping("/main")
 	public String home(Model mm) {
-//		List<NoticeVO> data = mapper.noticeList();
-//		mm.addAttribute("data",data);
+		List<NoticeVO> data = mapper.allNoticeList();
+		List<ReviewVO> data_22 = revMapper.allReviewList();
+		mm.addAttribute("data",data);
+		mm.addAttribute("data_22",data_22);
 		System.out.println("main comin");
-		return "MainV3";
-	}
-
-	@RequestMapping("/community")
-	public void community() {
-
-		System.out.println("comu");
+		return "main";
 	}
 	
-	@RequestMapping("/introduce")
+	@RequestMapping("/navi/introduce")
 	public void introduce() {
 
 		System.out.println("introduce");
 		
 	}
 	
-	@RequestMapping("/membership")
+	@RequestMapping("/navi/community")
+	public void community() {
+		
+		System.out.println("community");
+		
+	}
+	
+	@RequestMapping("/navi/membership")
 	public void membership() {
 
 		System.out.println("membership");
 		
 	}
 	
-	@RequestMapping("/find")
+	@RequestMapping("/navi/find")
 	public void find() {
 		
 		System.out.println("comu");
 		
-	}
-
-	@RequestMapping(value = "user_page_/location/{service}", method = RequestMethod.GET )
-	public void location_1(@PathVariable("service")String service) {
 	}
 	
 }

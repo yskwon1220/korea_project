@@ -21,12 +21,10 @@ public class Reviewsearch {
 		public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 			
 			ReviewVO vo = (ReviewVO)map.get("rrvo");
-			List<ReviewVO> voList = mapper.listsch(vo);
 			
 			ReviewPagingInfo infoVo = (ReviewPagingInfo) map.get("infoVo");
 			
 			infoVo.init(mapper.totalCnt());
-			infoVo.setVoArr(voList);
 			
 			return infoVo;
 		}

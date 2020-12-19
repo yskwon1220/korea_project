@@ -3,50 +3,146 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.korea.health.user.model.Reservation.ResMapper">
+<mapper
+	namespace="com.korea.health.user.model.Reservation.ResMapper">
 
-	<select id="list"
+<!-- 	<select id="list"
 		resultType="com.korea.health.user.model.Reservation.ReservationVO">
 		select * from reservation
 	</select>
+ -->
 
 
-	<insert id="insert" 
+	<select id="MyResList"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO"
+		parameterType="java.lang.String">
+		select * from reservation where user_name = #{user_name}
+	</select>
+
+
+
+	<select id="MyDetailList"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO"
+		parameterType="java.lang.Integer">
+		select * from reservation where re_no = #{re_no}
+	</select>
+
+
+
+
+	<insert id="insert"
 		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
 
-		insert into reservation
-		(re_no, lo_no, lo_name, type, tr_name, restime,
+		insert into reservation(re_no, lo_no, lo_name, type, tr_name,
+		resdate,
+		restime,
+
 		user_name, user_pw, user_tel, content)
-		values
-		(re_noidx.nextval,#{lo_no},#{lo_name},#{type}, #{tr_name},#{restime},#{user_name}
-		,#{user_pw},#{user_tel},#{content})
+
+		values(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name},
+
+		#{resdate},
+		#{resTime},
+		#{user_name}, #{user_pw}, #{user_tel}, #{content})
+
+		<!-- INSERT INTO TABLE_NAME( date_column )values( TO_DATE('2016-10-05 10:53:56', 
+			'SYYYY-MM-DD HH24:MI:SS') ) -->
 
 	</insert>
-	
-	<select id="selectByRes" parameterType="com.korea.health.user.model.Reservation.ResTimeVO"
-	resultType="com.korea.health.user.model.Reservation.ResTimeVO">
-		SELECT		*
-		FROM		restime
-		WHERE		resdate = #{resDate} AND lo_no = #{lo_no}
-		ORDER BY	restime
-	</select>
-	
-		
-	<select id="MyResList" resultType="com.korea.health.user.model.Reservation.ReservationVO" parameterType="java.lang.String"> 
-		 select * from reservation where user_name = #{user_name}
-	</select>
-	
-	
-	<select id="MyDetailList" resultType="com.korea.health.user.model.Reservation.ReservationVO" parameterType="java.lang.String"> 
-		 select * from reservation where re_no = #{re_no}
+
+	<select id="selectByRes"
+		parameterType="com.korea.health.user.model.Reservation.ResTimeVO"
+		resultType="com.korea.health.user.model.Reservation.ResTimeVO">
+		SELECT *
+		FROM restime
+		WHERE resdate = #{resDate} AND lo_no =
+		#{lo_no}
+		ORDER BY restime
 	</select>
 
 
-	<delete id = "delete"  parameterType="com.korea.health.user.model.Reservation.ReservationVO">
-	 	<!-- delete from reservation where re_no = #{re_no} and user_pw = #{user_pw}   -->
-	 delete from reservation where re_no = #{re_no} and user_pw = #{user_pw}
+
+	<delete id="delete"
+		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
+		delete from reservation where re_no = #{re_no} and user_pw = #{user_pw}
 	</delete>
-	
+
+
+	<select id="selectCount" resultType="java.lang.Integer"
+		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
+
+
+		select count(*)
+		from RESTIME
+		where lo_no = #{lo_no} and resDate = #{resDate} and resTime = #{resTime}
+
+	</select>
+
+
+	<insert id="noCount"
+		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
+
+		insert into RESTIME(lo_no, resDate, resTime, nowCnt)
+		values (#{lo_no},#{resDate}, #{resTime}, 1)
+
+	</insert>
+
+
+	<update id="addCount"
+		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
+		<![CDATA[
+		update RESTIME 
+		set nowCnt = nowCnt + 1 
+		where lo_no = #{lo_no} and resDate = #{resDate} and resTime = #{resTime}
+        ]]>
+	</update>
+
+	<update id="MinusCount"
+		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
+		<![CDATA[
+		update RESTIME 
+		set nowCnt = nowCnt - 1 
+		where lo_no = #{lo_no,jdbcType=VARCHAR} and resDate = #{resDate,jdbcType=DATE} and resTime = #{resTime,jdbcType=VARCHAR}
+        ]]>
+	</update>
+
+	<!-- 페이징을 하기 위한 -->
+	<select id="PagingList"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO"
+		parameterType="com.korea.health.user.model.Reservation.ResPageInfo">
+		<![CDATA[
+			select * from (select rownum rnum, t1.* 
+			from (select * from reservation where user_name=#{user_name,jdbcType=VARCHAR} 
+			order by re_no DESC) t1) 
+			where rnum >= #{start} and rnum <= #{end}
+		]]>
+	</select>
+
+	<select id="totalCnt" resultType="java.lang.Integer">
+		select
+		count(*) from reservation
+	</select>
+
+ 
+	<select id="MyDetailList2"
+		resultType="com.korea.health.user.model.Reservation.ReservationVO"
+		parameterType="java.lang.Integer">
+		<!-- String이엿음원래 임시로바꾸기 -->
+		SELECT
+		LO_NAME,
+		TYPE,
+		TR_NAME,
+		RESDATE,
+		RESTIME,
+		USER_NAME as user_name,
+		USER_TEL as user_tel,
+		CONTENT as content
+
+		FROM RESERVATION
+
+		WHERE RE_NO = #{re_no} 
+	</select>
+
 
 </mapper>
 

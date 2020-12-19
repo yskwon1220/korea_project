@@ -4,11 +4,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class ResTimeVO {
-	private String lo_no;
-	private String resTime;
-	private Date resDate;
-	private Integer nowCnt;
+	 String lo_no;
+	 String resTime;
+	
+	//@DateTimeFormat(pattern = "yyyy_M_d")
+	 Date resDate;
+	 Integer nowCnt;
 	
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
@@ -59,7 +62,6 @@ public class ResTimeVO {
 	public String ajaxEle() {
 		return "{\"lo_no\":"+ lo_no + ",\"resTime\":"+ Integer.parseInt(resTime) + ",\"resDate\":\""+getResDateStr()+"\",\"nowCnt\": "+ nowCnt + " }";
 	}
-	
 	
 	
 }

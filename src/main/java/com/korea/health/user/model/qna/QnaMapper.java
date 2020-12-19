@@ -13,6 +13,8 @@ public interface QnaMapper {
 //	List<QnaVO> qnaList();
 	Integer totalCnt();
 	List<QnaVO> listSch(QnaVO vo);
+	
+	int updateCnt(int qna_no);
 	QnaVO detail(int qna_no);
 	void insert(QnaVO vo);
 	int modify(QnaVO vo);

@@ -18,10 +18,13 @@ public class Reviewdetail implements Action {
 
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
-
+		ReviewVO vo = (ReviewVO) map.get("rrvo");
 		int review_no = Integer.parseInt(req.getParameter("review_no"));
 		req.setAttribute("review_no", review_no);
-
+		mapper.updateCnt(vo.review_no);
+	    System.out.println("카운트 되나?"+mapper.updateCnt(vo.review_no));
+	    System.out.println("### @Reviewdetail.java ###");
+	    System.out.println(mapper.detail(review_no));
 		return mapper.detail(review_no);
 
 	}

@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.websocket.Session;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
@@ -13,21 +15,23 @@ import com.korea.health.provider.Action;
 @Service("usermembermodifyMyPage")
 public class ModifyMyPage implements Action {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ModifyMyPage.class);
+
+	
 	@Resource
 	UserMemberMapper mapper;
 
-	UserMemberVO mvo;	
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 
-		String id = (String)map.get("id");
-		System.out.println(map.get("id"));
+		String user_id = (String)req.getSession().getAttribute("user_id");
 		
+		LOGGER.info(user_id);
 
-		System.out.println("usermember/modifyMyPage execute() 실행");
+		LOGGER.info("usermember/modifyMyPage execute() 실행");
 		
-		return mapper.mypage(id);
+		return mapper.mypage(user_id);
 	}
 
 }
