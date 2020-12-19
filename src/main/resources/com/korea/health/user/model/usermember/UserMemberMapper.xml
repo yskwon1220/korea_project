@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="com.korea.health.user.model.usermember.UserMemberMapper">
+ 	
+ 	<!--아이디 중복체크-->
+ 	
+ 	<!--회원가입-->
+	<sql id="noMax">
+		(select max(user_no)+1 from usermember)
+	</sql>
+
+
+ 		<insert id = "joinReg" parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+			<selectKey keyProperty="user_no" resultType="java.lang.Integer" order="BEFORE">
+				<include refid="noMax"/>
+			</selectKey> 		
+		 		insert into  usermember (
+		 			user_no, user_id, user_pw, user_name, user_birth, user_email, 
+		 			user_tel, gender, regdate, admin, reserve_cnt,point,coupon
+		 		)
+		 		values
+		 		(#{user_no}, #{user_id}, #{user_pw}, #{user_name}, #{user_birth}, #{user_email}, 
+		 		#{user_tel}, #{gender}, sysdate, 'user', 0, 0,' ')		
+ 		
+ 		</insert>
+ 		
+
+  	<!--로그인-->
+		 <select id="loginReg" 
+		 parameterType="com.korea.health.user.model.usermember.UserMemberVO" 
+		 resultType="com.korea.health.user.model.usermember.UserMemberVO">	
+
+		select 
+			user_id , user_pw , admin
+		from 
+			usermember 
+		where 
+			user_id = #{user_id} 
+			and 
+			user_pw = #{user_pw}
+
+		</select> 	
+  	
+  	
+  	<!--마이페이지 내정보 추출 헤지한테 reserve_cnt 이거 물어보기 -->
+ 		<select id = "mypage" 
+ 		parameterType="java.lang.String"
+ 		resultType="com.korea.health.user.model.usermember.UserMemberVO">
+ 		select 
+ 				user_name , user_id , user_birth, user_email , user_tel , gender 
+ 		from 
+ 				usermember
+ 		where 
+ 				user_id = #{user_id}
+ 		</select>
+ 
+  	 		
+  	<!--마이페이지 내정보변경-->
+	  	 <update id="modifyMyPage" 
+	  	 parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+
+			update usermember 
+			set 
+				user_name = #{user_name},
+				user_email = #{user_email},
+				user_tel = #{user_tel}
+			where 
+				user_id= #{user_id}
+				
+		</update>	
+  	 		
+  	 		
+  	<!--비밀번호 변경-->
+	  	 <update id="pwModify" 
+	  	 parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+
+			update usermember 
+			set 
+				user_pw = #{user_pw}
+			where 
+				user_id= #{user_id}
+				
+		</update>	
+		
+  	 		
+  	<!--회원정보 수정전 비밀번호 확인-->
+	  	 <select id="pwCheckOk" 
+	  	 parameterType="com.korea.health.user.model.usermember.UserMemberVO"
+	  	 resultType="com.korea.health.user.model.usermember.UserMemberVO">
+
+		select 
+			user_pw
+		from 
+			usermember 
+		where 
+			user_id = #{user_id} 
+			and 
+			user_pw = #{user_pw}
+				
+		</select>	
+		
+		
+  	<!--아이디 찾기-->
+			<select id="findId" 
+			parameterType="com.korea.health.user.model.usermember.UserMemberVO" 
+			resultType="com.korea.health.user.model.usermember.UserMemberVO">
+
+			select 
+				user_id
+			from 
+				usermember 
+			where 
+				user_name= #{user_name}
+				and 
+				user_tel= #{user_tel}			
+
+	</select>
+		
+  	<!--비밀번호 찾기-->
+			<select id="findPw" 
+			parameterType="com.korea.health.user.model.usermember.UserMemberVO" 
+			resultType="com.korea.health.user.model.usermember.UserMemberVO">
+
+			select 
+				user_pw
+			from 
+				usermember 
+			where 
+				user_id= #{user_id} 
+				and 
+				user_email= #{user_email}			
+
+	</select>
+		
+	<!--회원 탈퇴-->	
+  	 		<delete id ="delete"
+  	 		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+ 
+  	 		delete from usermember
+   			where 
+   			user_id = #{user_id} and user_pw = #{user_pw}
+  	 		
+  	 		</delete>
+ </mapper>

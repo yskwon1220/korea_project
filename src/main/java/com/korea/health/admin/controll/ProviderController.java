@@ -29,6 +29,7 @@ import com.korea.health.user.model.qna.QnaPageInfo;
 import com.korea.health.user.model.qna.QnaVO;
 import com.korea.health.user.model.review.ReviewPagingInfo;
 import com.korea.health.user.model.review.ReviewVO;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 @Controller
 @RequestMapping("/admin_page_/{cate}/{service}")
@@ -65,6 +66,7 @@ public class ProviderController {
 			TrainerVO trVO,	// 트레이너
 			BranchVO brVO,	// 지점
 			GoodsVO goodsVO,	// 상품
+			UserMemberVO mvo,
 			
 			ResultVO resultVO,	// 정산
 			
@@ -110,7 +112,7 @@ public class ProviderController {
 		map.put("resultVO", resultVO);
 	    map.put("rrVo", rrVo);
 		map.put("infoVo",infoVo);
-	    
+		map.put("mvo",mvo);
 		map.put("service", service); 
 		// 그리고 뒤에 따라오는 주소를 통해서 각 기능을 다르게 하는 service를 map에 넣어서 보내기
 		map.put("pageCtl", pageCtl);

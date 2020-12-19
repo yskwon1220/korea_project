@@ -32,6 +32,7 @@ import com.korea.health.user.model.qna.QnaPageInfo;
 import com.korea.health.user.model.qna.QnaVO;
 import com.korea.health.user.model.review.ReviewPagingInfo;
 import com.korea.health.user.model.review.ReviewVO;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 @Controller
 @RequestMapping("/user_page_/{cate}/{service}")
@@ -63,7 +64,7 @@ public class ResController {
 			NoticeVO nvo, 
 			FnqboardVO ovo,
 			QnaVO qvo,
-
+			UserMemberVO mvo,//폼에서 준 정보 , 멤버변수명이랑 자료형이 안맞으면 에러 
 			HttpServletRequest req, Model mm, 
 			@PathVariable("cate") String cate,
 			@PathVariable("service") String service) {
@@ -92,6 +93,8 @@ public class ResController {
 		map.put("nvo", nvo);
 		map.put("ovo", ovo);
 		map.put("qvo", qvo);
+	      map.put("mvo",mvo);
+	      
 
 		System.out.println("현재 JSP 페이지 : " + cate + "/" + service);
 

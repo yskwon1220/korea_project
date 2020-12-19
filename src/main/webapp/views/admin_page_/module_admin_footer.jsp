@@ -10,7 +10,7 @@
 				<div>
 					<!-- 홈 화면 정해지면 넣기 -->
 					<a href="#">홈페이지 명</a> &middot;
-					 <a href="<c:url value="/admin_page/admin_index.jsp"/>">관리자 페이지</a>
+					 <a href="<c:url value="/admin_page/admin_index"/>">관리자 페이지</a>
 				</div>
 			</div>
 		</div>
