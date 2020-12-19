@@ -27,7 +27,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<![CDATA[
         select * from (select rownum rnum, t1.* 
          from (select * from reservation WHERE lo_no = #{locationNo}
-         order by re_no desc) t1) 
+        ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	
+	<select id="reslistAll"
+		resultType="com.korea.health.admin.model.reservation.ReservationTimeVO">
+		select *
+		from restime
+		where
+		${keyField} like '%' || #{keyWord} || '%'
+
+	</select>
+	
+	<select id="reservationresList"
+		resultType="com.korea.health.admin.model.reservation.ReservationTimeVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from restime) t1) 
          where rnum >= #{startList} and rnum <= #{endList}
          ]]>
 	</select>
@@ -100,6 +119,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="totalCnt" resultType="java.lang.Integer"
 		parameterType="java.lang.String">
 		SELECT COUNT(*) FROM reservation where lo_no = #{lo_no}
+	</select>
+	
+	
+	<select id="totalCnt2" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM restime 
 	</select>
 
 </mapper>

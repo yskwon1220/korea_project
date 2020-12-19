@@ -11,6 +11,7 @@ import com.korea.health.service.Pagenation;
 public interface ReservationMapper {
 	
 	Integer totalCnt(String lo_no);
+	Integer totalCnt2();
 	Integer newNum(ReservationVO rvo);
 	//페이징 처리를 위한 것
 	
@@ -19,9 +20,17 @@ public interface ReservationMapper {
 	List<BranchVO> branchList();
 	//info에 보여준 지점 리스트
 	
+	
 	/* 완료 */
 	List<ReservationVO> reservationList(Pagenation pagenation);
 	//페이징 하기 위한 각 지점별 list
+	
+	
+	List<ReservationTimeVO> reservationresList(Pagenation pagenation);
+	//페이징 하기 위한 각 지점별 인원 체크 list
+	
+	/*검색을 위한것 */
+	List<ReservationTimeVO> reslistAll(String keyField, String keyWord);
 	
 	
 	/* 완료 */
@@ -33,9 +42,9 @@ public interface ReservationMapper {
 	Integer reservationDelete(ReservationVO rvo);
 	
 	
-	
 	/* 완료 */
 	Integer reservationInsert(ReservationVO rvo);
+	
 	
 	/* 완료 */
 	Integer reservationModify(ReservationVO rvo);
@@ -44,6 +53,8 @@ public interface ReservationMapper {
 	
 	/*검색을 위한것 */
 	List<ReservationVO> listAll(String keyField, String keyWord);
+	
+	
 	
 
 	

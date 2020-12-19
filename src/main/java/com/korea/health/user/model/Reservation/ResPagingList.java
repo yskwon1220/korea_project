@@ -25,13 +25,14 @@ public class ResPagingList implements Action{
 		 * rvo.setRe_no(Integer.parseInt(req.getParameter("re_no")));
 		 * req.setAttribute("re_no",Integer.parseInt(req.getParameter("re_no")));
 		 */
-		req.setAttribute("user_name", (String)req.getParameter("user_name"));
 
 //		return mapper.MyResList(req.getParameter("user_name"));
 		//위는 단순 리스트 뽑기위한것.
 		
 		
 		ResPageInfo resInfoVO = (ResPageInfo) map.get("resInfoVO");
+		req.setAttribute("user_name", (String)req.getParameter("user_name"));
+		System.out.println("user_name:"+(String)req.getParameter("user_name"));
 		
 		resInfoVO.init(mapper.totalCnt());
 		resInfoVO.setVoArr(mapper.PagingList(resInfoVO));

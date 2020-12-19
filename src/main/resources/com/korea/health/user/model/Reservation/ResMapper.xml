@@ -112,7 +112,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.korea.health.user.model.Reservation.ResPageInfo">
 		<![CDATA[
 			select * from (select rownum rnum, t1.* 
-			from (select * from reservation where user_name=#{user_name} 
+			from (select * from reservation where user_name=#{user_name,jdbcType=VARCHAR} 
 			order by re_no DESC) t1) 
 			where rnum >= #{start} and rnum <= #{end}
 		]]>

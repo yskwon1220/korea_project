@@ -3,6 +3,7 @@ package com.korea.health.service;
 import java.util.List;
 
 import com.korea.health.admin.model.branch.BranchVO;
+import com.korea.health.admin.model.reservation.ReservationTimeVO;
 import com.korea.health.admin.model.reservation.ReservationVO;
 
 public class Pagenation {
@@ -19,6 +20,7 @@ public class Pagenation {
 	private boolean prev;	// 이전페이지 여부
 	private boolean next;	// 다음페이지 여부
 	private List<ReservationVO> reservSet;	// 예약 넣기
+	private List<ReservationTimeVO> reservtimeSet;
 	private String locationNo;
 	
 	public Integer getListSize() {
@@ -92,6 +94,12 @@ public class Pagenation {
 	}
 	public void setNext(boolean next) {
 		this.next = next;
+	}
+	public List<ReservationTimeVO> getReservtimeSet() {
+		return reservtimeSet;
+	}
+	public void setReservtimeSet(List<ReservationTimeVO> reservtimeSet) {
+		this.reservtimeSet = reservtimeSet;
 	}
 	public List<ReservationVO> getReservSet() {
 		return reservSet;

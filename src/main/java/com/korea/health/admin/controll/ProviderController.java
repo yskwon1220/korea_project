@@ -19,6 +19,8 @@ import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
 import com.korea.health.service.Pagenation;
+import com.korea.health.user.model.review.ReviewPagingInfo;
+import com.korea.health.user.model.review.ReviewVO;
 
 @Controller
 @RequestMapping("/admin_page_/{cate}/{service}")
@@ -46,9 +48,15 @@ public class ProviderController {
 			//혜지가 추가한 검색부분
 			@RequestParam(defaultValue="type") String keyField,
 		    @RequestParam(defaultValue="") String keyWord,
+		   
+			ReviewVO rrVo,
+			ReviewPagingInfo infoVo,
+			
 		    BranchVO bvo,
-		    
-			Pagenation pageCtl, ReservationVO rvo, ReservationTimeVO timevo, HttpServletRequest request) {
+			Pagenation pageCtl, 
+			ReservationVO rvo, 
+			ReservationTimeVO timevo, 
+			HttpServletRequest request) {
 
 		System.out.println("메인데이터에서는? : " + cate);
 
@@ -61,6 +69,12 @@ public class ProviderController {
 		map.put("keyField", keyField); 
 	    map.put("keyWord", keyWord); 
 	    map.put("bvo", bvo); 
+	    map.put("rvo", rvo);
+	    map.put("timevo", timevo);
+	    
+	    map.put("rrVo", rrVo);
+		map.put("infoVo",infoVo);
+		
 	    
 	    
 		map.put("service", service); 
@@ -68,8 +82,6 @@ public class ProviderController {
 		map.put("pageCtl", pageCtl);
 		map.put("page", page);
 		map.put("range", range);
-		map.put("rvo", rvo);
-		map.put("timevo", timevo);
 
 		Object res = action.execute(map, request); 
 		// 해당 action의 execute를 실행하여 db들렸다가 반환되는 걸 담아옴

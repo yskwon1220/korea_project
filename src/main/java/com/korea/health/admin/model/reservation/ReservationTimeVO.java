@@ -1,19 +1,20 @@
 package com.korea.health.admin.model.reservation;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.apache.ibatis.type.Alias;
 
-@Alias("reservationTimeVO")
 public class ReservationTimeVO {
-	String lo_no;
-	String restime;
-	Date resdate;
-	Integer number;
+	 String lo_no;
+	 String resTime;
 	
-	String welcomeDate;
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
+	//@DateTimeFormat(pattern = "yyyy_M_d")
+	 Date resDate;
+	 Integer nowCnt;
+	
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
 	
 	public String getLo_no() {
 		return lo_no;
@@ -21,30 +22,45 @@ public class ReservationTimeVO {
 	public void setLo_no(String lo_no) {
 		this.lo_no = lo_no;
 	}
-	public String getRestime() {
-		return restime;
+	public String getResTime() {
+		return resTime;
 	}
-	public void setRestime(String restime) {
-		this.restime = restime;
+	public void setResTime(String resTime) {
+		this.resTime = resTime;
 	}
-	public Date getResdate() {
-		return resdate;
+	public Integer getNowCnt() {
+		return nowCnt;
 	}
-	public void setResdate(Date resdate) {
-		welcomeDate = sdf.format(resdate);
-		this.resdate = resdate;
+	public void setNowCnt(Integer nowCnt) {
+		this.nowCnt = nowCnt;
 	}
-	public Integer getNumber() {
-		return number;
+	public Date getResDate() {
+		return resDate;
 	}
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setResDate(Date resDate) {
+		this.resDate = resDate;
 	}
-	public String getWelcomeDate() {
-		return welcomeDate;
+	
+	public String getResDateStr() {
+		return sdf.format(resDate);
 	}
-	public void setWelcomeDate(String welcomeDate) {
-		this.welcomeDate = welcomeDate;
+	public void setResDateStr(String resDateStr) {
+		try {
+			this.resDate = sdf.parse(resDateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public String toString() {
+		return "ResTestVO [lo_no=" + lo_no + ", resTime=" + resTime + ", resDate=" + resDate + ", nowCnt=" + nowCnt
+				+ "]";
+	}
+	
+	
+	public String ajaxEle() {
+		return "{\"lo_no\":"+ lo_no + ",\"resTime\":"+ Integer.parseInt(resTime) + ",\"resDate\":\""+getResDateStr()+"\",\"nowCnt\": "+ nowCnt + " }";
 	}
 	
 	

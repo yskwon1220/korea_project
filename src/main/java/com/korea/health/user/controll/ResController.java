@@ -1,5 +1,7 @@
 package com.korea.health.user.controll;
 import java.util.HashMap;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,6 +23,8 @@ import com.korea.health.user.model.Reservation.ResPageInfo;
 import com.korea.health.user.model.Reservation.ResTimeVO;
 import com.korea.health.user.model.Reservation.ReservationVO;
 import com.korea.health.user.model.Trainer.TrainerVO;
+import com.korea.health.user.model.review.ReviewPagingInfo;
+import com.korea.health.user.model.review.ReviewVO;
 
 @Controller
 @RequestMapping("/user_page_/{cate}/{service}")
@@ -45,18 +49,26 @@ public class ResController {
 			TrainerVO tvo,
 			ResTimeVO timevo,
 			ResPageInfo resInfoVO,
-			//HttpSession ses, 
-			HttpServletRequest req,
-//			Model mm,
+			
+			ReviewVO rrvo,
+	         ReviewPagingInfo infoVo,
+			
+			HttpServletRequest req,Model mm,
 			@PathVariable("cate") String cate, 
 			@PathVariable("service") String service
 			) {
 
-		
+		  mm.addAttribute("reviewVO");
+		//  List<LocationVO> locaList =  locaMapper.list();
+		  
 		Action action = provider.getContext().getBean(cate + service, Action.class);
 		HashMap<String, Object> map = new HashMap<>();
-		
 
+		 map.put("rrvo", rrvo);
+	      map.put("infoVo",infoVo);
+	     // map.put("locaList",locaList);
+		
+		
 		map.put("rvo", rvo);
 		map.put("lovo", lovo);
 		map.put("tvo", tvo);

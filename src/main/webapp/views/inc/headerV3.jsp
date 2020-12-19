@@ -22,9 +22,9 @@
 				<h1><a href="<c:url value="/MainV3"/>">FitNess Club</a></h1>
 				<nav role="navigation">
 					<ul>
-						<li><a href="<c:url value="#"/>">Introduce</a></li>
-						<li><a href="<c:url value="#"/>">Find</a></li>
-						<li><a href="<c:url value="#"/>">MemberShip</a></li>
+						<li><a href="<c:url value="/introduce"/>">Introduce</a></li>
+						 <li><a href="<c:url value="/find"/>">Find</a></li>
+						<li><a href="<c:url value="/membership"/>">MemberShip</a></li>
 						<li><a href="<c:url value="${path }/user_page_/location/locationlist"/>">reservation</a></li>
 						<li><a href="<c:url value="#"/>">community</a></li>
 						<li><a href="<c:url value="#"/>">eventlist</a></li>
