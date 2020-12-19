@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.korea.health.provider.Action;
 import com.korea.health.user.model.event.EventMapper;
 
-
 @Service("payment")
 public class PaymentService implements Action {
 

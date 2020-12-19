@@ -27,6 +27,9 @@ public class Pagenation {
 	private String locationNo;
 	private Integer user_no;
 	private List<ResultVO> resultSet;	// 정산넣기
+	private String month;
+	private String startDate;
+	private String endDate;
 	private Integer totalPayment;
 	private String showPayment;
 	
@@ -146,6 +149,24 @@ public class Pagenation {
 	}
 	public void setShowPayment(String showPayment) {
 		this.showPayment = showPayment;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
 	}
 	// 현재 페이지 정보, 현재 페이지 범위 정보, 게시물의 총 개수
 	public void pageInfo(Integer page, Integer range, Integer listCnt) {

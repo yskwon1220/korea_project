@@ -177,3 +177,73 @@
                                 </div>
                             </div>
                         </div>
+                        <script>
+						var list = ${data['chartList']};
+                    	var ctx = document.getElementById('myChart');
+
+                    	var myChart = new Chart(ctx, {
+                    		type: 'bar',
+                    		data: {
+                    			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    			datasets: [{
+                    				label: "2020년 월별 매출",
+                    				data: list,
+                    				backgroundColor: [
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)',
+                    					'rgba(75, 192, 192, 0.3)'
+                    				],
+                    				borderColor: [
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)'
+                    				],
+                    				hoverBackgroundColor: [
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)',
+                    					'rgba(75, 192, 192, 1)'
+                    				],
+                    				borderWidth:1
+                    			}]
+                    		},
+                    		options: {
+                    			legend:false,
+                    			responsive: false,
+                    			scales: {
+                    				yAxes: [{
+                    					ticks: {
+                    						beginAtZero: true
+                    					}
+                    				}]
+                    			},
+                    		}
+                    	});
+                        </script>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.payment.PaymentMapper">
+	
+	<select id="monthlyPayment" resultType="int" parameterType="java.lang.String">
+			SELECT sum(total_payment) FROM PAYMENT WHERE PAYMENT_DATE BETWEEN TO_DATE(#{startDate}) AND TO_DATE(#{endDate})
+	</select>
+	
+	<select id="monthList" resultType="com.korea.health.admin.model.result.ResultVO"
+		parameterType="com.korea.health.service.Pagenation">
+		<![CDATA[
+         select * from (select rownum rnum, t1.* 
+         from (select * from PAYMENT WHERE PAYMENT_DATE BETWEEN TO_DATE(#{startDate}) AND TO_DATE(#{endDate}) 
+         order by PAYMENT_DATE) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+          ]]>
+	</select>
+	
+	<select id="monthCnt" resultType="int" parameterType="java.lang.String">
+		SELECT count(*) FROM PAYMENT
+		WHERE PAYMENT_DATE BETWEEN TO_DATE(#{startDate}) AND TO_DATE(#{endDate})
+	</select>
+	
+	<select id="findUser" resultType="java.lang.String" parameterType="int">
+		SELECT name FROM usermember WHERE user_NO = #{user_no}
+	</select>
+	
+</mapper>

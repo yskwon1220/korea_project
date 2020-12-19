@@ -50,6 +50,7 @@ public class ProviderController {
 				@PathVariable("service") String service,
 				@RequestParam(required = false, defaultValue = "1") int page,
 				@RequestParam(required = false, defaultValue = "1") int range,
+				@RequestParam(required = false, defaultValue = "1") int month,
 				Pagenation pageCtl,
 				TrainerVO trVO,	// 트레이너
 				BranchVO brVO,	// 지점
@@ -71,6 +72,7 @@ public class ProviderController {
 		map.put("pageCtl", pageCtl);
 		map.put("page", page);
 		map.put("range", range);
+		map.put("month", month);
 		map.put("trVO", trVO);
 		map.put("brVO", brVO);
 		map.put("goodsVO", goodsVO);

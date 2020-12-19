@@ -3,6 +3,6 @@
 <script>
 	$(document).ready(function goInfo() {
 		alert("정보가 삭제 되었습니다.");
-		location.href = 'total';
+		location.href = 'info';
 	})
 </script>
