@@ -173,7 +173,8 @@ hr{
 	position: absolute;
 	left:50em;
 	width: 380px;
-	height: 420px;
+	height: auto;
+	padding-bottom:10px;
 	background: #fff;
 	border: 1px solid black;
 }
@@ -203,7 +204,7 @@ h4{
 .btn{
 	position: absolute;
 	left:26.7em;
-	top: 19em;
+	top: 20em;
 	width: 380px;
 	height: 60px;
 	background: #BC9C6A;
@@ -218,6 +219,12 @@ h4{
 	font-family: '나눔스퀘어'
 }
 .t_price:nth-last-of-type(2) {
+	margin-top: 30px;
+	color: #BC9C6A;
+	font-size: 25px;
+	font-family: '나눔스퀘어'
+}
+.t_price:nth-last-of-type(3) {
 	margin-top: 30px;
 	color: #BC9C6A;
 	font-size: 25px;

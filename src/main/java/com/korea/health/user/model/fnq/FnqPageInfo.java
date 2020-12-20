@@ -7,14 +7,14 @@ import org.apache.ibatis.type.Alias;
 @Alias("fnqInfoVo")
 public class FnqPageInfo {
 	public int nowPage = 1;
-	public int pageLimit = 10;
+	public int pageLimit = 7;
 	public int pageNumLimit = 4;
 	public int lastPage;
 	public int start;
 	public int end;
 	public int startPage;
 	public int endPage;
-	public String identify="";
+	public String identify = "";
 	List<FnqboardVO> voArr;
 
 	public List<FnqboardVO> getVoArr() {
@@ -26,7 +26,7 @@ public class FnqPageInfo {
 	}
 
 	public void init(int total) {
-		lastPage = (int) Math.ceil(total / pageLimit) + 1;
+		lastPage = (int) Math.floor((total + pageLimit - 1) / pageLimit);
 		start = (nowPage - 1) * pageLimit + 1;
 		end = nowPage * pageLimit;
 
@@ -35,10 +35,6 @@ public class FnqPageInfo {
 
 		if (endPage > lastPage)
 			endPage = lastPage;
-	}
-
-	public String getIdentify() {
-		return identify;
 	}
 
 	public void setIdentify(String identify) {
@@ -115,7 +111,5 @@ public class FnqPageInfo {
 				+ ", lastPage=" + lastPage + ", start=" + start + ", end=" + end + ", startPage=" + startPage
 				+ ", endPage=" + endPage + ", identify=" + identify + ", voArr=" + voArr + "]";
 	}
-
-
 
 }

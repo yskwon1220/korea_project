@@ -10,32 +10,19 @@
 <title>후기작성</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" /> 
-<link rel="shortcut icon" href="favicon.ico">
+
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
 
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3animate.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3icomoon.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3bootstrap.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3flexslider.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3owl.carousel.min.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3owl.theme.default.min.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/V3style.css"/>" /> 
-	<link rel="stylesheet" href="<c:url value="/assets/css/main.css"/>" />
-	<link rel="stylesheet" href="<c:url value="/assets/css/as.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" /> 
 	
-            <script src="<c:url value="/assets/js/V3modernizr-2.6.2.min.js"/>"></script>
-            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-   <%-- <jsp:include page="../../inc/headerV3.jsp" /> --%>
-   <div id="page-wrapper">
-
-      <!-- Main -->
-      <div id="main-wrapper">
-         <div class="container">
-            <div id="content">
-
-            	<style type="text/css">
+	<%-- <link rel="stylesheet" href="<c:url value="${path }/resource/css/as.css"/>" /> --%>
+		<style type="text/css">
             			.no-drag { -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none; }
             		.inner { width: 1200px; margin: 0 auto; }
             		.selecter { background-image: url('css/images/arrow_down.png');  background-repeat: no-repeat; background-position: right 15px center;  }
@@ -114,20 +101,52 @@
             		.layerPop .pop_content .btn-box .btn { display: block; margin-bottom: 10px; background: #eee; font-weight: 700; color: #fff; }
             		.layerPop .pop_content .btn-box .btn.submit {color: #000; }
             		.layerPop .pop_content .btn-box .btn.cancle { color: #000; }
-
+				
             	</style>
+            <script src="<c:url value="/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <script>
+				function gogo(){
+						if(confirm("수정하시겠습니까?")){          
+								frm.submit();
+							
+							}
+	
+					}
+
+				function review_file_delete(){
+
+					if(confirm("파일을 삭제하시겠습니까?\n삭제된 파일은 복구할수 없습니다.")){  
+						frm.action="fileDelete";        
+						frm.submit();
+					
+					}
+
+				}
+            </script>
+</head>
+<body>
+   <%-- <jsp:include page="../../inc/headerV3.jsp" /> --%>
+   <div id="page-wrapper">
+
+      <!-- Main -->
+      <div id="main-wrapper">
+         <div class="container">
+            <div id="content">
+
+            	
 
                <!-- Content -->
                <article class="review-form">
 	               	<div class="inner">
-						<c:set var="vo" value="${data }" />								 
-	               		<form action="reviewmodifyreg" method="post"  enctype="multipart/form-data"> 
+						<c:set var="vo" value="${data}" />								 
+	               		<form action="reviewmodifyreg" method="post"  enctype="multipart/form-data"  name="frm"> 
+	               			<input type="hidden" name="review_no" value="${vo.review_no}"/>  <!--  기존에있던파일 -->
+	               			<input type="hidden" name="starCnt" id="starCnt" value="10">
 	               			<h3>후기 작성</h3>
 	               			<input type="text" name="review_no" value="${vo.review_no }" style="display:none;"/>
-	               			<div class="input-line label-box">
-	               				<label>아이디</label>
-	               				<input type="text" name="pid" disabled /> 
-						   </div>
+	               				<input type="hidden" name="pid"
+									value="<%=session.getAttribute("id")%>" />
 						   
 	               				<div class="selecter-box">
 		               				<select class="selecter"name="tr_no" style="background-image: <c:url value="/images/arrow_down.png."/>">
@@ -153,7 +172,7 @@
 	               			
 	               			<div class="input-line label-box">
 	               				<label>제목</label>
-	               				<input type="text" name="title" id="title">
+	               				<input type="text" name="title" id="title" value="${vo.title }" style="width: 600px">
 	               				
 	               			</div>
 	               			
@@ -167,40 +186,36 @@
 	               				</div>
 	               			</div>
 	               			<div class="input-line">
-	               				<textarea name="content" id="content"></textarea>
+	               				
+	               				<textarea name="content" id="content" style="width: 1000px">${vo.content }</textarea>
 	               			</div>
 	               			<div class="input-line">
-	               				<div class="upload_box">
-			               			<input name="review_file" type="file" multiple="multiple" id="upload_image" accept="image/*" onchange="setThumbnail(event);"/> 
-			               			<label class="" for="upload_image">
-			               				<span>사진<!--  <em class="count">0</em>/4 --></span>
-			               			</label>
-		               				<div id="image_container"></div>
-		               			</div>
+	               				<c:choose>
+	               					<c:when test="${vo.review_file_name == null }">
+	               						<input type="file" name = "review_file" accept="image/*" />
+	               					</c:when>
+	               					<c:otherwise>
+	               					<input type="hidden" name = "review_file_name" value="${vo.review_file_name}" />
+	               						${vo.review_file_name}&nbsp;<input class="delete" type="button" value="이미지삭제" onclick="review_file_delete()" />
+	               					</c:otherwise>
+	               				</c:choose>
 	               			</div>
 	               			<div class="btn-box">
-	               				<input type="submit" value="등록" />
-	               				
+	               				<input class="modify" type="button" value="수정" onclick="gogo()">
+	               				<input class="reset" type="reset" value="초기화" />
+	               				<a href="reviewlist">목록</a>
 	               			</div>
 	               		</form>
 	               	</div>
                </article>
 			
-               <!-- <div class="layerPop">
-               		<div class="pop_content">
-               			<h3>후기를 등록하시겠습니까?</h3>
-               			<div class="btn-box">
-               				<div class="btn submit" onclick="popcancle();">등록하기</div>
-               				<div class="btn cancle" onclick="popcancle();">취소하기</div>
-               			</div>
-               		</div>
-               </div> -->
+              
 
             </div>
          </div>
       </div>
     </div>
-</form>    
+ 
     <ul id='logs' style='user-select: none;'></ul>
 
 	<%-- <jsp:include page="../../inc/footerV3.jsp" /> --%>
@@ -232,29 +247,33 @@
 
 		$('.grade').on({
 			mousedown: function(event) {
-				$('.star_yellow').width(event.offsetX);
+				
+
+				var star = Math.ceil(event.offsetX/20)
+				$('.star_yellow').width(star*20);
+				console.log("별별별"+star)
+				$("#starCnt").val(star)
 			},
 			mouseup: function(event) {
-				$('.star_yellow').width(event.offsetX);
+				//$('.star_yellow').width(event.offsetX);
+				var star = Math.ceil(event.offsetX/20)
+				$('.star_yellow').width(star*20);
+				console.log("별별별"+star)
+				$("#starCnt").val(star)
 			}
 		});
-
-/* 		const popopen = () => {
-			$('.layerPop').addClass('active');
-		}
-
-		const popcancle = () => {
-			$('.layerPop').removeClass('active');
-		} */
+		
+		
+		
 
 
 	</script>
-	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 </body>
 </html>

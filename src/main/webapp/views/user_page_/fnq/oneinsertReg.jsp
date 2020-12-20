@@ -4,6 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 
+
+
+
+
 alert("입력되었습니다.");
 location.href="${data}";
 </script>

@@ -8,8 +8,43 @@
 <head>
 <title>자주묻는 질문</title>
 
-<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+
+<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
+<style>
+		.grade-box .grade { display: inline-block; width: 100px; height: 50px; position: relative; font-size: 20px; vertical-align: top; }
+ 					.grade-box .grade .grade-star { position: absolute; left: 0; top: 0; height: 50px; color: #ddd; cursor: pointer; }
+ 					.grade-box .grade .star_gray { width: 100%; }
+ 					.grade-box .grade .star_yellow { color: #ffd369; overflow: hidden; }
+ 					.grade-box .grade p { position: absolute; left: 0; bottom: 10px; width: 100%; font-size: 12px; line-height: 1em; margin-bottom: 0;  }
+					.star-0 {width: 0%;}
+					.star-1 {width: 10%;}
+					.star-2 {width: 20%;}
+					.star-3 {width: 30%;}
+					.star-4 {width: 40%;}
+					.star-5 {width: 50%;}
+					.star-6 {width: 60%;}
+					.star-7 {width: 70%;}
+					.star-8 {width: 80%;}
+					.star-9 {width: 90%;}
+					.star-10 {width: 100%;}
+					
+					
+	</style>
 </head>
 <body>
 <%-- 	<jsp:include page="../inc/headerV3.jsp" />
@@ -29,17 +64,26 @@
 					${vo.title }
 					
 				</div>
-				<div class="titleDetail">${vo.pid }</div>
-				<div class="titleDetail">${vo.no }</div>
+				<input type = "hidden" name = "user_id" value = "${user_id }">
+				<div class="titleDetail">${vo.user_id }</div>
+				<div class="titleDetail">${vo.review_no }</div>
 				<div class="titleDetail"><fmt:formatDate value="${vo.regdate }"
 											pattern="yy-MM-dd HH:mm" /></div>
 				<div class="titleDetail">${vo.tr_no }</div>
 				<div class="titleDetail">${vo.lo_no }</div>	
-				<div class="titleDetail">${vo.star }</div>						
+				<div class="titleDetail">
+					<div class="grade-box">
+	               					<div class="grade no-drag" name="star">
+	               						<div class="grade-star star_gray">★★★★★</div>
+	               						<div class="grade-star star_yellow star-${vo.starCnt}">★★★★★</div>
+	               						
+	               					</div>
+	               				</div>
+				</div>						
 				<hr>
-				<div class="OutTextBox animate-box">
+				<div class="OutTextBox animate-box" >
 					<div>
-						<img src=>
+						<img src="<c:url value="${path}/upup/${vo.review_file_name }"/>" style="width: 500px; height: 300px;"><br>
 						<div>${vo.contentBr }</div>
 					</div>
 				</div>
@@ -52,13 +96,13 @@
 			</div>
 			</form>
  -->
-				<form action="reviewinsertreg" method="post" enctype="multipart/form-data">
+<!-- 				<form action="reviewinsertreg" method="post" enctype="multipart/form-data"> -->
 				<div class="bottomB">
 					<a href="reviewlist">목록</a>
 					<a href="reviewmodify?review_no=${vo.review_no }">수정</a>
 					<a href="reviewdelete?review_no=${vo.review_no }">삭제</a>
 				</div>
-				</form>
+<!-- 				</form> -->
 			</div>
 		</div>
 

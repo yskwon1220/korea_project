@@ -43,8 +43,8 @@
 			<form action ="insertReg" method="post" enctype="multipart/form-data">
 			<div class="bottomB">
 				<a href="info">목록으로</a> 
-				<a href="modify?qna_no=${sm.qna_no }">수정</a>
-				<a href="delete?qna_no=${sm.qna_no }">삭제</a>
+				<a class="btn btn-primary" href="modify?qna_no=${sm.qna_no }">수정</a>
+				<a class="btn btn-danger" href="delete?qna_no=${sm.qna_no }">삭제</a>
 			</div>
 			</form>
 		</div>

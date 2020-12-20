@@ -7,35 +7,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<c:url value="${path }/resource/css/payment2.css"/>" />
+<script src="${path }/resource/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-3.5.1.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-ui.min.js"/>"></script>
+<script type="text/javascript">
 
- <link rel="stylesheet" type="text/css" href="${path }/resource/css/payment2.css"/>
- 
+$(document).ready(function() {
+
+	$("#payment_check").on('click',function(){
+		location.href("../../../user_page_/style_minjoo/myPage");
+		});
+
+	$("#use_booking").on('click',function(){
+		location.href("../../location/locationlist");
+		});
+	
+});
+
+
+ </script>
 </head>
 <body>
 <c:forEach items="${data }" var="mem" begin="0" end="0">
 <h1>주문완료 </h1> 
 <hr/>
 <div class="top_div">
-<h3>주문이 완료되었습니다.${pr.card_select }</h3>
+<h3>주문이 완료되었습니다.</h3>
 <div class="info">
 
 <div id ="info_get"><h4>구매 정보</h4>
-<div class="getpep"><div>사용자</div> <div>${mem.name } / ${mem.tel }</div></div>
-<!-- <div class="getpep"><div>받는주소</div> <div>05333/서울특별시 강동구 특별로 18길 10(천천천)아파트 302동 202호</div><a href="#">변경하기 ></a></div> -->
-<div class="getpep"><div>구매 내용</div> <div>30 pass 이용권</div></div>
+<div class="getpep"><div>사용자</div> <div>${mem.user_name } / 0${mem.user_tel }</div></div>
+
+<div class="getpep"><div>구매 내용</div> <div>피트니스 1개월</div></div>
 </div>
 <div id = "info_pay"><h4>결제 정보</h4>
-<div class="getpep"><div>주문금액</div> <div>${price }원</div></div>
-<div class="getpep"><div>할인금액</div> <div>- ${discount }원</div></div>
+<div class="getpep"><div>주문금액</div> <div>${vo2.origin_price }</div></div>
+<div class="getpep"><div>기본할인금액</div> <div>- ${vo2.basic_discount }</div></div>
+<div class="getpep"><div>쿠폰할인금액</div> <div>- ${vo2.coupon_price }</div></div>
+<div class="getpep"><div>포인트할인금액</div> <div>- ${vo2.point_price }</div></div>
+
 
 <hr/>
-<div class="getpep"><div>총 결제금액</div><div>농협은행(무통장입금)</div> <div>${price }원</div></div>
+<div class="getpep"><div>총 결제금액</div><div>${vo2.pay_way } (${vo2.card_select })</div> <div>${vo2.tot_price }</div></div>
+<div class="getpep"><div>카드번호</div><div>${vo2.card_main_num1 }-****-****-${vo2.card_main_num4 }</div>
 </div>
 </div>
 </div>
 <div class="btn">
-<input type="button" value="내역 확인하기" />
-<input type="button" value="이용 예약하기" />
+<input type="button" value="내역 확인하기" id="payment_check"/>
+<input type="button" value="이용 예약하기" id="use_booking"/>
 </div>
 </c:forEach>
 </body>

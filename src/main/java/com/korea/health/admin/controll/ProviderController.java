@@ -58,7 +58,6 @@ public class ProviderController {
 		        @ModelAttribute("notice_no")String noticeNum ,
 		        @ModelAttribute("qna_no")String qnaNum ,
 			
-			//혜지가 추가한 검색부분
 			ReviewVO rrVo,
 			ReviewPagingInfo infoVo,
 			TrainerVO trVO,	// 트레이너
@@ -68,12 +67,13 @@ public class ProviderController {
 			ResultVO resultVO,	// 정산
 			FnqPageInfo fnqInfoVo,
 			NoticePageInfo infonoticeVo,
-			QnaPageInfo infoqnaVo, NoticeVO nvo,
+			QnaPageInfo infoqnaVo, 
+			NoticeVO nvo,
 			FnqboardVO ovo,
 			QnaVO qvo,
-			Pagenation pageCtl, 
 			ReservationVO rvo, 
 			ResTimeVO timevo, 
+			Pagenation pageCtl, 
 			HttpServletRequest request) {
 
 		System.out.println("메인데이터에서는? : " + cate);
@@ -83,13 +83,11 @@ public class ProviderController {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
-		//혜지가 추가한 검색부분
 	    map.put("trVO", trVO);
 		map.put("brVO", brVO);
 		map.put("goodsVO", goodsVO);
 	    map.put("rvo", rvo);
 	    map.put("timevo", timevo);
-	    
 	    map.put("fnqInfoVo", fnqInfoVo);
 		map.put("infonoticeVo", infonoticeVo);
 		map.put("infoqnaVo", infoqnaVo);

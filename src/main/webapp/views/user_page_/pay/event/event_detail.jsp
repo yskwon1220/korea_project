@@ -27,7 +27,7 @@
 		<div class="fix_bar">
 			지금 바로 결제하러 가기
 			<a href="../payment/payment?price=${data.get(0).e_price}&discount=${data.get(0).discount}">
-			<input type="button"  class="buy_btn"/></a>
+			<input type="button"  class="buy_btn" value="결제하기"/></a>
 		</div>
 
 

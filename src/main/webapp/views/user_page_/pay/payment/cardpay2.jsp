@@ -21,7 +21,37 @@ function maxLengthCheck(object){
   }
   
 $(document).ready(function() {
- 
+	
+	 
+	var price1 = opener.$("#use_price").text();
+	  $("input[name=origin_price]").val(price1);
+	  var price2 = opener.$("#use_discount").text();
+	  $("input[name=basic_discount]").val(price2);
+	  var price3 = opener.$("#use_coupon").text();
+	  $("input[name=coupon_price]").val(price3);
+	  var price4 = opener.$("#use_point").text();
+	  $("input[name=point_price]").val(price4);
+	  var price5 = opener.$("#use_price2").text();
+	  $("input[name=tot_price]").val(price5);
+	  var price6 = opener.$("#cardsel option:selected").text();
+	  $("input[name=card_select]").val(price6);
+
+	  var coupon = opener.$("input[name=radi]:checked").attr("id");
+	  var cou_la = opener.$("#li_"+coupon).attr("value");
+	  $("input[name=coupon_no]").val(cou_la);
+
+	  
+	  var today = opener.$("#payment_date").val();
+	  $("input[name=payment_date]").val(today);
+	  
+	  var sv = opener.$("#get_point").attr("value");
+	  $("input[name=save_point]").val(parseInt(sv));
+	  
+	  var tot = opener.$("#use_price2").attr("value");
+	  var dis = opener.$("#use_price").attr("value");
+	  $("input[name=discount_price]").val(parseInt(dis)-parseInt(tot));
+
+	  
 	var price = opener.$("#use_price2").text();
   $("#price_see").text(price);
 
@@ -62,6 +92,28 @@ $(document).ready(function() {
 </head>
 <body>
 <form method="post" name="myForm">
+
+<input type="hidden" name="coupon_no" value="0">
+<input type="hidden" name="origin_price" value="0">
+<input type="hidden" name="tot_price" value="0">
+<input type="hidden" name="card_select" value="0">
+<input type="hidden" name="coupon_price" value="0">
+<input type="hidden" name="basic_discount" value="0">
+<input type="hidden" name="point_price" value="0">
+<input type="hidden" name="payment_date" value="0">
+<input type="hidden" name="pay_way" value="카드결제">
+<input type="hidden" name="discount_price" value="0">
+<input type="hidden" name="save_point" value="0">
+<input type="hidden" name="ticket" value="${vo.ticket }">
+<input type="hidden" name="title" value="${vo.title }">
+<input type="hidden" name ="card_main_num1" value="${vo.card_num1 }">
+<input type="hidden" name ="card_main_num2" value="${vo.card_num2 }">
+<input type="hidden" name ="card_main_num3" value="${vo.card_num3 }">
+<input type="hidden" name ="card_main_num4" value="${vo.card_num4 }">
+<input type="hidden" name ="cvc" value="${vo.cvc }">
+<input type="hidden" name ="regdate" value="${vo.regdate }">
+
+
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link" href="#">원클릭 간편결제</a>

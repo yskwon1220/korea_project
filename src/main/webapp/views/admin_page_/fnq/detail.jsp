@@ -51,7 +51,7 @@
 			</div>
 
 				<div class="bottomB">
-					<a href="info">목록으로</a>
+					<a class="btn btn-primary" href="info">목록으로</a>
 				</div>
 		</div>
 	</div>

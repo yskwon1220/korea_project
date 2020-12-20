@@ -7,8 +7,8 @@ import org.apache.ibatis.type.Alias;
 @Alias("infoqnaVo")
 public class QnaPageInfo {
 	public int nowPage = 1;
-	public int pageLimit = 2;
-	public 	int pageNumLimit = 4;
+	public int pageLimit = 8;
+	public 	int pageNumLimit = 10;
 	public 	int lastPage;
 	public 	int start;
 	public 	int end;
@@ -28,18 +28,19 @@ public class QnaPageInfo {
 		this.voArr = voArr;
 	}
 
-	public void init(int total) {
-		lastPage = (int)Math.ceil(total/pageLimit) + 1;
-		start = (nowPage-1)*pageLimit+1;
-		end = nowPage*pageLimit;
-		
-		startPage = (nowPage-1)/pageNumLimit*pageNumLimit+1;
-		endPage = startPage+pageNumLimit-1;
-		
-		
-		if(endPage>lastPage)
-			endPage=lastPage;
-	}
+	  public void init(int total) {
+	      lastPage = (int) Math.floor((total+pageLimit-1)/pageLimit) ;
+	      start = (nowPage-1)*pageLimit+1;
+	      end = nowPage*pageLimit;
+	      
+	      startPage = (nowPage-1)/pageNumLimit*pageNumLimit+1;
+	      endPage = startPage+pageNumLimit-1;
+	      
+	      
+	      if(endPage>lastPage)
+	         endPage=lastPage;
+	   }
+
 	
 	public int getNowPage() {
 		return nowPage;

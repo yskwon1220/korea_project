@@ -8,9 +8,44 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
+	<link
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+	
 	<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 	<link rel="stylesheet" href="<c:url value="${path }/resource/css/main.css"/>" />
+	<style>
+		.grade-box .grade { display: inline-block; width: 100px; height: 50px; position: relative; font-size: 20px; vertical-align: top; }
+ 					.grade-box .grade .grade-star { position: absolute; left: 0; top: 0; height: 50px; color: #ddd; cursor: pointer; }
+ 					.grade-box .grade .star_gray { width: 100%; }
+ 					.grade-box .grade .star_yellow { color: #ffd369; overflow: hidden; }
+ 					.grade-box .grade p { position: absolute; left: 0; bottom: 10px; width: 100%; font-size: 12px; line-height: 1em; margin-bottom: 0;  }
+					.star-0 {width: 0%;}
+					.star-1 {width: 10%;}
+					.star-2 {width: 20%;}
+					.star-3 {width: 30%;}
+					.star-4 {width: 40%;}
+					.star-5 {width: 50%;}
+					.star-6 {width: 60%;}
+					.star-7 {width: 70%;}
+					.star-8 {width: 80%;}
+					.star-9 {width: 90%;}
+					.star-10 {width: 100%;}
+					
+					
+	</style>
 </head>
 <body>
 
@@ -44,26 +79,35 @@
                      <th>작성일</th>
                      <th>조회수</th>
                      <th>별점</th>
+              
                   </tr>
                   </thead>
                   
                   <c:forEach items="${data.voArr }" var="vo" varStatus="no">
-	<tr>
-		<td>${vo.review_no}</td>
-		<td>${vo.pid }</td>
-		<td>
-			
-				
-				<a href="review_detail?review_no=${vo.review_no }">
-				${vo.title }
-				</a>
-		</td>
-		
-		<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd HH:mm"/></td>
-		<td>${vo.cnt }</td>
-		<td>${vo.star }</td>
-	</tr>
-	</c:forEach>
+						<tr>
+							<td>${vo.review_no}</td>
+							<td>${vo.user_id }</td>
+							<td>
+									<a href="review_detail?review_no=${vo.review_no }">
+									${vo.title }
+									</a>
+							</td>
+							
+							<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd HH:mm"/></td>
+							<td>${vo.cnt }</td>
+							<td>
+			       				<div class="grade-box">
+	               					<div class="grade no-drag" name="star">
+	               						<div class="grade-star star_gray">★★★★★</div>
+	               						<div class="grade-star star_yellow star-${vo.starCnt}">★★★★★</div>
+	               						
+	               					</div>
+	               				</div>
+							
+							</td>
+							
+						</tr>
+					</c:forEach>
 
                   
                </table>
@@ -90,20 +134,20 @@
                </a></li>
             </ul>
 
-            <!-- 검색 폼 영역 -->
-            <li id='liSearchOption'>
+          <!--   <!-- 검색 폼 영역 -->
+          <!--   <li id='liSearchOption'>
                <div>
                   <select id='selSearchOption'>
-                     <!-- <option value='A'>제목+내용</option> -->
+                     <option value='A'>제목+내용</option>
                      <option value='T'>제목</option>
-                    <!--  <option value='C'>내용</option> -->
+                     <option value='C'>내용</option>
                   </select> <input id='txtKeyWord' /> <a href="review">검색</a>
-                  <div class="btn-box">
+                  <div class="btn-box"> -->
 	              		<div class="btn btn-submit2"><a href="reviewinsert"/>글쓰기</a></div>
-	               </div >
+	      <!--          </div >
                </div>
               
-            </li>
+            </li> -->
 			
          </ul>
       </div>
@@ -119,12 +163,12 @@
  <%--  <jsp:include page="../../inc/footerV3.jsp" /> --%>
 	
 
-	<script src="<c:url value="/assets/js/V3jquery.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3jquery.flexslider-min.js"/>"></script>
-	<script src="<c:url value="/assets/js/V3main.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 </body>
 </html>

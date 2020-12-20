@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.korea.health.user.model.event.EventMapper">
+	<select id = "list" resultType ="com.korea.health.user.model.event.EventVO">
+		SELECT * FROM event order by event_no desc
+	</select>
+	<select id = "event2" resultType ="com.korea.health.user.model.event.EventVO">
+		SELECT event_no,title, detail_img1, detail_img2, detail_img3,e_price, discount FROM event Where event_no=#{en}
+	</select>
+	<select id ="user_serch" resultType="com.korea.health.user.model.payment.payMember">
+		SELECT a.*, b.*, c.*
+		FROM UserMember a join One_Pay_list b
+		ON a.USER_NO = b.USER_NO
+			join coupon_join c
+		ON a.USER_NO= c.USER_NO
+		WHERE a.user_id = #{id} 
+	</select>
+	
+	<sql id ="noMax">
+		(select max(payment_no)+1 from payment_list)
+	</sql>
+	
+	<insert id = "payment_info" parameterType="com.korea.health.user.model.payment.cardVO2" >
+	
+	<selectKey keyProperty="payment_no" resultType="java.lang.Integer" order = "BEFORE">
+	<include refid = "noMax"/>
+	</selectKey>
+	<![CDATA[
+		insert into payment_list 
+		(payment_no, user_no, origin_price, discount_price, coupon_no, point_price, pay_way,payment_date)	
+		values 
+		(#{payment_no}, (select user_no from UserMember where user_id= #{id}), #{vo2.origin_price}, #{vo2.discount_price}, #{vo2.coupon_no}, #{vo2.point_price}, #{vo2.pay_way}, sysdate)
+		]]>
+	</insert>
+	
+	<delete id="coupon_delete" parameterType= "com.korea.health.user.model.payment.cardVO2">
+		delete from coupon_join where user_no = (select user_no from UserMember where user_id= #{id}) and coupon_no = #{coupon_no}
+	</delete>
+	
+	<update id="save_up" parameterType="com.korea.health.user.model.payment.cardVO2">
+		update usermember set point = #{save_point} where user_id = #{id}
+	
+	</update>
+	
+	
+</mapper>

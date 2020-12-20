@@ -21,8 +21,8 @@ public class Reviewdelete implements Action{
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		// TODO Auto-generated method stub
 		ReviewVO vo = (ReviewVO)map.get("rrvo");
-		String id = (String)req.getSession().getAttribute("id");
-		String chkBeforeId = "pid="+id+",";
+		String user_id = (String)req.getSession().getAttribute("user_id");
+		String chkBeforeId = "user_id="+user_id+",";
 		String chkID = mapper.chkID(vo.review_no).toString();
 		String filename = 	mapper.detail(vo.review_no).getReview_file_name();
 		
@@ -31,7 +31,7 @@ public class Reviewdelete implements Action{
 		
 		mapper.detail(vo.review_no);
 		System.out.println(" chkID     "+chkID);
-		System.out.println("id      "+id);
+		System.out.println("id      "+user_id);
 		System.out.println("chkBeforeId    "+chkBeforeId);
 		System.out.println("chkBeforeId      "+chkID.contains(chkBeforeId));
 

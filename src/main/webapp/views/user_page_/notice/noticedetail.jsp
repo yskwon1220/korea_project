@@ -7,7 +7,28 @@
 
 <html>
 <head>
-<title>공지사항</title>
+<title>FitNess Club</title>
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, user-scalable=no" />
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<link
+   href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+   rel="stylesheet">
+
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
+<link rel="stylesheet"
+   href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+<link rel="stylesheet"
+   href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+   href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+   href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+
+
 
 <link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
 
@@ -34,13 +55,22 @@
 				<hr>
 				<div class="OutTextBox animate-box">
 					<div>
-						<div>${sm.contextBr}</div>
+						<div>${sm.contentBr}</div>
 					</div>
 				</div>
 				<div class="bottomB">
-					<a href="noticelist">목록으로</a>
+					<a class="btn btn-primary" href="noticelist">목록으로</a>
 				</div>
 			</div>
 		</div>
+<script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+   <script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
+
 </body>
 </html>

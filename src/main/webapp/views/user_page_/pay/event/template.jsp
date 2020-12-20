@@ -24,7 +24,9 @@
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
 <link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
-
+<script src="${path }/resource/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-3.5.1.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-ui.min.js"/>"></script>
 
 <script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>

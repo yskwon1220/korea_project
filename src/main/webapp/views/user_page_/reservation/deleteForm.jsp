@@ -78,28 +78,36 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
 
-						<form action="deleteSuccess" name="f"
+						<form action="deleteSuccess" name="f" method="post"
 							onsubmit="return formCheck(this)">
 
 							<%-- 							<input type="text" value="${data.user_name}" />
 							<input type="text" value="${rvo.user_name}" /> 안됌 --%>
 							<input type="hidden" name="user_name" value="${param.user_name}" />
 							<%-- <input type="text" value="${user_name}" /> --%>
-							<input type="hidden" name="re_no" value="${param.re_no }" />
-							<table>
-								<tr>
-									<td>암호</td>
-									<td><input type="password" name="user_pw" /></td>
-								</tr>
+							<input type="hidden" name="re_no" value="${param.re_no }" /> <input
+								type="hidden" name="resdate" value="${param.resdate}"> <input
+								type="hidden" name="resTime" value="${param.resTime}">
 
-								<tr>
-									<td colspan="2" align="right">
-									<input type="submit" value="예약취소하기">
-									 <input type="button"
-										value="되돌아가기"
-										onclick="location.href='javascript:history.back()'"></td>
-								</tr>
+							<table class="type07">
+								<thead>
+									<tr>
+
+										<th colspan="2"></th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="2">비밀번호&nbsp;:&nbsp;&nbsp;<input type="password" name="user_pw" /></td>
+
+									</tr>
+
+								</tbody>
 							</table>
+							<input type="submit" value="예약취소하기"> &nbsp;&nbsp; <input
+								type="button" value="되돌아가기"
+								onclick="location.href='javascript:history.back()'">
 						</form>
 
 					</div>

@@ -8,7 +8,7 @@
 			<div class="d-flex align-items-center justify-content-between small">
 				<div class="text-muted">Copyright &copy; FitNess Club </div>
 				<div>
-					<a href="/user_page_/main">FitNess Club</a> &middot;
+					<a href="/main">FitNess Club</a> &middot;
 					 <a href="/admin_page_/home/dashboard">관리자 페이지</a>
 				</div>
 			</div>

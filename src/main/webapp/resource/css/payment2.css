@@ -18,7 +18,7 @@ h3{
 }
 .info{
 	width:70%;
-	height: 300px;
+	height: auto;
 	display: inline-block;
 	border: 1px solid #000000;
 	border-right: 0px;
@@ -28,7 +28,7 @@ h3{
 #info_get, #info_pay{
 	float:left;
 	width: 48%;
-	height: 300px;
+	height: auto;
 	display: inline-block;
 	text-align: left;
 }

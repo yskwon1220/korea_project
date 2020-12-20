@@ -7,7 +7,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("infonoticeVo")
 public class NoticePageInfo {
 	public int nowPage = 1;
-	public int pageLimit = 2;
+	public int pageLimit = 7;
 	public 	int pageNumLimit = 4;
 	public 	int lastPage;
 	public 	int start;
@@ -28,18 +28,19 @@ public class NoticePageInfo {
 		this.voArr = voArr;
 	}
 
-	public void init(int total) {
-		lastPage = (int)Math.ceil(total/pageLimit) + 1;
-		start = (nowPage-1)*pageLimit+1;
-		end = nowPage*pageLimit;
-		
-		startPage = (nowPage-1)/pageNumLimit*pageNumLimit+1;
-		endPage = startPage+pageNumLimit-1;
-		
-		
-		if(endPage>lastPage)
-			endPage=lastPage;
-	}
+	   public void init(int total) {
+		      lastPage = (int) Math.floor((total+pageLimit-1)/pageLimit) ;
+		      start = (nowPage-1)*pageLimit+1;
+		      end = nowPage*pageLimit;
+		      
+		      startPage = (nowPage-1)/pageNumLimit*pageNumLimit+1;
+		      endPage = startPage+pageNumLimit-1;
+		      
+		      
+		      if(endPage>lastPage)
+		         endPage=lastPage;
+		   }
+
 	
 	public int getNowPage() {
 		return nowPage;
