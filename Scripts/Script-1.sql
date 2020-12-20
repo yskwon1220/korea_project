@@ -230,3 +230,10 @@ INTO FNQBOARD
 values(7, 'asdㅜ', '가나다', 'content',  '20201220','reprep', '답변답변답변')
 SELECT * FROM dual;
 
+        select * from (select rownum rnum, t1.* 
+         from (select * from reservation WHERE lo_no ='1002' 
+         and USER_NAME like '%' ||'박민'|| '%'
+        ) t1) 
+         where rnum >= 1 and rnum <= 5;
+         
+        SELECT COUNT(*) FROM reservation where lo_no = '1002' AND TR_NAME like '%' ||'박'|| '%'

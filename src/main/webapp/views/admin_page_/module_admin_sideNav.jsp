@@ -9,17 +9,15 @@
 					<div class="sb-sidenav-menu-heading"></div>
 					<a class="nav-link"
 						href="/admin_page_/home/dashboard">
-						<div class="sb-nav-link-icon">
 							<i class="fas fa-house-user"></i>
-						</div> 관리자 홈
+						&nbsp;&nbsp;관리자 홈
 					</a>
 					<div class="sb-sidenav-menu-heading">menu</div>
 					<a class="nav-link collapsed" href="#" data-toggle="collapse"
 						data-target="#collapseUsers" aria-expanded="false"
 						aria-controls="collapseUsers">
-						<div class="sb-nav-link-icon">
 							<i class="fas fa-address-card"></i>
-						</div> 사용자 관리
+							    &nbsp;&nbsp;사용자 관리
 						<div class="sb-sidenav-collapse-arrow">
 							<i class="fas fa-angle-down"></i>
 						</div>
@@ -33,29 +31,28 @@
 								href="/admin_page_/trainer/info">트레이너 정보</a>
 						</nav>
 					</div>
-                  <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                     data-target="#collapseLayouts" aria-expanded="false"
-                     aria-controls="collapseLayouts">
-                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-history"></i>
-                     </div> 예약관리
-                     <div class="sb-sidenav-collapse-arrow">
-                        <i class="fas fa-angle-down"></i>
-                     </div>
-                  </a>
-                  <div class="collapse" id="collapseLayouts"
-                     aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/admin_page_/reservation/info">예약 정보</a>
-                     </nav>
-                  </div>
+                	<a class="nav-link collapsed" href="#" data-toggle="collapse" 
+							data-target="#collapseReservation" aria-expanded="false" 
+							aria-controls="collapseReservation">
+							<i class="fas fa-history"></i>
+                                        &nbsp;&nbsp;예약관리
+                            <div class="sb-sidenav-collapse-arrow">
+                            	<i class="fas fa-angle-down"></i>
+                            </div>
+                            </a>
+                             <div class="collapse" id="collapseReservation" 
+                             aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="/admin_page_/reservation/info">예약 정보</a>
+                                            <a class="nav-link" href="/admin_page_/reservation/reslist">시간별 인원 현황</a>
+                                        </nav>
+                                    </div>
 					<!--  -->
 					<a class="nav-link collapsed" href="#" data-toggle="collapse"
 						data-target="#collapseTemps" aria-expanded="false"
 						aria-controls="collapseTemps">
-						<div class="sb-nav-link-icon">
 							 <i class="fas fa-copy"></i>
-						</div> 컨텐츠 관리
+								     &nbsp;&nbsp;컨텐츠 관리
 						<div class="sb-sidenav-collapse-arrow">
 							<i class="fas fa-angle-down"></i>
 						</div>
@@ -66,7 +63,8 @@
 							id="sidenavAccordionPages">
 							<a class="nav-link" href="/admin_page_/branch/info">지점 관리</a>
 							<a class="nav-link" href="/admin_page_/goods/info">상품 관리</a>
-							
+							<a class="nav-link" href="/admin_page_/review/info">이용후기 관리</a>
+
 							<a class="nav-link collapsed" href="#" data-toggle="collapse" 
 							data-target="#pagesCollapseCus" aria-expanded="false" 
 							aria-controls="pagesCollapseCus">
@@ -91,9 +89,8 @@
 					<a class="nav-link collapsed" href="#" data-toggle="collapse"
 						data-target="#collapseResult" aria-expanded="false"
 						aria-controls="collapseResult">
-						<div class="sb-nav-link-icon">
 							<i class="fas fa-coins"></i>
-						</div> 정산
+						     &nbsp;&nbsp; 정산
 						<div class="sb-sidenav-collapse-arrow">
 							<i class="fas fa-angle-down"></i>
 						</div>

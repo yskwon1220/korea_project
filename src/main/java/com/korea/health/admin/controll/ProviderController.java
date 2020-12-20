@@ -59,8 +59,6 @@ public class ProviderController {
 		        @ModelAttribute("qna_no")String qnaNum ,
 			
 			//혜지가 추가한 검색부분
-			@RequestParam(defaultValue="type") String keyField,
-		    @RequestParam(defaultValue="") String keyWord,
 			ReviewVO rrVo,
 			ReviewPagingInfo infoVo,
 			TrainerVO trVO,	// 트레이너
@@ -86,8 +84,6 @@ public class ProviderController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
 		//혜지가 추가한 검색부분
-		map.put("keyField", keyField); 
-	    map.put("keyWord", keyWord); 
 	    map.put("trVO", trVO);
 		map.put("brVO", brVO);
 		map.put("goodsVO", goodsVO);

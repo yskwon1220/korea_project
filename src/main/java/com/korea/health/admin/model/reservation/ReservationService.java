@@ -27,7 +27,7 @@ public class ReservationService implements Action{
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
 		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
-		
+		int listCnt;
 		
 		switch ((String)map.get("service")) {
 		
@@ -36,83 +36,111 @@ public class ReservationService implements Action{
 			System.out.println(mapper.branchList());
 			return mapper.branchList();
 			
-			
 		case "list":
-			
 			System.out.println("switch case : list에 들어왔다.");
 			String lo_no = request.getParameter("lo_no");
 			rvo.setLo_no(lo_no);
 			
-			request.setAttribute("lo_no", lo_no);
 			System.out.println("너님 누구? lo_no : " + lo_no);
 			
-			int listCnt = (int)mapper.totalCnt(lo_no);
 			int page = (int)map.get("page");
 			int range = (int)map.get("range");
-			System.out.println("전체 컬럼 수 : " + listCnt);
 			
+			//혜지가 추가한 검색 부분!!
+			pageCtl.setLocationNo(lo_no);
 			
+			//혜지가 추가한 검색 부분!!
+				System.out.println("전체list mapper에 들어옴");
+				listCnt = (int)mapper.totalCnt(lo_no);
+				System.out.println("전체 컬럼 수 : " + listCnt);
+				pageCtl.pageInfo(page, range, listCnt);
+				pageCtl.setReservSet(mapper.reservationList(pageCtl));
+
+				return pageCtl;
 			
+		case "searchList":
+			System.out.println("switch case : searchList에 들어왔다.");
+			lo_no = request.getParameter("lo_no");
+			rvo.setLo_no(lo_no);
+			
+			System.out.println("너님 누구? lo_no : " + lo_no);
+			
+			page = (int)map.get("page");
+			range = (int)map.get("range");
 			
 			//혜지가 추가한 검색 부분!!
 			String keyField = request.getParameter("keyField");
 			String keyWord = request.getParameter("keyWord");
 			
-			
-			pageCtl.pageInfo(page, range, listCnt);
 			pageCtl.setLocationNo(lo_no);
 			
-			pageCtl.setKeyField(keyField);
-			pageCtl.setKeyWord(keyWord);
-			
-			
 			//혜지가 추가한 검색 부분!!
-			if(keyField !=null && keyWord !=null) {
+				System.out.println("검색 mapper에 들어옴");
+				pageCtl.setKeyField(keyField);
+				pageCtl.setKeyWord(keyWord);
+				listCnt = (int)mapper.searchCnt(pageCtl);
+				System.out.println("전체 검색 컬럼 수 : " + listCnt);
+				System.out.println("keyfield : " + keyField);
+				System.out.println("keyword : " + keyWord);
+				pageCtl.pageInfo(page, range, listCnt);
 				pageCtl.setReservSet(mapper.listAll(pageCtl));
-				
-			}else {
-				pageCtl.setReservSet(mapper.reservationList(pageCtl));
-			}
-			return pageCtl;
-			
+				System.out.println(pageCtl);
+		
+				return pageCtl;
 			
 		case "reslist":
 			
 			System.out.println("switch case : reslist에 들어왔다.");
-			//lo_no = request.getParameter("lo_no");
-			//timevo.setLo_no(lo_no);
+			lo_no = request.getParameter("lo_no");
+			rvo.setLo_no(lo_no);
 			
-			//request.setAttribute("lo_no", lo_no);
-			//System.out.println("너님 누구? lo_no : " + lo_no);
+			System.out.println("너님 누구? lo_no : " + lo_no);
 			
-			listCnt = (int)mapper.totalCnt2();
 			page = (int)map.get("page");
 			range = (int)map.get("range");
-			System.out.println("전체 컬럼 수 : " + listCnt);
 			
+			//혜지가 추가한 검색 부분!!
+			pageCtl.setLocationNo(lo_no);
+			
+			//혜지가 추가한 검색 부분!!
+				System.out.println("전체list mapper에 들어옴");
+				listCnt = (int)mapper.resTotalCnt();
+				System.out.println("전체 컬럼 수 : " + listCnt);
+				pageCtl.pageInfo(page, range, listCnt);
+				pageCtl.setReservtimeSet(mapper.reservationResList(pageCtl));
+
+				return pageCtl;
+				
+		case "searchResList":
+			System.out.println("switch case : searchResList에 들어왔다.");
+			lo_no = request.getParameter("lo_no");
+			rvo.setLo_no(lo_no);
+			
+			System.out.println("너님 누구? lo_no : " + lo_no);
+			
+			page = (int)map.get("page");
+			range = (int)map.get("range");
 			
 			//혜지가 추가한 검색 부분!!
 			keyField = request.getParameter("keyField");
 			keyWord = request.getParameter("keyWord");
 			
+			pageCtl.setLocationNo(lo_no);
 			
-			pageCtl.pageInfo(page, range, listCnt);
-			//pageCtl.setLocationNo(lo_no);
-			
-			
-			pageCtl.setKeyField(keyField);
-			pageCtl.setKeyWord(keyWord);
 			//혜지가 추가한 검색 부분!!
-//			if(keyField !=null && keyWord !=null) {
-//				pageCtl.setReservtimeSet(mapper.reslistAll(pageCtl));
-//				
-//			}else {
-//				pageCtl.setReservtimeSet(mapper.reservationresList(pageCtl));
-//			}
-			return pageCtl;
-			
-			
-			
+				System.out.println("검색 mapper에 들어옴");
+				pageCtl.setKeyField(keyField);
+				pageCtl.setKeyWord(keyWord);
+				listCnt = (int)mapper.resSearchCnt(pageCtl);
+				System.out.println("전체 검색 컬럼 수 : " + listCnt);
+				System.out.println("keyfield : " + keyField);
+				System.out.println("keyword : " + keyWord);
+				pageCtl.pageInfo(page, range, listCnt);
+				pageCtl.setReservtimeSet(mapper.reslistAll(pageCtl));
+				System.out.println(pageCtl);
+		
+				return pageCtl;
+				
 		case "detail":
 			System.out.println("switch case : detail에 들어왔다.");
 			request.setAttribute("re_no", Integer.parseInt(request.getParameter("re_no")));
@@ -120,14 +148,11 @@ public class ReservationService implements Action{
 			rvo.setRe_no(re_no);
 			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
 			
-			
-			
 		case "delete":
 			System.out.println("switch case : delete에 들어왔다.");
 			
 			re_no =  Integer.parseInt(request.getParameter("re_no"));
 			rvo.setRe_no(re_no);
-			
 			
 			if(mapper.reservationDelete(rvo) == 0) {
 				return mapper.reservationDetail(re_no);

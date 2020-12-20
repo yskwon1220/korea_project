@@ -16,11 +16,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="com.korea.health.admin.model.reservation.ReservationVO"
 		parameterType="com.korea.health.service.Pagenation"
 		>
-		select *
-		from reservation
-		where
-		${keyField} like '%' || #{keyWord} || '%'
-
+		<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from reservation WHERE lo_no = #{locationNo} 
+         and ${keyField} like '%' || #{keyWord} || '%'
+        ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
 	</select>
 
 	<select id="reservationList"
@@ -35,15 +37,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="reslistAll"
-		resultType="com.korea.health.admin.model.reservation.ResTimeVO">
-		select *
-		from restime
-		where
-		${keyField} like '%' || #{keyWord} || '%'
-
+		resultType="com.korea.health.admin.model.reservation.ResTimeVO"
+		parameterType="com.korea.health.service.Pagenation"
+		>
+		<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from restime WHERE lo_no = #{locationNo} 
+         and ${keyField} like '%' || #{keyWord} || '%'
+        ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
 	</select>
 	
-	<select id="reservationresList"
+	<select id="reservationResList"
 		resultType="com.korea.health.admin.model.reservation.ResTimeVO"
 		parameterType="com.korea.health.service.Pagenation">
 				<![CDATA[
@@ -122,10 +128,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="java.lang.String">
 		SELECT COUNT(*) FROM reservation where lo_no = #{lo_no}
 	</select>
-	
-	
-	<select id="totalCnt2" resultType="java.lang.Integer">
+
+	<select id="resTotalCnt" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM restime 
 	</select>
+
+	<select id="searchCnt" resultType="java.lang.Integer"
+		parameterType="com.korea.health.service.Pagenation">
+		 SELECT COUNT(*) FROM reservation 
+		 where lo_no = #{locationNo} and ${keyField} like '%' || #{keyWord} || '%'
+	</select>
+	<select id="resSearchCnt" resultType="java.lang.Integer"
+		parameterType="com.korea.health.service.Pagenation">
+		 SELECT COUNT(*) FROM restime 
+		 where ${keyField} like '%' || #{keyWord} || '%'
+	</select>
+	
 
 </mapper>

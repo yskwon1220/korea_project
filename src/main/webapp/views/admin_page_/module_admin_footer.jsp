@@ -6,11 +6,10 @@
 	<footer class="py-4 bg-light mt-auto">
 		<div class="container-fluid">
 			<div class="d-flex align-items-center justify-content-between small">
-				<div class="text-muted">Copyright &copy; 홈페이지 명</div>
+				<div class="text-muted">Copyright &copy; FitNess Club </div>
 				<div>
-					<!-- 홈 화면 정해지면 넣기 -->
-					<a href="#">홈페이지 명</a> &middot;
-					 <a href="<c:url value="/admin_page/admin_index.jsp"/>">관리자 페이지</a>
+					<a href="/user_page_/main">FitNess Club</a> &middot;
+					 <a href="/admin_page_/home/dashboard">관리자 페이지</a>
 				</div>
 			</div>
 		</div>

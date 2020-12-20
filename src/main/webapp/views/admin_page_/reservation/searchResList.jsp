@@ -27,7 +27,6 @@
 				type="button">
 				<i class="fas fa-search"></i>
 			</button>
-
 		</div> -->
 
 		<form action="searchResList" method="get">
@@ -40,6 +39,7 @@
 				name="lo_no" value="${param.lo_no }" /> <input type="button"
 				value="검색" onclick="searchCheck(form)" />
 		</form>
+
 	</div>
 	<!-- </form> -->
 </div>
@@ -79,19 +79,19 @@
 				<ul class="pagination">
 					<c:if test="${data.prev}">
 						<li class="page-item"><a class="page-link" href="#"
-							onClick="fn_prev('${data.page}', '${data.range}', '${data.rangeSize}')">Previous</a></li>
+							onClick="fn_prev('${data.page}', '${data.range}', '${data.rangeSize}', , '${data.keyField}', '${data.keyWord}')">Previous</a></li>
 					</c:if>
 					<c:forEach begin="${data.startPage}" end="${data.endPage}"
 						var="idx">
 						<li
 							class="page-item <c:out value="${data.page == idx ? 'active' : ''}"/> "><a
 							class="page-link" href="#"
-							onClick="fn_pagination('${idx}', '${data.range}', '${data.rangeSize}')">
+							onClick="fn_pagination('${idx}', '${data.range}', '${data.rangeSize}', '${data.keyField}', '${data.keyWord}')">
 								${idx} </a></li>
 					</c:forEach>
 					<c:if test="${data.next}">
 						<li class="page-item"><a class="page-link" href="#"
-							onClick="fn_next('${data.range}', '${data.range}', '${data.rangeSize}')">Next</a></li>
+							onClick="fn_next('${data.range}', '${data.range}', '${data.rangeSize}', '${data.keyField}', '${data.keyWord}')">Next</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -105,9 +105,11 @@
 		var page = ((range - 2) * rangeSize) + 1;
 		var range = range - 1;
 
-		var url = "reslist";
+		var url = "searchResList";
 		url = url + "?page=" + page;
 		url = url + "&range=" + range;
+		url = url + "&keyField=" + keyField;
+		url = url + "&keyWord=" + keyWord;
 
 		location.href = url;
 
@@ -116,11 +118,14 @@
 	//페이지 번호 클릭
 	function fn_pagination(page, range, rangeSize, searchType, keyword) {
 
-		var url = "reslist";
+		var url = "searchResList";
 		url = url + "?page=" + page;
 		url = url + "&range=" + range;
+		url = url + "&keyField=" + keyField;
+		url = url + "&keyWord=" + keyWord;
 
 		location.href = url;
+
 	}
 
 	//다음 버튼 이벤트
@@ -128,9 +133,11 @@
 		var page = parseInt((range * rangeSize)) + 1;
 		var range = parseInt(range) + 1;
 
-		var url = "reslist";
+		var url = "searchResList";
 		url = url + "?page=" + page;
 		url = url + "&range=" + range;
+		url = url + "&keyField=" + keyField;
+		url = url + "&keyWord=" + keyWord;
 
 		location.href = url;
 	}

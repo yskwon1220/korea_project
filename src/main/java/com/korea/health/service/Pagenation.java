@@ -26,6 +26,19 @@ public class Pagenation {
 	private List<ReservationVO> reservSet; // 예약 넣기
 	private String keyField;
 	private String keyWord;
+	private List<ResTimeVO> reservtimeSet;
+	private List<TrainerVO> pageSet;
+	private String locationNo;
+	private Integer user_no;
+	private List<ResultVO> resultSet; // 정산넣기
+	private String month;
+	private String startDate;
+	private String endDate;
+	
+	
+	
+	
+	DecimalFormat fmt = new DecimalFormat("###,###");
 
 	public List<UserMemberVO> getUserSet() {
 		return userSet;
@@ -52,17 +65,6 @@ public class Pagenation {
 	public void setKeyWord(String keyWord) {
 		this.keyWord = keyWord;
 	}
-
-	private List<ResTimeVO> reservtimeSet;
-	private List<TrainerVO> pageSet;
-	private String locationNo;
-	private Integer user_no;
-	private List<ResultVO> resultSet; // 정산넣기
-	private String month;
-	private String startDate;
-	private String endDate;
-
-	DecimalFormat fmt = new DecimalFormat("###,###");
 
 	public List<TrainerVO> getPageSet() {
 		return pageSet;
@@ -283,5 +285,11 @@ public class Pagenation {
 			this.next = false;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Pagenation [reservSet=" + reservSet + "]";
+	}
+	
 
 }
