@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.korea.health.admin.model.branch.BranchVO;
+import com.korea.health.admin.model.event.EventadminVO;
 import com.korea.health.admin.model.goods.GoodsVO;
 import com.korea.health.admin.model.reservation.ResTimeVO;
 import com.korea.health.admin.model.reservation.ReservationVO;
@@ -65,6 +66,7 @@ public class ProviderController {
 			GoodsVO goodsVO,	// 상품
 			UserMemberVO mvo,
 			ResultVO resultVO,	// 정산
+			EventadminVO eventvo, //이벤트
 			FnqPageInfo fnqInfoVo,
 			NoticePageInfo infonoticeVo,
 			QnaPageInfo infoqnaVo, 
@@ -102,6 +104,7 @@ public class ProviderController {
 	    map.put("rrVo", rrVo);
 		map.put("infoVo",infoVo);
 		map.put("mvo",mvo);
+		map.put("eventVO", eventvo);
 		map.put("service", service); 
 		// 그리고 뒤에 따라오는 주소를 통해서 각 기능을 다르게 하는 service를 map에 넣어서 보내기
 		map.put("pageCtl", pageCtl);

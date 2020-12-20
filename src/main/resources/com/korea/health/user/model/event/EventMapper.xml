@@ -29,9 +29,9 @@
 	</selectKey>
 	<![CDATA[
 		insert into payment_list 
-		(payment_no, user_no, origin_price, discount_price, coupon_no, point_price, pay_way,payment_date)	
+		(payment_no, user_no, p_no, origin_price, discount_price, coupon_no, point_price, pay_way,payment_date,save_point)	
 		values 
-		(#{payment_no}, (select user_no from UserMember where user_id= #{id}), #{vo2.origin_price}, #{vo2.discount_price}, #{vo2.coupon_no}, #{vo2.point_price}, #{vo2.pay_way}, sysdate)
+		(#{payment_no}, (select user_no from UserMember where user_id= #{id}),#{vo2.title}, #{vo2.origin_price}, #{vo2.discount_price}, #{vo2.coupon_no}, #{vo2.point_price}, #{vo2.pay_way}, sysdate, #{vo2.save_point})
 		]]>
 	</insert>
 	
@@ -44,5 +44,15 @@
 	
 	</update>
 	
+	<select id="payment_sel"  resultType="com.korea.health.user.model.payment.payment_list">
+	select * from payment_list where user_no = (select user_no from usermember where user_id= #{id}) order by payment_no desc
+	</select>
 	
+	<update id ="payment_refund_point" parameterType= "java.lang.String">
+	update usermember set point = to_number(point) - to_number((select save_point from payment_list where payment_no = #{pay_no})) where user_id = #{id}
+	</update>
+	
+	<delete id="payment_del" parameterType= "java.lang.String">
+	delete from payment_list where payment_no = #{pay_no}
+	</delete>
 </mapper>

@@ -3,13 +3,32 @@ package com.korea.health.user.model.payment;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("payMember")
 public class payMember {
 
-	String id, name, email,card_company, owner, coupon_no,coupon_content;
-	Integer tel, point, validity, cvc, card_pass, payment_pass, user_no, coupon_discount, coupon_contri;
+	String user_tel,title,ticket,user_id, user_name,user_email, card_company, owner, coupon_no, coupon_content;
+	Integer  point, validity, cvc, card_pass, payment_pass, user_no, coupon_discount, coupon_contri;
 	Long card_number;
 
 	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
+	}
+
 	public String getCoupon_no() {
 		return coupon_no;
 	}
@@ -50,12 +69,6 @@ public class payMember {
 		this.coupon_contri = coupon_contri;
 	}
 
-	public payMember(String id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-
 	public String getCard_company() {
 		return card_company;
 	}
@@ -71,8 +84,6 @@ public class payMember {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-
-
 
 	public Long getCard_number() {
 		return card_number;
@@ -114,8 +125,6 @@ public class payMember {
 		this.payment_pass = payment_pass;
 	}
 
-
-
 	public Integer getPoint() {
 		return point;
 	}
@@ -124,47 +133,52 @@ public class payMember {
 		this.point = point;
 	}
 
-	public String getId() {
-		return id;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUser_email() {
+		return user_email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
 	}
 
-	public Integer getTel() {
-		return tel;
+
+	public String getUser_tel() {
+		return user_tel;
 	}
 
-	public void setTel(Integer tel) {
-		this.tel = tel;
+	public void setUser_tel(String user_tel) {
+		this.user_tel = user_tel;
 	}
 
 	@Override
 	public String toString() {
-		return "payMember [id=" + id + ", name=" + name + ", email=" + email + ", card_company=" + card_company
-				+ ", owner=" + owner + ", coupon_no=" + coupon_no + ", coupon_content=" + coupon_content + ", tel="
-				+ tel + ", point=" + point + ", validity=" + validity + ", cvc=" + cvc + ", card_pass=" + card_pass
-				+ ", payment_pass=" + payment_pass + ", user_no=" + user_no + ", coupon_discount=" + coupon_discount
-				+ ", coupon_contri=" + coupon_contri + ", card_number=" + card_number + "]";
+		return "payMember [user_id=" + user_id + ", user_name=" + user_name + ", user_email=" + user_email
+				+ ", card_company=" + card_company + ", owner=" + owner + ", coupon_no=" + coupon_no
+				+ ", coupon_content=" + coupon_content + ", user_tel=" + user_tel + ", point=" + point + ", validity="
+				+ validity + ", cvc=" + cvc + ", card_pass=" + card_pass + ", payment_pass=" + payment_pass
+				+ ", user_no=" + user_no + ", coupon_discount=" + coupon_discount + ", coupon_contri=" + coupon_contri
+				+ ", card_number=" + card_number + "]";
 	}
 
-
+	
+	
+	
+	
 
 }

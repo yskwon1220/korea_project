@@ -111,7 +111,7 @@
 
 										<div align="right">
 									<input  type="button" class="btn btn-default" value="헤지가이름지어" onClick="javascript:location.href='/MainV3'" >
-									<input  type="button" class="btn btn-default" value="주호오빠가이름" onClick="javascript:location.href='/MainV3'" >
+									<input  type="button" class="btn btn-default" value="결제내역 및 환불" onClick="javascript:location.href='../pay/event/payment_list'" >
 										</div>
 										</form>
 										

@@ -68,6 +68,8 @@ $(document).ready(function() {
 
 	<c:forEach begin="0" end="0" items="${data }" var="ci">
 		<form action="cardpay2" method="post">
+			<input type="hidden" name="ticket" value="${ticket }">
+			<input type="hidden" name="title" value="${title }">
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link" href="#">원클릭 간편결제</a>
 				</li>

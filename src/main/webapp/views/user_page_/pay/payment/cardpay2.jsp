@@ -35,7 +35,12 @@ $(document).ready(function() {
 	  $("input[name=tot_price]").val(price5);
 	  var price6 = opener.$("#cardsel option:selected").text();
 	  $("input[name=card_select]").val(price6);
-
+	  var tic = opener.$("input[name=ticket]").val();
+	  $("input[name=ticket]").val(tic);
+	  var tit = opener.$("input[name=title]").val();
+	  $("input[name=title]").val(tit);
+	  
+	  
 	  var coupon = opener.$("input[name=radi]:checked").attr("id");
 	  var cou_la = opener.$("#li_"+coupon).attr("value");
 	  $("input[name=coupon_no]").val(cou_la);
@@ -104,8 +109,8 @@ $(document).ready(function() {
 <input type="hidden" name="pay_way" value="카드결제">
 <input type="hidden" name="discount_price" value="0">
 <input type="hidden" name="save_point" value="0">
-<input type="hidden" name="ticket" value="${vo.ticket }">
-<input type="hidden" name="title" value="${vo.title }">
+<input type="hidden" name="ticket" value="">
+<input type="hidden" name="title" value="">
 <input type="hidden" name ="card_main_num1" value="${vo.card_num1 }">
 <input type="hidden" name ="card_main_num2" value="${vo.card_num2 }">
 <input type="hidden" name ="card_main_num3" value="${vo.card_num3 }">

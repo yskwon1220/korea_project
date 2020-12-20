@@ -12,16 +12,16 @@
 <script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-3.5.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-ui.min.js"/>"></script>
 <script type="text/javascript">
+$("#payment_check").on('click',function(){
+	location.href("../../../user_page_/style_minjoo/myPage");
+	});
 
+$("#use_booking").on('click',function(){
+	location.href("../../location/locationlist");
+	});
 $(document).ready(function() {
 
-	$("#payment_check").on('click',function(){
-		location.href("../../../user_page_/style_minjoo/myPage");
-		});
-
-	$("#use_booking").on('click',function(){
-		location.href("../../location/locationlist");
-		});
+	
 	
 });
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
 <div id ="info_get"><h4>구매 정보</h4>
 <div class="getpep"><div>사용자</div> <div>${mem.user_name } / 0${mem.user_tel }</div></div>
 
-<div class="getpep"><div>구매 내용</div> <div>피트니스 1개월</div></div>
+<div class="getpep"><div>구매 내용</div> <div>${vo2.title}</div></div>
 </div>
 <div id = "info_pay"><h4>결제 정보</h4>
 <div class="getpep"><div>주문금액</div> <div>${vo2.origin_price }</div></div>
@@ -55,8 +55,8 @@ $(document).ready(function() {
 </div>
 </div>
 <div class="btn">
-<input type="button" value="내역 확인하기" id="payment_check"/>
-<input type="button" value="이용 예약하기" id="use_booking"/>
+<input type="button" value="내역 확인하기" id="payment_check" onClick="javascript:location.href='../../usermember/myPage'"/>
+<input type="button" value="이용 예약하기" id="use_booking" onClick="javascript:location.href='../../location/locationlist'"/>
 </div>
 </c:forEach>
 </body>

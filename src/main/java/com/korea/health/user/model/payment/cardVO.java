@@ -6,7 +6,21 @@ import org.apache.ibatis.type.Alias;
 public class cardVO {
 
 	Integer card_num1,card_num2,card_num3,card_num4,cvc;
-	String regdate;
+	String regdate, title,ticket;
+	
+	
+	public String getTicket() {
+		return ticket;
+	}
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public Integer getCard_num1() {
 		return card_num1;
 	}
