@@ -23,18 +23,13 @@
 				<h2>공지사항</h2>
 				<hr>
 
-				<form action ="insertReg" method="post" enctype="multipart/form-data">
+				<form name="noticeinsert" action ="insertReg"  onsubmit="return check(); " method="post" enctype="multipart/form-data">
 
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"
 							class="form-control" name="title" id="title"
 							placeholder="제목을 입력해 주세요">
 
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputFile">파일 업로드</label> <input type="file"
-							id="file_1">
-						<p class="help-block">이미지 파일 업로드해주세요.</p>
 					</div>
 					<div class="mb-3">
 						<label for="content">내용</label>
@@ -49,6 +44,24 @@
 						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a class="btn btn-primary" href="info">목록으로</a>
 					</div>
 				</form>
+
+				<script>
+					function check() {
+
+						if (noticeinsert.title.value == "") {
+							alert("제목을 입력해 주세요.");
+							noticeinsert.title.focus();
+							return false;
+						}
+
+						else if (noticeinsert.content.value == "") {
+							alert("내용을 입력해 주세요.");
+							noticeinsert.content.focus();
+							return false;
+						} else
+							return true;
+					}
+				</script>
 			</article>
 		</div>
 	</div>

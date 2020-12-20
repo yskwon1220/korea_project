@@ -23,7 +23,7 @@
 				<h2>공지사항</h2>
 				<hr>
 
-				<form action ="insertReg" method="post" enctype="multipart/form-data">
+				<form name="qnainsert" action ="insertReg" onsubmit="return check(); "  method="post" enctype="multipart/form-data">
 
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"
@@ -44,6 +44,23 @@
 						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a class="btn btn-primary" href="info">목록으로</a>
 					</div>
 				</form>
+				<script>
+					function check() {
+
+						if (qnainsert.title.value == "") {
+							alert("제목을 입력해 주세요.");
+							qnainsert.title.focus();
+							return false;
+						}
+
+						else if (qnainsert.content.value == "") {
+							alert("내용을 입력해 주세요.");
+							qnainsert.content.focus();
+							return false;
+						} else
+							return true;
+					}
+				</script>
 			</article>
 		</div>
 	</div>

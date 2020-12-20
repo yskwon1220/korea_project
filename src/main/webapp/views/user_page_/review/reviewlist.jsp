@@ -134,27 +134,17 @@
                </a></li>
             </ul>
 
-          <!--   <!-- 검색 폼 영역 -->
-          <!--   <li id='liSearchOption'>
-               <div>
-                  <select id='selSearchOption'>
-                     <option value='A'>제목+내용</option>
-                     <option value='T'>제목</option>
-                     <option value='C'>내용</option>
-                  </select> <input id='txtKeyWord' /> <a href="review">검색</a>
-                  <div class="btn-box"> -->
-	              		<div class="btn btn-submit2"><a href="reviewinsert"/>글쓰기</a></div>
-	      <!--          </div >
-               </div>
-              
-            </li> -->
-			
+         			<!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
+                  		<c:if test="${sessionScope.user_id != null && data.searchDate != 0}"> 
+	                  		<div>
+		              			<div class="btn btn-primary"><a href="reviewinsert"/>글쓰기</a></div>
+		              		</div>
+	              		</c:if>	
          </ul>
       </div>
    </div>
       </div>
                </article>
-
             </div>
          </div>
       </div>
@@ -162,7 +152,6 @@
 
  <%--  <jsp:include page="../../inc/footerV3.jsp" /> --%>
 	
-
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>

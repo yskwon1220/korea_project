@@ -70,7 +70,7 @@
 									<td><a href="onedetail?board_no=${sm.board_no }">${sm.title }</a></td>
 									<td><fmt:formatDate value="${sm.regdate }"
 											pattern="yy-MM-dd HH:mm" /></td>
-									<td>${sm.user_id }<</td>
+									<td>${sm.user_id }</td>
 									<td>${sm.rep }</td>
 								</tr>
 

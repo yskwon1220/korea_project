@@ -24,9 +24,13 @@ public class Reviewinsertreg implements Action {
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		ReviewVO vo = (ReviewVO)map.get("rrvo");
 		
+
+
+			vo.setReview_file_name(fileUpload(vo.getReview_file(),req));
 		
 		
-		vo.setReview_file_name(fileUpload(vo.getReview_file(),req));
+		
+			
 		
 		mapper.insert(vo);
 		return null;
@@ -36,7 +40,7 @@ public class Reviewinsertreg implements Action {
 	
 	String fileUpload(MultipartFile ff, HttpServletRequest request) {
 		String path = request.getRealPath("/upup");
-		path = "C:\\Users\\이현희\\OneDrive\\바탕 화면\\korea_project\\src\\main\\webapp\\upup";
+		path = "C:\\Users\\이현희\\OneDrive\\바탕 화면\\teamProject\\korea_project3\\src\\main\\webapp\\upup";
 		
 		String res = fileNewName(path,ff.getOriginalFilename());
 		
@@ -49,7 +53,8 @@ public class Reviewinsertreg implements Action {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
+			return null;
 		}
 		return res;	
 	}
@@ -78,15 +83,15 @@ public class Reviewinsertreg implements Action {
             
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+//            e.printStackTrace();
+        	return null;
         }
         
         return ff;
     }
 	
 	
-	
-	
+
 	
 
 }

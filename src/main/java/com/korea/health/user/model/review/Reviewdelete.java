@@ -27,13 +27,13 @@ public class Reviewdelete implements Action{
 		String filename = 	mapper.detail(vo.review_no).getReview_file_name();
 		
 		String path = req.getRealPath("/upup");
-		path =  "C:\\Users\\이현희\\OneDrive\\바탕 화면\\korea_project\\src\\main\\webapp\\upup";
+		path =  "C:\\Users\\이현희\\OneDrive\\바탕 화면\\teamProject\\korea_project3\\src\\main\\webapp\\upup";
 		
 		mapper.detail(vo.review_no);
 		System.out.println(" chkID     "+chkID);
-		System.out.println("id      "+user_id);
-		System.out.println("chkBeforeId    "+chkBeforeId);
-		System.out.println("chkBeforeId      "+chkID.contains(chkBeforeId));
+		System.out.println("user_id      "+user_id);
+		System.out.println("chkBeforeuser_id    "+chkBeforeId);
+		System.out.println("chkBeforeuser_id      "+chkID.contains(chkBeforeId));
 
 
 		if(chkID.contains(chkBeforeId)) {

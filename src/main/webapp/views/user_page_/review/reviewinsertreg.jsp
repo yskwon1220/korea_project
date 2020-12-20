@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 
 <script>
+
+
+
+
 alert("등록되었습니다")
+
 location.href="reviewlist";
 </script>

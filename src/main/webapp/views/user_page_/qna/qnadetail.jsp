@@ -58,7 +58,7 @@
 					</div>
 				</div>
 				<div class="bottomB">
-					<a href="qnalist">목록으로</a>
+					<a class="btn btn-primary" href="qnalist">목록으로</a>
 				</div>
 			</div>
 		</div>

@@ -47,18 +47,13 @@
 			<!-- Content -->
 			<article>
 				<h2>1대1 문의</h2>
-				<form action="onemodifyReg" method="post"
+				<form name="onemodify" action="onemodifyReg" onsubmit="return check(); " method="post"
 					enctype="multipart/form-data">
 					<c:set var="sm" value="${data }" />
 					<input type="hidden" name="board_no" value="${sm.board_no }">
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"
 							class="form-control" name="title" id="title" value="${sm.title }">
-					</div>
-					<div class="mb-3">
-						<label for="exampleInputFile">파일 업로드</label> <input type="file"
-							id="exampleInputFile">
-						<p class="help-block">이미지 파일 업로드해주세요.</p>
 					</div>
 					<div class="mb-3">
 						<label for="content">내용</label>
@@ -77,6 +72,23 @@
 						| <a href="onelist">목록으로</a>
 					</div>
 				</form>
+				<script>
+					function check() {
+
+						if (onemodify.title.value == "") {
+							alert("제목을 입력해 주세요.");
+							onemodify.title.focus();
+							return false;
+						}
+
+						else if (onemodify.content.value == "") {
+							alert("내용을 입력해 주세요.");
+							onemodify.content.focus();
+							return false;
+						} else
+							return true;
+					}
+				</script>
 			</article>
 
 		</div>

@@ -308,7 +308,7 @@
 					<article class="review-form">
 						<div class="inner">
 
-							<form action="reviewinsertreg" method="post"
+							<form action="reviewinsertreg" method="post" onsubmit="return check();" name="review"
 								enctype="multipart/form-data">
 								<input type="hidden" name="user_id"
 									value="<%=session.getAttribute("user_id")%>" /> <input
@@ -379,7 +379,7 @@
 									</div>
 								</div>
 								<div class="btn-box">
-									<input type="submit" value="등록" />
+									<input class="btn btn-primary" type="submit" value="등록" onclick="check_onclick()" />
 
 								</div>
 							</form>
@@ -398,6 +398,42 @@
 	<%-- <jsp:include page="../../inc/footerV3.jsp" /> --%>
 
 	<script>
+	 function check() {
+
+         if (review.title.value == "") {
+            alert("제목을 입력해 주세요.");
+            review.title.focus();
+            return false;
+         }
+         else if (review.content.value == "") {
+            alert("내용을 입력해 주세요.");
+            review.content.focus();
+            return false;
+         } else if (review.review_file.value == "") {
+             alert("파일을 넣어 주세요.");
+             review.content.focus();
+             return false;
+          } else if (review.tr_no.value == "") {
+              alert("트레이너명을 선택해 주세요.");
+              review.content.focus();
+              return false;
+          }	else if (review.lo_no.value == "") {
+              alert("지점명을 선택해 주세요.");
+              review.content.focus();
+              return false;
+          }	else
+              return true;
+     	}
+
+
+
+		
+
+
+
+
+
+	
 		// 이미지 미리보기
 		function setThumbnail(event) {
 
@@ -454,40 +490,37 @@
 	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 
 	<script>
-	$(document).ready(function(){
-		var list = new Array();
-
-		<c:forEach items="${data.trList}" var="item">
-			list.push( { tr_no:"${item.tr_no}",
-						 lo_no:"${item.lo_no}",
-						 tr_name:"${item.tr_name}"
-					});
-		</c:forEach>
-
-		/*
-		for ( var i = 0; i < list.length; i++) {
-		    alert(list[i].tr_name);
-		}
-		*/
-		
-		
-		$("#selectLo").on('change',function() {
-			var lo_no = $(this).val();
-			$('#selectTr optgroup').empty();				
-			for ( var i = 0; i < list.length; i++) {
-				if( list[i].lo_no == lo_no ){
-
-					$('#selectTr optgroup').append("<option value=" + list[i].tr_no + ">" + list[i].tr_name + "</option>");						
-				}
-				
-			}
-
+		$(document).ready(function(){
+			var list = new Array();
+	
+			<c:forEach items="${data.trList}" var="item">
+				list.push( { tr_no:"${item.tr_no}",
+							 lo_no:"${item.lo_no}",
+							 tr_name:"${item.tr_name}"
+						});
+			</c:forEach>
 			
+			
+			$("#selectLo").on('change',function() {
+				var lo_no = $(this).val();
+				$('#selectTr optgroup').empty();				
+				for ( var i = 0; i < list.length; i++) {
+					if( list[i].lo_no == lo_no ){
+	
+						$('#selectTr optgroup').append("<option value=" + list[i].tr_no + ">" + list[i].tr_name + "</option>");						
+					}
+					
+				}
+	
+				
+				
+			});
+	
 			
 		});
 
-		
-	});
+
+
 	</script>
 </body>
 </html>

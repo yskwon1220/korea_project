@@ -16,9 +16,8 @@ public class ReviewPagingInfo {
 	public 	int startPage;
 	public 	int endPage;
 	List<ReviewVO> voArr;
+	public int searchDate;
 	
-	
-
 	public List<ReviewVO> getVoArr() {
 		return voArr;
 	}
@@ -28,7 +27,7 @@ public class ReviewPagingInfo {
 	}
 
 	public void init(int total) {
-		lastPage = (int) Math.ceil(total/pageLimit) + 1;
+		lastPage = (int) Math.floor((total+pageLimit-1)/pageLimit) ;
 		start = (nowPage-1)*pageLimit+1;
 		end = nowPage*pageLimit;
 		
@@ -88,12 +87,20 @@ public class ReviewPagingInfo {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
+	public int getSearchDate() {
+		return searchDate;
+	}
+	public void setSearchDate(int searchDate) {
+		this.searchDate = searchDate;
+	}
 
 	@Override
 	public String toString() {
-		return "FnqPageInfo [nowPage=" + nowPage + ", pageLimit=" + pageLimit + ", pageNumLimit=" + pageNumLimit
+		return "ReviewPagingInfo [nowPage=" + nowPage + ", pageLimit=" + pageLimit + ", pageNumLimit=" + pageNumLimit
 				+ ", lastPage=" + lastPage + ", start=" + start + ", end=" + end + ", startPage=" + startPage
 				+ ", endPage=" + endPage + ", voArr=" + voArr + "]";
 	}
+
+	
 	
 }

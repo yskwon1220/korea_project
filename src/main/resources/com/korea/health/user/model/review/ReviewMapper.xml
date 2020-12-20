@@ -53,13 +53,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO REVIEW
 		(review_no, user_id, TITLE, CONTENT, REGDATE, Review_file_name, tr_no, lo_no, cnt, starCnt)
 		values
-		(SEQ_REVIEW.NEXTVAL,#{user_id}, #{title}, #{content}, SYSDATE, #{review_file_name}, #{tr_no}, #{lo_no},0, #{starCnt})
+		(SEQ_REVIEW.NEXTVAL,#{user_id}, #{title}, #{content}, SYSDATE, #{review_file_name, jdbcType=VARCHAR}, #{tr_no}, #{lo_no},0, #{starCnt})
 	</insert>
 	
 	<update id="modify" parameterType="com.korea.health.user.model.review.ReviewVO">
 		update review
 		set
-		title = #{title}, content =  #{content}, review_file_name = #{review_file_name}, tr_no = #{tr_no}, lo_no = #{lo_no},  starCnt = #{starCnt}
+		title = #{title}, content =  #{content}, review_file_name = #{review_file_name, jdbcType=VARCHAR}, tr_no = #{tr_no}, lo_no = #{lo_no},  starCnt = #{starCnt}
 		where  review_no = #{review_no} 
 	</update>
 	
@@ -77,6 +77,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id = "updateCnt" parameterType = "java.lang.Integer">
       UPDATE REVIEW SET CNT = CNT + 1 WHERE REVIEW_NO = #{review_no, jdbcType=INTEGER}
    </update>
+   
+   <select id="searchID" parameterType="java.lang.String" resultType="int">
+   	SELECT count(*) FROM RESERVATION WHERE USER_ID = #{user_id}
+   </select>
+   
 </mapper>
 
 

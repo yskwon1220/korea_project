@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -21,8 +21,40 @@
 	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
 	<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" /> 
 	
-	<%-- <link rel="stylesheet" href="<c:url value="${path }/resource/css/as.css"/>" /> --%>
-		<style type="text/css">
+	<link rel="stylesheet" href="<c:url value="${path }/resource/css/as.css"/>" />
+	
+            <script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+             <script>
+				function gogo(){
+						if(confirm("수정하시겠습니까?")){          
+								frm.submit();
+							
+							}
+	
+					}
+
+				function review_file_delete(){
+
+					if(confirm("파일을 삭제하시겠습니까?\n삭제된 파일은 복구할수 없습니다.")){  
+						frm.action="fileDelete";        
+						frm.submit();
+					
+					}
+
+				}
+            </script>
+</head>
+<body>
+   <jsp:include page="../../inc/headerV3.jsp" />
+   <div id="page-wrapper">
+
+      <!-- Main -->
+      <div id="main-wrapper">
+         <div class="container">
+            <div id="content">
+
+            	<style type="text/css">
             			.no-drag { -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none; }
             		.inner { width: 1200px; margin: 0 auto; }
             		.selecter { background-image: url('css/images/arrow_down.png');  background-repeat: no-repeat; background-position: right 15px center;  }
@@ -101,74 +133,40 @@
             		.layerPop .pop_content .btn-box .btn { display: block; margin-bottom: 10px; background: #eee; font-weight: 700; color: #fff; }
             		.layerPop .pop_content .btn-box .btn.submit {color: #000; }
             		.layerPop .pop_content .btn-box .btn.cancle { color: #000; }
-				
+
             	</style>
-            <script src="<c:url value="/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
-            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-            <script>
-				function gogo(){
-						if(confirm("수정하시겠습니까?")){          
-								frm.submit();
-							
-							}
-	
-					}
-
-				function review_file_delete(){
-
-					if(confirm("파일을 삭제하시겠습니까?\n삭제된 파일은 복구할수 없습니다.")){  
-						frm.action="fileDelete";        
-						frm.submit();
-					
-					}
-
-				}
-            </script>
-</head>
-<body>
-   <%-- <jsp:include page="../../inc/headerV3.jsp" /> --%>
-   <div id="page-wrapper">
-
-      <!-- Main -->
-      <div id="main-wrapper">
-         <div class="container">
-            <div id="content">
-
-            	
 
                <!-- Content -->
                <article class="review-form">
 	               	<div class="inner">
 						<c:set var="vo" value="${data}" />								 
 	               		<form action="reviewmodifyreg" method="post"  enctype="multipart/form-data"  name="frm" onsubmit="return check();" > 
-	               			<input type="hidden" name="review_no" value="${vo.review_no}"/>  <!--  기존에있던파일 -->
-	               			<input type="hidden" name="starCnt" id="starCnt" value="10">
+	               		<input type="hidden" name="review_no" value="${vo.review_no}"/>  <!--  기존에있던파일 -->
+	               		<input type="hidden" name="starCnt" id="starCnt" value="10">
 	               			<h3>후기 작성</h3>
-	               			<input type="text" name="review_no" value="${vo.review_no }" style="display:none;"/>
-	               				<input type="hidden" name="pid"
-									value="<%=session.getAttribute("id")%>" />
+	               			<input type="text" name="review_no" value="${data.vo.review_no }" />
+	               			<div class="input-line label-box">
+	               				<label>아이디</label>
+	               				<input type="text" name="user_id" value="${data.vo.user_id }" style="width: 600px" disabled /> 
+						   </div>
 						   
-	               			<%-- 	<div class="selecter-box">
-		               				<select class="selecter"name="tr_no" style="background-image: <c:url value="/images/arrow_down.png."/>">
-			               				<optgroup label = "지점"  id="tr_no">
+	               				<div class="selecter-box">
+		               				<select id="selectLo" name="lo_no" class="selecter" style="background-image: <c:url value="/images/arrow_down.png."/>">
+			               				<optgroup label = "지점" name="lo_no">
 											<option selected hidden value="0">지점</option>
-			               					<option>강남점</option>
-			               					<option>강동점</option>
-			               					<option>강서점</option>
+			               					<c:forEach var="locationVO" items="${data.locaList}">
+											    <option value="${locationVO.lo_no}">${locationVO.lo_name}</option>
+											</c:forEach>
 			               				</optgroup>
 			               			</select>
 
-			               			<select class="selecter" name=lo_no>
+			               			<select id="selectTr"  name="tr_no" class="selecter">
 		               					<optgroup label = "트레이너 ">
-											<option selected  value="0">트레이너</option>
-			               					<option>길성민</option>
-			               					<option>박민주</option>
-			               					<option>박혜지</option>
-			               					<option>이현희</option>
+											<option  selected hidden value="0" >트레이너</option>
 			               				</optgroup>
 		               				</select>
 	               				</div>
-	               		 --%>
+	               		
 	               			
 	               			<div class="input-line label-box">
 	               				<label>제목</label>
@@ -186,7 +184,6 @@
 	               				</div>
 	               			</div>
 	               			<div class="input-line">
-	               				
 	               				<textarea name="content" id="content" style="width: 1000px">${vo.content }</textarea>
 	               			</div>
 	               			<div class="input-line">
@@ -201,46 +198,70 @@
 	               				</c:choose>
 	               			</div>
 	               			<div class="btn-box">
-	               				<input class="btn btn-primary" type="button" value="수정" onclick="gogo()">
-	               				<input class="btn btn-primary" type="reset" value="초기화" />
-	               				<a class="btn btn-primary" href="reviewlist">목록</a>
+	               				<input class="btn btn-primary" type="submit" value="등록" />
+	               				
 	               			</div>
 	               		</form>
 	               	</div>
                </article>
 			
-              
+               <!-- <div class="layerPop">
+               		<div class="pop_content">
+               			<h3>후기를 등록하시겠습니까?</h3>
+               			<div class="btn-box">
+               				<div class="btn submit" onclick="popcancle();">등록하기</div>
+               				<div class="btn cancle" onclick="popcancle();">취소하기</div>
+               			</div>
+               		</div>
+               </div> -->
 
             </div>
          </div>
       </div>
     </div>
- 
+</form>    
     <ul id='logs' style='user-select: none;'></ul>
 
-	<%-- <jsp:include page="../../inc/footerV3.jsp" /> --%>
+	<jsp:include page="../../inc/footerV3.jsp" />
 
 	<script> 
-	function check() {
 
-        if (frm.title.value == "") {
-           alert("제목을 입력해 주세요.");
-           frm.title.focus();
-           return false;
-        }
+		$(document).ready(function(){
+			var list = new Array();
+			var cur_tr_no = '<c:out value="${data.vo.tr_no}" />'
+	
+			<c:forEach items="${data.trList}" var="item">
+				list.push( { tr_no:"${item.tr_no}",
+							 lo_no:"${item.lo_no}",
+							 tr_name:"${item.tr_name}"
+						});
+			</c:forEach>
 
-        else if (frm.content.value == "") {
-           alert("내용을 입력해 주세요.");
-           frm.content.focus();
-           return false;
-        } else if (frm.review_file.value == "") {
-            alert("파일을 넣어 주세요.");
-            frm.content.focus();
-            return false;
-         } 
-         	else
-             return true;
-    	}
+			for ( var i = 0; i < list.length; i++) {
+				console.log("cur_tr_no : " + cur_tr_no);
+				console.log("list[i].tr_no : " + list[i].tr_no);
+				if( list[i].tr_no == cur_tr_no ){
+
+					$('#selectTr optgroup').append("<option value=" + list[i].tr_no + ">" + list[i].tr_name + "</option>");						
+				}
+				
+			}
+			
+			
+			$("#selectLo").on('change',function() {
+				var lo_no = $(this).val();
+				$('#selectTr optgroup').empty();				
+				for ( var i = 0; i < list.length; i++) {
+					if( list[i].lo_no == lo_no ){
+	
+						$('#selectTr optgroup').append("<option value=" + list[i].tr_no + ">" + list[i].tr_name + "</option>");						
+					}
+					
+				}
+			});
+	
+			
+		});
 
 
 	
@@ -285,9 +306,44 @@
 				$("#starCnt").val(star)
 			}
 		});
+
+
+		function check() {
+
+	        if (frm.title.value == "") {
+	           alert("제목을 입력해 주세요.");
+	           frm.title.focus();
+	           return false;
+	        }
+
+	        else if (frm.content.value == "") {
+	           alert("내용을 입력해 주세요.");
+	           frm.content.focus();
+	           return false;
+	        } else if (frm.review_file.value == "") {
+	            alert("파일을 넣어 주세요.");
+	            frm.content.focus();
+	            return false;
+	         } else if (frm.tr_no.value == "") {
+	             alert("트레이너명을 선택해 주세요.");
+	             frm.content.focus();
+	             return false;
+	         }	else if (frm.lo_no.value == "") {
+	             alert("지점명을 선택해 주세요.");
+	             frm.content.focus();
+	             return false;
+	         }	else
+	             return true;
+	    	}
 		
-		
-		
+
+/* 		const popopen = () => {
+			$('.layerPop').addClass('active');
+		}
+
+		const popcancle = () => {
+			$('.layerPop').removeClass('active');
+		} */
 
 
 	</script>
@@ -299,4 +355,4 @@
 	<script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 </body>
-</html>
+</html> --%>

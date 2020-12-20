@@ -22,7 +22,21 @@ public class Reviewlist implements Action{
 		ReviewPagingInfo infoVo = (ReviewPagingInfo) map.get("infoVo");
 		ReviewVO rrvo = (ReviewVO)map.get("rrvo");
 		
-	
+		String user_id = (String)req.getSession().getAttribute("user_id");
+		System.out.println(user_id);
+		
+		if(user_id == null) {
+			infoVo.init(mapper.totalCnt());
+			infoVo.setVoArr(mapper.reviewlist(infoVo));
+			return infoVo;
+			
+		}
+		
+		infoVo.setSearchDate(mapper.searchID(user_id));
+		System.out.println(infoVo.getSearchDate());
+		
+		
+		
 		infoVo.init(mapper.totalCnt());
 		infoVo.setVoArr(mapper.reviewlist(infoVo));
 		return infoVo;

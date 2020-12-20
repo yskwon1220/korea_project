@@ -48,7 +48,7 @@ public class Reviewmodifyreg implements Action {
 	
 	String fileUpload(MultipartFile ff, HttpServletRequest request) {
 		String path = request.getRealPath("/upup");
-		path = "C:\\Users\\이현희\\OneDrive\\바탕 화면\\korea_project\\src\\main\\webapp\\upup";
+		path = "C:\\Users\\이현희\\OneDrive\\바탕 화면\\teamProject\\korea_project3\\src\\main\\webapp\\upup";
 		
 		String res = fileNewName(path,ff.getOriginalFilename());
 		

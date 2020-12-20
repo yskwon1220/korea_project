@@ -98,9 +98,14 @@
  -->
 <!-- 				<form action="reviewinsertreg" method="post" enctype="multipart/form-data"> -->
 				<div class="bottomB">
-					<a href="reviewlist">목록</a>
-					<a href="reviewmodify?review_no=${vo.review_no }">수정</a>
-					<a href="reviewdelete?review_no=${vo.review_no }">삭제</a>
+					<a class="btn btn-primary" href="reviewlist">목록</a>
+					<c:if test = "${sessionScope.user_id  == vo.user_id  }">
+						<a class="btn btn-primary" href="reviewmodify?review_no=${vo.review_no }">수정</a>
+					</c:if>
+					
+					<c:if test = "${sessionScope.user_id  == vo.user_id  }">
+						<a class="btn btn-primary" href="reviewdelete?review_no=${vo.review_no }">삭제</a>
+					</c:if>
 				</div>
 <!-- 				</form> -->
 			</div>
