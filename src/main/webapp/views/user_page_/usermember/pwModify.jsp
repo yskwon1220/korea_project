@@ -27,6 +27,29 @@
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/V3style.css"/>" />
 
+<script>
+// 필수 입력정보인 아이디, 비밀번호가 입력되었는지 확인하는 함수
+function checkValue()
+{
+
+    
+    if(!document.userInfo.user_pw.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+    }
+    if(!document.userInfo.user_pwpw.value){
+        alert("비밀번호를 입력하세요.");
+        return false;
+    }
+    
+    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+    if(document.userInfo.user_pw.value != document.userInfo.user_pwpw.value ){
+        alert("비밀번호를 동일하게 입력하세요.");
+        return false;
+    }
+}
+
+</script>
 </head>
 <body>
 	<!-- 페이지 로딩 및 새로고침이 발생되면 포커스가 ID입력란으로 위치합니다. -->
@@ -46,7 +69,7 @@
 
 						<!-- 본문 들어가는 부분 -->
 						<div class="row text-center"><!-- 가운데 정렬을 위해 -->
-						<form action="pwModifyReg">
+						<form action="pwModifyReg" name="userInfo" onsubmit="return checkValue()">
 						
 							<div class="row" style="width: 30%; float:none; margin:0 auto">
 											<div class="form-group  col">

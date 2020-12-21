@@ -41,6 +41,8 @@ public class DashBoardService implements Action{
 			int startCnt = 1;
 			int endCnt = 5;
 			
+			String user_name = (String) request.getSession().getAttribute("user_name");
+			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 			DecimalFormat fmt = new DecimalFormat("###,###");
 			int year = 2020;
@@ -60,6 +62,7 @@ public class DashBoardService implements Action{
 				vo.setUser_name(mapper.findUser(vo.getUser_no()));
 			}
 			
+			temp.put("user_name", user_name);
 			temp.put("reservList", reservList);
 			temp.put("faqList", faqList);
 			temp.put("paymentList", paymentList);

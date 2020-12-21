@@ -44,7 +44,7 @@
 
 						<h2>비밀번호확인</h2>
 
-						본문 들어가는 부분
+
 						<div class="row text-center">ID찾기
 						<form action="findId">
 						

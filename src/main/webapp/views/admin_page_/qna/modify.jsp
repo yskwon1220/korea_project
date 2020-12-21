@@ -8,7 +8,7 @@
 <html>
 <head>
 <head>
-<title>공지사항</title>
+
 
 <link rel="stylesheet"
 	href="<c:url value="${path}/resource/css/notice.css"/>" />
@@ -22,7 +22,7 @@
 			<!-- Content -->
 			<article>
 				<hr>
-				<h2>공지사항</h2>
+				<h2>자주묻는 질문</h2>
 				<hr>
 
 				<form name="qnamodify" action="modifyReg" onsubmit="return check(); "  method="post" enctype="multipart/form-data">

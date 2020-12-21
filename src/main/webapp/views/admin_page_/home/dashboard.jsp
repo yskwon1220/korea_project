@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-                      <h1 class="mt-4">김관리 관리자님, 환영합니다! :)</h1>
+                      <h1 class="mt-4">${data['user_name']} 관리자님, 환영합니다! :)</h1>
                       <lo></lo>
                         <div class="row">
                             <div class="col-xl-6">

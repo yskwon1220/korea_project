@@ -6,6 +6,20 @@
  	
  	<!--아이디 중복체크-->
  	
+ 		<select id="idCheck" 
+		 parameterType="java.lang.String" 
+		 resultType="com.korea.health.user.model.usermember.UserMemberVO">	
+
+		select 
+			user_id
+		from 
+			usermember 
+		where 
+			user_id = #{user_id} 
+
+		</select> 	
+ 	
+ 	
  	<!--회원가입-->
 	<sql id="noMax">
 		(select max(user_no)+1 from usermember)

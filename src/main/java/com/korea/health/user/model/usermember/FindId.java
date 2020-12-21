@@ -38,7 +38,7 @@ public class FindId implements Action {
 			
 		}else {
 			
-			req.setAttribute("memberId", memberId);
+			req.setAttribute("memberId", memberId.getUser_id());
 
 		}
 		

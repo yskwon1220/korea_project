@@ -7,7 +7,7 @@
 
 <html>
 <head>
-<title>회원정보 수정 완료</title>
+<title>회원탈퇴</title>
 <c:if test="${delete  eq 'deletefailed'}">
 <script> 
 alert("비밀번호가 틀렸습니다");
@@ -19,7 +19,7 @@ alert("비밀번호가 틀렸습니다");
 <c:if test="${delete  ne 'deleteFailed'}">
 <script> 
 alert("회원탈퇴 성공");
-		location.href = "/MainV3";
+		location.href = "/main";
 </script>
 </c:if>
 

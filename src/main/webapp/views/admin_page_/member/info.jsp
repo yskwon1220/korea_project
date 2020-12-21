@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col-xl-12">
 		<div class="card mb-4">
-			<div class="card-body">
+		<!-- 	<div class="card-body">
 				<form action="회원검색모듈.html">
 					<div class="form-group col-xl-4" style="display: inline-block">
 						<label for="search">검색 기준</label> <select class="form-control"
@@ -27,7 +27,7 @@
 							id="submit1" value="검색">
 					</div>
 				</form>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
@@ -92,11 +92,11 @@
 </div>
 
 <div class="card mb-4">
-	<div class="card-header">
+<!-- 	<div class="card-header">
 		<i class="fas fa-user-check"></i> <a href="">회원 상세</a>
-	</div>
+	</div> -->
 	<!--회원 상세-->
-	<div class="card-body">
+<!-- 	<div class="card-body">
 		<form action="회원정보수정모듈.html">
 			<div class="form-group col-xl-4" style="display: inline-block">
 				<label for="search">검색 기준</label> <select class="form-control"
@@ -115,7 +115,7 @@
 					id="submit1" value="검색">
 			</div>
 		</form>
-	</div>
+	</div> -->
 </div>
 
 <script>

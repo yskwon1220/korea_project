@@ -16,6 +16,6 @@ public interface UserMemberMapper {
 	Integer delete(UserMemberVO mvo);
 	UserMemberVO findPw(UserMemberVO mvo);
 	UserMemberVO findId(UserMemberVO mvo);
-	UserMemberVO idChk(String user_id);
+	UserMemberVO idCheck(String user_id);
 	
 }
