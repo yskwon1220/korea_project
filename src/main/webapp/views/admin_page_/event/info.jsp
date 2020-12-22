@@ -7,7 +7,7 @@
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="far fa-building"></i>
+                       <i class="fas fa-calendar-week"></i>
                                 <a href="">이벤트 목록</a>
                             </div>
                             <div class="card-body">
