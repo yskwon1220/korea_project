@@ -10,23 +10,24 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Alias("eventAdminVO")
 public class EventAdminVO {
+	Integer event_cnt;
 	String event_no;
 	String title;
-	String mainEvent_img;
-	String detailEvent_img1;
-	String detailEvent_img2;
-	String detailEvent_img3;
-	Date openDate;
+	String main_img;
+	String detail_img1;
+	String detail_img2;
+	String detail_img3;
+	Date d_day;
 	Integer e_price;
 	Integer discount;
 	
 	String welcomeDate;
 	String showE_price;
 	String showDiscount;
-	MultipartFile main_img;
-	MultipartFile detail_img1;
-	MultipartFile detail_img2;
-	MultipartFile detail_img3;
+	MultipartFile mainMF_img;
+	MultipartFile detailMF_img1;
+	MultipartFile detailMF_img2;
+	MultipartFile detailMF_img3;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
 	DecimalFormat fmt = new DecimalFormat("###,###");
@@ -43,49 +44,18 @@ public class EventAdminVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getMainEvent_img() {
-		return mainEvent_img;
-	}
-	public void setMainEvent_img(String mainEvent_img) {
-		this.mainEvent_img = mainEvent_img;
-	}
-	public String getDetailEvent_img1() {
-		return detailEvent_img1;
-	}
-	public void setDetailEvent_img1(String detailEvent_img1) {
-		this.detailEvent_img1 = detailEvent_img1;
-	}
-	public String getDetailEvent_img2() {
-		return detailEvent_img2;
-	}
-	public void setDetailEvent_img2(String detailEvent_img2) {
-		this.detailEvent_img2 = detailEvent_img2;
-	}
-	public String getDetailEvent_img3() {
-		return detailEvent_img3;
-	}
-	public void setDetailEvent_img3(String detailEvent_img3) {
-		this.detailEvent_img3 = detailEvent_img3;
-	}
-	public Date getOpenDate() {
-		return openDate;
-	}
-	public void setOpenDate(Date openDate) {
-		welcomeDate = sdf.format(openDate);
-		this.openDate = openDate;
-	}
 	public Integer getE_price() {
 		return e_price;
 	}
 	public void setE_price(Integer e_price) {
-		showE_price = fmt.format(e_price);
+		showE_price = fmt.format(e_price) + "원";
 		this.e_price = e_price;
 	}
 	public Integer getDiscount() {
 		return discount;
 	}
 	public void setDiscount(Integer discount) {
-		showDiscount = fmt.format(discount);
+		showDiscount = fmt.format(discount) + "원";
 		this.discount = discount;
 	}
 	public String getWelcomeDate() {
@@ -93,7 +63,7 @@ public class EventAdminVO {
 	}
 	public void setWelcomeDate(String welcomeDate) {
 		try {
-			openDate = sdf.parse(welcomeDate);
+			d_day = sdf.parse(welcomeDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -111,35 +81,70 @@ public class EventAdminVO {
 	public void setShowDiscount(String showDiscount) {
 		this.showDiscount = showDiscount;
 	}
-	public MultipartFile getMain_img() {
+	public Date getD_day() {
+		return d_day;
+	}
+	public void setD_day(Date d_day) {
+	    welcomeDate = sdf.format(d_day);
+		this.d_day = d_day;
+	}
+	public MultipartFile getMainMF_img() {
+		return mainMF_img;
+	}
+	public void setMainMF_img(MultipartFile mainMF_img) {
+	    main_img = mainMF_img.getOriginalFilename();
+		this.mainMF_img = mainMF_img;
+	}
+	public MultipartFile getDetailMF_img1() {
+		return detailMF_img1;
+	}
+	public void setDetailMF_img1(MultipartFile detailMF_img1) {
+	    detail_img1 = detailMF_img1.getOriginalFilename();
+		this.detailMF_img1 = detailMF_img1;
+	}
+	public MultipartFile getDetailMF_img2() {
+		return detailMF_img2;
+	}
+	public void setDetailMF_img2(MultipartFile detailMF_img2) {
+	    detail_img2 = detailMF_img2.getOriginalFilename();
+		this.detailMF_img2 = detailMF_img2;
+	}
+	public MultipartFile getDetailMF_img3() {
+		return detailMF_img3;
+	}
+	public void setDetailMF_img3(MultipartFile detailMF_img3) {
+	    detail_img3 = detailMF_img3.getOriginalFilename();
+		this.detailMF_img3 = detailMF_img3;
+	}
+	public String getMain_img() {
 		return main_img;
 	}
-	public void setMain_img(MultipartFile main_img) {
-		mainEvent_img = main_img.getOriginalFilename();
+	public void setMain_img(String main_img) {
 		this.main_img = main_img;
 	}
-	public MultipartFile getDetail_img1() {
+	public String getDetail_img1() {
 		return detail_img1;
 	}
-	public void setDetail_img1(MultipartFile detail_img1) {
-		detailEvent_img1 = detail_img1.getOriginalFilename();
+	public void setDetail_img1(String detail_img1) {
 		this.detail_img1 = detail_img1;
 	}
-	public MultipartFile getDetail_img2() {
+	public String getDetail_img2() {
 		return detail_img2;
 	}
-	public void setDetail_img2(MultipartFile detail_img2) {
-		detailEvent_img2 = detail_img2.getOriginalFilename();
+	public void setDetail_img2(String detail_img2) {
 		this.detail_img2 = detail_img2;
 	}
-	public MultipartFile getDetail_img3() {
+	public String getDetail_img3() {
 		return detail_img3;
 	}
-	public void setDetail_img3(MultipartFile detail_img3) {
-		detailEvent_img3 = detail_img3.getOriginalFilename();
+	public void setDetail_img3(String detail_img3) {
 		this.detail_img3 = detail_img3;
 	}
-	
-	
+	public Integer getEvent_cnt() {
+		return event_cnt;
+	}
+	public void setEvent_cnt(Integer event_cnt) {
+		this.event_cnt = event_cnt;
+	}
 	
 }

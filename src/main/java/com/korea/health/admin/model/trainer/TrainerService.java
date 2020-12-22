@@ -97,10 +97,10 @@ public class TrainerService implements Action {
 				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
 				
 				int cnt = mapper.trainerDelete(vo);
-				mapper.newNum(vo);
 				if(cnt == 0) {
 					return mapper.trainerDetail(Integer.parseInt(request.getParameter("tr_no")));
 				}else {
+					mapper.newNum(vo);
 					new File(path + "\\" + fileName).delete();
 				}
 				

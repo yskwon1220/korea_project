@@ -10,22 +10,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="eventDetail" resultType="com.korea.health.admin.model.event.EventAdminVO"
-		parameterType="java.lang.Integer">
-		SELECT * FROM event WHERE event_cnt = #{event_cnt}
+		parameterType="java.lang.String">
+		SELECT * FROM event WHERE event_no = #{event_no}
 	</select>
 	
 	<insert id="eventInsert" parameterType="com.korea.health.admin.model.event.EventAdminVO">
 		<selectKey keyProperty="event_cnt" resultType="java.lang.Integer" order="BEFORE">
 			select max(event_cnt)+1 from event
 		</selectKey>
-		insert into event (event_cnt, event_no, event_name, event_price, regdate)
+		insert into event (event_cnt, event_no, title, main_img, detail_img1, detail_img2, detail_img3, d_day, e_price, discount)
 		values
-		(#{event_cnt}, #{event_no}, #{event_name}, #{event_price}, #{regdate})
+		(#{event_cnt}, #{event_no}, #{title}, #{main_img}, #{detail_img1}, #{detail_img2}, #{detail_img3}, #{d_day}, #{e_price}, #{discount})
 	</insert>
 	
 	<update id="eventModify" parameterType="com.korea.health.admin.model.event.EventAdminVO">
-		update event set event_cnt = #{event_cnt}, event_no = #{event_no}, event_name = #{event_name}, event_price = #{event_price}, 
-		regdate = #{regdate} where event_cnt = #{event_cnt}
+		update event set event_cnt = #{event_cnt}, event_no = #{event_no}, title = #{title}, main_img = #{main_img}, 
+		detail_img1 = #{detail_img1}, detail_img2 = #{detail_img2}, detail_img3 = #{detail_img3}, d_day = #{d_day}, e_price = #{e_price},
+		discount = #{discount} where event_no = #{event_no}
+	</update>
+	
+	<update id="mainFileDelete" parameterType="com.korea.health.admin.model.event.EventAdminVO">
+		update event
+		set
+		 main_img = ''
+		where  event_no = #{event_no}
+	</update>
+	<update id="detailFile1Delete" parameterType="com.korea.health.admin.model.event.EventAdminVO">
+		update event
+		set
+		 detail_img1 = ''
+		where  event_no = #{event_no}
+	</update>
+	<update id="detailFile2Delete" parameterType="com.korea.health.admin.model.event.EventAdminVO">
+		update event
+		set
+		 detail_img2 = ''
+		where  event_no = #{event_no}
+	</update>
+	<update id="detailFile3Delete" parameterType="com.korea.health.admin.model.event.EventAdminVO">
+		update event
+		set
+		 detail_img3 = ''
+		where  event_no = #{event_no}
 	</update>
 	
 	<delete id="eventDelete" parameterType="com.korea.health.admin.model.event.EventAdminVO">
@@ -38,8 +64,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 	</update>
 	
-	<select id="eventCnt" resultType="java.lang.String">
-		select count(*)+1 from event
+	<select id="goodsList" resultType="com.korea.health.admin.model.goods.GoodsVO">
+		select * from goods
 	</select>
+	
+	<select id="eventCnt" resultType="java.lang.String">
+		select max(event_cnt)+1 from event
+	</select>
+	
+	
 	
 </mapper>

@@ -63,7 +63,6 @@ public class Reviewinsertreg implements Action {
 		
 		path+="\\";
         try {
-         
             
             int pos = ff.lastIndexOf(".");
             String domain = ff.substring(0,pos);

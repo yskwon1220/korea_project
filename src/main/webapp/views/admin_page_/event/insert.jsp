@@ -7,4 +7,4 @@
 	        $("#myModal").modal();
 	});
 </script>
-<jsp:forward page="/admin_page_/goods/info"></jsp:forward>
+<jsp:forward page="/admin_page_/event/detail?${data.event_no}"></jsp:forward>

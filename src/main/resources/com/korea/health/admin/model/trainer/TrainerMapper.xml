@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="fileDelete" parameterType="java.lang.Integer">
-		update trainer set tr_pic = null where tr_no = #{tr_no}
+		update trainer set tr_pic = '' where tr_no = #{tr_no}
 	</update>
 	
 	<update id="trainerModify" parameterType="com.korea.health.admin.model.trainer.TrainerVO">

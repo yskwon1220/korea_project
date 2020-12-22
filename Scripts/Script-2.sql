@@ -1023,7 +1023,8 @@ SELECT * FROM dual;
 DROP TABLE event;
 
 CREATE TABLE event(
-event_NO varchar2(20) PRIMARY KEY,
+event_cnt NUMBER DEFAULT 0 PRIMARY key,
+event_NO varchar2(20),
 title varchar2(100),
 main_img varchar2(50),
 d_day DATE,
@@ -1035,12 +1036,12 @@ discount NUMBER(20)
 );
 
 INSERT ALL
-INTO event(event_no, title, main_img, d_day, detail_img1, detail_img2, detail_img3,e_price,discount) 
-values('d1','오픈이벤트 20% 할인', 'fit01.jpg','20/12/31','fit02.jpg','fit03.jpg','fit04.jpg',150000,30000)
-INTO event(event_no, title, main_img, d_day, detail_img1, detail_img2, detail_img3,e_price,discount) 
-values('d2','다 함께 힘내요 코로나시대 2만원 할인', 'fit05.jpg','20/12/31','fit06.jpg','fit07.jpg','fit08.jpg',150000,20000)
-INTO event(event_no, title, main_img, d_day, detail_img1, detail_img2, detail_img3,e_price,discount) 
-values('d3','크리스마스 당일 5만원 할인', 'fit09.jpg','20/12/25','fit10.jpg','fit11.jpg','fit12.jpg',150000,50000)
+INTO event(EVENT_cnt, event_no, title, main_img, d_day, detail_img1, detail_img2, detail_img3,e_price,discount) 
+values(1, 'd1','오픈이벤트 20% 할인', 'fit01.jpg','20/12/31','fit02.jpg','fit03.jpg','fit04.jpg',150000,30000)
+INTO event(EVENT_cnt, event_no, title, main_img, d_day, detail_img1, detail_img2, detail_img3,e_price,discount) 
+values(2, 'd2','다 함께 힘내요 코로나시대 2만원 할인', 'fit05.jpg','20/12/31','fit06.jpg','fit07.jpg','fit08.jpg',150000,20000)
+INTO event(EVENT_cnt,event_no, title, main_img, d_day, detail_img1, detail_img2, detail_img3,e_price,discount) 
+values(3, 'd3','크리스마스 당일 5만원 할인', 'fit09.jpg','20/12/25','fit10.jpg','fit11.jpg','fit12.jpg',150000,50000)
 SELECT * FROM dual;
 
 DROP TABLE ONE_PAY_LIST ;
@@ -1117,3 +1118,10 @@ SELECT payment_no from payment_list;
 		SELECT * FROM PAYMENT WHERE PAYMENT_NO = '4';
 		
 	SELECT * FROM payment_list where payment_no = '2';
+	
+INSERT INTO EVENT (EVENT_NO) VALUES ('EVENT_NO + 1');
+
+
+insert into event (event_cnt, event_no, title, main_img, detail_img1, detail_img2, detail_img3, d_day, e_price, discount)
+		values
+		(4, 'd2', 'asd', '', '', '', '', '121212', 12345, 12345);

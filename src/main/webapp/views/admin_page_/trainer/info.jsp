@@ -24,23 +24,23 @@
                                     <table class="table table-bordered text-center"  width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>직원 번호</th>
-                                                <th>지점 번호</th>
-                                                <th>사진</th>
-                                                <th>직원 이름</th>
-                                                <th>직원 경력</th>
-                                                <th>회원 평가 점수</th>
+                                                <th class="text-lg-center">직원 번호</th>
+                                                <th class="text-lg-center">지점 번호</th>
+                                                <th class="text-lg-center">사진</th>
+                                                <th class="text-lg-center">직원 이름</th>
+                                                <th class="text-lg-center">직원 경력</th>
+                                                <th class="text-lg-center">회원 평가 점수</th>
                                             </tr>
                                         </thead>
                                         <tbody id="showTable">
                                         <c:forEach items="${data.pageSet}" var="data">
                                             <tr>
-                                                <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> ${data.tr_no}</a></td>
-                                                <td class="align-middle">${data.lo_name}</td>
-                                                <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/${data.tr_pic}"></a></td>
-                                                <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}">${data.tr_name}</a></td>
-                                                <td class="align-middle">${data.contentTrans}</td>
-                                                <td class="align-middle">${data.star}</td>
+                                                <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> ${data.tr_no}</a></td>
+                                                <td class="align-middle text-lg-center">${data.lo_name}</td>
+                                                <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/${data.tr_pic}"></a></td>
+                                                <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}">${data.tr_name}</a></td>
+                                                <td class="align-middle text-lg-center">${data.contentTrans}</td>
+                                                <td class="align-middle text-lg-center">${data.star}</td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>

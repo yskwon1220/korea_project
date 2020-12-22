@@ -21,31 +21,31 @@
                                                         <td  class="align-middle" rowspan="7">
                                                             <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.tr_pic}"/>
                                                         </td>
-                                                        <td class="align-middle">이름</td>
-                                                        <td  class="align-middle">${data.tr_name}</td>
+                                                        <td class="align-middle text-lg-center">이름</td>
+                                                        <td  class="align-middle ">${data.tr_name}</td>
                                                     </tr>
                                                 <tr>
-                                                    <td class="align-middle">입사 일자</td>
+                                                    <td class="align-middle text-lg-center">입사 일자</td>
                                                     <td  class="align-middle">${data.welcomeDate}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">직책</td>
+                                                    <td class="align-middle text-lg-center">직책</td>
                                                     <td  class="align-middle">${data.manager}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">직원 번호</td>
+                                                    <td class="align-middle text-lg-center">직원 번호</td>
                                                     <td  class="align-middle">${data.tr_no}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">직원 경력</td>
+                                                    <td class="align-middle text-lg-center">직원 경력</td>
                                                     <td  class="align-middle">${data.contentTrans}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">소속 지점</td>
+                                                    <td class="align-middle text-lg-center">소속 지점</td>
                                                     <td  class="align-middle">${data.lo_name}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">회원 평가 점수</td>
+                                                    <td class="align-middle text-lg-center">회원 평가 점수</td>
                                                     <td  class="align-middle">${data.star}</td>
                                                 </tr>
                                             </tbody>

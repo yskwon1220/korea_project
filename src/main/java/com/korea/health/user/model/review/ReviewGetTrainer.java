@@ -29,7 +29,6 @@ public class ReviewGetTrainer implements Action {
 	@Resource
 	TraiMapper trMapper;
 	
-	
 
 	@Override					// , HttpSession session
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {

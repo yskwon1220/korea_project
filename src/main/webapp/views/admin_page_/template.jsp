@@ -11,7 +11,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>관리자 - ${kind.cate}</title>
-        <link rel="stylesheet" type="text/css" href="/resource/admin_css/css/ad_member_styles.css?ver=9" />
+        <link rel="stylesheet" type="text/css" href="/resource/admin_css/css/ad_member_styles.css?ver=10" />
         <link rel="stylesheet" type="text/css" href="/resource/admin_css/css/dataTables.bootstrap4.min.css"/>
        	<link rel="stylesheet" type="text/css" href="/resource/admin_css/css/bootstrap-datepicker.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.standalone.min.css">

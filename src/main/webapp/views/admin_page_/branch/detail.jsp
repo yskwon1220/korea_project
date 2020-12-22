@@ -19,39 +19,39 @@
                                                             <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.lo_pic}"/>
                                                     </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 번호</td>
-                                                    <td  class="align-middle">${data.lo_no}</td>
+                                                    <td class="align-middle text-lg-center">지점 번호</td>
+                                                    <td  class="align-middle ">${data.lo_no}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 명</td>
+                                                    <td class="align-middle text-lg-center">지점 명</td>
                                                     <td  class="align-middle">${data.lo_name}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 연락처</td>
+                                                    <td class="align-middle text-lg-center">지점 연락처</td>
                                                     <td  class="align-middle">${data.lo_tel}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 주소</td>
+                                                    <td class="align-middle text-lg-center">지점 주소</td>
                                                     <td  class="align-middle">${data.lo_addr}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 소개</td>
+                                                    <td class="align-middle text-lg-center">지점 소개</td>
                                                     <td  class="align-middle">${data.contentTrans}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 등록일</td>
+                                                    <td class="align-middle text-lg-center">지점 등록일</td>
                                                     <td  class="align-middle">${data.welcomeDate}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">수용인원</td>
+                                                    <td class="align-middle text-lg-center">수용인원</td>
                                                     <td  class="align-middle">${data.maximum}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 수입</td>
+                                                    <td class="align-middle text-lg-center">지점 수입</td>
                                                     <td  class="align-middle">${data.income}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="align-middle">지점 지출</td>
+                                                    <td class="align-middle text-lg-center">지점 지출</td>
                                                     <td  class="align-middle">${data.outcome}</td>
                                                 </tr>
                                             </tbody>
