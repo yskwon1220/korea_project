@@ -28,7 +28,7 @@ menu,
 nav,
 section,
 summary {
-  display: inline-block;
+  display: block;
 }
 
 audio,

@@ -8,7 +8,6 @@
 <html>
 <head>
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
-
 <script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-3.5.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="${path }/resource/js/jquery-ui.min.js"/>"></script>
 <script type="text/javascript">
@@ -16,14 +15,11 @@
 var array = ['#use_price','#use_price2','#use_discount',
 	'#use_coupon','#use_point','#get_point'];
 	
-
-
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
       object.value = object.value.slice(0, object.maxLength);
     }    
   }
-
 
  function openWin(){
 
@@ -74,7 +70,6 @@ function maxLengthCheck(object){
 		window.name="parentForm";
 		win = window.open("http://localhost:81/user_page_/pay/payment/cardpay","카드결제","width=800, height=700, location=no, toolbar=no,scrollbars=no, menubar=no, resizable=no");
 	
-		 	
 			/*  var form= {
 				price:$(array[1]).text(),
 				card_select: $("#cardsel option:selected").text(),
@@ -95,12 +90,7 @@ function maxLengthCheck(object){
 			alert("카드결제 데이터 전송 에러");
 				}
 			}); */
- 
-		
 		}
-	
-
-	
 
  	if(payment_cate3){
 	
@@ -179,12 +169,7 @@ function maxLengthCheck(object){
 			} else {
 				setTimeout("chk_popup();", 1000);
 			}  */
-
-
 	} 
-	
-
-
 
 	function key(data){
 		console.log(data);
@@ -209,8 +194,6 @@ $(document).ready(function() {
 				$(this).parent().hide();
 				$(".dim").hide();
 			});
-			
-			
 		
 		var first_tot = Number(${price})-Number(${discount});
 		$(array[1]).text(currencyFormatter(first_tot)+"원");

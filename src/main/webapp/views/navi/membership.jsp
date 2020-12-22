@@ -40,15 +40,12 @@
    <body>
 <jsp:include page="../inc/headerV3.jsp" />
       <div id="page-wrapper">
-
-   
     <h2 class="msg_p2">회원권 신청</h2>
-    <p class="msg_p3">언제 어디서 누구나 편리하고 부담없이 피트니스! 피트니스 회원권은 동일한 브랜드내에서 전 지점 이용이 가능합니다.</p>
+    <p class="msg_p3">스페셜 피트니스 회원권은 동일한 브랜드내에서 전 지점 이용이 가능합니다.</p>
    
-    <div class=" msg_p3">이벤트 상품구매는 안내데스크에 문의하세요.</div>
+    <div class=" msg_p3">회원권 선택</div>
     <table class="table_03">
         <tr>
-            <th class="vip">회원권 선택</th>
             <td>
                <div class="prdo_sel_box">
                   <span>[피트니스]*1개월 <br>( 1 Month )</span>
@@ -75,8 +72,6 @@
                   <strong>545,500</strong>
                   <span>&nbsp;</span>
                </div>
-                                               
-             
             </td>
         </tr>
     </table>
@@ -86,9 +81,7 @@
       
      </div>
 
-
 <jsp:include page="../inc/footerV3.jsp" />
-	
 
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
@@ -103,7 +96,6 @@
 		
 		// 가격
 		__price = 0;
-		
 		
 		$(document).ready(function(){
 			
@@ -140,7 +132,6 @@
 				alert("회원권을 선택해주세요!!!");
 				return ;
 			}
-			
 			
 			var newForm = $('<form></form>');
 			newForm.attr("name","newForm"); 

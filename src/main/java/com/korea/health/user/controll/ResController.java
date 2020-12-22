@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.korea.health.admin.model.goods.GoodsVO;
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
@@ -69,6 +70,7 @@ public class ResController {
 			FnqboardVO ovo,
 			QnaVO qvo,
 			UserMemberVO mvo,//폼에서 준 정보 , 멤버변수명이랑 자료형이 안맞으면 에러 
+			GoodsVO goodsVO,
 			HttpServletRequest req, Model mm, 
 			@PathVariable("cate") String cate,
 			@PathVariable("service") String service) {
@@ -81,6 +83,7 @@ public class ResController {
 		map.put("rrvo", rrvo);
 		map.put("infoVo", infoVo);
 		map.put("locaList",locaList);
+		map.put("goodsVO", goodsVO);
 
 		map.put("fnqInfoVo", fnqInfoVo);
 		map.put("infonoticeVo", infonoticeVo);

@@ -18,7 +18,7 @@
 	<div id="main-wrapper "> --%>
 	<div id="board">
 		<div id="titleList">
-			<div id="category">공지사항</div>
+			<div id="category">자주묻는 질문</div>
 			<div id="titleName">
 				<c:set var="sm" value="${data }" />
 				<svg width="1em" height="1em" viewBox="0 0 16 16"

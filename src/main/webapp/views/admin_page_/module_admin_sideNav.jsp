@@ -80,8 +80,8 @@
                                             <a class="nav-link" href="/admin_page_/qna/info">1:1 문의 관리</a>
                                         </nav>
                                     </div>
-<!-- 							<a class="nav-link"
-								href="/admin_page_/event/info">이벤트 관리</a> -->
+						<a class="nav-link"
+								href="/admin_page_/event/info">이벤트 관리</a>
 						</nav>
 					</div>
 					<div class="sb-sidenav-menu-heading">Accounting</div>

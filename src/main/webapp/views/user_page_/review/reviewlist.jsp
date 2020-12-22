@@ -114,7 +114,7 @@
             </div>
             <!-- 게시판 페이징 영역 -->
 
-            <ul class="pagination">
+            <ul class="pagination" style="font-size: 30px"> 
                <c:if test="${data.startPage>1 }">
 							<a href="?nowPage=${startPage-1 }"><span>«</span></a>
 						</c:if>

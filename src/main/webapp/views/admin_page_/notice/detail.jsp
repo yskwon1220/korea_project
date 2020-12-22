@@ -7,7 +7,7 @@
 
 <html>
 <head>
-<title>1대1 문의</title>
+<title>공지사항</title>
 
 <link rel="stylesheet"
 	href="<c:url value="${path}/resource/css/notice.css"/>" />

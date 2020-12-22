@@ -67,7 +67,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="pag" align="center">
+			<div class="pag" align="center"  style="font-size: 30px">
 				<ul class="pagination">
 					<c:if test="${data.startPage>1 }">
 						<a href="?nowPage=${startPage-1 }"><span>«</span></a>

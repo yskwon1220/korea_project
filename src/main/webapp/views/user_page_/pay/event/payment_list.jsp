@@ -71,7 +71,8 @@ $('input[name=refund]').on('click',function(){
 							<thead>
 								<tr>
 									<th>순서</th>
-									<th>구매상품</th>
+									<th>상품 코드</th>
+									<th>상품 이름</th>
 									<th>금액</th>
 									<th>할인액</th>
 									<th>사용 포인트</th>
@@ -84,6 +85,7 @@ $('input[name=refund]').on('click',function(){
 							<tr>
 								<th>${no.index+1}</th>
 								<td>${pl.p_no }</td>
+								<td>${pl.p_title }</td>
 								<td>${pl.origin_price }</td>
 								<td>${pl.discount_price }원</td>
 								<td>${pl.point_price }</td>

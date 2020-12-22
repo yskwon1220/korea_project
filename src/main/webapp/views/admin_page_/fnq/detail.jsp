@@ -8,8 +8,10 @@
 <html>
 <head>
 <title>1대1 문의</title>
+
 <link rel="stylesheet"
 	href="<c:url value="${path}/resource/css/notice.css"/>" />
+
 </head>
 <body>
 	<%-- 	<jsp:include page="../inc/headerV3.jsp" />

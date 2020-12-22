@@ -6,7 +6,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 
-	<div class="fh5co-cta" style="    background-image: url('   <c:url value="   ${path }/resource/images/slide_2.jpg    ');    "/>   " >
+	<%-- <div class="fh5co-cta" style="    background-image: url('   <c:url value="   ${path }/resource/images/slide_2.jpg    ');    "/>   " >
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="col-md-12 text-center animate-box">
@@ -14,7 +14,7 @@
 				<p><a href="/main" class="btn btn-primary btn-outline with-arrow">Go home! <i class="icon-arrow-right"></i></a></p>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 
 <footer id="fh5co-footer" role="contentinfo">
 

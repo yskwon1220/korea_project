@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Provider</title>
+<title>FitNess Club</title>
 </head>
 <body>
 

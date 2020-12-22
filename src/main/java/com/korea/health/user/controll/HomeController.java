@@ -29,7 +29,6 @@ public class HomeController {
 	NoticeMapper mapper;
 	@Resource
 	ReviewMapper revMapper;
-	
 
 	
 	
@@ -61,13 +60,6 @@ public class HomeController {
 	public void community() {
 		
 		System.out.println("community");
-		
-	}
-	
-	@RequestMapping("/navi/membership")
-	public void membership() {
-
-		System.out.println("membership");
 		
 	}
 	

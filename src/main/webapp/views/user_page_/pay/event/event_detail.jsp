@@ -12,11 +12,7 @@
 	href="<c:url value="${path }/resource/css/event_detail.css"/>" />
 </head>
 <body>
-
-	<title>Insert title here</title>
-	
-	
-	
+	<title>Event</title>
 </head>
 
 
@@ -29,7 +25,6 @@
 			<a href="../payment/payment?price=${data.get(0).e_price}&discount=${data.get(0).discount}">
 			<input type="button"  class="buy_btn" value="결제하기"/></a>
 		</div>
-
 
 		<div class="tot">
 			<div class="title">${data.get(0).title }</div>

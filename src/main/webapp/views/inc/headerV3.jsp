@@ -15,7 +15,7 @@ li:hover ul {
 }
 </style>
 <header id="fh5co-header" role="banner">
-	<div class="container">
+	<div class="container" style="width: 1350px">
 		<div class="header-inner">
 			<h1>
 				<a href="<c:url value="/main"/>">FitNess Club</a>
@@ -24,7 +24,7 @@ li:hover ul {
 				<ul>
 					<li><a href="<c:url value="/navi/introduce"/>">Introduce</a></li>
 						 <li><a href="<c:url value="/navi/find"/>">Find</a></li>
-						<li><a href="<c:url value="/navi/membership"/>">MemberShip</a></li>
+						<li><a href="<c:url value="${path }/user_page_/membership/membership"/>">MemberShip</a></li>
 						<li><a href="<c:url value="${path }/user_page_/location/locationlist"/>">Reservation</a></li>
 						<li><a href="<c:url value="/navi/community"/>">Community</a></li>
 						<li><a href="<c:url value="${path }/user_page_/pay/event/event_page"/>">Event List</a></li>

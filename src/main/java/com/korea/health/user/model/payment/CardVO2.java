@@ -3,7 +3,7 @@ package com.korea.health.user.model.payment;
 import org.apache.ibatis.type.Alias;
 
 @Alias("cardVO2")
-public class cardVO2 {
+public class CardVO2 {
 	Integer cvc;
 	String regdate,card_main_num1,card_main_num2,card_main_num3,card_main_num4;
 	Integer regi_num, validity, card_pass, phone_num,save_point;
@@ -12,13 +12,11 @@ public class cardVO2 {
 
 	String discount_price, coupon_no,payment_date;
 	
+	Integer total_payment = 0;
+	Integer discount;
+	Integer use_point;
+	Integer real_payment;
 	
-	
-	
-
-
-
-
 	public String getTicket() {
 		return ticket;
 	}
@@ -48,6 +46,8 @@ public class cardVO2 {
 	}
 
 	public void setDiscount_price(String discount_price) {
+		discount = Integer.parseInt(discount_price);
+		total_payment -= discount;
 		this.discount_price = discount_price;
 	}
 
@@ -104,6 +104,14 @@ public class cardVO2 {
 	}
 
 	public void setOrigin_price(String origin_price) {
+		
+		String temp = "";
+		for (String str : origin_price.substring(0, origin_price.lastIndexOf("원")).split(",")) {
+			temp += str;
+		}
+		real_payment = Integer.parseInt(temp);
+		total_payment += real_payment;
+		
 		this.origin_price = origin_price;
 	}
 
@@ -144,6 +152,12 @@ public class cardVO2 {
 	}
 
 	public void setPoint_price(String point_price) {
+		String temp = "";
+		for (String str : point_price.substring(0, point_price.lastIndexOf("원")).split(",")) {
+			temp += str;
+		}
+		use_point = Integer.parseInt(temp);
+		total_payment -= use_point;
 		this.point_price = point_price;
 	}
 
@@ -154,8 +168,6 @@ public class cardVO2 {
 	public void setPay_way(String pay_way) {
 		this.pay_way = pay_way;
 	}
-
-
 
 	public Integer getCvc() {
 		return cvc;
@@ -204,6 +216,37 @@ public class cardVO2 {
 	public void setPhone_num(Integer phone_num) {
 		this.phone_num = phone_num;
 	}
+	
+	public Integer getTotal_payment() {
+		return total_payment;
+	}
+	public void setTotal_payment(Integer total_payment) {
+		this.total_payment = total_payment;
+	}
+	public Integer getDiscount() {
+		return discount;
+	}
+	public void setDiscount(Integer discount) {
+		this.discount = discount;
+	}
+
+	public Integer getUse_point() {
+		return use_point;
+	}
+
+	public void setUse_point(Integer use_point) {
+		this.use_point = use_point;
+	}
+
+	public Integer getReal_payment() {
+		return real_payment;
+	}
+
+	public void setReal_payment(Integer real_payment) {
+		this.real_payment = real_payment;
+	}
+	
+	
 
 	@Override
 	public String toString() {

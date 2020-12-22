@@ -3,7 +3,7 @@ package com.korea.health.user.model.payment;
 import org.apache.ibatis.type.Alias;
 
 @Alias("cardVO")
-public class cardVO {
+public class CardVO {
 
 	Integer card_num1,card_num2,card_num3,card_num4,cvc;
 	String regdate, title,ticket;

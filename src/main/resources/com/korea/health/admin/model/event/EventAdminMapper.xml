@@ -3,18 +3,18 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.korea.health.admin.model.event.EventMapper">
+<mapper namespace="com.korea.health.admin.model.event.EventAdminMapper">
 
-	<select id="eventList" resultType="com.korea.health.admin.model.event.EventadminVO">
+	<select id="eventList" resultType="com.korea.health.admin.model.event.EventAdminVO">
 		SELECT * FROM event
 	</select>
 	
-	<select id="eventDetail" resultType="com.korea.health.admin.model.event.eventVO"
+	<select id="eventDetail" resultType="com.korea.health.admin.model.event.EventAdminVO"
 		parameterType="java.lang.Integer">
 		SELECT * FROM event WHERE event_cnt = #{event_cnt}
 	</select>
 	
-	<insert id="eventInsert" parameterType="com.korea.health.admin.model.event.eventVO">
+	<insert id="eventInsert" parameterType="com.korea.health.admin.model.event.EventAdminVO">
 		<selectKey keyProperty="event_cnt" resultType="java.lang.Integer" order="BEFORE">
 			select max(event_cnt)+1 from event
 		</selectKey>
@@ -23,16 +23,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(#{event_cnt}, #{event_no}, #{event_name}, #{event_price}, #{regdate})
 	</insert>
 	
-	<update id="eventModify" parameterType="com.korea.health.admin.model.event.eventVO">
+	<update id="eventModify" parameterType="com.korea.health.admin.model.event.EventAdminVO">
 		update event set event_cnt = #{event_cnt}, event_no = #{event_no}, event_name = #{event_name}, event_price = #{event_price}, 
 		regdate = #{regdate} where event_cnt = #{event_cnt}
 	</update>
 	
-	<delete id="eventDelete" parameterType="com.korea.health.admin.model.event.eventVO">
+	<delete id="eventDelete" parameterType="com.korea.health.admin.model.event.EventAdminVO">
 		delete from event where event_cnt = #{event_cnt}
 	</delete>
 	
-	<update id="newNum" parameterType="com.korea.health.admin.model.event.eventVO">
+	<update id="newNum" parameterType="com.korea.health.admin.model.event.EventAdminVO">
 	<![CDATA[
 		update event set event_cnt = event_cnt - 1 where #{event_cnt} < event_cnt
 	]]>
@@ -41,4 +41,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="eventCnt" resultType="java.lang.String">
 		select count(*)+1 from event
 	</select>
+	
 </mapper>

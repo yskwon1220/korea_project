@@ -77,7 +77,7 @@
 
 
 				<div class="pag">
-					<ul class="pagination">
+					<ul class="pagination" style="font-size: 30px">
 						<c:if test="${data.startPage>1 }">
 							<a href="?nowPage=${startPage-1 }"><span>«</span></a>
 						</c:if>

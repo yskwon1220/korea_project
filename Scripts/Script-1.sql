@@ -237,3 +237,14 @@ SELECT * FROM dual;
          where rnum >= 1 and rnum <= 5;
          
         SELECT COUNT(*) FROM reservation where lo_no = '1002' AND TR_NAME like '%' ||'박'|| '%'
+        
+        SELECT RESERV_CNT FROM goods WHERE GOODS_NO = 'G1001'; 
+        
+       SELECT lo_no FROM USERMEMBER WHERE USER_ID = 'minjoo';
+       
+      INSERT INTO PAYMENT
+      VALUES ((SELECT max(PAYMENT_NO) + 1 FROM PAYMENT) ,
+      (SELECT USER_NO FROM USERMEMBER WHERE USER_ID = 'minjoo'),
+      (SELECT lo_NO FROM USERMEMBER WHERE USER_ID = 'minjoo'),
+      'G1001', 0, 0, '간편결제', '80000', SYSDATE);
+      

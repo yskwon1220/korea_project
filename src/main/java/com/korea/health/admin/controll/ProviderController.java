@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.korea.health.admin.model.branch.BranchVO;
-import com.korea.health.admin.model.event.EventadminVO;
+import com.korea.health.admin.model.event.EventAdminVO;
 import com.korea.health.admin.model.goods.GoodsVO;
 import com.korea.health.admin.model.reservation.ResTimeVO;
 import com.korea.health.admin.model.reservation.ReservationVO;
@@ -48,6 +48,7 @@ public class ProviderController {
 		kind.setMainUrl(cate + "/" + service + ".jsp");
 		System.out.println(kind.getMainUrl());
 		return kind;
+		
 	}
 
 	@ModelAttribute("data")
@@ -66,7 +67,7 @@ public class ProviderController {
 			GoodsVO goodsVO,	// 상품
 			UserMemberVO mvo,
 			ResultVO resultVO,	// 정산
-			EventadminVO eventvo, //이벤트
+			EventAdminVO eventvo, //이벤트
 			FnqPageInfo fnqInfoVo,
 			NoticePageInfo infonoticeVo,
 			QnaPageInfo infoqnaVo, 

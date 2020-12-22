@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.type.Alias;
 
 @Alias("payMember")
-public class payMember {
+public class PayMember {
 
 	String user_tel,title,ticket,user_id, user_name,user_email, card_company, owner, coupon_no, coupon_content;
 	Integer  point, validity, cvc, card_pass, payment_pass, user_no, coupon_discount, coupon_contri;

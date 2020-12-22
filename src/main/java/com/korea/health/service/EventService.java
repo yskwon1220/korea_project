@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
 import com.korea.health.user.model.event.EventMapper;
-import com.korea.health.user.model.payment.payment_list;
+import com.korea.health.user.model.payment.Payment_List;
 
 @Service("event")
 public class EventService implements Action {
@@ -20,9 +20,9 @@ public class EventService implements Action {
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 		String e_no = (String) map.get("event_no");
-		payment_list pl = (payment_list) map.get("pl");
+		Payment_List pl = (Payment_List) map.get("pl");
 		String user_ss = (String) req.getSession().getAttribute("user_id");
-
+		String ticket = (String) req.getAttribute("ticket");
 		switch ((String) map.get("service")) {
 		case "event_page":
 			return mapper.list();
@@ -32,9 +32,15 @@ public class EventService implements Action {
 
 			if (pl.getSel_no()!=null) {
 				String pay_no = String.valueOf(pl.getSel_no());
-				System.out.println(pay_no);
+				pl = mapper.payList(pay_no);
+				pl.setUser_id(user_ss);
+				pl.setPayment_no(pay_no);
+				mapper.clearCnt(pl);
 				mapper.payment_refund_point(user_ss, pay_no);
-				mapper.payment_del(pay_no);
+				mapper.payment_del(pl);
+				mapper.newNum(pl);
+				mapper.paymentResult_del(pl);
+				mapper.newNum2(pl);
 			}
 
 			return mapper.payment_sel(user_ss);

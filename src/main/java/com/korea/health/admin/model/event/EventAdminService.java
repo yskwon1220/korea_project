@@ -11,19 +11,18 @@ import org.springframework.stereotype.Service;
 import com.korea.health.admin.model.branch.BranchVO;
 import com.korea.health.provider.Action;
 @Service("admin_page_event")
-public class EventadminService implements Action{
+public class EventAdminService implements Action{
 	
 	@Resource
-	EventadminMapper mapper;
+	EventAdminMapper mapper;
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
 		
-		EventadminVO vo = (EventadminVO)map.get("eventVO");
+		EventAdminVO vo = (EventAdminVO)map.get("eventVO");
 		
 		switch ((String)map.get("service")) {
 		case "info":
-
 			return mapper.eventList();
 		
 //		case "insertForm":

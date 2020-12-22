@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Myprovider;
-import com.korea.health.user.model.payment.payMember;
-import com.korea.health.user.model.payment.payment_list;
+import com.korea.health.user.model.payment.PayMember;
+import com.korea.health.user.model.payment.Payment_List;
 import com.korea.health.user.model.event.EventVO;
-import com.korea.health.user.model.payment.cardVO;
-import com.korea.health.user.model.payment.cardVO2;
+import com.korea.health.user.model.payment.CardVO;
+import com.korea.health.user.model.payment.CardVO2;
 
 
 @Controller
@@ -66,10 +66,10 @@ public class EventPageController {
          @ModelAttribute("discount")String dico ,
          @ModelAttribute("title")String title ,
          @ModelAttribute("ticket")String ticket ,
-         cardVO vo,
-         cardVO2 vo2,
-         payMember pmem,
-         payment_list pl,
+         CardVO vo,
+         CardVO2 vo2,
+         PayMember pmem,
+         Payment_List pl,
          Model mm,
          HttpServletRequest req
 		   ) {
@@ -78,7 +78,7 @@ public class EventPageController {
 	   mm.addAttribute("price",e_pr);
 	   mm.addAttribute("discount",dico);
 	   mm.addAttribute("title",title);
-	   mm.addAttribute("tictet",ticket);
+	   mm.addAttribute("ticket",ticket);
       Action action = provider.getContext().getBean(cate, Action.class);
 
     
