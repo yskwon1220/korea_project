@@ -60,7 +60,7 @@
 							<div class="row" style="width: 30%; float:none; margin:0 auto">
 									<div class="form-group  col">
 										<label for="pw" class="">고객님의 ID</label>
-										<input type="text" id="user_id" name="user_id" class="form-control" readonly="readonly" value="${memberId.user_id}">
+										<input type="text" id="user_id" name="user_id" class="form-control" readonly="readonly" value="${memberId}">
 									</div>
 							</div>
 					

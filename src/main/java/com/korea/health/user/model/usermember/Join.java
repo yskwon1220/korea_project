@@ -22,8 +22,12 @@ public class Join implements Action {
 		
 
 		System.out.println("usermember/join execute() 실행");
+
 		
-		return null;
+		
+
+		
+		return mapper.loCheck();
 	}
 
 }

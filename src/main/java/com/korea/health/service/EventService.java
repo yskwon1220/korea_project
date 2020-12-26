@@ -41,6 +41,8 @@ public class EventService implements Action {
 				mapper.newNum(pl);
 				mapper.paymentResult_del(pl);
 				mapper.newNum2(pl);
+				mapper.branchPayDel(pl);
+				
 			}
 
 			return mapper.payment_sel(user_ss);

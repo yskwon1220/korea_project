@@ -88,16 +88,7 @@
 					</div>
 				</div>
 				
-<!-- <form action ="oneinsertReg" method="post" enctype="multipart/form-data">
 			<div class="bottomB">
-				<a href="onelist">목록으로</a> 
-				<a href="onemodify?board_no=${sm.board_no }">수정</a>
-				<a href="onedelete?board_no=${sm.board_no }">삭제</a>
-			</div>
-			</form>
- -->
-<!-- 				<form action="reviewinsertreg" method="post" enctype="multipart/form-data"> -->
-				<div class="bottomB">
 					<a class="btn btn-primary" href="reviewlist">목록</a>
 					<c:if test = "${sessionScope.user_id  == vo.user_id  }">
 						<a class="btn btn-primary" href="reviewmodify?review_no=${vo.review_no }">수정</a>

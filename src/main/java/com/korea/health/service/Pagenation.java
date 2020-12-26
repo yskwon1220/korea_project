@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.korea.health.admin.model.branch.BranchVO;
 import com.korea.health.admin.model.reservation.ResTimeVO;
+import com.korea.health.admin.model.reservation.ReservationTimeVO;
 import com.korea.health.admin.model.reservation.ReservationVO;
 import com.korea.health.admin.model.result.ResultVO;
 import com.korea.health.admin.model.trainer.TrainerVO;
@@ -27,15 +28,15 @@ public class Pagenation {
 	private String keyField;
 	private String keyWord;
 	private List<ResTimeVO> reservtimeSet;
+	private List<ReservationTimeVO> reservtime2Set;
 	private List<TrainerVO> pageSet;
 	private String locationNo;
 	private Integer user_no;
 	private List<ResultVO> resultSet; // 정산넣기
+	private String year;
 	private String month;
 	private String startDate;
 	private String endDate;
-	
-	
 	
 	
 	DecimalFormat fmt = new DecimalFormat("###,###");
@@ -88,6 +89,14 @@ public class Pagenation {
 
 	public void setResultSet(List<ResultVO> resultSet) {
 		this.resultSet = resultSet;
+	}
+	
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
 	}
 
 	public String getMonth() {
@@ -252,6 +261,14 @@ public class Pagenation {
 
 	public void setLocationNo(String locationNo) {
 		this.locationNo = locationNo;
+	}
+	
+	public List<ReservationTimeVO> getReservtime2Set() {
+		return reservtime2Set;
+	}
+
+	public void setReservtime2Set(List<ReservationTimeVO> reservtime2Set) {
+		this.reservtime2Set = reservtime2Set;
 	}
 
 	// 현재 페이지 정보, 현재 페이지 범위 정보, 게시물의 총 개수

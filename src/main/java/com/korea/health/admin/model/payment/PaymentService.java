@@ -40,12 +40,17 @@ public class PaymentService implements Action{
 			String endDate;
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 			DecimalFormat fmt = new DecimalFormat("###,###");
-			int year = 2020;
+			
+			int year = (int)map.get("year");
+//			int year = 2020;
+			
+			System.out.println(year);
 			
 			for (int i = 1; i <= 12; i++) {
 				startDate = sdf.format(new Date(year-1900, i-1, 1));
 				endDate = sdf.format(new Date(year-1900, i, 0));
-				
+				System.out.println("startDate : " + startDate);
+				System.out.println("endDate : " + endDate);
 				chartList.add(mapper.monthlyPayment(startDate, endDate));
 				
 				String result = fmt.format(mapper.monthlyPayment(startDate, endDate));
@@ -63,6 +68,7 @@ public class PaymentService implements Action{
 			pageCtl.pageInfo(page, range, listCnt);
 			
 			pageCtl.setMonth(String.valueOf(month));
+			pageCtl.setYear(String.valueOf(year));
 			pageCtl.setStartDate(startDate);
 			pageCtl.setEndDate(endDate);
 			pageCtl.setResultSet(mapper.monthList(pageCtl));

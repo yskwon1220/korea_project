@@ -14,17 +14,13 @@
 
 </head>
  <body>
-       
-      <div id="page-wrapper">
-
-
-		<h1>이벤트</h1>
-
-		<div class="tot">
-		
-		
-			<div class="big">
-				
+ 	<ol></ol>
+ 	<ol></ol>
+ 	<ol></ol>
+      <div id="page-wrapper" style="margin: auto auto">
+		<div><h1>이벤트</h1></div>
+		<div class="tot text-center">
+			<div class="big text-center">
 			<c:forEach items="${data }" var="arr">
 				<div class="small_div">
 					<div class="main_img">
@@ -32,13 +28,9 @@
 					</div>
 					<div class="main_text"><a href="event_detail?event_no=${arr.event_no}">${arr.title }</a></div>
 				</div>
-				
 			</c:forEach>
-	
 			</div>
-	
 		</div>
-
      </div>
 
 

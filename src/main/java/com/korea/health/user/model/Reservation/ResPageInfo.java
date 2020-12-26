@@ -12,8 +12,16 @@ public class ResPageInfo {
 	public 	int end;
 	public 	int startPage;
 	public 	int endPage;
-	
+	public String identify = "";
 	List<ReservationVO> voArr;
+
+	public String getIdentify() {
+		return identify;
+	}
+
+	public void setIdentify(String identify) {
+		this.identify = identify;
+	}
 
 	public List<ReservationVO> getVoArr() {
 		return voArr;
@@ -104,7 +112,7 @@ public class ResPageInfo {
 	public String toString() {
 		return "ResPageInfo [nowPage=" + nowPage + ", pageLimit=" + pageLimit + ", pageNumLimit=" + pageNumLimit
 				+ ", lastPage=" + lastPage + ", start=" + start + ", end=" + end + ", startPage=" + startPage
-				+ ", endPage=" + endPage + ", voArr=" + voArr + "]";
+				+ ", endPage=" + endPage + ", identify=" + identify + ", voArr=" + voArr + "]";
 	}
 	
 }

@@ -1,14 +1,14 @@
 package com.korea.health.user.controll;
 import java.util.HashMap;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import com.korea.health.provider.Action;
 import com.korea.health.provider.Kind;
 import com.korea.health.provider.Myprovider;
@@ -16,6 +16,7 @@ import com.korea.health.user.model.Location.LocationVO;
 import com.korea.health.user.model.Reservation.ResTimeVO;
 import com.korea.health.user.model.Reservation.ReservationVO;
 import com.korea.health.user.model.Trainer.TrainerVO;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 @Controller
 @RequestMapping("/resAjax/{cate}/{service}")
@@ -39,6 +40,7 @@ public class ResAjax {
 			LocationVO lovo, 
 			TrainerVO tvo,
 			ResTimeVO timeVO,
+			UserMemberVO mvo,
 			@PathVariable("cate") String cate, 
 			@PathVariable("service") String service,
 			HttpServletRequest req) {
@@ -47,7 +49,7 @@ public class ResAjax {
 		Action action = provider.getContext().getBean(cate + service, Action.class);
 		HashMap<String, Object> map = new HashMap<>();
 		
-		
+		map.put("mvo", mvo);
 		map.put("rvo", rvo);
 		map.put("lovo", lovo);
 		map.put("tvo", tvo);

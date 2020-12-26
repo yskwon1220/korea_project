@@ -110,7 +110,7 @@
 			</div>
 
 										<div align="right">
-									<input  type="button" class="btn btn-default" value="헤지가이름지어" onClick="javascript:location.href='/main'" >
+									<input  type="button" class="btn btn-default" value="나의 예약 내역" onClick="javascript:location.href='../reservation/myResList?user_id=${data.user_id}'" >
 									<input  type="button" class="btn btn-default" value="결제내역 및 환불" onClick="javascript:location.href='../pay/event/payment_list'" >
 										</div>
 										</form>

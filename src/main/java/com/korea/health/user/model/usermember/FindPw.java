@@ -16,7 +16,6 @@ public class FindPw implements Action {
 	UserMemberMapper mapper;
 
 
-	UserMemberVO mvo;	
 	
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
@@ -28,14 +27,15 @@ public class FindPw implements Action {
 		
 		UserMemberVO memberPw = mapper.findPw(mvo);
 		
-		if (memberPw == null) {
+		String user_pw = memberPw.getUser_pw();
+				
+		if (user_pw == null) {
 			req.setAttribute("memberPw", "findPwFailed");
 			
 		}else {
 			
-			req.setAttribute("memberPw", memberPw);
+			req.setAttribute("memberPw", user_pw);
 		}
-		
 		
 		return req;
 	}

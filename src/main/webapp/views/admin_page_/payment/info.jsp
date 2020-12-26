@@ -5,6 +5,11 @@
                             <h1 class="mt-4">정산</h1>
                         <ol>
                         </ol>
+                     <div class="col-sm-6">
+					   <a href="/admin_page_/payment/info" class="btn btn-info btn-primary btn-m">2020년</a>
+					   <a href="/admin_page_/payment/info?year=2019" class="btn btn-info btn-primary btn-m">2019년</a>
+					   <a href="/admin_page_/payment/info?year=2018" class="btn btn-info btn-primary btn-m">2018년</a>
+					</div>
                         <div class="row" style="margin-bottom: 20px">
 						  <div class="col-sm-6">
 						    <div class="card">
@@ -49,8 +54,10 @@
 									   	월별 결제내역
 									  </button>
 									  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									    <a class="dropdown-item" href="/admin_page_/payment/info?month=1">1월</a>
-									    <a class="dropdown-item" href="/admin_page_/payment/info?month=2">2월</a>
+									  	<c:forEach begin="1" end="12" step="1" var="no">
+									    <a class="dropdown-item" href="/admin_page_/payment/info?year=${data['pageCtl'].year}&month=${no}">${no}월</a>
+									  	</c:forEach>
+<!-- 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=2">2월</a>
 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=3">3월</a>
 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=4">4월</a>
 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=5">5월</a>
@@ -60,7 +67,7 @@
 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=9">9월</a>
 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=10">10월</a>
 									    <a class="dropdown-item" href="/admin_page_/payment/info?month=11">11월</a>
-									    <a class="dropdown-item" href="/admin_page_/payment/info?month=12">12월</a>
+									    <a class="dropdown-item" href="/admin_page_/payment/info?month=12">12월</a> -->
 									  </div>
 									</div>
 	                            </div>
@@ -90,7 +97,7 @@
 	                                                <td class="align-middle">${data.showPayment}</td>
 	                                                <td class="align-middle">${data.welcomeDate}</td>
 	                                                <td class="align-middle">
-	                                                    <a href="/admin_page_/result/detail?payment_no=${data.payment_no}" class="btn btn-info btn-primary btn-sm">정보</a>
+	                                                    <a href="/admin_page_/result/detail?paymentdetail_no=${data.payment_no}" class="btn btn-info btn-primary btn-sm">정보</a>
 	                                                </td>
 	                                            </tr>
 	                                        </c:forEach>
@@ -120,6 +127,7 @@
                         </div>
                       	<script>
                       	var list = ${data['chartList']};
+                      	var temp = ${data['pageCtl'].year};
                       	
                     	var ctx = document.getElementById('myChart');
                     	var myChart = new Chart(ctx, {
@@ -127,7 +135,7 @@
                     		data: {
                     			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     			datasets: [{
-                    				label: "2020년 월별 매출",
+                    				label: temp + "년 월별 매출",
                     				data: list,
                     				backgroundColor: [
                     					'rgba(75, 192, 192, 0.3)',
@@ -193,8 +201,9 @@
 										var page = ((range - 2) * rangeSize) + 1;
 										var range = range - 1;
 										var month = ${data['pageCtl'].month};
+										var year = ${data['pageCtl'].year};
 								
-										var url = "info?month="+month;
+										var url = "info?year=" + year + "&month="+month;
 										url = url + "&page=" + page;
 										url = url + "&range=" + range;
 
@@ -205,8 +214,9 @@
 								  //페이지 번호 클릭
 									function fn_pagination(page, range, rangeSize, searchType, keyword) {
 										var month = ${data['pageCtl'].month};
-										
-										var url = "info?month="+month;
+										var year = ${data['pageCtl'].year};
+								
+										var url = "info?year=" + year + "&month="+month;
 										url = url + "&page=" + page;
 										url = url + "&range=" + range;
 									
@@ -218,8 +228,9 @@
 									function fn_next(page, range, rangeSize) {
 										var page = parseInt((range * rangeSize)) + 1;
 										var month = ${data['pageCtl'].month};
-										
-										var url = "info?month="+month;
+										var year = ${data['pageCtl'].year};
+								
+										var url = "info?year=" + year + "&month="+month;
 										url = url + "&page=" + page;
 										url = url + "&range=" + range;
 								

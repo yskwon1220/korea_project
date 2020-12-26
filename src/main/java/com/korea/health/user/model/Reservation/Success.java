@@ -32,8 +32,10 @@ public class Success implements Action{
 			
 			rvo.setLo_no(req.getParameter("lo_no")); 
 			rvo.setUser_name(req.getParameter("user_name"));
+			rvo.setUser_id(req.getParameter("user_id"));
 
 			req.setAttribute("lo_no", (String)req.getParameter("lo_no"));
+			req.setAttribute("user_id", (String)req.getParameter("user_id"));
 			req.setAttribute("user_name", (String)req.getParameter("user_name"));
 
 			ResTimeVO timevo = (ResTimeVO)map.get("timevo");

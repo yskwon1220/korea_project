@@ -93,19 +93,19 @@ function maxLengthCheck(object){
 		}
 
  	if(payment_cate3){
-	
+		var goods = ${title};
  		 $("input[name=pay_way]").val("가상계좌");
  	 	
 		BootPay.request({
 		price: $(array[1]).attr("value"), 
 		application_id: "5fd515762fa5c2002f03846b",
-		name: '${title}', 
+		name: goods, 
 		pg: 'easypay',
 		method: 'vbank',
 		show_agree_window: 0,
 		items: [
 			{
-				item_name: '${title}',
+				item_name: goods,
 				qty: 1,
 				unique: '123',
 				price: 1000,

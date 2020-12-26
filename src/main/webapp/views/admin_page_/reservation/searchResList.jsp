@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
-	function searchCheck(frm) {
+	function searchResCheck(frm) {
 		if (frm.keyWord.value.trim() == "") {
 			alert("검색 단어를 입력하세요.");
 			frm.keyWord.focus();
@@ -19,26 +19,30 @@
 	<!-- <form method="get" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> -->
 	<div class="input-group" style="margin: 10px;">
 
-		<!-- <input class="form-control" type="text" placeholder="예약자명을 입력해주세요"
-			onkeyup="searchFunction();" id="tr_name" />
 
-		<div class="input-group-append">
-			<button class="btn btn-info" onclick="searchFunction();"
-				type="button">
-				<i class="fas fa-search"></i>
-			</button>
-		</div> -->
 
-		<form action="searchResList" method="get">
-			<select name="keyField">
+		 <form action="searchResList" method="post">
+		
+		<table>
+		 <tr>
+		     <td>  <select class="form-control" name="keyField">
 				<option value="0">----선택----</option>
-				<option value="lo_no">지점 별 조회</option>
-				<option value="resDate">예약 날짜별 조회</option>
-				<option value="resTime">예약 시간별 조회</option>
-			</select> <input type="text" name="keyWord" /> <input type="hidden"
-				name="lo_no" value="${param.lo_no }" /> <input type="button"
-				value="검색" onclick="searchCheck(form)" />
+				<!-- <option value="lo_no">지점 별 조회</option> -->
+				<option value="resdate">예약 날짜별 조회</option>
+				<option value="restime">예약 시간별 조회</option>
+			</select>   </td>
+		     <td>  <input class="form-control" type="text" name="keyWord" />   </td>
+		     
+		     <td> &nbsp;&nbsp; <input type="button" class="btn btn-info btn-primary btn-sm" value="검색" onclick="searchCheck(form)" /> </td>
+		     
+		       <td> &nbsp;&nbsp; <input type="button" class="btn btn-info btn-primary btn-sm" value="뒤로" onclick="location.href='reslist?lo_no=${param.lo_no}'" /> </td>
+		 
+		 </tr>
+			
+		</table>
+			<input type="hidden" name="lo_no" value="${param.lo_no }" /> 
 		</form>
+
 
 	</div>
 	<!-- </form> -->
@@ -53,18 +57,16 @@
 				cellspacing="0">
 				<thead>
 					<tr>
-						<th>지점 번호</th>
 						<th>예약 일자</th>
 						<th>일자별 시간</th>
 						<th>시간별 인원수</th>
 					</tr>
 				</thead>
 				<tbody id="showTable">
-					<c:forEach items="${data.reservtimeSet}" var="data" varStatus="no">
+					<c:forEach items="${data.reservtime2Set}" var="data" varStatus="no">
 						<tr>
-							<td class="align-middle">${data.lo_no}</td>
-							<td class="align-middle">${data.resDate}</td>
-							<td class="align-middle">${data.resTime}</td>
+							<td class="align-middle">${data.welcomeDate}</td>
+							<td class="align-middle">${data.restime}:00</td>
 							<td class="align-middle">${data.nowCnt}</td>
 						</tr>
 					</c:forEach>
@@ -95,50 +97,57 @@
 					</c:if>
 				</ul>
 			</div>
+			
+			<div class="col-md-6">
+				<a style="float: right;" href="/admin_page_/reservation/resinfo" class="btn btn-info btn-primary btn-sm">목록으로</a>
+			</div>
 		</div>
 	</div>
 </div>
 <script>
-	//이전 버튼 이벤트
-	function fn_prev(page, range, rangeSize) {
+								//이전 버튼 이벤트
+							function fn_prev(page, range, rangeSize, keyField, keyWord) {
+									var page = ((range - 2) * rangeSize) + 1;
+									var range = range - 1;
+									var temp = ${data.locationNo};
+									
+									var url = "searchResList?lo_no=" + temp;
+									url = url + "&page=" + page;
+									url = url + "&range=" + range;
+									url = url + "&keyField=" + keyField;
+									url = url + "&keyWord=" + keyWord;
 
-		var page = ((range - 2) * rangeSize) + 1;
-		var range = range - 1;
-
-		var url = "searchResList";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		url = url + "&keyField=" + keyField;
-		url = url + "&keyWord=" + keyWord;
-
-		location.href = url;
-
-	}
-
-	//페이지 번호 클릭
-	function fn_pagination(page, range, rangeSize, searchType, keyword) {
-
-		var url = "searchResList";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		url = url + "&keyField=" + keyField;
-		url = url + "&keyWord=" + keyWord;
-
-		location.href = url;
-
-	}
-
-	//다음 버튼 이벤트
-	function fn_next(page, range, rangeSize) {
-		var page = parseInt((range * rangeSize)) + 1;
-		var range = parseInt(range) + 1;
-
-		var url = "searchResList";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		url = url + "&keyField=" + keyField;
-		url = url + "&keyWord=" + keyWord;
-
-		location.href = url;
-	}
+									location.href = url;
+									
+								}
+							
+							  //페이지 번호 클릭
+								function fn_pagination(page, range, rangeSize, keyField, keyWord) {
+										var temp = ${data.locationNo};
+										var url;
+										
+										url = "searchResList?lo_no=" + temp;
+										url = url + "&page=" + page;
+										url = url + "&range=" + range;
+										url = url + "&keyField=" + keyField;
+										url = url + "&keyWord=" + keyWord;
+										
+										location.href = url;	
+							
+								}
+							
+								//다음 버튼 이벤트
+								function fn_next(page, range, rangeSize, keyField, keyWord) {
+									var page = parseInt((range * rangeSize)) + 1;
+									var range = parseInt(range) + 1;
+									var temp = ${data.locationNo};
+									
+									var url = "searchResList?lo_no=" + temp;
+									url = url + "&page=" + page;
+									url = url + "&range=" + range;
+									url = url + "&keyField=" + keyField;
+									url = url + "&keyWord=" + keyWord;
+									
+									location.href = url;
+								}
 </script>

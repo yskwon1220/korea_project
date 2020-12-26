@@ -94,7 +94,7 @@ public class TrainerService implements Action {
 				System.out.println("switch case : delete에 들어왔다.");
 				
 				String fileName = vo.getTr_pic();
-				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
+				String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\gangsa";
 				
 				int cnt = mapper.trainerDelete(vo);
 				if(cnt == 0) {
@@ -115,7 +115,7 @@ public class TrainerService implements Action {
 	
 	   String fileUpload(MultipartFile mf, HttpServletRequest req) {
 		      String path = req.getRealPath("/images");
-		      path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images";
+		      path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\gangsa";
 		      
 		      String res = fileNewName(path,mf.getOriginalFilename());
 		      

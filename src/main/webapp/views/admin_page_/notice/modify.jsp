@@ -41,7 +41,7 @@
 						<hr>
 					</div>
 					<div>
-						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a
+						<input class="btn btn-primary" type="submit" value="수정하기" /> <a
 							class="btn btn-primary" href="info">목록으로</a>
 					</div>
 				</form>

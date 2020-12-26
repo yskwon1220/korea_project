@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.mainSetting.UploadImgMapper">
+
+	<select id="list" resultType="com.korea.health.admin.model.mainSetting.UploadMainImgVO">
+			select * from uploadmainimg order by imgNo DESC
+
+	</select>
+	
+	<select id="detail" resultType="com.korea.health.admin.model.mainSetting.UploadMainImgVO"
+		parameterType="java.lang.Integer">
+		SELECT * FROM uploadmainimg WHERE IMGNO = #{imgNo}
+	</select>
+	
+	<insert id="insert" parameterType="com.korea.health.admin.model.mainSetting.UploadMainImgVO">
+		<selectKey keyProperty="imgNo" resultType="java.lang.Integer" order="BEFORE">
+			select max(imgNo)+1 from uploadmainimg
+		</selectKey>
+		insert into uploadmainimg (image, imgno, content_1, content_2)
+		values (#{image, jdbcType=VARCHAR}, #{imgNo, jdbcType=VARCHAR}, #{content_1, jdbcType=VARCHAR}, #{content_2, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="fileDelete" parameterType="java.lang.Integer">
+		update uploadmainimg set image = '' where imgNo = #{imgNo}
+	</update>
+	
+	<update id="modify" parameterType="com.korea.health.admin.model.mainSetting.UploadMainImgVO">
+		UPDATE uploadmainimg set image = #{image}, CONTENT_1 = #{content_1}, CONTENT_2 = #{content_2} where imgNo = #{imgNo}
+	</update>
+	
+	<delete id="delete" parameterType="com.korea.health.admin.model.mainSetting.UploadMainImgVO">
+		delete from uploadmainimg where imgNo = #{imgNo}
+	</delete>	
+</mapper>

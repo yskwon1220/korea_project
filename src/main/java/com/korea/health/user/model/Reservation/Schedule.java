@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 
 
@@ -20,6 +21,11 @@ public class Schedule implements Action{
 	@Override
 	public Object execute(HashMap<String, Object> map, HttpServletRequest req) {
 
+		UserMemberVO mvo = (UserMemberVO)map.get("mvo");
+		
+		String user_id = (String)req.getSession().getAttribute("user_id");
+		System.out.println();
+		System.out.println("ㅎㅇ"+ user_id);
 		
 		req.setAttribute("lo_no", (String)req.getParameter("lo_no"));
 		req.setAttribute("lo_name", (String)req.getParameter("lo_name"));
@@ -33,6 +39,7 @@ public class Schedule implements Action{
 		rvo.setTr_name(req.getParameter("tr_name"));
 		rvo.setType(req.getParameter("type"));
 		rvo.setUser_name(req.getParameter("user_name"));
+		rvo.setUser_name(req.getParameter("user_id"));
 		rvo.setUser_pw(req.getParameter("user_pw"));
 		rvo.setUser_tel(req.getParameter("user_tel"));
 		rvo.setContent(req.getParameter("content"));

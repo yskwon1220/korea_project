@@ -5,19 +5,22 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.korea.health.user.model.Trainer.TrainerVO;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 
 @Mapper
 public interface ResMapper {
 	List<ResTimeVO> selectByRes(ResTimeVO timeVO);	
-	//제이슨 출력 
 	
-	//List<ReservationVO> list();
-	//
-	
-	List<ReservationVO> MyResList(String user_name);
+	List<ReservationVO> MyResList(String user_id);
 	//내 모든 예약 리스트
-
+	
+	//List<ReservationVO> MyDateSelect(String user_id);
+	int MyDateSelect(String user_id);
+	//내가 선택한 날짜에 대한 조회 ( 이미 존재한다면 예약을 하지못하게 제약을 건다 )
+	int MyDateSelect2(ReservationVO rvo);
+	//내가 선택한 날짜에 대한 조회 ( 이미 존재한다면 예약을 하지못하게 제약을 건다 )
+	
 	
 	ReservationVO MyDetailList(int re_no);
 	//내 예약 리스트1개의 디테일
@@ -60,7 +63,9 @@ public interface ResMapper {
 	ReservationVO MyDetailList2(int re_no);
 	//toomany떠서 새로 만듬..
 	
+	UserMemberVO userInfo(String user_id);
 	
-	
+	UserMemberVO pwCheckOk(UserMemberVO mvo);
+
 	
 }

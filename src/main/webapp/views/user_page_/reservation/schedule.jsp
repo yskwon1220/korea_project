@@ -40,10 +40,8 @@
 </head>
 
 <body onload="renderDate()"> 
-<!-- <body > -->
 
 	<div id="fh5co-page">
-
 		<div id="fh5co-pricing-section">
 			<div class="container">
 
@@ -83,7 +81,7 @@
 								<div>Fri</div>
 								<div>Sat</div>
 							</div>
-							<div class="days" id="days"></div>
+							<div class="days" id="days" onclick="return TestDay()"></div>
 						</div>
 					</div>
 				</div>
@@ -93,7 +91,7 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
 
-						<form action="insertForm" action="post">
+						<form name="frm"  action="insertForm" method="post">
 
 							<input type="hidden" name="lo_no" value="${lo_no}" /> <input
 								type="hidden" name="lo_name" value="${lo_name}" /> <input
@@ -154,7 +152,7 @@
 										<td id="time_19">/ 30</td>
 									</tr>
 									<tr>
-										<td><input id ="rad_19" type="radio" name="resTime" value="21" /></td>
+										<td><input id ="rad_21" type="radio" name="resTime" value="21" /></td>
 										<td><button id="button">21:00</button></td>
 										<td id="res_21">예약가능</td>
 										<td id="time_21">/ 30</td>
@@ -162,8 +160,8 @@
 									</tr>
 								</tbody>
 							</table>
-							<input id="hidden_real" type="hidden" name="resdate"> <input
-								type="submit" value="다음">
+							<input id="hidden_real" type="hidden" name="resdate"> 
+							<input type="button" onclick="return resAjaxGo2()"class="btn btn-primary" value="다음">
 						</form>
 					</div>
 				</div>
@@ -184,11 +182,9 @@
 
 					if(!ajaxGoFirst){
 						resAjaxGo( dt.getFullYear() + "_"+ (dt.getMonth() + 1) + "_" + dt.getDate() ) 
-						
 					}
-
 					ajaxGoFirst = false
-
+					
 					var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
 					var months = [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ]
 					document.getElementById("month").innerHTML = months[dt.getMonth()];
@@ -205,50 +201,78 @@
 						if (i == today.getDate()&& dt.getMonth() == today.getMonth()){
 							cells += "<div class='today' onclick=resAjaxGo("+ ee + ")>" + i + "</div>";
 						}else{
-							cells += "<div onclick=resAjaxGo(" + ee + ")>" + i+ "</div>";
+							cells += "<div class='' onclick=resAjaxGo(" + ee + ")>" + i+ "</div>";
 						}
 
 						
 							
 					}
 					document.getElementsByClassName("days")[0].innerHTML = cells;
+					var test;
+					$(".days div").click(function() {
+					    $(this).addClass('test_css');
+						$(this).siblings().removeClass('test_css');
+						if(Number($(this).text()) < Number($(".today").text())) {
+							alert("이전 날짜는 예약할 수 없습니다.");
 
+						} 
+					});
 				}
 
-
+/* 				if(data[5].resDate <= nowEE)
+					alert('ㅎㅇ') */
+					
 				function resAjaxGo(dt) {
 					
 					$.ajax({
 								url : '../../resAjax/reservation/timecnt?lo_no=${lo_no}&resDateStr='+ dt,
 								dataType : 'json',
 								success : function(data) {
-									
+									var dt = new Date();
 									$("#hidden_real").val(data[5].resDate);
 									
 									for (i in data) {
+										$("input:radio[name='resTime'][value='"+i+"']").removeAttr("checked")
+										// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
+			
+										$("#rad_" + i).removeAttr("disabled")
 										console.log(i, data[i])
-										//콘솔에 데이터를 출력한다
 										
 										var ttt = "예약가능"
 										// 변수 ttt를 초기화한다
+										var today= dt.getUTCDate();
+										var selectDay = data[5].resDate.split('_')[2];
+										console.log("TEST T: " + today);
+										console.log("TEST S: " + data[5].resDate);
 
-										if(data[i].nowCnt >=30) { 
-
-													ttt = "예약불가"
+										if((Number(today) + 1) > Number(selectDay)) {
+											console.log("TEST TESTSETSERS");
+											ttt = "예약불가"
 												// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
 												
-												$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false)
+											$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false);
 												// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
 		
-												$("#rad_" + i).attr('disabled','true')
+											$("#rad_" + i).attr('disabled','true');
 												//input type radio 의 id가 rad_ i 인것을 비활성화한다.
+										} 
+									
+										if(data[i].nowCnt >=30) { 
+							
+											ttt = "예약불가"
+											// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
+														
+											$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false)
+											// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
+				
+											$("#rad_" + i).attr('disabled','true')
+											//input type radio 의 id가 rad_ i 인것을 비활성화한다.
 										}
-										
 										$("#res_" + i).html(ttt)
-										//div id가 res_i인 요소를 예약가능/예약 불가 로 표현한다
-										
+												//div id가 res_i인 요소를 예약가능/예약 불가 로 표현한다
+												
 										$("#time_" + i).html(data[i].nowCnt + " / 30")
-										//div id가 time_i인 요소를 인원수로 표현한다
+												//div id가 time_i인 요소를 인원수로 표현한다
 									}
 								},
 
@@ -259,20 +283,39 @@
 
 				}
 
+				function resAjaxGo2() {
+					$.ajax({
+						url : '/resAjax/reservation/myselect?resdate='+ document.frm.hidden_real.value,
+						success : function(data) {
+							//alert(data)
+							if(eval(data)>0){
+								alert("이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ")
+							}else{
+								frm.submit()
+							}
+						},
+						error : function(e) { 
+							alert(e.responseText);
+						}
+					});
+				}
+
 				function moveDate(para) {
 					if (para == "prev") {
 						alert("이전 달은 예약할 수 없습니다.");
 						//dt.setMonth(dt.getMonth() - 1);
+						
 					} else if (para == 'next') {
 						alert("다음 달은 예약할 수 없습니다.");
 						//dt.setMonth(dt.getMonth() + 1);
+						
 					}
 					renderDate();
 				}
 				
 			</script>
-			
-
+			<script src="<c:url value="${path }/resource/js/jquery-3.5.1.js"/>"></script>
+			<script src="<c:url value="${path }/resource/js/jquery.min.js"/>"></script>
 			<script
 				src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 			<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
@@ -293,23 +336,7 @@
 				var nowEE = nowDD.getFullYear() + "_"+ (nowDD.getMonth() + 1) + "_" + nowDD.getDate() ;
 				resAjaxGo(nowEE) 
 			</script> 
-			
 
-<script>
-$(".days").click(function() {
-    toggleClass(".active-color");
-});
-</script>
 
-<script>
-$('#days').on('click', function(){
-$(this).addClass('active');
-});
-</script>
-<script>
-$('#days').on('click', function(){
-$(this).addClass('visited');
-});
-</script>
 </body>
 </html>

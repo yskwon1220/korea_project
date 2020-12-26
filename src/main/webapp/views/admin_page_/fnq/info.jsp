@@ -3,33 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h1 class="mt-4">1대1 문의</h1>
-<!-- <ol>
-</ol>
-<div class="row">
-	<div class="col-xl-12">
-		<div class="card mb-4">
-			<div class="card-body">
-				<form action="회원검색모듈.html">
-					<div class="form-group col-xl-4" style="display: inline-block">
-						<label for="search">검색 기준</label> <select class="form-control"
-							id="search">
-							<option>이름</option>
-							<option>아이디</option>
-							<option>닉네임</option>
-						</select>
-					</div>
-					<div class="form-group col-xl-4" style="display: inline-block">
-						<label for="txt1">검색 명</label> <input type="text"
-							class="form-control" id="txt1">
-					</div>
-					<div class="form-group col-l-2" style="display: inline-block">
-						<input type="submit" class="form-control" id="submit1" value="검색">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div> -->
 
 <div class="card mb-4">
 	<div class="card-header">

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" errorPage="error.jsp"%>
-<%-- <%@ page contentType="text/html;charset=UTF-8" errorPage="error.jsp"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +15,10 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
+
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
 	rel="stylesheet">
@@ -60,12 +64,12 @@
 							<thead>
 
 								<tr>
-									<th colspan="2" style="height:75px;" >예약정보</th>
+									<th colspan="2" style="height: 75px;">예약정보</th>
 								</tr>
 
 							</thead>
 							<tbody>
-								<c:set var="rvo" value="${data}" /> 
+								<c:set var="rvo" value="${data}" />
 								<tr>
 									<td>예약번호</td>
 									<td>${rvo.re_no}</td>
@@ -76,18 +80,16 @@
 								</tr>
 								<tr>
 									<td>트레이너</td>
-									<td>${rvo.tr_name } 강사</td>
+									<td>${rvo.tr_name }강사</td>
 								</tr>
 								<tr>
 									<td>선택</td>
-									<td>${rvo.type }</td>
+									<td>${rvo.type }
+									<fmt:formatDate value="${rvo.resdate }"
+											pattern="yyyy-MM-dd (E)" var="write_dt" />
+									</td>
 								</tr>
 
-								<tr>
-									<td>예약 날짜</td>
-									<td><fmt:formatDate value="${rvo.resdate }"
-											pattern="yyyy-MM-dd (E)" /></td>
-								</tr>
 								<tr>
 									<td>예약 시간</td>
 									<td>${rvo.resTime }:00</td>
@@ -106,12 +108,17 @@
 								</tr>
 							</tbody>
 						</table>
-<br><br>
-						<a href="deleteForm?re_no=${rvo.re_no}&user_name=${rvo.user_name}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}">예약취소</a>
-							
-							&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" value="되돌아가기"
-							onclick="location.href='javascript:history.back()'">
+						<br> <br>
+
+
+						<!-- 지난 날짜는 버튼을 숨긴다. -->
+						<c:if test="${today <= write_dt}">
+							<a
+								href="deleteForm?re_no=${rvo.re_no}&user_id=${rvo.user_id}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}" class="btn btn-primary">예약취소</a>
+						</c:if>
+
+						&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="되돌아가기"
+							class="btn btn-primary" onclick="location.href='javascript:history.back()' ">
 
 
 					</div>

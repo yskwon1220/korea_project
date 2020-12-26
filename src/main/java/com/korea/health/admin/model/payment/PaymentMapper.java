@@ -9,6 +9,7 @@ import com.korea.health.service.Pagenation;
 
 @Mapper
 public interface PaymentMapper {
+	
 	Integer monthlyPayment(String startDate, String endDate);
 	
 	List<ResultVO> monthList(Pagenation pagenation);
@@ -16,4 +17,5 @@ public interface PaymentMapper {
 	Integer monthCnt(String startDate, String endDate);
 	
 	String findUser(int user_no);
+	
 }

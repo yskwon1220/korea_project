@@ -20,6 +20,51 @@
 		</select> 	
  	
  	
+ 	<!--이메일 중복 체크-->
+ 	
+ 		<select id="emailCheck" 
+		 parameterType="java.lang.String" 
+		 resultType="com.korea.health.user.model.usermember.UserMemberVO">	
+
+		select 
+			user_email
+		from 
+			usermember 
+		where 
+			user_email = #{user_email} 
+
+		</select> 	
+ 	
+ 	
+ 	<!--전화번호 중복 체크-->
+ 	
+ 		<select id="telCheck" 
+		 parameterType="java.lang.String" 
+		 resultType="com.korea.health.user.model.usermember.UserMemberVO">	
+
+		select 
+			user_tel
+		from 
+			usermember 
+		where 
+			user_tel = #{user_tel} 
+
+		</select> 
+		
+		
+ 	<!-- 회원가입창에 lo_no띄우기 -->
+ 	
+ 		<select id="loCheck" 
+		 resultType="com.korea.health.user.model.Location.LocationVO">	
+
+		select 
+			lo_name, lo_no
+		from 
+			location
+
+		</select> 
+ 	
+ 	
  	<!--회원가입-->
 	<sql id="noMax">
 		(select max(user_no)+1 from usermember)
@@ -32,11 +77,11 @@
 			</selectKey> 		
 		 		insert into  usermember (
 		 			user_no, user_id, user_pw, user_name, user_birth, user_email, 
-		 			user_tel, gender, regdate, admin, reserve_cnt,point,coupon
+		 			user_tel, gender, regdate, admin, reserve_cnt,point,coupon,lo_no
 		 		)
 		 		values
 		 		(#{user_no}, #{user_id}, #{user_pw}, #{user_name}, #{user_birth}, #{user_email}, 
-		 		#{user_tel}, #{gender}, sysdate, 'user', 0, 0,' ')		
+		 		#{user_tel}, #{gender}, sysdate, 'user', 0, 0,' ',#{lo_no})		
  		
  		</insert>
  		

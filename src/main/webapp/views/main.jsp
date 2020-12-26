@@ -45,50 +45,20 @@
 		<aside id="fh5co-hero" class="js-fullheight">
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
-					<li style="background-image: url(../resource/images/intro01.jpg);">
-						<div class="overlay-gradient"></div>
-						<div class="container">
-							<div
-								class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-								<div class="slider-text-inner">
-									<h2>Winning and losing isn't everything. Sometimes, the
-										journey is just as important as the outcome.</h2>
-									<p style="color: white; font-weight: bold">이기고 지는 것이 전부가
-										아니다. 때때로 그 여정은 결과만큼 중요하다.</p>
-									<%-- <p><a href="<c:url value="style_hyeji/introMain.jsp"/>" class="btn btn-primary btn-lg">더 알아보기</a></p> --%>
+					<c:forEach items="${data_33 }" var="sm" begin="0" end="5">
+						<li style="background-image: url(../resource/images/${sm.image});">
+							<div class="overlay-gradient"></div>
+							<div class="container">
+								<div
+									class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
+									<div class="slider-text-inner">
+										<h2>${sm.content_1 }</h2>
+										<p style="color: white; font-weight: bold">${sm.content_2 }</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					</li>
-					<li style="background-image: url(../resource/images/intro02.jpg);">
-						<div class="container">
-							<div
-								class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-								<div class="slider-text-inner">
-									<h2>He who has health hope; and he who has hope has
-										everything</h2>
-									<p style="color: white; font-weight: bold">건강을 가진 자는 희망이 있는
-										자요, 희망이 있는 자는 모든것을 가진 자다.</p>
-									<!-- <p><a href="#" class="btn btn-primary btn-lg">Get started</a></p> -->
-								</div>
-							</div>
-
-						</div>
-					</li>
-					<li style="background-image: url(../resource/images/intro03.jpg);">
-						<div class="container">
-							<div
-								class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
-								<div class="slider-text-inner">
-									<h2>Take care of your body. It's the only place you have
-										to live.</h2>
-									<p style="color: white; font-weight: bold">너의 몸을 건강하게 잘
-										돌보라, 그것은 당신이 살아갈 수 있는 유일한 장소이다.</p>
-									<!-- <p><a href="#" class="btn btn-primary btn-lg">Get started</a></p> -->
-								</div>
-							</div>
-						</div>
-					</li>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</aside>
@@ -103,66 +73,17 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 animate-box">
-						<div class="services">
+					<c:forEach items="${data_44 }" var="sm" begin="0" end="5">
+						<div class="col-md-4 animate-box">
+							<div class="services">
 
-							<div class="desc">
-								<h3>시설 방역</h3>
-								<p>일 3회 내부시설 전체 방역 및 소독을 철저하게 진행하고 있습니다.</p>
+								<div class="desc">
+									<h3>${sm.title }</h3>
+									<p>${sm.content }</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-
-							<div class="desc">
-								<h3>전면 예약제</h3>
-								<p>안전하고 쾌적하게 이용하실 수 있도록 시간별 시설 이용인원 제한 및 전면 예약제를 실시하고 있습니다.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-
-							<div class="desc">
-								<h3>합리적인 비용</h3>
-								<p>
-									멤버쉽 가입시 Fitness Club 전 지점에서 이용 가능하며 <br>합리적인 균일가로 이용하실 수
-									있습니다.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-
-							<div class="desc">
-								<h3>방역지침 준수</h3>
-								<p>감염병 예방을 위해 시설 출입시 체온 측정 및 출입명부 작성, 거리두기 유지로 방역 수칙을 철저하게
-									관리하고 있습니다.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-
-							<div class="desc">
-								<h3>전문적인 PT</h3>
-								<p>국제 트레이너 자격증(FISAF)을 취득한 전문 트레이너로 구성되어 체계적인 맞춤 PT를
-									제공해드립니다.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-
-							<div class="desc">
-								<h3>최신 시설</h3>
-								<p>최신식 운동 기구들을 다량 보유하고 있으며 샤워장과 사우나가 구비되어 있습니다.</p>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -173,7 +94,7 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 						<h2>Fitness Club Notice</h2>
 						<hr>
-						<p>_</p>
+						<p>Fitness Club 새로운 소식을 만나볼 수 있습니다.</p>
 					</div>
 				</div>
 				<div class="row">
@@ -183,10 +104,9 @@
 							<a
 								href="/user_page_/notice/noticedetail?notice_no=${sm.notice_no }"
 								class="item-grid text-center">
-								<div class="image"
-									style="background-image: url(../resource/images/fit02.jpg)"></div>
 								<div class="v-align">
 									<div class="v-align-middle">
+										<h3 class="title"></h3>
 										<h3 class="title">${sm.title }</h3>
 									</div>
 									<h5 class="date">
@@ -197,13 +117,6 @@
 							</a>
 						</div>
 					</c:forEach>
-					<!-- 					<div class="col-md-12 text-center animate-box">
-						<p>
-							<a href="#" class="btn btn-primary with-arrow">View More
-								Projects <i class="icon-arrow-right"></i>
-							</a>
-						</p>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -221,184 +134,35 @@
 					<c:forEach items="${data_22 }" var="sm" begin="0" end="5">
 						<input type="hidden" name="review_no" value="${sm.review_no }">
 						<div class="col-md-4 col-sm-4 animate-box">
-							<a href="/user_page_/review/review_detail?review_no=${sm.review_no }" class="item-grid">
+							<a
+								href="/user_page_/review/review_detail?review_no=${sm.review_no }"
+								class="item-grid">
 								<div class="image"
-									style="background-image: url(../resource/images/fitmain01.jpg)"></div>
+									style="background-image: url(${path}/upup/${sm.review_file_name})"></div>
 								<div class="v-align">
 									<div class="v-align-middle">
 										<h3 class="title">${sm.title }</h3>
 										<h5 class="date">
 											<span><fmt:formatDate value="${sm.regdate }"
-												pattern="yy-MM-dd HH:mm" /></span> | <span>4 Comments</span>
+													pattern="yy-MM-dd HH:mm" /></span>
 										</h5>
-										<p>꾸준히 운동을 진행하면서 바디프로필에 대한 목적이 생겨 인생 바디를 만들어보자라는 마음을 갖고
-											pt를 받게 되었습니다.</p>
+										<p>${sm.content }</p>
 									</div>
 								</div>
 							</a>
 						</div>
 					</c:forEach>
-						<div class="col-md-12 text-center animate-box">
-							<p>
-								<a href="#" class="btn btn-primary with-arrow">더 보기 <i
-									class="icon-arrow-right"></i>
-								</a>
-							</p>
-						</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- 
-		<div id="fh5co-testimony-section">
-			<div class="container">
-				<div class="row">
-					<div
-						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
-						<h2>Clients Feedback</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-offset-0 to-animate">
-						<div class="wrap-testimony animate-box">
-							<div class="owl-carousel-fullwidth">
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="../images/person1.jpg" alt="user">
-										</figure>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-										<span>Athan Smith, via <a href="#" class="twitter">Twitter</a></span>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="../images/person2.jpg" alt="user">
-										</figure>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-										<span>Nathalie Kosley, via <a href="#" class="twitter">Twitter</a></span>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide active text-center">
-										<figure>
-											<img src="..images/person3.jpg" alt="user">
-										</figure>
-										<blockquote>
-											<p>"Far far away, behind the word mountains, far from the
-												countries Vokalia and Consonantia, there live the blind
-												texts. Separated they live in Bookmarksgrove right at the
-												coast of the Semantics, a large language ocean."</p>
-										</blockquote>
-										<span>Yanna Kuzuki, via <a href="#" class="twitter">Twitter</a></span>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div class="col-md-12 text-center animate-box">
+						<p>
+							<a href="/user_page_/review/reviewlist"
+								class="btn btn-primary with-arrow">더 보기 <i
+								class="icon-arrow-right"></i>
+							</a>
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
- -->
-		<!-- 		<div id="fh5co-pricing-section">
-			<div class="container">
-				<div class="row">
-					<div
-						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
-						<h2>Pricing</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="pricing">
-						<div class="col-md-3 animate-box">
-							<div class="price-box">
-								<h2 class="pricing-plan">Starter</h2>
-								<div class="price">
-									<sup class="currency">$</sup>9<small>/month</small>
-								</div>
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-								</p>
-								<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-							</div>
-						</div>
-
-						<div class="col-md-3 animate-box">
-							<div class="price-box">
-								<h2 class="pricing-plan">Basic</h2>
-								<div class="price">
-									<sup class="currency">$</sup>27<small>/month</small>
-								</div>
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-								</p>
-								<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-							</div>
-						</div>
-
-						<div class="col-md-3 animate-box">
-							<div class="price-box popular">
-								<h2 class="pricing-plan pricing-plan-offer">
-									Pro <span>Best Offer</span>
-								</h2>
-								<div class="price">
-									<sup class="currency">$</sup>74<small>/month</small>
-								</div>
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-								</p>
-								<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-							</div>
-						</div>
-
-						<div class="col-md-3 animate-box">
-							<div class="price-box">
-								<h2 class="pricing-plan">Unlimited</h2>
-								<div class="price">
-									<sup class="currency">$</sup>140<small>/month</small>
-								</div>
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-								</p>
-								<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="fh5co-cta"
-			style="background-image: url(../images/slide_2.jpg);">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="col-md-12 text-center animate-box">
-					<h3>We Try To Update The Site Everyday</h3>
-					<p>
-						<a href="#" class="btn btn-primary btn-outline with-arrow">Get
-							started now! <i class="icon-arrow-right"></i>
-						</a>
-					</p>
-				</div>
-			</div>
-		</div>
-
- -->
 
 	</div>
 

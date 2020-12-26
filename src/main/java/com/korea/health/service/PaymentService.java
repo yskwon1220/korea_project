@@ -41,7 +41,8 @@ public class PaymentService implements Action {
 				mapper.payment_info(vo2,user_ss);
 				mapper.payment_result(vo2, user_ss);
 				mapper.userCntAdd(vo2,user_ss);
-				
+				mapper.branchPayAdd(vo2, user_ss);
+
 				if(!vo2.getCoupon_no().equals(null))
 				mapper.coupon_delete(user_ss, coupon_no);
 			

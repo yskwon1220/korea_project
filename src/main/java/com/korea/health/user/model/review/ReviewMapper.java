@@ -14,13 +14,15 @@ public interface ReviewMapper {
 	ReviewVO chkID(int review_no);
 	void insert(ReviewVO vo);
 	
+	void trainerStar(ReviewVO vo);
+	
 	void modify(ReviewVO vo);
 	void fileDelete(ReviewVO vo);
 	int updateCnt(int review_no);
-	
 	boolean delete(int review_no);
 	
-	List<ReviewVO> allReviewList();
+	Integer trainerStarDel(ReviewVO vo);
 	
+	List<ReviewVO> allReviewList();
 	int searchID(String user_id);
 }

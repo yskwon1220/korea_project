@@ -12,52 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- order by lo_no 추가하였음 -->
 	</select>
 
-	<select id="listAll"
-		resultType="com.korea.health.admin.model.reservation.ReservationVO"
-		parameterType="com.korea.health.service.Pagenation"
-		>
-		<![CDATA[
-        select * from (select rownum rnum, t1.* 
-         from (select * from reservation WHERE lo_no = #{locationNo} 
-         and ${keyField} like '%' || #{keyWord} || '%'
-        ) t1) 
-         where rnum >= #{startList} and rnum <= #{endList}
-         ]]>
-	</select>
 
-	<select id="reservationList"
-		resultType="com.korea.health.admin.model.reservation.ReservationVO"
-		parameterType="com.korea.health.service.Pagenation">
-				<![CDATA[
-        select * from (select rownum rnum, t1.* 
-         from (select * from reservation WHERE lo_no = #{locationNo}
-        ) t1) 
-         where rnum >= #{startList} and rnum <= #{endList}
-         ]]>
-	</select>
 	
-	<select id="reslistAll"
-		resultType="com.korea.health.admin.model.reservation.ResTimeVO"
-		parameterType="com.korea.health.service.Pagenation"
-		>
-		<![CDATA[
-        select * from (select rownum rnum, t1.* 
-         from (select * from restime WHERE lo_no = #{locationNo} 
-         and ${keyField} like '%' || #{keyWord} || '%'
-        ) t1) 
-         where rnum >= #{startList} and rnum <= #{endList}
-         ]]>
-	</select>
-	
-	<select id="reservationResList"
-		resultType="com.korea.health.admin.model.reservation.ResTimeVO"
-		parameterType="com.korea.health.service.Pagenation">
-				<![CDATA[
-        select * from (select rownum rnum, t1.* 
-         from (select * from restime) t1) 
-         where rnum >= #{startList} and rnum <= #{endList}
-         ]]>
-	</select>
 
 	<select id="reservationDetail"
 		resultType="com.korea.health.admin.model.reservation.ReservationVO"
@@ -117,31 +73,93 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 
+
+<!-- Num갯수를 위한 sql -->
 	<update id="newNum"
 		parameterType="com.korea.health.admin.model.reservation.ReservationVO">
 	<![CDATA[
 		update reservation set re_no = re_no - 1 where #{re_no} < re_no
 	]]>
 	</update>
+	<update id="resnewNum"
+		parameterType="com.korea.health.admin.model.reservation.ReservationTimeVO">
+	<![CDATA[
+		update restime set re_no = re_no - 1 where #{re_no} < re_no
+	]]>
+	</update>
 
+
+<!-- total갯수를 위한 sql -->
 	<select id="totalCnt" resultType="java.lang.Integer"
 		parameterType="java.lang.String">
 		SELECT COUNT(*) FROM reservation where lo_no = #{lo_no}
 	</select>
 
 	<select id="resTotalCnt" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM restime 
+		SELECT COUNT(*) FROM restime  where lo_no = #{lo_no}
 	</select>
 
+
+<!-- 검색을 위한 sql -->
 	<select id="searchCnt" resultType="java.lang.Integer"
 		parameterType="com.korea.health.service.Pagenation">
 		 SELECT COUNT(*) FROM reservation 
 		 where lo_no = #{locationNo} and ${keyField} like '%' || #{keyWord} || '%'
 	</select>
+	
 	<select id="resSearchCnt" resultType="java.lang.Integer"
 		parameterType="com.korea.health.service.Pagenation">
 		 SELECT COUNT(*) FROM restime 
-		 where ${keyField} like '%' || #{keyWord} || '%'
+		where lo_no = #{locationNo} and ${keyField} like '%' || #{keyWord} || '%'
+	</select>
+	
+	<!-- 예약현황(페이징) 리스트 -->
+	<select id="reservationList"
+		resultType="com.korea.health.admin.model.reservation.ReservationVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from reservation WHERE lo_no = #{locationNo}
+        ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	<select id="reservationResList"
+		resultType="com.korea.health.admin.model.reservation.ReservationTimeVO"
+		parameterType="com.korea.health.service.Pagenation">
+				<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from restime WHERE lo_no = #{locationNo}
+         ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	
+	<!-- 예약현황(검색+페이징) 리스트 -->
+	<select id="listAll"
+		resultType="com.korea.health.admin.model.reservation.ReservationVO"
+		parameterType="com.korea.health.service.Pagenation"
+		>
+		<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from reservation WHERE lo_no = #{locationNo} 
+         and ${keyField} like '%' || #{keyWord} || '%'
+        ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
+	</select>
+	
+	<select id="reslistAll"
+		resultType="com.korea.health.admin.model.reservation.ReservationTimeVO"
+		parameterType="com.korea.health.service.Pagenation"
+		>
+		<![CDATA[
+        select * from (select rownum rnum, t1.* 
+         from (select * from restime WHERE lo_no = #{locationNo} 
+         and ${keyField} like '%' || #{keyWord} || '%'
+        ) t1) 
+         where rnum >= #{startList} and rnum <= #{endList}
+         ]]>
 	</select>
 	
 

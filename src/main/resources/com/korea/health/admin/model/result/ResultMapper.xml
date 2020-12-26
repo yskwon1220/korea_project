@@ -38,6 +38,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM payment WHERE payment_NO = #{payment_no}
 	</select>
 	
+	<select id="originPay" resultType="int"
+		parameterType="java.lang.String">
+		SELECT goods_price FROM goods WHERE goods_NO = #{goods_no}
+	</select>
+	
 	<select id="findUser" resultType="java.lang.String" parameterType="int">
 		SELECT user_name FROM usermember WHERE user_NO = #{user_no}
 	</select>

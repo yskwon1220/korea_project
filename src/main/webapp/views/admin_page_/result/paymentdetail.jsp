@@ -50,10 +50,6 @@
                                                     <td class="align-middle"><strong>결제 일자</strong></td>
                                                     <td  class="align-middle">${data.welcomeDate}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="align-middle"><strong>결제 상태</strong></td>
-                                                    <td  class="align-middle">${data.payment_state}</td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

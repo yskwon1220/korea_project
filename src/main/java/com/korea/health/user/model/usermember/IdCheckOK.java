@@ -38,15 +38,13 @@ public class IdCheckOK implements Action{
 		
 		if(uvo==null) {
 			LOGGER.info("id 중복없음");
-			req.setAttribute("user_id", user_id);
-			
-			return req;
+						
+			return "IDO";
 
 		}else {
 			LOGGER.info("id 중복있음");
-			req.setAttribute("user_id", "idCheckFailed");
-
-			return req;	
+			
+			return "IDX";	
 			}
 		
 		

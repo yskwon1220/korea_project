@@ -33,17 +33,7 @@
 						</tr>
 						<tr>
 							<td class="align-middle">예약 날짜</td>
-							<td class="align-middle">${rvo.resdate}
-							
-							</td> 
-							<%--
-							이 싯파새끼는 왜안되고 지랄이냐 
-							<fmt:parseDate var="resdateString" value="${rvo.resdate}"  pattern="yyyy-MM-dd(E)" />
-							<fmt:formatDate value="resdateString" pattern="yyyy-MM-dd(E)" />
-							--%>
-							<%-- <td class="align-middle"></td>  --%>
-							
-							
+							<td class="align-middle">${rvo.welcomeDate}</td> 												
 						</tr>
 						<tr>
 							<td class="align-middle">예약 시간</td>
@@ -74,8 +64,7 @@
 				<a href="/admin_page_/reservation/modifyForm?re_no=${rvo.re_no}" class="btn btn-info btn-primary btn-sm">수정</a> 
 				<a href="javascript:deleteChk('/admin_page_/reservation/delete?re_no=${rvo.re_no}')" class="btn btn-info btn-danger btn-sm">삭제</a> 
 				
-				<a href="javascript:history.back()" class="btn btn-info btn-info btn-sm">list로</a> 
-				<a href="javascript:history.go(-2)" class="btn btn-info btn-info btn-sm">info로</a> 
+				<a href="javascript:history.back()" class="btn btn-info btn-info btn-sm">뒤로</a> 
 
 			</div>
 		</div>

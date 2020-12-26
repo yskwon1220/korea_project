@@ -23,7 +23,7 @@
 			<article>
 				<h2>1대1 문의</h2>
 
-				<form action="replyReg" method="post" enctype="multipart/form-data">
+				<form name="reply" action="replyReg" method="post" onsubmit="return check();" enctype="multipart/form-data">
 					<c:set var="sm" value="${data }" />
 					<input type="hidden" name="board_no" value="${sm.board_no }">
 					<div class="mb-3">
@@ -41,8 +41,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="reply">답변</label>
-						<textarea class="form-control" rows="5" name="reply"
-							id="reply">${sm.reply }</textarea>
+						<textarea class="form-control" rows="5" name="reply" id="reply">${sm.reply }</textarea>
 					</div>
 
 					<div>
@@ -50,9 +49,27 @@
 					</div>
 					<div>
 
-						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a class="btn btn-primary" href="info">목록으로</a>
+						<input class="btn btn-primary" type="submit" value="답변하기" /> <a
+							class="btn btn-primary" href="info">목록으로</a>
 					</div>
 				</form>
+				<script>
+					function check() {
+
+						if (reply.rep.value == "") {
+							alert("처리상태를 입력해 주세요.");
+							reply.rep.focus();
+							return false;
+						}
+
+						else if (reply.content.value == "") {
+							alert("내용을 입력해 주세요.");
+							reply.content.focus();
+							return false;
+						} else
+							return true;
+					}
+				</script>
 			</article>
 
 		</div>

@@ -28,10 +28,7 @@ public class Reviewinsertreg implements Action {
 
 			vo.setReview_file_name(fileUpload(vo.getReview_file(),req));
 		
-		
-		
-			
-		
+		mapper.trainerStar(vo);
 		mapper.insert(vo);
 		return null;
 
@@ -40,7 +37,7 @@ public class Reviewinsertreg implements Action {
 	
 	String fileUpload(MultipartFile ff, HttpServletRequest request) {
 		String path = request.getRealPath("/upup");
-		path = "C:\\Users\\이현희\\OneDrive\\바탕 화면\\teamProject\\korea_project3\\src\\main\\webapp\\upup";
+		path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\upup\\";
 		
 		String res = fileNewName(path,ff.getOriginalFilename());
 		

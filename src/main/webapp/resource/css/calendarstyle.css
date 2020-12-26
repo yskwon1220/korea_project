@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
-input[type=submit], input[type=reset] {
+input[type=submit], input[type=reset] ,input[type=password]
+
+,input[type=text],
+
+ input[type=button] {
   background-color: #ec524b;
   border: none;
   color: white;
@@ -10,12 +14,6 @@ input[type=submit], input[type=reset] {
   margin-top:100px;
   
 }
-
-input[type=password] {
-	width:200px;
-	height:50px;
-}
-
 
 #inputbutton {
 background: #ec524b;
@@ -132,7 +130,7 @@ table.type08 {
 	line-height: 1.5;
 	text-align: center; 
 	margin: auto;
-	 height: 600px; 
+	/*  height: 600px;  */
 	}
 
 
@@ -379,7 +377,13 @@ body {
 
 
 
-/* 나진짜 너네 존나궁금한데 씨발모르겠네? */
+/* 나진짜 너네 존나궁금한데 씨발
+씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨
+발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발
+씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발
+씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨
+발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발씨발
+씨발씨발씨발씨발씨발씨발씨발씨발씨발모르겠네? */
 
 /* 마우스 올렸을 시  */
  .days div:hover, .days div:focus {
@@ -392,6 +396,11 @@ body {
 /* 마우스 선택시..?  */
 .days div:visited, .days div:active-color {
 	/* cursor: pointer; */
+	background-color: #ec524b;
+}
+
+.test_css {
+	color : white;
 	background-color: #ec524b;
 }
 

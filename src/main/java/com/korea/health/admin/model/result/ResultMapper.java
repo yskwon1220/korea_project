@@ -18,6 +18,7 @@ public interface ResultMapper {
 	List<ResultVO> userPaymentList(Pagenation pagenation);
 	
 	ResultVO paymentDetail(String payment_no);
+	Integer originPay(String goods_no);
 	
 	String findUser(int user_no);
 	

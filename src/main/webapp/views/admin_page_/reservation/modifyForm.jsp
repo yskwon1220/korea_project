@@ -86,11 +86,10 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" value="수정하기"/>
+				<input class="btn btn-info btn-info btn-sm" type="submit" value="수정하기"/>
 				<a href="javascript:modifyChk('/admin_page_/reservation/modify?re_no=${rvo.re_no}')" class="btn btn-info btn-danger btn-sm">삭제</a> 
 				
-				<a href="javascript:history.back()" class="btn btn-info btn-info btn-sm">뒤로가기</a> 
-				<a href="javascript:history.go(-2)" class="btn btn-info btn-info btn-sm">list로</a> 
+				<a href="javascript:history.back()" class="btn btn-info btn-info btn-sm">뒤로</a> 
 				</form>
 			</div>
 			<ol>

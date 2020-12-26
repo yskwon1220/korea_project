@@ -37,6 +37,7 @@ public class Reviewdelete implements Action{
 
 
 		if(chkID.contains(chkBeforeId)) {
+			mapper.trainerStarDel(vo);
 			mapper.delete(vo.getReview_no());
 		new File(path + "\\" + filename).delete();
 		

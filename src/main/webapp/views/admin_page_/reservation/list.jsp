@@ -19,26 +19,26 @@
 	<!-- <form method="get" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> -->
 	<div class="input-group" style="margin: 10px;">
 
-		<!-- <input class="form-control" type="text" placeholder="예약자명을 입력해주세요"
-			onkeyup="searchFunction();" id="tr_name" />
 
-		<div class="input-group-append">
-			<button class="btn btn-info" onclick="searchFunction();"
-				type="button">
-				<i class="fas fa-search"></i>
-			</button>
 
-		</div> -->
-
-		<form action="searchList" method="get">
-			<select name="keyField">
-				<option value="0">----선택----</option>
-				<option value="type">유형</option>
-				<option value="user_name">예약자 성함</option>
-				<option value="tr_name">트레이너 성함</option>
-			</select> <input type="text" name="keyWord" /> <input type="hidden"
-				name="lo_no" value="${param.lo_no }" /> <input type="button"
-				value="검색" onclick="searchCheck(form)" />
+		<form action="searchList" method="post">
+		
+		<table>
+		 <tr>
+		     <td>  <select class="form-control" name="keyField">
+				<option  value="0">----선택----</option>
+				<option  value="type">유형</option>
+				<option  value="user_name">예약자 성함</option>
+				<option  value="tr_name">트레이너 성함</option>
+			</select>   </td>
+		     <td>  <input class="form-control" type="text" name="keyWord" />   </td>
+		     
+		     <td> &nbsp;&nbsp; <input type="button" class="btn btn-info btn-primary btn-sm" value="검색" onclick="searchCheck(form)" /> </td>
+		 
+		 </tr>
+			
+		</table>
+			<input type="hidden" name="lo_no" value="${param.lo_no }" /> 
 		</form>
 
 	</div>
@@ -57,7 +57,6 @@
 						<th>번호</th>
 						<th>예약 번호</th>
 						<th>지점 이름</th>
-						<!-- reservSet[i].getLo_name() -->
 						<th>타입</th>
 						<th>예약자 성함</th>
 						<th>예약자 연락처</th>
@@ -71,9 +70,7 @@
 					<c:forEach items="${data.reservSet}" var="data" varStatus="no">
 						<tr>
 							<td class="align-middle">${no.index+1}</td>
-							<td class="align-middle"><a
-								href="/admin_page_/reservation/detail?re_no=${data.re_no}">
-									${data.re_no}</a></td>
+							<td class="align-middle"><a href="/admin_page_/reservation/detail?re_no=${data.re_no}">${data.re_no}</a></td>
 							<td class="align-middle">${data.lo_name}</td>
 							<td class="align-middle">${data.type}</td>
 							<td class="align-middle">${data.user_name}</td>
@@ -113,6 +110,8 @@
 			<div class="col-md-6">
 				<a style="float: right;" href="/admin_page_/reservation/insertForm"
 					class="btn btn-info btn-primary btn-sm">신규 예약등록</a>
+					&nbsp;&nbsp;
+					<a style="float: right;" href="/admin_page_/reservation/info" class="btn btn-info btn-primary btn-sm">목록으로</a>
 			</div>
 		</div>
 	</div>
@@ -123,26 +122,20 @@
 									var page = ((range - 2) * rangeSize) + 1;
 									var range = range - 1;
 									var temp = ${data.locationNo};
-									
 									var url = "list?lo_no=" + temp;
 									url = url + "&page=" + page;
 									url = url + "&range=" + range;
-
 									location.href = url;
-									
 								}
 							
 							  //페이지 번호 클릭
 								function fn_pagination(page, range, rangeSize, keyField, keyWord) {
 									var temp = ${data.locationNo};
 									var url;
-									
 										url = "list?lo_no=" + temp;
 										url = url + "&page=" + page;
 										url = url + "&range=" + range;
-										
 										location.href = url;	
-							
 								}
 							
 								//다음 버튼 이벤트
@@ -150,11 +143,9 @@
 									var page = parseInt((range * rangeSize)) + 1;
 									var range = parseInt(range) + 1;
 									var temp = ${data.locationNo};
-									
 									var url = "list?lo_no=" + temp;
 									url = url + "&page=" + page;
 									url = url + "&range=" + range;
-							
 									location.href = url;
 								}
 </script>

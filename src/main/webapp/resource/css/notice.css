@@ -96,7 +96,7 @@ tr {
 	width:15%;
 	line-height: 10px;
 	height: 10px;
-	font-size: small;
+	font-size: 20px;
 	float: left;
 	text-align: center;
 }
@@ -116,6 +116,7 @@ tr {
 	border-radius: 10px 10px 10px 10px;
 	margin: 5px;
 	background: white;
+	font-size: 20px;
 }
 .OutTextBox > div > div{
 	width:880px;

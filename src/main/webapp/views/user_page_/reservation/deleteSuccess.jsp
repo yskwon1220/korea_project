@@ -13,7 +13,6 @@
 <title>FitNess Club</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
@@ -59,7 +58,7 @@
 					<%-- 	<form action="myResList" method="post"> --%>
 					
 						<form action="myResList" method="post">
-							<input type=hidden name="user_name" value="${param.user_name}">
+							<input type=hidden name="user_id" value="${param.user_id}">
 
 							<input type="submit" value="예약 목록으로">
 						</form>

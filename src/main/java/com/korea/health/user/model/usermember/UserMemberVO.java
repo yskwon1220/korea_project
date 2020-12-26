@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 public class UserMemberVO {
 
 	private Integer user_no, reserve_cnt, point;
-	private String  user_id, user_pw, user_name, user_birth, user_email, user_tel, gender , coupon, admin;
+	private String  user_id, user_pw, user_name, user_birth, user_email, user_tel, gender , coupon, admin, lo_no;
 	private Date  regDate;
 	
 	
@@ -90,16 +90,20 @@ public class UserMemberVO {
 	public void setPoint(Integer point) {
 		this.point = point;
 	}
+	
+	public String getLo_no() {
+		return lo_no;
+	}
+	public void setLo_no(String lo_no) {
+		this.lo_no = lo_no;
+	}
 	@Override
 	public String toString() {
-		return "UserMemberVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_no=" + user_no + ", user_name="
-				+ user_name + ", admin=" + admin + ", regDate=" + regDate + ", user_birth=" + user_birth
+		return "UserMemberVO [user_no=" + user_no + ", reserve_cnt=" + reserve_cnt + ", point=" + point + ", user_id="
+				+ user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth=" + user_birth
 				+ ", user_email=" + user_email + ", user_tel=" + user_tel + ", gender=" + gender + ", coupon=" + coupon
-				+ ", point=" + point + ", reserve_cnt=" + reserve_cnt + "]";
+				+ ", admin=" + admin + ", lo_no=" + lo_no + ", regDate=" + regDate + "]";
 	}
-	
-	
-	
 
 }
 

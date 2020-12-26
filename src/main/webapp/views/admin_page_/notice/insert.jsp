@@ -23,7 +23,7 @@
 				<h2>공지사항</h2>
 				<hr>
 
-				<form name="noticeinsert" action ="insertReg"  onsubmit="return check(); " method="post" enctype="multipart/form-data">
+				<form name="noticeinsert" action ="insertReg"  onsubmit="return check();" method="post" enctype="multipart/form-data">
 
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html>
@@ -33,14 +34,10 @@
 
 
 		<div id="page-wrapper">
-
-
-
 			<!-- Main -->
 				<div id="main-wrapper">
 					<div class="container">
 						<div id="content">
-
 							<!-- Content -->
 								<article>
 
@@ -57,9 +54,16 @@
 						<div class="row" style="width: 30%; float:none; margin:0 auto">
 										<div class="form-group  col">
 											<label for="pw" class="">고객님의 비밀번호</label>
-											<input type="text" id="user_pw" name="user_pw" class="form-control" readonly="readonly" value="${memberPw.user_pw}">
+											<input type="text" id="user_pw" name="user_pw" class="form-control" readonly="readonly" value="<c:forEach var="memberPw"  items="${memberPw}" begin="2" ></c:forEach>">
+										<h6>회원가입 시 사용한 비밀번호는 <strong>${fn:substring(memberPw, 0, 2)}
+											<c:forEach begin="1" end="${fn:length(memberPw)-2}">
+													*
+											</c:forEach>
+											</strong>입니다.
+										</h6>
 										</div>
 						</div>
+						
 
                    	</c:otherwise>
 					</c:choose> 

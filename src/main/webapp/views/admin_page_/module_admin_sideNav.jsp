@@ -44,7 +44,7 @@
                              aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="/admin_page_/reservation/info">예약 정보</a>
-                                            <a class="nav-link" href="/admin_page_/reservation/reslist">시간별 인원 현황</a>
+                                            <a class="nav-link" href="/admin_page_/reservation/resinfo">시간별 인원 현황</a>
                                         </nav>
                                     </div>
                <!--  -->
@@ -122,5 +122,5 @@
          </div>
          <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            사용자 로그인 정보
+           	${user_id }
          </div>

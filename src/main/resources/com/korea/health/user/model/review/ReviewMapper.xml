@@ -33,7 +33,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT user_id FROM REVIEW WHERE REVIEW_NO = #{review_no, jdbcType=INTEGER}
 	</select>
 	
-	
 	<!-- <sql id="noMax">
 		SELECT SEQ_REVIEW.NEXTVAL FROM DUAL
 	</sql> -->
@@ -70,9 +69,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where  review_no = #{review_no} 
 	</update>
 	
+	<update id="trainerStar" parameterType="com.korea.health.user.model.review.ReviewVO">
+		UPDATE TRAINER SET STAR = (star + (SELECT SUM(starcnt) FROM REVIEW WHERE TR_NO = #{tr_no})) / 
+     	(SELECT COUNT(*) FROM REVIEW WHERE TR_NO = #{tr_no}) WHERE TR_NO = #{tr_no}
+	</update>
+	
 	<delete id = "delete"  parameterType="com.korea.health.user.model.review.ReviewVO">
 		delete from review where review_no = #{review_no, jdbcType=INTEGER} 
 	</delete>
+	
+	<update id="trainerStarDel" parameterType="com.korea.health.user.model.review.ReviewVO">
+		UPDATE TRAINER SET STAR = (((select sum(starcnt) from review where tr_no = #{tr_no}) - (SELECT starcnt FROM REVIEW WHERE review_no = #{review_no})) / 
+     	(SELECT COUNT(*)-1 FROM REVIEW WHERE TR_NO = #{tr_no})) WHERE TR_NO = #{tr_no}
+	</update>
 	
 	<update id = "updateCnt" parameterType = "java.lang.Integer">
       UPDATE REVIEW SET CNT = CNT + 1 WHERE REVIEW_NO = #{review_no, jdbcType=INTEGER}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.korea.health.admin.model.mainSetting.UsrMainMapper">
+
+	<select id="urList" resultType="com.korea.health.admin.model.mainSetting.UrMainVO">
+			select * from MAINTEXT order by MAINNO DESC
+
+	</select>
+	
+	<select id="urDetail" resultType="com.korea.health.admin.model.mainSetting.UrMainVO"
+		parameterType="java.lang.Integer">
+		SELECT * FROM MainTEXT WHERE MAINNO = #{mainNO}
+	</select>
+	
+	<insert id="urInsert" parameterType="com.korea.health.admin.model.mainSetting.UrMainVO">
+		<selectKey keyProperty="mainNo" resultType="java.lang.Integer" order="BEFORE">
+			select max(MAINNO)+1 from MAINTEXT
+		</selectKey>
+		insert into MAINTEXT (MAINNO, TITLE, CONTENT)
+		values (#{mainNo, jdbcType=VARCHAR}, #{title, jdbcType=VARCHAR}, #{content, jdbcType=VARCHAR})
+	</insert>
+
+	<update id="urModify" parameterType="com.korea.health.admin.model.mainSetting.UrMainVO">
+		UPDATE maintext set title = #{title}, CONTENT = #{content} WHERE mainNO = #{mainNo}
+	</update>
+	
+	<delete id="urDelete" parameterType="com.korea.health.admin.model.mainSetting.UrMainVO">
+		delete from maintext where mainNo = #{mainNo}
+	</delete>	
+</mapper>

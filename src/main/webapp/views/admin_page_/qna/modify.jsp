@@ -8,7 +8,7 @@
 <html>
 <head>
 <head>
-<title>공지사항</title>
+<title>자주묻는 질문</title>
 
 <link rel="stylesheet"
 	href="<c:url value="${path}/resource/css/notice.css"/>" />
@@ -22,7 +22,7 @@
 			<!-- Content -->
 			<article>
 				<hr>
-				<h2>공지사항</h2>
+				<h2>자주묻는 질문</h2>
 				<hr>
 
 				<form name="qnamodify" action="modifyReg" onsubmit="return check(); "  method="post" enctype="multipart/form-data">
@@ -41,7 +41,7 @@
 						<hr>
 					</div>
 					<div>
-						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a
+						<input class="btn btn-primary" type="submit" value="수정하기" /> <a
 							class="btn btn-primary" href="info">목록으로</a>
 					</div>
 				</form>

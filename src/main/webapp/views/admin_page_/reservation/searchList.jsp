@@ -19,26 +19,28 @@
 	<!-- <form method="get" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> -->
 	<div class="input-group" style="margin: 10px;">
 
-		<!-- <input class="form-control" type="text" placeholder="예약자명을 입력해주세요"
-			onkeyup="searchFunction();" id="tr_name" />
 
-		<div class="input-group-append">
-			<button class="btn btn-info" onclick="searchFunction();"
-				type="button">
-				<i class="fas fa-search"></i>
-			</button>
-
-		</div> -->
 
 		<form action="searchList" method="get">
-			<select name="keyField">
-				<option value="0">----선택----</option>
-				<option value="type">유형</option>
-				<option value="user_name">예약자 성함</option>
-				<option value="tr_name">트레이너 성함</option>
-			</select> <input type="text" name="keyWord" /> <input type="hidden"
-				name="lo_no" value="${param.lo_no }" /> <input type="button"
-				value="검색" onclick="searchCheck(form)" />
+		
+		<table>
+		 <tr>
+		     <td>  <select class="form-control" name="keyField">
+				<option  value="0">----선택----</option>
+				<option  value="type">유형</option>
+				<option  value="user_name">예약자 성함</option>
+				<option  value="tr_name">트레이너 성함</option>
+			</select>   </td>
+		     <td>  <input class="form-control" type="text" name="keyWord" />   </td>
+		     
+		     <td> &nbsp;&nbsp; <input type="button" class="btn btn-info btn-primary btn-sm" value="검색" onclick="searchCheck(form)" /> </td>
+		     
+		     <td> &nbsp;&nbsp; <input type="button" class="btn btn-info btn-primary btn-sm" value="뒤로" onclick="location.href='list?lo_no=${param.lo_no}'" /> </td>
+		 
+		 </tr>
+			
+		</table>
+			<input type="hidden" name="lo_no" value="${param.lo_no }" /> 
 		</form>
 
 	</div>
@@ -57,7 +59,6 @@
 						<th>번호</th>
 						<th>예약 번호</th>
 						<th>지점 이름</th>
-						<!-- reservSet[i].getLo_name() -->
 						<th>타입</th>
 						<th>예약자 성함</th>
 						<th>예약자 연락처</th>

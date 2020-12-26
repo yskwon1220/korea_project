@@ -68,7 +68,7 @@ public class ResultService implements Action{
 			
 			rvo = mapper.paymentDetail(payment_no);
 			rvo.setUser_name(mapper.findUser(rvo.getUser_no()));
-			
+			rvo.setPrice(mapper.originPay(rvo.getGoods_no()));
 			return rvo;
 		
 		case "userpayment":

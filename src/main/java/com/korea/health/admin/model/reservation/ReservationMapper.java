@@ -10,27 +10,9 @@ import com.korea.health.service.Pagenation;
 @Mapper
 public interface ReservationMapper {
 	
-	Integer totalCnt(String lo_no);
-	Integer resTotalCnt();
-	Integer searchCnt(Pagenation pagenation);
-	Integer resSearchCnt(Pagenation pagenation);
-	Integer newNum(ReservationVO rvo);
-	//페이징 처리를 위한 것
-	
 	/* 완료 */
 	List<BranchVO> branchList();
 	//info에 보여준 지점 리스트
-	
-	/* 완료 */
-	List<ReservationVO> reservationList(Pagenation pagenation);
-	//페이징 하기 위한 각 지점별 list
-	
-	List<ResTimeVO> reservationResList(Pagenation pagenation);
-	//페이징 하기 위한 각 지점별 인원 체크 list
-	
-	/*검색을 위한것 */
-//	List<ResTimeVO> reslistAll(String keyField, String keyWord);
-	List<ResTimeVO> reslistAll(Pagenation pagenation);
 	
 	/* 완료 */
 	ReservationVO reservationDetail(int re_no);
@@ -44,10 +26,23 @@ public interface ReservationMapper {
 	
 	/* 완료 */
 	Integer reservationModify(ReservationVO rvo);
-	//Integer엿는데 void로바꿔보자
+	
+	
+	List<ReservationVO> reservationList(Pagenation pagenation);
+	List<ReservationTimeVO> reservationResList(Pagenation pagenation);
+	
+	Integer totalCnt(String lo_no);
+	Integer resTotalCnt(String lo_no);
+	
+	Integer searchCnt(Pagenation pagenation);
+	Integer resSearchCnt(Pagenation pagenation);
+	
+	Integer newNum(ReservationVO rvo);
+	Integer newresNum(ReservationTimeVO timevo);
 	
 	/*검색을 위한것 */
-	//List<ReservationVO> listAll(String keyField, String keyWord);
 	List<ReservationVO> listAll(Pagenation pagenation);
+	List<ReservationTimeVO> reslistAll(Pagenation pagenation);
+	//List<ReservationTimeVO> reslistAll(Pagenation pagenation);
 	
 }

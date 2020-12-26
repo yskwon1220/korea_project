@@ -1,5 +1,7 @@
 package com.korea.health.user.model.Reservation;
 
+import java.text.SimpleDateFormat;
+
 //import java.text.ParseException;
 //import java.text.SimpleDateFormat;
 
@@ -118,19 +120,13 @@ public class ReservationVO {
 
 
 	
-//	
-//	public String getResdateStr() {
-//		return sdf.format(resdate);
-//	}
-//	public void setResdateStr(String resdateStr) {
-//		try {
-//			this.resdate = sdf.parse(resdateStr);
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
 	
+	/*
+	 * public String getResdateStr() { return sdf.format(resdate); } public void
+	 * setResdateStr(String resdateStr) { try { this.resdate =
+	 * sdf.parse(resdateStr); } catch (ParseException e) { // TODO Auto-generated
+	 * catch block e.printStackTrace(); } }
+	 */
 	/*
 	public String getContent() {
 		if(content == null)

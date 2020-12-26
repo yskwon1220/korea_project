@@ -11,7 +11,6 @@ public class PayMember {
 	String user_tel,title,ticket,user_id, user_name,user_email, card_company, owner, coupon_no, coupon_content;
 	Integer  point, validity, cvc, card_pass, payment_pass, user_no, coupon_discount, coupon_contri;
 	Long card_number;
-
 	
 	public String getTitle() {
 		return title;

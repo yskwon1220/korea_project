@@ -12,7 +12,6 @@
 <title>FitNess Club</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
@@ -48,6 +47,7 @@
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 						<h2>나의 예약 조회</h2>
 						<p>예약 내역입니다.</p>
+						<p>예약 순서대로 상단에 노출 됩니다.</p>
 					</div>
 				</div>
 
@@ -78,7 +78,7 @@
 							</tbody>
 						</table>
 						<br><br>
-						<a href="../location/locationlist">새 예약 하러가기</a>
+						<a href="../location/locationlist" class="btn btn-primary" >새 예약 하러가기</a>
 					</div>
 				</div>
 

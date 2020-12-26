@@ -3,6 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.korea.health.user.model.event.EventMapper">
+
 	<select id = "list" resultType ="com.korea.health.user.model.event.EventVO">
 		SELECT * FROM event order by event_no desc
 	</select>
@@ -60,6 +61,14 @@
 	<update id="userCntAdd" parameterType="com.korea.health.user.model.payment.Payment_List">
 		update usermember set reserve_cnt = reserve_cnt + (select reserv_cnt from goods where goods_no = #{vo2.ticket}) where user_id = #{id}
 	</update>
+	
+	<update id="branchPayAdd" parameterType = "com.korea.health.user.model.payment.Payment_List">
+		update location set income = income + (select goods_price from goods where goods_no = #{vo2.ticket}) where lo_no = (select lo_no from usermember where user_id = #{id})
+	</update>
+
+	<update id="branchPayDel" parameterType="com.korea.health.user.model.payment.Payment_List">
+		UPDATE location set income = income - (select goods_price from goods where goods_no = #{p_no}) where lo_no = (select lo_no from usermember where user_id = #{user_id})
+	</update>	
 	
 	<delete id="coupon_delete" parameterType= "com.korea.health.user.model.payment.CardVO2">
 		delete from coupon_join where user_no = (select user_no from UserMember where user_id= #{id}) and coupon_no = #{coupon_no}

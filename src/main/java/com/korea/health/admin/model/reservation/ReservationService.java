@@ -24,15 +24,21 @@ public class ReservationService implements Action{
 	public Object execute(HashMap<String, Object> map, HttpServletRequest request) {
 		
 		BranchVO bvo = (BranchVO)map.get("bvo");
-		ReservationVO rvo = (ReservationVO)map.get("rvo");
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
+		ReservationVO rvo = (ReservationVO)map.get("rvo");
 		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		ReservationTimeVO timevo2 = (ReservationTimeVO)map.get("timevo2");
 		int listCnt;
 		
 		switch ((String)map.get("service")) {
 		
 		case "info":
 			System.out.println("switch case : info에 들어왔다.");
+			System.out.println(mapper.branchList());
+			return mapper.branchList();
+			
+		case "resinfo":
+			System.out.println("switch case : timeinfo에 들어왔다.");
 			System.out.println(mapper.branchList());
 			return mapper.branchList();
 			
@@ -92,54 +98,58 @@ public class ReservationService implements Action{
 			
 			System.out.println("switch case : reslist에 들어왔다.");
 			lo_no = request.getParameter("lo_no");
-			rvo.setLo_no(lo_no);
+			timevo2.setLo_no(lo_no);
 			
 			System.out.println("너님 누구? lo_no : " + lo_no);
 			
-			page = (int)map.get("page");
-			range = (int)map.get("range");
+			int respage = (int)map.get("page");
+			int resrange = (int)map.get("range");
 			
-			//혜지가 추가한 검색 부분!!
 			pageCtl.setLocationNo(lo_no);
 			
-			//혜지가 추가한 검색 부분!!
-				System.out.println("전체list mapper에 들어옴");
-				listCnt = (int)mapper.resTotalCnt();
-				System.out.println("전체 컬럼 수 : " + listCnt);
-				pageCtl.pageInfo(page, range, listCnt);
-				pageCtl.setReservtimeSet(mapper.reservationResList(pageCtl));
+				System.out.println("res전체list mapper에 들어옴");
+				int reslistCnt = (int)mapper.resTotalCnt(lo_no);
+				
+				System.out.println("전체 컬럼 수 : " + reslistCnt);
+				
+				pageCtl.pageInfo(respage, resrange, reslistCnt);
+				
+				pageCtl.setReservtime2Set(mapper.reservationResList(pageCtl));
 
 				return pageCtl;
+				
+				
 				
 		case "searchResList":
 			System.out.println("switch case : searchResList에 들어왔다.");
 			lo_no = request.getParameter("lo_no");
-			rvo.setLo_no(lo_no);
+			timevo2.setLo_no(lo_no);
 			
 			System.out.println("너님 누구? lo_no : " + lo_no);
 			
-			page = (int)map.get("page");
-			range = (int)map.get("range");
+			respage = (int)map.get("page");
+			resrange = (int)map.get("range");
 			
-			//혜지가 추가한 검색 부분!!
-			keyField = request.getParameter("keyField");
-			keyWord = request.getParameter("keyWord");
+			String reskeyField = request.getParameter("keyField");
+			String reskeyWord = request.getParameter("keyWord");
 			
 			pageCtl.setLocationNo(lo_no);
 			
-			//혜지가 추가한 검색 부분!!
-				System.out.println("검색 mapper에 들어옴");
-				pageCtl.setKeyField(keyField);
-				pageCtl.setKeyWord(keyWord);
-				listCnt = (int)mapper.resSearchCnt(pageCtl);
-				System.out.println("전체 검색 컬럼 수 : " + listCnt);
-				System.out.println("keyfield : " + keyField);
-				System.out.println("keyword : " + keyWord);
-				pageCtl.pageInfo(page, range, listCnt);
-				pageCtl.setReservtimeSet(mapper.reslistAll(pageCtl));
+				System.out.println("검색res mapper에 들어옴");
+				pageCtl.setKeyField(reskeyField);
+				pageCtl.setKeyWord(reskeyWord);
+				
+				reslistCnt = (int)mapper.resSearchCnt(pageCtl);
+				System.out.println("전체 검색 컬럼 수 : " + reslistCnt);
+				System.out.println("keyfield : " + reskeyField);
+				System.out.println("keyword : " + reskeyWord);
+				pageCtl.pageInfo(respage, resrange, reslistCnt);
+				pageCtl.setReservtime2Set(mapper.reslistAll(pageCtl));
+				
 				System.out.println(pageCtl);
 		
 				return pageCtl;
+				
 				
 		case "detail":
 			System.out.println("switch case : detail에 들어왔다.");
@@ -147,6 +157,8 @@ public class ReservationService implements Action{
 			int re_no = Integer.parseInt(request.getParameter("re_no"));
 			rvo.setRe_no(re_no);
 			return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
+			
+			
 			
 		case "delete":
 			System.out.println("switch case : delete에 들어왔다.");
@@ -158,21 +170,7 @@ public class ReservationService implements Action{
 				return mapper.reservationDetail(re_no);
 			}
 			
-			//뭔지몰라서 주석했는데 굳이안해도될거같아요 오빠 확인좀요
-			/*
-				mapper.newNum(rvo);
-				int listCnt2 = (int)mapper.totalCnt(lo_no2);
-				int page2 = (int)map.get("page");
-				int range2 = (int)map.get("range");
-				System.out.println("전체 컬럼 수 : " + listCnt2);
-				System.out.println("전체 컬럼 수 : " + listCnt2);
-			System.out.println("전체 컬럼 수 : " + listCnt2);
-			pageCtl.pageInfo(page2, range2, listCnt2);
 			
-			pageCtl.setReservSet(mapper.reservationList(pageCtl));
-			
-			return pageCtl;
-			 */
 			
 			
 		case "modifyForm":
@@ -193,10 +191,14 @@ public class ReservationService implements Action{
 			return mapper.branchList();
 			
 			
+			
+			
 		case "insertForm":
 			System.out.println("switch case : insertForm에 들어왔다.");
 			return null;
 
+			
+			
 			
 		case "insert":
 			System.out.println("switch case : insert에 들어왔다.");
@@ -218,8 +220,10 @@ public class ReservationService implements Action{
 			return mapper.branchList();
 			
 			
+			
 		default:
 			break;
+			
 			
 			
 		}

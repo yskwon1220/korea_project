@@ -31,8 +31,8 @@ public class ResPagingList implements Action{
 		
 		
 		ResPageInfo resInfoVO = (ResPageInfo) map.get("resInfoVO");
-		req.setAttribute("user_name", (String)req.getParameter("user_name"));
-		System.out.println("user_name:"+(String)req.getParameter("user_name"));
+		req.setAttribute("user_id", (String)req.getParameter("user_id"));
+		System.out.println("user_id:"+(String)req.getParameter("user_id"));
 		
 		resInfoVO.init(mapper.totalCnt());
 		resInfoVO.setVoArr(mapper.PagingList(resInfoVO));

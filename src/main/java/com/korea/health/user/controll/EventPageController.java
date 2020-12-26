@@ -44,18 +44,6 @@ public class EventPageController {
       return url;
    }
    
-	/*
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping(value="/user_page_/payment/cardpay", method =
-	 * RequestMethod.POST)
-	 * 
-	 * public Object Jsonpayment(@RequestBody Payment_Result pr, Model mm) {
-	 * 
-	 * Map<Object, Object> map = new HashMap(); mm.addAttribute("pr",pr);
-	 * System.out.println(pr.getCard_select()); return map; }
-	 */
-   
    @ModelAttribute("data")
    @ResponseBody
    Object mainData(

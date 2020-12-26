@@ -6,7 +6,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 
-	<div class="fh5co-cta" style="    background-image: url('   <c:url value="   ${path }/resource/images/slide_2.jpg    ');    "/>   " >
+	<div class="fh5co-cta" style="    background-image: url('   <c:url value="   ${path }/resource/images/footer00.jpg');    "/>   " >
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="col-md-12 text-center animate-box">
@@ -37,12 +37,9 @@
 
 		</div>
 
-		
-
-
 		<div class="col-md-12 fh5co-copyright text-center">
 			<p>
-				&copy; 2016 Free HTML5 template. All Rights Reserved. 
+				&copy; 2020 FitNess Club. All Rights Reserved.  All Rights Reserved. 
 				
 
 			</p>
