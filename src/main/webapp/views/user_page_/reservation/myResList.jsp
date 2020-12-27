@@ -54,6 +54,8 @@
 				<div class="row">
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
+
+
 						<table class="type08">
 
 							<thead>
@@ -64,8 +66,10 @@
 									<th>상세보기</th>
 								</tr>
 							</thead>
+
 							<tbody>
 								<c:forEach items="${data }" var="rvo" varStatus="no">
+
 									<tr>
 										<td>${rvo.re_no }</td>
 										<td>${rvo.lo_name }</td>
@@ -73,19 +77,37 @@
 												pattern="yy-MM-dd (E)" /></td>
 										<td><a href="myDetailList?re_no=${rvo.re_no}">클릭</a></td>
 									</tr>
+
 								</c:forEach>
 
+
+								<c:if test="${empty data}">
+									<tr>
+										<td colspan="4">리스트가 없습니다.</td>
+									</tr>
+								</c:if>
+								
 							</tbody>
 						</table>
-						<br><br>
-						<a href="../location/locationlist" class="btn btn-primary" >새 예약 하러가기</a>
+
+						<br> <br>
+						 <a href="../location/locationlist"
+							class="btn btn-primary">새 예약 하러가기</a>&nbsp;&nbsp;
+
+						<c:if test="${!empty data}">
+							<a href="deleteForm2?user_id=${user_id}" class="btn btn-primary">환불
+								하기</a>
+						</c:if>
+						<c:if test="${empty data}">
+							<a href="../membership/membership?user_id=${user_id}" class="btn btn-primary">이용권 구매하기</a>
+						</c:if>
+
 					</div>
+
+
 				</div>
-
-
 			</div>
 		</div>
-
 
 
 	</div>

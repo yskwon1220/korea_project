@@ -19,12 +19,25 @@
 <body>
 <form action="../payment/payment?price=${data.get(0).e_price}&discount=${data.get(0).discount}">
 	<div id="page-wrapper">
-
+					<c:choose>
+						<c:when test="${not empty sessionScope.user_id }">
+							<!-- 로그인된 상태일때  -->
 		<div class="fix_bar">
 			지금 바로 결제하러 가기
 			<a href="../payment/payment?price=${data.get(0).e_price}&discount=${data.get(0).discount}">
 			<input type="button"  class="buy_btn" value="결제하기"/></a>
 		</div>
+
+						</c:when>
+						<c:otherwise>
+			<div class="fix_bar">
+			지금 바로 결제하러 가기				
+				<a href="../payment/paymentReg">
+				<input type="button"  class="buy_btn" value="결제하기"/></a>
+			</div>		
+							
+						</c:otherwise>
+					</c:choose>
 
 		<div class="tot">
 			<div class="title">${data.get(0).title }</div>

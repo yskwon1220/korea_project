@@ -70,7 +70,7 @@
 								<div class="col-md-6">
 									<table class="table table-bordered" width="100%" cellspacing="0">
 										<tr>
-											<th>전체 누적 결제 금액</th>
+											<th>누적 결제 금액</th>
 											<th><a href="/admin_page_/payment/info">${data.showPayment}</a></th>
 										</tr>
 									</table>

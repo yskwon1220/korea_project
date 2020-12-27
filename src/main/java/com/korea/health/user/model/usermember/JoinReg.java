@@ -45,8 +45,6 @@ public class JoinReg implements Action {
 		member.setUser_id(user_id);
 		member.setUser_name(user_name);
 		
-//		member.setId((String)req.getParameter("id"));
-//		member.setName((String)req.getParameter("name"));
 		
 		LOGGER.info(member.toString());
 //		

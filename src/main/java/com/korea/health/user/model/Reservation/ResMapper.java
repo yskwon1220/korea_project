@@ -15,11 +15,11 @@ public interface ResMapper {
 	List<ReservationVO> MyResList(String user_id);
 	//내 모든 예약 리스트
 	
-	//List<ReservationVO> MyDateSelect(String user_id);
-	int MyDateSelect(String user_id);
-	//내가 선택한 날짜에 대한 조회 ( 이미 존재한다면 예약을 하지못하게 제약을 건다 )
 	int MyDateSelect2(ReservationVO rvo);
 	//내가 선택한 날짜에 대한 조회 ( 이미 존재한다면 예약을 하지못하게 제약을 건다 )
+	
+	int MyResCnt(UserMemberVO mvo);
+	//예약을하기전에 이용권이있는지 조회한다.
 	
 	
 	ReservationVO MyDetailList(int re_no);
@@ -45,6 +45,23 @@ public interface ResMapper {
 	
 	
 	
+	//-------내 결제와 환불이 관련된 메소드------------------------
+	
+	void MyResMinusCnt(UserMemberVO uvo);
+	//내 이용권 1개씩 차감하기 위한 것.
+	
+	int deleteRes(ReservationVO rvo);
+	//내 예약 리스트 모두삭제
+	
+	void MyResDrop(UserMemberVO mvo);
+	//내 예약 이용권 null로 만듬
+	
+	void MyPaymentInsert(UserMemberVO mvo);
+	//내 예약 이용권 횟수만큼 업데이트 시킴
+	
+	
+	
+	
 	//----------------------쌉중요!delete할 때 단일테이블과 다중테이블을위한 mapper 메소드-----------------------
 	
 	int delete(ReservationVO rvo);
@@ -65,7 +82,6 @@ public interface ResMapper {
 	
 	UserMemberVO userInfo(String user_id);
 	
-	UserMemberVO pwCheckOk(UserMemberVO mvo);
 
 	
 }

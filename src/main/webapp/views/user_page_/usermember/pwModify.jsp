@@ -65,10 +65,12 @@ function checkValue()
 					<!-- Content -->
 					<article>
 
-						<h2>비밀번호확인</h2>
 
 						<!-- 본문 들어가는 부분 -->
 						<div class="row text-center"><!-- 가운데 정렬을 위해 -->
+						<div class="row " style=" margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+							<h1>비밀번호 수정</h1>
+						</div>
 						<form action="pwModifyReg" name="userInfo" onsubmit="return checkValue()">
 						
 							<div class="row" style="width: 30%; float:none; margin:0 auto">
@@ -86,7 +88,7 @@ function checkValue()
 							</div>
 				
 				
-							<div class="row" style="width: 30%; float: none; margin: 0 auto">
+							<div class="row" style="width: 30%; float: none; margin: 0 auto; padding-top:20px; padding-bottom: 50px;">
 								<div class="form-group col ">
 									<input type="submit" class="btn btn-primary" value="비밀번호  수정" />
 								</div>

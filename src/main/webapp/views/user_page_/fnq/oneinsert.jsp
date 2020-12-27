@@ -42,6 +42,7 @@
 
 </head>
 <div id="main-wrapper">
+	<div style="height: 100px;"></div>
 	<div class="container">
 		<div id="content">
 			<%
@@ -51,6 +52,7 @@
 
 			<!-- Content -->
 			<article>
+				<div style="height: 100px;"></div>
 				<h2>1대1 문의</h2>
 
 				<form name="oneinsert" onsubmit="return check(); "
@@ -74,7 +76,8 @@
 						<hr>
 					</div>
 					<div>
-						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a class="btn btn-primary" href="onelist">목록으로</a>
+						<input class="btn btn-primary" type="submit" value="글쓰기" /> <a
+							class="btn btn-primary" href="onelist">목록으로</a>
 					</div>
 				</form>
 				<script>
@@ -100,6 +103,7 @@
 	</div>
 
 </div>
+				<div style="height: 150px;"></div>
 <script
 	src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 <script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>

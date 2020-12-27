@@ -10,7 +10,7 @@
 <title>회원정보 수정 완료</title>
 <c:if test="${modify  eq 'modifyFailed'}">
 <script> 
-alert("수정 실패");
+alert("비밀 번호 변경을 실패했습니다.");
 		location.href = "/user_page_/usermember/modifyMyPage";
 </script>
 
@@ -18,7 +18,6 @@ alert("수정 실패");
 
 <c:if test="${modify  ne 'modifyFailed'}">
 <script> 
-alert("수정 성공");
 		location.href = "/user_page_/usermember/myPage";
 </script>
 </c:if>

@@ -28,7 +28,7 @@
 	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/V3style.css"/>" />
-		<script src="<c:url value="${path }/resource/js/jquery-3.5.1.min.js"/>"></script>
+		<script src="/resource/js/jquery-3.5.1.min.js"></script>
 
 <script type="text/javascript">
 
@@ -210,7 +210,7 @@ function check(re,what,message){//정규화데이터,아이템 id,메세지
     	var objPwd2 = document.getElementById("user_pwpw");
     	var objName = document.getElementById("user_name");
     	var objBirth = document.getElementById("user_birth");
-    	    	
+  	    	
        //비밀번호 입력 하지 않았을 경우
         if ((objPwd1.value) == ""){
             alert("비밀번호를 입력해 주세요");
@@ -254,12 +254,27 @@ function check(re,what,message){//정규화데이터,아이템 id,메세지
         }
 
 		//선호 지점 체크가 안되있을때 
-		if(document.getElementById('lo_1001').checked != true ) {
+		/* if(document.getElementById('lo_1001').checked != true && 
+				document.getElementById('lo_1002').checked != true && 
+				document.getElementById('lo_1003').checked != true  ) {
 			alert("선호지점을 선택해주세요");
 			return false;
 			}
-		
-        
+		 */
+		 var form_check_inputChk = false
+		 $(".form-check-input").each(function(){
+
+				if($(this).prop("checked"))
+					form_check_inputChk = true
+			 })
+			 
+			if(!form_check_inputChk){
+				alert("선호지점을 선택해주세요");
+				return false;
+			}
+			 
+
+		 	userInfo.submit()
     }
 
 
@@ -282,14 +297,16 @@ function check(re,what,message){//정규화데이터,아이템 id,메세지
 					<!-- Content -->
 					<article>
 
-						<h2>회원 가입</h2>
 
 						<!-- 본문 들어가는 부분 -->
 
 
 
 <div class="row text-center">						
-		<form class="" name="userInfo" method="get" action ="joinReg" onsubmit="return validate()">
+												<div class="row " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;" > 
+															<h1>회원 가입</h1>
+												</div>
+		<form class="" name="userInfo" method="get" action ="joinReg" >
 				<!-- document 현재문서, joinform-> name이 joinform인 태그의 name값이 id인 input태그의 value => 그값이 !일때(없을때,null일떄) if문 실행 -->
 				<!-- onsubmit 은 submit 실행전에 실행 checkvalue()함수의 return 값을 가져옴 true일때 submit실행, false 리턴시 submit 취소 -->
 
@@ -410,7 +427,7 @@ function check(re,what,message){//정규화데이터,아이템 id,메세지
 
 		<div class="row" style="width: 30%; float:none;  margin:0 auto">
 			<div class="form-group col ">
-						<input type="submit" id="signupbtn" value="회원가입" class="btn btn-primary" disabled="disabled"/> 
+						<input type="button" id="signupbtn" onclick="validate()" value="회원가입" class="btn btn-primary" disabled="disabled" /> 
 						<input type="reset" value="다시쓰기" class="btn btn-primary"/> 
 			</div>
 			<div class="form-group col ">	
@@ -418,7 +435,7 @@ function check(re,what,message){//정규화데이터,아이템 id,메세지
 			</div>
 		</div>
 		
-		<div class="row form-inline" style="width: 30%; float:right;  margin:0 auto">	
+		<div class="row" style="width: 30%; float:none;  margin:15px 15px 0 auto">	
 			<div class="form-group col ">
 				<input type="button" class="btn btn-default" value="내계정찾기" onclick="location.href='findMyAccount'" />
 		

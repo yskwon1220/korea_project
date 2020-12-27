@@ -46,15 +46,11 @@
                                                             <td class="align-middle">소속 지점</td>
                                                             <td>
                                                                 <div class="btn-group btn-group-toggle" data-toggle="buttons" id="branch">
+                                                                	<c:forEach items="${data}" var="data">
                                                                     <label class="btn btn-info">
-                                                                        <input type="radio" name="lo_name" value="강남점" checked="checked">강남점
+                                                                        <input type="radio" name="lo_name" value="${data.lo_name}">${data.lo_name}
                                                                     </label>
-                                                                    <label class="btn btn-info">
-                                                                        <input type="radio" name="lo_name" value="강북점">강북점
-                                                                    </label>
-                                                                    <label class="btn btn-info">
-                                                                        <input type="radio" name="lo_name" value="강서점">강서점
-                                                                    </label>
+                                                                	</c:forEach>
                                                                 </div>
                                                         </td>
                                                     </tr>
@@ -78,7 +74,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div class="col-sm-4" style="float: none; margin: 0 auto;">
+                                                        <div class="col-sm-3" style="float: none; margin: 0 auto;">
                                                             <input class="btn btn-info btn-primary btn-sm" type="submit" value="등록">
                                                             <input class="btn btn-info btn-danger btn-sm" type="reset" value="초기화">
                                                             <a href="/admin_page_/trainer/info" class="btn btn-info btn-primary btn-sm">목록으로</a>

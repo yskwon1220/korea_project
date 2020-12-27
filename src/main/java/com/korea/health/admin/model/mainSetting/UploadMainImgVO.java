@@ -3,7 +3,7 @@ package com.korea.health.admin.model.mainSetting;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadMainImgVO {
-	String image ="";
+	String image;
 	int imgNo;
 	String content_1="", content_2="";
 	MultipartFile imgUpload;

@@ -37,6 +37,7 @@ public class Pagenation {
 	private String month;
 	private String startDate;
 	private String endDate;
+	private String search;
 	
 	
 	DecimalFormat fmt = new DecimalFormat("###,###");
@@ -269,6 +270,14 @@ public class Pagenation {
 
 	public void setReservtime2Set(List<ReservationTimeVO> reservtime2Set) {
 		this.reservtime2Set = reservtime2Set;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 
 	// 현재 페이지 정보, 현재 페이지 범위 정보, 게시물의 총 개수

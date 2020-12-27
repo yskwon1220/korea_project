@@ -282,3 +282,10 @@ CREATE TABLE fnqboard (
  );
  
 SELECT COUNT(*) FROM TRAINER WHERE LO_NO = '1001';
+
+		UPDATE TRAINER SET STAR = (star + (SELECT SUM(starcnt) FROM REVIEW WHERE TR_NO = 17)) / 
+     	(SELECT COUNT(*) FROM REVIEW WHERE TR_NO = 17) WHERE TR_NO = 17;
+     	
+     select * from reservation where user_id = 'minjoo'
+		order by re_no DESC
+     

@@ -13,12 +13,11 @@
 alert("비밀번호가 틀렸습니다");
 		location.href = "/user_page_/usermember/modifyMyPage";
 </script>
-<%--     <c:out value="${str}" /> --%>
 </c:if>
 
 <c:if test="${delete  ne 'deleteFailed'}">
 <script> 
-alert("회원탈퇴 성공");
+alert("탈퇴가 완료되었습니다");
 		location.href = "/main";
 </script>
 </c:if>

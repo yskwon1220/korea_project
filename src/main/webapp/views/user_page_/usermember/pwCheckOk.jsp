@@ -21,12 +21,10 @@
 alert("비밀번호가 틀렸습니다 ");
 		location.href = "/user_page_/usermember/pwCheck";
 </script>
-<%--     <c:out value="${str}" /> --%>
 </c:if>
 
 <c:if test="${user_pw  ne 'pwfailed'}">
 <script> 
-alert("비밀번호가 맞았습니다.");
 		location.href = "/user_page_/usermember/modifyMyPage";
 </script>
 </c:if>

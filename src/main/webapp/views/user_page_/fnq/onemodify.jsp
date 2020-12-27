@@ -46,8 +46,11 @@
 
 			<!-- Content -->
 			<article>
+				<div style="height: 100px;"></div>
 				<h2>1대1 문의</h2>
-				<form name="onemodify" action="onemodifyReg" onsubmit="return check(); " method="post"
+
+				<form name="onemodify" action="onemodifyReg"
+					onsubmit="return check(); " method="post"
 					enctype="multipart/form-data">
 					<c:set var="sm" value="${data }" />
 					<input type="hidden" name="board_no" value="${sm.board_no }">
@@ -63,10 +66,11 @@
 					<div>
 						<hr>
 					</div>
-					
+
 					<div>
 						<div class="btn-group-toggle" data-toggle="buttons">
-							<label class="btn btn-primary"> <input type="submit" value="글쓰기" /> 
+							<label class="btn btn-primary"> <input type="submit"
+								value="글쓰기" />
 							</label>
 						</div>
 						| <a href="onelist">목록으로</a>

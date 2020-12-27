@@ -37,6 +37,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from location where lo_cnt = #{lo_cnt}
 	</delete>
 	
+	<delete id="branchTrainerDelete" parameterType="java.lang.String">
+		delete from trainer where lo_no = #{lo_no}
+	</delete>
+	
 	<update id="newNum" parameterType="com.korea.health.admin.model.branch.BranchVO">
 	<![CDATA[
 		update location set lo_cnt = lo_cnt - 1 where #{lo_cnt} < lo_cnt

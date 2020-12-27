@@ -48,7 +48,7 @@
 						<br>
 						<form action = "myResList" method="post">
 						<input type="hidden" name="user_id" value="${user_id}">
-						<input type="submit" value="마이페이지">
+						<input type="submit" class="btn btn-primary" value="마이페이지">
 						</form>
 					</div>
 				</div>

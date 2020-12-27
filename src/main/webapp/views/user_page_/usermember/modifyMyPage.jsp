@@ -43,9 +43,10 @@
 					<!-- Content -->
 					<article>
 
-
-						<h2>내정보</h2>
 <div class="row text-center">						
+						<div class="row " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+							<h1>내정보</h1>
+						</div>
 						<form method="post" action="modifyMyPageReg" onsubmit="return checkValue()">
 
 
@@ -112,7 +113,7 @@
 </div>
 
 
-<div class="row form-inline" style="width: 30%; float:none;  margin:0 auto">
+<div class="row form-inline" style="width: 30%; float:none;  margin:0 auto; ">
 	<div class="form-group col ">
 					<input type="submit" class="btn btn-primary" value="회원정보 수정 완료"/> 
 					<input type="reset" class="btn btn-primary" value="초기화"/> 
@@ -121,8 +122,8 @@
 </div>
 
 
-<div class="row form-inline" style="width: 30%; float:right;  margin:0 auto">	
-	<div class="form-group col ">
+<div class="row text-center" style="width: 30%; float:none;   margin:0 auto; padding-top:50px; padding-bottom: 50px">	
+	<div class="form-group col " >
 		<input type="button" class="btn btn-default" value="마이페이지로 돌아가기" onclick="location.href='myPage'" />
 		<input type="button" class="btn btn-default" value="회원탈퇴" onclick="location.href='delete'"/>
 	</div>

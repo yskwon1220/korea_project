@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+	<div style="height: 100px;"></div>
 	<div class="container">
 		<div id="content">
 
@@ -25,8 +25,11 @@
 				<h2>공지사항</h2>
 				<hr>
 
-				<form name="noticemodify" action="modifyReg" onsubmit="return check(); "  method="post" enctype="multipart/form-data">
+				<form name="noticemodify" action="modifyReg"
+					onsubmit="return check(); " method="post"
+					enctype="multipart/form-data">
 					<c:set var="sm" value="${data }" />
+
 					<input type="hidden" name="notice_no" value="${sm.notice_no }">
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"

@@ -5,15 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
 </head>
 <body>
 	
 	<jsp:include page="inc/headerV3.jsp"></jsp:include>
 		<jsp:include page="${mainUrl }"></jsp:include>
 		<jsp:include page="inc/footerV3.jsp"></jsp:include>
-	
 
 </body>
 </html>

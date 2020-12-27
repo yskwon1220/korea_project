@@ -8,26 +8,25 @@
 <div class="row">
 	<div class="col-xl-12">
 		<div class="card mb-4">
-		<!-- 	<div class="card-body">
-				<form action="회원검색모듈.html">
+			<div class="card-body">
+				<form action="?" name="keyField">
 					<div class="form-group col-xl-4" style="display: inline-block">
-						<label for="search">검색 기준</label> <select class="form-control"
-							id="search">
-							<option>이름</option>
-							<option>아이디</option>
-							<option>닉네임</option>
+						<label for="search">검색 기준</label> 
+						<select class="form-control"	id="search" name="search" >
+							<option value="user_name" >이름</option>
+							<option value="user_id" >아이디</option>	
 						</select>
 					</div>
 					<div class="form-group col-xl-4" style="display: inline-block">
-						<label for="txt1">검색 명</label> <input type="text"
-							class="form-control" id="txt1">
+						<label for="keyWord">검색 명</label> 
+						<input type="text" class="form-control"  name="keyWord">
 					</div>
 					<div class="form-group col-l-2" style="display: inline-block">
-						<input type="submit" class="form-control  btn btn-info btn-sm"
-							id="submit1" value="검색">
+						<input type="submit" class="btn btn-info btn-primary btn-sm" value="검색"  />
+						<input type="button" class="btn btn-info btn-primary btn-sm" value="뒤로" onclick="location.href='info'" />
 					</div>
 				</form>
-			</div> -->
+			</div> 
 		</div>
 	</div>
 </div>
@@ -58,7 +57,7 @@
 								href="/admin_page_/member/detail?user_no=${data.user_no}">${data.user_id}</a></td>
 							<td class="align-middle"><a
 								href="/admin_page_/member/detail?user_no=${data.user_no}">${data.user_name }</a></td>
-							<td class="align-middle">${data.regDate }</td>
+							<td class="align-middle">${data.ymd }</td>
 							<td class="align-middle">${data.admin }</td>
 						</tr>
 					</c:forEach>
@@ -92,30 +91,7 @@
 </div>
 
 <div class="card mb-4">
-<!-- 	<div class="card-header">
-		<i class="fas fa-user-check"></i> <a href="">회원 상세</a>
-	</div> -->
-	<!--회원 상세-->
-<!-- 	<div class="card-body">
-		<form action="회원정보수정모듈.html">
-			<div class="form-group col-xl-4" style="display: inline-block">
-				<label for="search">검색 기준</label> <select class="form-control"
-					id="search">
-					<option>이름</option>
-					<option>아이디</option>
-					<option>닉네임</option>
-				</select>
-			</div>
-			<div class="form-group col-xl-4" style="display: inline-block">
-				<label for="txt1">검색 명</label> <input type="text"
-					class="form-control" id="txt1">
-			</div>
-			<div class="form-group col-l-2" style="display: inline-block">
-				<input type="submit" class="form-control  btn btn-info btn-sm"
-					id="submit1" value="검색">
-			</div>
-		</form>
-	</div> -->
+
 </div>
 
 <script>

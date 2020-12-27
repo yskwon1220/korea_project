@@ -9,24 +9,27 @@
 <head>
 <title>FitNess Club</title>
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, user-scalable=no" />
+	content="width=device-width, initial-scale=1, user-scalable=no" />
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <link
-   href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
-   rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
-<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
-<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+	href="<c:url value="${path }/resource/css/V3animate.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+	href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
-<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3style.css"/>" />
 
 
 
@@ -40,8 +43,10 @@
 	<div id="main-wrapper "> --%>
 	<div id="board">
 		<div id="titleList">
+			<div style="height: 100px;"></div>
 			<div id="category">1대1 문의</div>
 			<div id="titleName">
+
 				<c:set var="sm" value="${data }" />
 				<svg width="1em" height="1em" viewBox="0 0 16 16"
 					class="bi bi-chat-right-dots-fill" fill="currentColor"
@@ -53,7 +58,7 @@
 			</div>
 			<div class="titleDetail">${sm.user_id }</div>
 			<div class="titleDetail">
-				<fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm" />
+				${sm.ymd }
 				</td>
 			</div>
 			<hr>
@@ -62,8 +67,8 @@
 					<div>
 						<h1>질문</h1>
 						<hr>
-						${sm.contentBr}
-						<br><br>
+						${sm.contentBr} <br>
+						<br>
 						<h1>답변</h1>
 						<hr>
 						${sm.replyBr}
@@ -74,24 +79,29 @@
 			<form action="oneinsertReg" method="post"
 				enctype="multipart/form-data">
 				<div class="bottomB">
-					<a class="btn btn-primary" href="onelist">목록으로</a> |
-					
-						<a class="btn btn-primary" href="onemodify?board_no=${sm.board_no }">수정</a> | 
-					<a class="btn btn-primary" href="onedelete?board_no=${sm.board_no }">삭제</a>
+					<a class="btn btn-primary" href="onelist">목록으로</a><a
+						class="btn btn-primary" href="onemodify?board_no=${sm.board_no }">수정</a>
+				<a class="btn btn-primary"
+						href="onedelete?board_no=${sm.board_no }">삭제</a>
 				</div>
 			</form>
 		</div>
 	</div>
-	
-	
-<script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
-   <script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
+
+
+	<script
+		src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
+	<script
+		src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3bootstrap.min.js"/>"></script>
+	<script
+		src="<c:url value="${path }/resource/js/V3jquery.waypoints.min.js"/>"></script>
+	<script
+		src="<c:url value="${path }/resource/js/V3owl.carousel.min.js"/>"></script>
+	<script
+		src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
+	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 
 </body>
 </html>

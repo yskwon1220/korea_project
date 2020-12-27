@@ -36,14 +36,12 @@ public class ReviewService implements Action {
 				infoVo.setVoArr(mapper.reviewlist(infoVo));
 				return infoVo;
 				
-				
 			case "detail":
 				System.out.println("switch case : detail에 들어왔다.");
 //				
 				System.out.println("mapper.detail(rrvo.review_no)"+mapper.detail(rrVo.review_no));
 				return mapper.detail(rrVo.review_no);
 				
-			
 			case "delete":
 				System.out.println("switch case : delete에 들어왔다.");
 				mapper.delete(rrVo.review_no);

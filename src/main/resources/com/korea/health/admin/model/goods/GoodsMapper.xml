@@ -18,9 +18,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="goods_cnt" resultType="java.lang.Integer" order="BEFORE">
 			select max(goods_cnt)+1 from goods
 		</selectKey>
-		insert into goods (goods_cnt, goods_no, goods_name, goods_price, regdate)
+		insert into goods (goods_cnt, goods_no, goods_name, goods_price, reserv_cnt, regdate)
 		values
-		(#{goods_cnt}, #{goods_no}, #{goods_name}, #{goods_price}, #{regdate})
+		(#{goods_cnt}, #{goods_no}, #{goods_name}, #{goods_price}, #{reserv_cnt}, #{regdate})
 	</insert>
 	
 	<update id="goodsModify" parameterType="com.korea.health.admin.model.goods.GoodsVO">

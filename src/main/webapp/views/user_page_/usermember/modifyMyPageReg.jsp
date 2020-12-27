@@ -19,7 +19,6 @@ alert("수정 실패");
 
 <c:if test="${modify  ne 'modifyFailed'}">
 <script> 
-alert("수정 성공");
 		location.href = "/user_page_/usermember/myPage";
 </script>
 </c:if>

@@ -57,7 +57,8 @@ public class TrainerService implements Action {
 				
 			case "insertForm":
 				System.out.println("switch case : insertForm에 들어왔다.");
-				return null;
+				
+				return mapper.branchList();
 				
 			case "insert":
 				System.out.println("switch case : insert에 들어왔다.");

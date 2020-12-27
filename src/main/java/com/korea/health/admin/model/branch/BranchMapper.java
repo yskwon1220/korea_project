@@ -28,6 +28,8 @@ public interface BranchMapper {
 	
 	List<TrainerVO> branchTrainerList(Pagenation pagenation);
 	
+	Integer branchTrainerDelete(String lo_no);
+	
 	Integer totalCnt(String lo_no);
 }
 

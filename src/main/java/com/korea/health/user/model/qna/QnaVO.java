@@ -1,5 +1,7 @@
 package com.korea.health.user.model.qna;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
@@ -11,7 +13,8 @@ public class QnaVO {
 	int cnt;
 	String kind="", title="", content="", file_0="";
 	Date regdate;
-	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
+	String ymd;
 	
 	public int getQna_no() {
 		return qna_no;
@@ -70,8 +73,25 @@ public class QnaVO {
 		return regdate;
 	}
 	public void setRegdate(Date regdate) {
+		ymd = sdf.format(regdate);
 		this.regdate = regdate;
 	}
+	
+	public String getYmd() {
+		return ymd;
+	}
+
+	public void setYmd(String ymd) {
+		try {
+			regdate = sdf.parse(ymd);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.ymd = ymd;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "QnaVO [qna_no=" + qna_no + ", customer_no=" + customer_no + ", cnt=" + cnt + ", kind=" + kind

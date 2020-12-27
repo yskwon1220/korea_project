@@ -64,7 +64,7 @@
 							<tr>
 								<th>${sm.qna_no }</th>
 								<td><a href="qnadetail?qna_no=${sm.qna_no }">${sm.title }</a></td>
-								<td><fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm"/></td>
+								<td>${sm.ymd }</td>
 								<td>관리자</td>
 								<td>${sm.cnt }</td>
 							</tr>

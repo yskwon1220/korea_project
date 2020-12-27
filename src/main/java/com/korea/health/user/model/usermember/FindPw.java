@@ -27,13 +27,13 @@ public class FindPw implements Action {
 		
 		UserMemberVO memberPw = mapper.findPw(mvo);
 		
-		String user_pw = memberPw.getUser_pw();
 				
-		if (user_pw == null) {
+		if (memberPw == null) {
 			req.setAttribute("memberPw", "findPwFailed");
 			
 		}else {
 			
+			String user_pw = memberPw.getUser_pw();
 			req.setAttribute("memberPw", user_pw);
 		}
 		

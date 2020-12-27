@@ -60,7 +60,7 @@
 						<form action="myResList" method="post">
 							<input type=hidden name="user_id" value="${param.user_id}">
 
-							<input type="submit" value="예약 목록으로">
+							<input type="submit" class="btn btn-primary" value="예약 목록으로">
 						</form>
 					</div>
 				</div>

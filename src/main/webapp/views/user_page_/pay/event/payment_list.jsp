@@ -77,7 +77,7 @@ $('input[name=refund]').on('click',function(){
 									<th>할인액</th>
 									<th>사용 포인트</th>
 									<th>결제 방법</th>
-									<th>환불선택</th>
+									<!--  <th>환불선택</th>-->
 								</tr>
 							</thead>
 							<tbody>
@@ -92,7 +92,7 @@ $('input[name=refund]').on('click',function(){
 												<td>${pl.discount_price }원</td>
 												<td>${pl.point_price }</td>
 												<td>${pl.pay_way }</td>
-												<td><input type="button" name="refund" id="${pl.payment_no }" value="환불" ></td>
+											<!--	<td><input type="button" name="refund" id="${pl.payment_no }" value="환불" ></td>-->
 											</tr>
 										</c:forEach>
 									</c:when>

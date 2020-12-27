@@ -43,8 +43,8 @@
                              <div class="collapse" id="collapseReservation" 
                              aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="/admin_page_/reservation/info">예약 정보</a>
                                             <a class="nav-link" href="/admin_page_/reservation/resinfo">시간별 인원 현황</a>
+                                            <a class="nav-link" href="/admin_page_/reservation/info">예약 정보</a>
                                         </nav>
                                     </div>
                <!--  -->
@@ -72,17 +72,17 @@
                              <div class="collapse" id="pagesCollapseHome" 
                              aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-							                <a class="nav-link" href="/admin_page_/mainSetting/info">팝업창 관리</a>
+							                <a class="nav-link" href="/admin_page_/mainSetting/info">메인배너 관리</a>
 							               <a class="nav-link" href="/admin_page_/mainSetting/urInfo">메인소개 관리</a>
                                         </nav>
                                     </div>
                     <a class="nav-link" href="/admin_page_/branch/info">지점 관리</a>
-                    <a class="nav-link" href="/admin_page_/goods/info">상품 관리</a>
+                    <a class="nav-link" href="/admin_page_/goods/info">이용권 관리</a>
                <a class="nav-link" href="/admin_page_/review/info">이용후기 관리</a>
 				      <a class="nav-link collapsed" href="#" data-toggle="collapse" 
 				      data-target="#pagesCollapseCus" aria-expanded="false" 
 				      aria-controls="pagesCollapseCus">
-                                        고객문의 관리
+                                        게시물 관리
                             <div class="sb-sidenav-collapse-arrow">
                                <i class="fas fa-angle-down"></i>
                             </div>
@@ -91,8 +91,8 @@
                              aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="/admin_page_/notice/info">공지사항</a>
-                                            <a class="nav-link" href="/admin_page_/qna/info">자주묻는 질문 관리</a>
-                                            <a class="nav-link" href="/admin_page_/fnq/info">1:1 문의 관리</a>
+                                            <a class="nav-link" href="/admin_page_/qna/info">자주묻는 질문</a>
+                                            <a class="nav-link" href="/admin_page_/fnq/info">1:1 문의</a>
                                         </nav>
                                     </div>
                   <a class="nav-link"
@@ -113,9 +113,9 @@
                   aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                   <nav class="sb-sidenav-menu-nested nav">
                      <a class="nav-link"
-                        href="/admin_page_/result/total">판매 내역</a>
+                        href="/admin_page_/result/total">지점별 판매 내역</a>
                      <a class="nav-link"
-                        href="/admin_page_/payment/info">결제 관리</a>
+                        href="/admin_page_/payment/info">기간별 판매 내역</a>
                   </nav>
                </div>
             </div>

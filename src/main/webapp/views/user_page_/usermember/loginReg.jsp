@@ -11,22 +11,15 @@
 </head>
 <body>
 
-
-
-<%-- ${id} --%>
-<%-- <c:set var="name" value="${id}" /> --%>
-
 <c:if test="${user_id  eq 'idfailed'}">
 <script> 
 alert("로그인 실패");
 		location.href = "/user_page_/usermember/login";
 </script>
-<%--     <c:out value="${str}" /> --%>
 </c:if>
 
 <c:if test="${user_id  ne 'idfailed'}">
 <script> 
-alert("로그인 성공");
 		location.href = "/main";
 </script>
 </c:if>

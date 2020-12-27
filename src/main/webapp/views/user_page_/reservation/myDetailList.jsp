@@ -75,6 +75,10 @@
 									<td>${rvo.re_no}</td>
 								</tr>
 								<tr>
+									<td>지점번호</td>
+									<td>${rvo.lo_no }</td>
+								</tr>
+								<tr>
 									<td>지점명</td>
 									<td>${rvo.lo_name }</td>
 								</tr>
@@ -106,20 +110,17 @@
 									<td>내용</td>
 									<td>${rvo.content }</td>
 								</tr>
+								
 							</tbody>
 						</table>
 						<br> <br>
 
-
 						<!-- 지난 날짜는 버튼을 숨긴다. -->
 						<c:if test="${today <= write_dt}">
-							<a
-								href="deleteForm?re_no=${rvo.re_no}&user_id=${rvo.user_id}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}" class="btn btn-primary">예약취소</a>
+							<a href="deleteForm?re_no=${rvo.re_no}&lo_no=${rvo.lo_no}&user_id=${rvo.user_id}&resdate=<fmt:formatDate value='${rvo.resdate}' pattern="yyyy_M_d" />&resTime=${rvo.resTime}" class="btn btn-primary">예약취소</a>
 						</c:if>
 
-						&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="되돌아가기"
-							class="btn btn-primary" onclick="location.href='javascript:history.back()' ">
-
+						&nbsp;&nbsp;&nbsp;&nbsp; <a class="btn btn-primary" href="javascript:history.back();" >되돌아가기</a>
 
 					</div>
 				</div>

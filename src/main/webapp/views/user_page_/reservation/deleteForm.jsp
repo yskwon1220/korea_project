@@ -65,9 +65,10 @@
 							onsubmit="return formCheck(this)">
 
 							<input type="hidden" name="user_id" value="${param.user_id}" />
-							<input type="hidden" name="re_no" value="${param.re_no}" /> <input
-								type="hidden" name="resdate" value="${param.resdate}"> <input
-								type="hidden" name="resTime" value="${param.resTime}">
+							<input type="hidden" name="re_no" value="${param.re_no}" /> 
+							<input type="hidden" name="resdate" value="${param.resdate}"> 
+							<input type="hidden" name="resTime" value="${param.resTime}">
+							<input type="hidden" name="lo_no" value="${param.lo_no}">
 
 
 							<table class="type07">
@@ -86,7 +87,6 @@
 
 								</tbody>
 							</table>
-							<br>
 							<br>
 							<input type="button" onclick="gogo()" class="btn btn-primary" value="예약취소하기"> &nbsp;&nbsp; 
 							<input
@@ -128,7 +128,6 @@
 		var userPw = '${data.user_pw}';
 
 		if(password == userPw) {
-			alert("비밀번호가 일치합니다.");
 			document.getElementById('successForm').submit();
 		} else {
 			alert("비밀번호가 일치하지 않습니다.");

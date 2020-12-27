@@ -32,6 +32,8 @@ public class DeleteForm implements Action {
 		req.setAttribute("user_id", user_id);
 		req.setAttribute("resdate", req.getParameter("resdate"));
 		req.setAttribute("resTime", req.getParameter("resTime"));
+		req.setAttribute("lo_no", req.getParameter("lo_no"));
+		
 		
 		UserMemberVO uvo = mapper.userInfo(user_id);
 		System.out.println(uvo.toString());

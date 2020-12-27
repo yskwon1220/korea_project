@@ -58,7 +58,6 @@
 					<div
 						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 
-						<!-- 	<div class="wrapper1"> -->
 						<div class="calendar">
 							<div class="month">
 								<div class="prev" onclick="moveDate('prev')">
@@ -81,7 +80,7 @@
 								<div>Fri</div>
 								<div>Sat</div>
 							</div>
-							<div class="days" id="days" onclick="return TestDay()"></div>
+							<div class="days" id="days"></div>
 						</div>
 					</div>
 				</div>
@@ -160,6 +159,8 @@
 									</tr>
 								</tbody>
 							</table>
+							<br>
+							<br>
 							<input id="hidden_real" type="hidden" name="resdate"> 
 							<input type="button" onclick="return resAjaxGo2()"class="btn btn-primary" value="다음">
 						</form>
@@ -168,6 +169,7 @@
 			</div>
 		</div>
 	</div>
+
 
 
 			<script>
@@ -203,8 +205,6 @@
 						}else{
 							cells += "<div class='' onclick=resAjaxGo(" + ee + ")>" + i+ "</div>";
 						}
-
-						
 							
 					}
 					document.getElementsByClassName("days")[0].innerHTML = cells;
@@ -218,12 +218,8 @@
 						} 
 					});
 				}
-
-/* 				if(data[5].resDate <= nowEE)
-					alert('ㅎㅇ') */
 					
 				function resAjaxGo(dt) {
-					
 					$.ajax({
 								url : '../../resAjax/reservation/timecnt?lo_no=${lo_no}&resDateStr='+ dt,
 								dataType : 'json',
@@ -232,47 +228,30 @@
 									$("#hidden_real").val(data[5].resDate);
 									
 									for (i in data) {
-										$("input:radio[name='resTime'][value='"+i+"']").removeAttr("checked")
-										// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
+										$("input:radio[name='resTime'][value='"+i+"']").removeAttr("checked");
 			
-										$("#rad_" + i).removeAttr("disabled")
-										console.log(i, data[i])
+										$("#rad_" + i).removeAttr("disabled");
 										
+										//console.log(i, data[i])
+										//console.log("TEST : " + data[5].resDate);
 										var ttt = "예약가능"
-										// 변수 ttt를 초기화한다
 										var today= dt.getUTCDate();
 										var selectDay = data[5].resDate.split('_')[2];
-										console.log("TEST T: " + today);
-										console.log("TEST S: " + data[5].resDate);
 
 										if((Number(today) + 1) > Number(selectDay)) {
-											console.log("TEST TESTSETSERS");
 											ttt = "예약불가"
-												// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
-												
 											$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false);
-												// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
-		
 											$("#rad_" + i).attr('disabled','true');
-												//input type radio 의 id가 rad_ i 인것을 비활성화한다.
 										} 
 									
 										if(data[i].nowCnt >=30) { 
 							
 											ttt = "예약불가"
-											// 만약 인원카운트가 30을 넘으면 예약가능을 예약불가로 변경한다
-														
 											$("input:radio[name='resTime'][value='"+i+"']").prop("checked", false)
-											// input type radio의 name이 resTime이고, value가 i인 것들의 체크를 비활성화한다.
-				
 											$("#rad_" + i).attr('disabled','true')
-											//input type radio 의 id가 rad_ i 인것을 비활성화한다.
 										}
 										$("#res_" + i).html(ttt)
-												//div id가 res_i인 요소를 예약가능/예약 불가 로 표현한다
-												
 										$("#time_" + i).html(data[i].nowCnt + " / 30")
-												//div id가 time_i인 요소를 인원수로 표현한다
 									}
 								},
 
@@ -280,18 +259,34 @@
 									alert(e.responseText);
 								}
 							});
-
 				}
 
 				function resAjaxGo2() {
+					var chk = document.frm;
+					var checked_items = 0;
+					
 					$.ajax({
 						url : '/resAjax/reservation/myselect?resdate='+ document.frm.hidden_real.value,
 						success : function(data) {
 							//alert(data)
 							if(eval(data)>0){
 								alert("이미 예약이 되어있습니다. 다른 날짜를 선택해주세요. ")
+								for (i=0;i<chk.elements.length;i++)  {
+									if ((chk.elements[i].name == "resTime") && (chk.elements[i].checked)){
+										checked_items++;
+										}
+									}
 							}else{
-								frm.submit()
+								for (i=0;i<chk.elements.length;i++)  {
+									if ((chk.elements[i].name == "resTime") && (chk.elements[i].checked)){
+										checked_items++;
+										}
+									}
+								if (checked_items == 0) {
+									alert("잘못된 경로입니다. 다시 선택해주세요. ")
+								} else {
+									frm.submit()
+								}
 							}
 						},
 						error : function(e) { 
@@ -299,6 +294,7 @@
 						}
 					});
 				}
+
 
 				function moveDate(para) {
 					if (para == "prev") {
@@ -308,7 +304,6 @@
 					} else if (para == 'next') {
 						alert("다음 달은 예약할 수 없습니다.");
 						//dt.setMonth(dt.getMonth() + 1);
-						
 					}
 					renderDate();
 				}

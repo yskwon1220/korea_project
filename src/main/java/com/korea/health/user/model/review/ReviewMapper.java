@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.korea.health.user.model.Reservation.ReservationVO;
+
 @Mapper
 public interface ReviewMapper {
 	List<ReviewVO> reviewlist(ReviewPagingInfo infoVo);
@@ -13,6 +15,7 @@ public interface ReviewMapper {
 	ReviewVO detail(int review_no);
 	ReviewVO chkID(int review_no);
 	void insert(ReviewVO vo);
+	List<ReservationVO> reviewWrite(String user_id);
 	
 	void trainerStar(ReviewVO vo);
 	

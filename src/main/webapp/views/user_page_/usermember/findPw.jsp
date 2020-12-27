@@ -34,50 +34,58 @@
 
 
 		<div id="page-wrapper">
+
+
+
 			<!-- Main -->
 				<div id="main-wrapper">
 					<div class="container">
 						<div id="content">
+
 							<!-- Content -->
 								<article>
 
 									
-									<h2>비밀번호 찾기</h2>
 						<div class="row text-center"><!-- 가운데 정렬을 위해 -->
+						
+												<div class="row " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;" > 
+															<h1>비밀번호 찾기</h1>
+												</div>
+												
+												
 						<form action="login">
 					<c:choose>
-                   	<c:when test="${memberPw eq 'findPwFailed' }">
-								<h2>찾는 계정이 없습니다</h2>
-                   	</c:when>
-                   	<c:otherwise>
+	                   	<c:when test="${memberPw eq 'findPwFailed' }">
+									<h2>찾는 계정이 없습니다</h2>
+									
+			<div class="row" style=" margin: 0 auto">
+				<div class="form-group col ">
+					<input type="button" class="btn btn-primary" value="회원가입" onclick="location.href='join'"  />
+				</div>
+			</div>
+	                   	</c:when>
+	                   	<c:otherwise>
+	
+							<div class="row" style="margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+											<div class="form-group  col">
 
-						<div class="row" style="width: 30%; float:none; margin:0 auto">
-										<div class="form-group  col">
-											<label for="pw" class="">고객님의 비밀번호</label>
-											<input type="text" id="user_pw" name="user_pw" class="form-control" readonly="readonly" value="<c:forEach var="memberPw"  items="${memberPw}" begin="2" ></c:forEach>">
-										<h6>회원가입 시 사용한 비밀번호는 <strong>${fn:substring(memberPw, 0, 2)}
-											<c:forEach begin="1" end="${fn:length(memberPw)-2}">
-													*
-											</c:forEach>
-											</strong>입니다.
-										</h6>
-										</div>
-						</div>
-						
-
-                   	</c:otherwise>
-					</c:choose> 
-			
-						
-
-
-
-
-			<div class="row" style="width: 30%; float: none; margin: 0 auto">
+											<h3>회원가입 시 사용한 비밀번호 <br/><br/><strong>${fn:substring(memberPw, 0, 4)}
+												<c:forEach begin="1" end="${fn:length(memberPw)-2}">
+														*
+												</c:forEach>
+												</strong><br/><br/>
+											</h3>
+											</div>
+			<div class="row" style=" margin: 0 auto">
 				<div class="form-group col ">
 					<input type="submit" class="btn btn-primary" value="로그인하러가기" />
 				</div>
 			</div>
+							</div>
+	                   	</c:otherwise>
+					</c:choose> 
+			
+
 
 						</form>
 						</div>

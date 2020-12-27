@@ -45,7 +45,7 @@ li:hover ul {
 						<c:when test="${not empty sessionScope.user_id }">
 							<!-- 로그인된 상태일때  -->
 							<li><a
-								href="<c:url value="${path }/user_page_/usermember/myPage"/>">${user_id }'s
+								href="<c:url value="${path }/user_page_/usermember/myPage"/>">${user_name }'s
 									page</a></li>
 							<li class="cta"><a
 								href="<c:url value="${path }/user_page_/usermember/logout"/>">Logout</a></li>

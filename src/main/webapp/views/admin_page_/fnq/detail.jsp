@@ -16,6 +16,7 @@
 <body>
 	<%-- 	<jsp:include page="../inc/headerV3.jsp" />
 	<div id="main-wrapper "> --%>
+	<div style="height: 100px;"></div>
 	<div id="board">
 		<div id="titleList">
 			<div id="category">1대1 문의</div>
@@ -31,7 +32,7 @@
 			</div>
 			<div class="titleDetail">${sm.user_id }</div>
 			<div class="titleDetail">
-				<fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm" />
+				${sm.ymd }
 				</td>
 			</div>
 			<hr>

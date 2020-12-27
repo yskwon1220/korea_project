@@ -61,6 +61,12 @@
 							</td>
 						</tr>
 						<tr>
+							<td class="align-middle">예약자 아이디</td>
+							<td class="align-middle">
+							<input type="text" name="user_id" value="${rvo.user_id}"/>
+							</td>
+						</tr>
+						<tr>
 							<td class="align-middle">예약자 이름</td>
 							<td class="align-middle">
 							<input type="text" name="user_name" value="${rvo.user_name}"/>

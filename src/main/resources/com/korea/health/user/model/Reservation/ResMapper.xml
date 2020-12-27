@@ -7,76 +7,68 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	namespace="com.korea.health.user.model.Reservation.ResMapper">
 
 
-
-	<select id="MyDateSelect"
-		resultType="int"
-		parameterType="java.lang.String">
-		select count(*)  from reservation where user_id = #{user_id} and resdate = #{resdate}
+	<!-- 유저가 이미 예약한 날짜는 예약할 수 없다. 1,0으로 값을 반환시켜 조회한다 -->
+	<select id="MyDateSelect2" resultType="int"
+		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
+		select count(*) from reservation where user_id =
+		#{user_id} and resdate = #{resdate}
 	</select>
-	
-	
-	<select id="MyDateSelect2"
-		resultType="int" parameterType="com.korea.health.user.model.Reservation.ReservationVO">
-		select count(*)  from reservation where user_id = #{user_id} and resdate = #{resdate}
-	</select>
-	
 
+
+	<!-- 유저가 이용권 구매해야만 예약이가능하다. 이용권 데이터가 있는지 1,0으로 반환시켜 조회한다. -->
+	<select id="MyResCnt" resultType="int"
+		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+		select count(RESERVE_CNT)
+		from usermember
+		where user_id = #{user_id}
+	</select>
+
+
+	<!-- 내 모든 예약 리스트 조회 -->
 	<select id="MyResList"
 		resultType="com.korea.health.user.model.Reservation.ReservationVO"
 		parameterType="java.lang.String">
-		select * from reservation where user_id = #{user_id} order by re_no DESC
+		select * from reservation where user_id = #{user_id}
+		order by re_no DESC
 	</select>
 
 
-
+	<!-- 내 예약 리스트의 한 튜플에 대한 조회 -->
 	<select id="MyDetailList"
 		resultType="com.korea.health.user.model.Reservation.ReservationVO"
 		parameterType="java.lang.Integer">
 		select * from reservation where re_no = #{re_no}
 	</select>
-	
-	
-	
-	<select id="userInfo" resultType="com.korea.health.user.model.usermember.UserMemberVO"
-	parameterType="java.lang.String">
-	
-	
-	select user_id, user_name, user_tel, user_pw
-	
-	from USERMEMBER
-	
-	where user_id = #{user_id}
-	
+
+
+	<!-- insertForm에 뿌려줄 새끼들 -->
+	<select id="userInfo"
+		resultType="com.korea.health.user.model.usermember.UserMemberVO"
+		parameterType="java.lang.String">
+		select user_id, user_name, user_tel, user_pw, reserve_cnt
+		from USERMEMBER
+		where user_id = #{user_id}
+
 	</select>
 
 
+	<!-- 유저가 예약할때 데이터 삽입한다 -->
 	<insert id="insert"
 		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
 
-		insert into reservation(re_no, lo_no, lo_name, type, tr_name,
-		resdate,
-		restime,
-		user_id,
-		user_pw,
-		user_name, 
-		user_tel, 
-		content)
-
-		values(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name},
-
-		#{resdate},
-		#{resTime},
-		#{user_id},
-		#{user_pw},
-		#{user_name}, 
-		#{user_tel}, 
-		#{content})
-
-		<!-- INSERT INTO TABLE_NAME( date_column )values( TO_DATE('2016-10-05 10:53:56', 
-			'SYYYY-MM-DD HH24:MI:SS') ) -->
+		insert into reservation
+		(re_no, lo_no, lo_name, type,
+		tr_name, resdate, restime,
+		user_id, user_pw, user_name, user_tel, content)
+		values
+		(re_noidx.nextval, #{lo_no}, #{lo_name}, #{type}, #{tr_name},
+		#{resdate},#{resTime},#{user_id},#{user_pw},#{user_name},
+		#{user_tel},#{content})
 
 	</insert>
 
+
+	<!-- 지점, 날짜, 시간을 아작스로 보여주기 위한 쿼리 -->
 	<select id="selectByRes"
 		parameterType="com.korea.health.user.model.Reservation.ResTimeVO"
 		resultType="com.korea.health.user.model.Reservation.ResTimeVO">
@@ -88,24 +80,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 
-
+	<!-- 예약취소시 해당 날짜에와 시간대에 맞는 데이터 삭제한다 -->
 	<delete id="delete"
 		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
-		delete from reservation where re_no = #{re_no} and user_pw = #{user_pw}
+		delete from reservation where re_no = #{re_no} and
+		user_pw = #{user_pw}
 	</delete>
 
 
+	<!-- 환불시 예약테이블에서도 데이터 삭제한다 -->
+	<delete id="deleteRes"
+		parameterType="com.korea.health.user.model.Reservation.ReservationVO">
+		delete from reservation where user_id=#{user_id} and
+		user_pw = #{user_pw}
+	</delete>
+
+
+	<!-- 예약인원수 테이블, 갯수가에 따라 실행 메소드가 다르다. -->
 	<select id="selectCount" resultType="java.lang.Integer"
 		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 
-
 		select count(*)
 		from RESTIME
-		where lo_no = #{lo_no} and resDate = #{resDate} and resTime = #{resTime}
+		where lo_no = #{lo_no} and
+		resDate = #{resDate} and resTime = #{resTime}
 
 	</select>
 
 
+	<!--만약 존재하지않다면 다중테이블의 nowCnt에 1을 대입한다.(insert) -->
 	<insert id="noCount"
 		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 
@@ -115,6 +118,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 
+	<!-- 만약 데이터가 이미 존재한다면 다중테이블의 nowCnt를 1씩증가시킨다.(update) -->
 	<update id="addCount"
 		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 		<![CDATA[
@@ -124,6 +128,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]>
 	</update>
 
+
+	<!-- 예약인원수 테이블, 유저가 예약취소하면 해당날짜의 시간대에 다시 -1시킨다. -->
 	<update id="MinusCount"
 		parameterType="com.korea.health.user.model.Reservation.ResTimeVO">
 		<![CDATA[
@@ -132,6 +138,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where lo_no = #{lo_no,jdbcType=VARCHAR} and resDate = #{resDate,jdbcType=DATE} and resTime = #{resTime,jdbcType=VARCHAR}
         ]]>
 	</update>
+
 
 	<!-- 페이징을 하기 위한 -->
 	<select id="PagingList"
@@ -145,32 +152,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>
 
+
+	<!-- 페이징하려고만들어논 sql -->
 	<select id="totalCnt" resultType="java.lang.Integer">
 		select
 		count(*) from reservation
 	</select>
 
- 
-	<select id="MyDetailList2"
-		resultType="com.korea.health.user.model.Reservation.ReservationVO"
-		parameterType="java.lang.Integer">
-		<!-- String이엿음원래 임시로바꾸기 -->
-		SELECT
-		LO_NAME,
-		TYPE,
-		TR_NAME,
-		RESDATE,
-		RESTIME,
-		USER_NAME as user_name,
-		USER_TEL as user_tel,
-		CONTENT as content
-
-		FROM RESERVATION
-
-		WHERE RE_NO = #{re_no} 
-	</select>
+	<!-- <select id="MyDetailList2" resultType="com.korea.health.user.model.Reservation.ReservationVO" 
+		parameterType="java.lang.Integer"> SELECT LO_NAME, TYPE, TR_NAME, RESDATE, 
+		RESTIME, USER_NAME as user_name, USER_TEL as user_tel, CONTENT as content 
+		FROM RESERVATION WHERE RE_NO = #{re_no} </select> -->
 
 
+	<!-- 예약할때마다 이용권 -1씩 차감 -->
+	<update id="MyResMinusCnt"
+		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+		<![CDATA[
+		update usermember  
+		set  reserve_cnt  =  reserve_cnt  - 1 
+		where user_id = #{user_id}
+        ]]>
+	</update>
+
+	<!-- 이용권 환불시 이용권 횟수를 null로 업데이트 시킴 -->
+	<update id="MyResDrop"
+		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+		<![CDATA[
+		update usermember  
+		set  reserve_cnt  =  null
+		where user_id = #{user_id}
+        ]]>
+
+	</update>
+
+	<!-- 이용권 결제완료시 이용권 횟수 업데이트시킴 -->
+	<update id="MyPaymentInsert"
+		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+		<![CDATA[
+		update usermember  
+		set  reserve_cnt  =  #{reserve_cnt}
+		where user_id = #{user_id}
+        ]]>
+
+	</update>
+	
 
 </mapper>
 

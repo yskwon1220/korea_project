@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h1 class="mt-4">1대1 문의</h1>
-
+<div style="height: 100px;"></div>
 <div class="card mb-4">
 	<div class="card-header">
 		<i class="fas fa-bullhorn"></i> 1대1 문의사항
-		
+
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
@@ -27,20 +27,18 @@
 						<tr>
 							<th>${sm.board_no }</th>
 							<td><a href="detail?board_no=${sm.board_no }">${sm.title }</a></td>
-							<td><fmt:formatDate value="${sm.regdate }"
-									pattern="yy-MM-dd HH:mm" /></td>
+							<td>${sm.ymd }</td>
 							<td>${sm.user_id }</td>
 							<td>${sm.rep }</td>
-							<td><a
-								href="delete?board_no=${sm.board_no }" 
+							<td><a href="delete?board_no=${sm.board_no }"
 								class="btn btn-info btn-danger btn-sm">삭제</a> <a
-								href="reply?board_no=${sm.board_no }" 
+								href="reply?board_no=${sm.board_no }"
 								class="btn btn-info btn-primary btn-sm">답변</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="pag" align="center"  style="font-size: 30px">
+			<div class="pag" align="center" style="font-size: 30px">
 				<ul class="pagination">
 					<c:if test="${data.startPage>1 }">
 						<a href="?nowPage=${startPage-1 }"><span>«</span></a>
@@ -89,4 +87,3 @@
 	</div>
 </div> -->
 
-	

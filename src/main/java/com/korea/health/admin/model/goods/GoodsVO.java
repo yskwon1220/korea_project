@@ -13,6 +13,7 @@ public class GoodsVO {
 	String goods_no;
 	String goods_name;
 	Integer goods_price;
+	Integer reserv_cnt;
 	Date regdate;
 	
 	String showPrice;
@@ -68,6 +69,13 @@ public class GoodsVO {
 			e.printStackTrace();
 		}
 		this.welcomeDate = welcomeDate;
+	}
+	
+	public Integer getReserv_cnt() {
+		return reserv_cnt;
+	}
+	public void setReserv_cnt(Integer reserv_cnt) {
+		this.reserv_cnt = reserv_cnt;
 	}
 	
 	@Override

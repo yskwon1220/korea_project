@@ -1,5 +1,7 @@
 package com.korea.health.user.model.notice;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
@@ -11,7 +13,11 @@ public class NoticeVO {
 	int cnt;
 	String title="", content="", file_0="";
 	Date regdate;
-
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
+	String ymd;
+	
+	
+	
 	public int getCustomer_no() {
 		return customer_no;
 	}
@@ -74,7 +80,22 @@ public class NoticeVO {
 	}
 
 	public void setRegdate(Date regdate) {
+		ymd = sdf.format(regdate);
 		this.regdate = regdate;
+	}
+
+	public String getYmd() {
+		return ymd;
+	}
+
+	public void setYmd(String ymd) {
+		try {
+			regdate = sdf.parse(ymd);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.ymd = ymd;
 	}
 
 	@Override

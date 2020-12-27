@@ -74,9 +74,10 @@ public class BranchService implements Action {
 			System.out.println("switch case : delete에 들어왔다.");
 			
 			String fileName = vo.getLo_pic();
-			String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
+			String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images";
 			
 			int cnt = mapper.branchDelete(vo);
+			mapper.branchTrainerDelete("100" + (request.getParameter("lo_cnt")));
 			mapper.newNum(vo);
 			if(cnt == 0) {
 				return mapper.branchDetail(Integer.parseInt(request.getParameter("lo_cnt")));

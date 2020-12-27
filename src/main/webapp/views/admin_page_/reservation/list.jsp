@@ -58,10 +58,11 @@
 						<th>예약 번호</th>
 						<th>지점 이름</th>
 						<th>타입</th>
+						<th>예약자 아이디</th>
 						<th>예약자 성함</th>
 						<th>예약자 연락처</th>
 						<th>트레이너 이름</th>
-						<th>요청사항</th>
+						<!-- <th>요청사항</th> -->
 						<th>예약 일자</th>
 						<th>예약 시간</th>
 					</tr>
@@ -73,10 +74,11 @@
 							<td class="align-middle"><a href="/admin_page_/reservation/detail?re_no=${data.re_no}">${data.re_no}</a></td>
 							<td class="align-middle">${data.lo_name}</td>
 							<td class="align-middle">${data.type}</td>
+							<td class="align-middle">${data.user_id}</td>
 							<td class="align-middle">${data.user_name}</td>
 							<td class="align-middle">${data.user_tel}</td>
 							<td class="align-middle">${data.tr_name}</td>
-							<td class="align-middle">${data.contentTrans}</td>
+							<%-- <td class="align-middle">${data.contentTrans}</td> --%>
 							<td class="align-middle">${data.welcomeDate}</td>
 							<td class="align-middle">${data.restime}</td>
 						</tr>
@@ -110,8 +112,8 @@
 			<div class="col-md-6">
 				<a style="float: right;" href="/admin_page_/reservation/insertForm"
 					class="btn btn-info btn-primary btn-sm">신규 예약등록</a>
-					&nbsp;&nbsp;
-					<a style="float: right;" href="/admin_page_/reservation/info" class="btn btn-info btn-primary btn-sm">목록으로</a>
+					&nbsp;&nbsp;&nbsp;
+					<a style="float: right;" href="/admin_page_/reservation/info" class="btn btn-info btn-primary btn-sm">목록으로</a>&nbsp;&nbsp;&nbsp;
 			</div>
 		</div>
 	</div>

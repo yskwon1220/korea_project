@@ -93,6 +93,11 @@
 							</tr>
 							
 							<tr>
+								<td class="align-middle">예약자 아이디</td>
+								<td class="align-middle"><input class="form-control"
+									type="text" id="regdate" name="user_id"></td>
+							</tr>
+							<tr>
 								<td class="align-middle">예약자 성함</td>
 								<td class="align-middle"><input class="form-control"
 									type="text" id="regdate" name="user_name"></td>

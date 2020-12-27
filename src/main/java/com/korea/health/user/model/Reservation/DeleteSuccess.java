@@ -28,6 +28,9 @@ public class DeleteSuccess implements Action {
 		req.setAttribute("user_id", (String)req.getParameter("user_id"));
 		
 		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		
+		System.out.println("있으세요?"+timevo.getNowCnt());
+		
 		String resdateStr = req.getParameter("resdate");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_M_d");
 		Date resDate;
@@ -43,7 +46,9 @@ public class DeleteSuccess implements Action {
 			System.out.println("타입확인 resTime : " + timevo.getResTime().getClass().getName());
 			
 			if(mapper.delete(rvo) != 0) {
+				System.out.println(timevo);
 				mapper.MinusCount(timevo);	
+				//void MinusCount(ResTimeVO timevo);이거임.
 			}
 			
 		} catch (ParseException e) {

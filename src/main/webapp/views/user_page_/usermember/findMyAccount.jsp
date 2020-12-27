@@ -8,9 +8,11 @@
 <head>
 <title>로그인</title>
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" /> 
-	<c:set var="path" value="${pageContext.request.contextPath}" /> 
-	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
 <link rel="stylesheet"
 	href="<c:url value="${path }/resource/css/V3animate.css"/>" />
@@ -42,65 +44,74 @@
 					<!-- Content -->
 					<article>
 
-						<h2>비밀번호확인</h2>
 
 
-						<div class="row text-center">ID찾기
-						<form action="findId">
-						
-							<div class="row" style="width: 30%; float:none; margin:0 auto">
-											<div class="form-group  col">
-												<label for="name" class="">이름</label>
-												<input type="text" id="user_name" name="user_name" class="form-control" maxlength="30" placeholder="이름을 입력해주세요">
-											</div>
-							</div>
-							
-							<div class="row" style="width: 30%; float:none; margin:0 auto">
-											<div class="form-group  col">
-												<label for="user_tel" class="">전화번호</label>
-												<input type="tel" id="user_tel" name="user_tel" class="form-control" maxlength="30" placeholder="전화번호를 입력해주세요">
-											</div>
-							</div>
-				
-				
-							<div class="row" style="width: 30%; float: none; margin: 0 auto">
-								<div class="form-group col ">
-									<input type="submit" class="btn btn-primary" value="ID 찾기" />
+						<div class="row text-center">
+						<div class="row " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+							<h1>나의 계정 찾기</h1>
+						</div>
+						<h3>ID찾기</h3>	
+							<form action="findId">
+
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group  col">
+										<label for="name" class="">이름</label> 
+										<input type="text" id="user_name" name="user_name" class="form-control"
+											maxlength="30" placeholder="이름을 입력해주세요">
+									</div>
 								</div>
-							</div>
 
-						</form>
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group  col">
+										<label for="user_tel" class="">전화번호</label> <input type="tel"
+											id="user_tel" name="user_tel" class="form-control"
+											maxlength="11" placeholder="전화번호를 입력해주세요">
+									</div>
+								</div>
+
+
+								<div class="row" style="width: 30%; float: none; margin: 0 auto; ">
+									<div class="form-group col ">
+										<input type="submit" class="btn btn-primary" value="ID 찾기" />
+									</div>
+								</div>
+
+							</form>
 						</div>
 
 
-						<div class="row text-center">PW찾기
-						<form action="findPw">
-						
-							<div class="row" style="width: 30%; float:none; margin:0 auto">
-											<div class="form-group  col">
-												<label for="user_id" class="">ID</label>
-												<input type="text" id="user_id" name="user_id" class="form-control" maxlength="30" placeholder="ID를 입력해주세요">
-											</div>
-							</div>
-							
-							<div class="row" style="width: 30%; float:none; margin:0 auto">
-											<div class="form-group  col">
-												<label for="user_email" class="">이메일</label>
-												<input type="email" id="user_email" name="user_email" class="form-control" maxlength="30" placeholder="가입한 이메일을 기입해주세요">
-											</div>
-							</div>
-				
-				
-							<div class="row" style="width: 30%; float: none; margin: 0 auto">
-								<div class="form-group col ">
-									<input type="submit" class="btn btn-primary" value="비밀번호 찾기" />
+						<div class="row text-center">
+							<h3  style="margin:0 auto; padding-top:50px;">PW찾기</h3>
+							<form action="findPw">
+
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group  col">
+										<label for="user_id" class="">ID</label> <input type="text"
+											id="user_id" name="user_id" class="form-control"
+											maxlength="30" placeholder="ID를 입력해주세요">
+									</div>
 								</div>
-							</div>
 
-						</form>
-						</div> 
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group  col">
+										<label for="user_email" class="">이메일</label> <input
+											type="email" id="user_email" name="user_email"
+											class="form-control" maxlength="30"
+											placeholder="가입한 이메일을 기입해주세요">
+									</div>
+								</div>
 
-<%-- <div class="full">
+
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group col ">
+										<input type="submit" class="btn btn-primary" value="비밀번호 찾기" />
+									</div>
+								</div>
+
+							</form>
+						</div>
+
+						<%-- <div class="full">
 		<div class="container">
 			<div class="area_inputs wow fadeIn">
 				<div class="sub_title font-weight-bold text-white">
@@ -161,11 +172,11 @@
 			</div>
 		</div>
 
-    </div>
+	</div>
 
 
-<%-- <jsp:include page="../inc/footerV3.jsp" /> --%>
-	
+	<%-- <jsp:include page="../inc/footerV3.jsp" /> --%>
+
 
 	<script
 		src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>

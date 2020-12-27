@@ -14,7 +14,7 @@ public interface FnqboardMapper {
 	List<FnqboardVO> listSch(FnqboardVO vo);
 	
 	FnqboardVO detail(int board_no);
-	
+	void deleteNum(FnqboardVO vo);
 	void insert(FnqboardVO vo);
 	int reply(FnqboardVO vo);
 	int modify(FnqboardVO vo);

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 
 <html>
@@ -10,68 +10,71 @@
 <head>
 <title>FitNess Club</title>
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, user-scalable=no" />
+	content="width=device-width, initial-scale=1, user-scalable=no" />
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <link
-   href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
-   rel="stylesheet">
+	href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700"
+	rel="stylesheet">
 
-<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3animate.css"/>" />
-<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
+	href="<c:url value="${path }/resource/css/V3animate.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+	href="<c:url value="${path }/resource/css/V3icomoon.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+	href="<c:url value="${path }/resource/css/V3bootstrap.css"/>" />
 <link rel="stylesheet"
-   href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
-<link rel="stylesheet" href="<c:url value="${path }/resource/css/V3style.css"/>" />
+	href="<c:url value="${path }/resource/css/V3flexslider.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.carousel.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3owl.theme.default.min.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path }/resource/css/V3style.css"/>" />
 
 
 
 
-<link rel="stylesheet" href="<c:url value="${path}/resource/css/notice.css"/>" />
+<link rel="stylesheet"
+	href="<c:url value="${path}/resource/css/notice.css"/>" />
 
 </head>
 <body>
 
-		<div class="container">
-			<div id="content">
+	<div class="container">
+		<div id="content">
 
-				<!-- Content -->
-				<article>
-					<div class="header01">
-					
-					</div>
-					<h2>공지사항</h2>
-					<hr>
+			<!-- Content -->
+			<article>
+				<div style="height: 100px;"></div>
+				<div class="header01"></div>
+				<h2>공지사항</h2>
+				<hr>
 
-					<div class="table-responsive animate-box">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>글번호</th>
-									<th>글제목</th>
-									<th>작성일</th>
-									<th>작성자</th>
-									<th>조회수</th>
-								</tr>
-							</thead>
-							<tbody>
-							<c:forEach items="${data.voArr }" var="sm">
+				<div class="table-responsive animate-box">
+					<table class="table table-striped">
+						<thead>
 							<tr>
-								<th>${sm.notice_no }</th>
-								<td><a href="noticedetail?notice_no=${sm.notice_no }">${sm.title }</a></td>
-								<td><fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm"/></td>
-								<td>관리자</td>
-								<td>${sm.cnt }</td>
+								<th>글번호</th>
+								<th>글제목</th>
+								<th>작성일</th>
+								<th>작성자</th>
+								<th>조회수</th>
 							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${data.voArr }" var="sm">
+								<tr>
+									<th>${sm.notice_no }</th>
+									<td><a href="noticedetail?notice_no=${sm.notice_no }">${sm.title }</a></td>
+									<td>${sm.ymd }</td>
+									<td>관리자</td>
+									<td>${sm.cnt }</td>
+								</tr>
 							</c:forEach>
-							</tbody>
-						</table>
-					</div>
+						</tbody>
+					</table>
+				</div>
 
 
 
@@ -97,8 +100,8 @@
 					</ul>
 				</div>
 
-					<!-- 검색 폼 영역 -->
-<!-- 					<li id='liSearchOption'>
+				<!-- 검색 폼 영역 -->
+				<!-- 					<li id='liSearchOption'>
 						<div>
 							<select id='selSearchOption'>
 								<option value='A'>제목+내용</option>
@@ -107,10 +110,10 @@
 							</select> <input id='txtKeyWord' /> <a href="">검색</a>
 						</div>
 					</li> -->
-				</article>
+			</article>
 
-			</div>
 		</div>
+	</div>
 
 </body>
 </html>

@@ -16,6 +16,7 @@
 <body>
 	<%-- 	<jsp:include page="../inc/headerV3.jsp" />
 	<div id="main-wrapper "> --%>
+	<div style="height: 100px;"></div>
 	<div id="board">
 		<div id="titleList">
 			<div id="category">공지사항</div>
@@ -31,7 +32,7 @@
 			</div>
 			<div class="titleDetail">관리자</div>
 			<div class="titleDetail">
-				<fmt:formatDate value="${sm.regdate }" pattern="yy-MM-dd HH:mm" />
+				${sm.ymd }
 				</td>
 			</div>
 			<hr>
@@ -40,12 +41,12 @@
 					<div>${sm.contentBr}</div>
 				</div>
 			</div>
-			<form action ="insertReg" method="post" enctype="multipart/form-data">
-			<div class="bottomB">
-				<a class="btn btn-primary" href="info">목록으로</a> 
-				<a class="btn btn-primary" href="modify?notice_no=${sm.notice_no }">수정</a>
-				<a class="btn btn-danger" href="delete?notice_no=${sm.notice_no }">삭제</a>
-			</div>
+			<form action="insertReg" method="post" enctype="multipart/form-data">
+				<div class="bottomB">
+					<a class="btn btn-primary" href="info">목록으로</a> <a
+						class="btn btn-primary" href="modify?notice_no=${sm.notice_no }">수정</a>
+					<a class="btn btn-danger" href="delete?notice_no=${sm.notice_no }">삭제</a>
+				</div>
 			</form>
 		</div>
 	</div>

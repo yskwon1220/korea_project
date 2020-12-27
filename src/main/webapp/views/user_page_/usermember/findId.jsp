@@ -43,38 +43,43 @@
 
 							<!-- Content -->
 								<article>
-
+												<div class="row " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;" > 
+															<h1>아이디 찾기</h1>
+												</div>
 									
-									<h2>아이디 찾기 완료</h2>
+
 						<div class="row text-center"><!-- 가운데 정렬을 위해 -->
 						<form action="login">
 					<c:choose>
 		                   	<c:when test="${memberId eq 'findIdFailed' }">
 									<h2>찾는 계정이 없습니다</h2>
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group col ">
+															<input type="button" class="btn btn-primary" value="회원가입" onclick="location.href='join'" />
+									</div>
+								</div>
 		                   	</c:when>
 								
 		
 		
 		                   	<c:otherwise>
-					
-							<div class="row" style="width: 30%; float:none; margin:0 auto">
-									<div class="form-group  col">
-										<label for="pw" class="">고객님의 ID</label>
-										<input type="text" id="user_id" name="user_id" class="form-control" readonly="readonly" value="${memberId}">
+									<div class="row" style="width: 30%; float:none; margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+											<div class="form-group  col">
+												<label for="pw" class="">고객님의 ID</label>
+												<input type="text" id="user_id" name="user_id" class="form-control" readonly="readonly" value="${memberId}">
+											</div>
 									</div>
-							</div>
-					
-					
+
+								<div class="row" style="width: 30%; float: none; margin: 0 auto">
+									<div class="form-group col ">
+										<input type="submit" class="btn btn-primary" value="로그인하러가기" />
+									</div>
+								</div>
+			
 					        </c:otherwise>
 					</c:choose> 
 
 
-
-			<div class="row" style="width: 30%; float: none; margin: 0 auto">
-				<div class="form-group col ">
-					<input type="submit" class="btn btn-primary" value="로그인하러가기" />
-				</div>
-			</div>
 
 						</form>
 						</div>

@@ -32,6 +32,8 @@ public class Reviewlist implements Action{
 			
 		}
 		
+		
+		
 		infoVo.setSearchDate(mapper.searchID(user_id));
 		System.out.println(infoVo.getSearchDate());
 		

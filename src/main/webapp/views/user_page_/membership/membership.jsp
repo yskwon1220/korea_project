@@ -50,9 +50,23 @@
 <body>
 
 	<div id="page-wrapper">
+		<c:choose>
+                     <c:when test="${not empty sessionScope.user_id }">
+                     
+                        <h2 class="msg_p2">회원권 신청</h2>
+                  
+                     
+                     </c:when>
+                     
+                     <c:otherwise>
 
+                        <h2 class="msg_p2">회원권 안내</h2>
+                 
+                     </c:otherwise>
+                     
+           </c:choose>
 
-		<h2 class="msg_p2">회원권 신청</h2>
+		
     	<p class="msg_p3">스페셜 피트니스 회원권은 동일한 브랜드내에서 전 지점 이용이 가능합니다.</p>
    
     	<div class=" msg_p3">회원권 선택</div>
@@ -69,9 +83,11 @@
 
 			</tr>
 		</table>
-
-		<input type="submit" value="구매하기" class="btn_buy" id="payBtn">
-		<a href="<c:url value="user_page_/pay/payment/payment"/>"></a>
+		<c:if test="${sessionScope.user_id != null}"> 
+			<input type="submit" value="구매하기" class="btn_buy" id="payBtn">
+			<a href="<c:url value="user_page_/pay/payment/payment"/>"></a>
+		</c:if>
+		
 
 	</div>
 
@@ -101,8 +117,9 @@
 		$('.prdo_sel_box').on('click', function() {
 			$('.prdo_sel_box').removeClass('clicked');
 			$(this).addClass('clicked');
-
+			
 			__ticketNO = 'G100' + ($('.prdo_sel_box').index(this) + 1);
+			
 			if (__ticketNO == '${data[0].goods_no}') {
 				__price = ${data[0].goods_price};
 			}
@@ -110,7 +127,7 @@
 				__price = ${data[1].goods_price};
 			}
 			if (__ticketNO == '${data[2].goods_no}') {
-				__price = ${data[2].goods_price};
+			__price = ${data[2].goods_price};
 			}
 			if (__ticketNO == '${data[3].goods_no}') {
 				__price = ${data[3].goods_price};

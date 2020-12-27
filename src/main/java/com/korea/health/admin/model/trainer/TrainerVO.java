@@ -36,13 +36,16 @@ public class TrainerVO {
 	public void setLo_no(String lo_no) {
 		switch (lo_no) {
 		case "1001":
-			lo_name = "강남점";
+			lo_name = "피트니스 클럽 강남점";
 			break;
 		case "1002":
-			lo_name = "강북점";
+			lo_name = "피트니스 클럽 강동점";
 			break;
 		case "1003":
-			lo_name = "강서점";
+			lo_name = "피트니스 클럽 강서점";
+			break;
+		case "1004":
+			lo_name = "피트니스 클럽 강북점";
 			break;
 		default:
 			break;
@@ -135,14 +138,17 @@ public class TrainerVO {
 	}
 	public void setLo_name(String lo_name) {
 		switch (lo_name) {
-		case "강남점":
+		case "피트니스 클럽 강남점":
 			lo_no = "1001";
 			break;
-		case "강북점":
+		case "피트니스 클럽 강동점":
 			lo_no = "1002";
 			break;
-		case "강서점":
+		case "피트니스 클럽 강서점":
 			lo_no = "1003";
+			break;
+		case "피트니스 클럽 강북점":
+			lo_no = "1004";
 			break;
 		default:
 			break;

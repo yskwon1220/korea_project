@@ -7,10 +7,10 @@
                         <div class="row">
 	                        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 	                                <div class="input-group" style="margin: 10px;">
-	                                    <input class="form-control" type="text" placeholder="강사명을 입력해주세요" onkeyup="searchFunction();" id="tr_name" />
+<!-- 	                                    <input class="form-control" type="text" placeholder="강사명을 입력해주세요" onkeyup="searchFunction();" id="tr_name" />
 	                                    <div class="input-group-append">
 	                                        <button class="btn btn-info" onclick = "searchFunction();" type="button"><i class="fas fa-search"></i></button>
-	                                    </div>
+	                                    </div> -->
 	                                </div>
 	                         </form>
                         </div>
@@ -37,7 +37,7 @@
                                             <tr>
                                                 <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> ${data.tr_no}</a></td>
                                                 <td class="align-middle text-lg-center">${data.lo_name}</td>
-                                                <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/${data.tr_pic}"></a></td>
+                                                <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/gangsa/${data.tr_pic}"  width="100%" height="100%" ></a></td>
                                                 <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}">${data.tr_name}</a></td>
                                                 <td class="align-middle text-lg-center">${data.contentTrans}</td>
                                                 <td class="align-middle text-lg-center">${data.star}</td>

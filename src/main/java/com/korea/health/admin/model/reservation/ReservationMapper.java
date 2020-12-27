@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.korea.health.admin.model.branch.BranchVO;
 import com.korea.health.service.Pagenation;
+import com.korea.health.user.model.usermember.UserMemberVO;
+
 
 @Mapper
 public interface ReservationMapper {
@@ -43,6 +45,14 @@ public interface ReservationMapper {
 	/*검색을 위한것 */
 	List<ReservationVO> listAll(Pagenation pagenation);
 	List<ReservationTimeVO> reslistAll(Pagenation pagenation);
-	//List<ReservationTimeVO> reslistAll(Pagenation pagenation);
+
+	
+	void MyResMinusCnt(UserMemberVO uvo);
+	
+	int selectCount(ReservationTimeVO timevo2);
+	void noCount(ReservationTimeVO timevo2);
+	//다중테이블 (회원들의 예약) 값이 없을 때 그냥 인서트해준다
+	void addCount(ReservationTimeVO timevo2);
+	//값이 이미 존재한다면 nowCnt를 +1해주기 위한 것
 	
 }

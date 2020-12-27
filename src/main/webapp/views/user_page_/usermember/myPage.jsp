@@ -42,9 +42,9 @@
 
 							<!-- Content -->
 								<article>
-
-									
-									<h2>내정보</h2>
+						<div class="row text-center " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+							<h1>내정보</h1>
+						</div>
 									<form action="pwCheck">
 									
 									<div class="row" style="width: 30%; float:none; margin:0 auto">
@@ -105,13 +105,12 @@
                 </div>
 </div>
 									
-			<div class="row" align="center" >
+			<div class="row text-center" >
 									<input  type="submit" class="btn btn-primary" value="회원정보 수정" >
 			</div>
-
-										<div align="right">
+										<div class="row text-center" style="width: 30%;   margin:0 auto; padding-top:50px; padding-bottom: 50px; ">
 									<input  type="button" class="btn btn-default" value="나의 예약 내역" onClick="javascript:location.href='../reservation/myResList?user_id=${data.user_id}'" >
-									<input  type="button" class="btn btn-default" value="결제내역 및 환불" onClick="javascript:location.href='../pay/event/payment_list'" >
+									<input  type="button" class="btn btn-default" value="결제내역" onClick="javascript:location.href='../pay/event/payment_list'" >
 										</div>
 										</form>
 										

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-                      <h1 class="mt-4">${data['user_name']} 관리자님, 환영합니다! :)</h1>
+                      <h1 class="mt-4">${user_name} 관리자님, 환영합니다! :)</h1>
                       <lo></lo>
                         <div class="row">
                             <div class="col-xl-6">
@@ -93,7 +93,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                <a href="/admin_page_/one/info">고객문의 목록</a>
+                                <a href="/admin_page_/fnq/info">고객문의 목록</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -114,7 +114,7 @@
                                                 <td>${data.board_no}</td>
                                                 <td>${data.rep}</td>
                                                 <td>${data.title}</td>
-                                                <td>${data.regdate}</td>
+                                                <td>${data.ymd}</td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>

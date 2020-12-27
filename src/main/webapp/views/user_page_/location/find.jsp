@@ -44,107 +44,60 @@
       <div id="main-wrapper">
          <div class="container">
             <div id="content">
-
-               <!-- Content -->
-
-               <p class="loca">스페셜피트니스 위치</p>
-               <div id="map" style="width: 100%; height: 400px;"></div>
-               <script type="text/javascript"
-                  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=62fb6fc3c9bffc549b33f7284c140232"></script>
-               <script>
-                  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                  mapOption = {
-                     center : new kakao.maps.LatLng(37.53595228710771,
-                           127.13131128419553), // 지도의 중심좌표
-                     level : 9
-                  // 지도의 확대 레벨
-                  };
-
-                  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-                  // 버튼을 클릭하면 아래 배열의 좌표들이 모두 보이게 지도 범위를 재설정합니다 
-                  var points = [
-                        new kakao.maps.LatLng(37.53595228710771,
-                              127.13131128419553),
-                        new kakao.maps.LatLng(37.498058950614045,
-                              127.02762535908917),
-                        new kakao.maps.LatLng(37.55935624471244,
-                              126.84573498419628) ];
-
-                  // 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
-                  var bounds = new kakao.maps.LatLngBounds();
-
-                  var i, marker;
-                  for (i = 0; i < points.length; i++) {
-                     // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
-                     marker = new kakao.maps.Marker({
-                        position : points[i]
-                     });
-                     marker.setMap(map);
-
-                     // LatLngBounds 객체에 좌표를 추가합니다
-                     bounds.extend(points[i]);
-                  }
-
-                  function setBounds() {
-                     // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
-                     // 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
-                     map.setBounds(bounds);
-                  }
-               </script>
-            </div>
-
-            <ul>
-            	<c:forEach items="${data }" var="vo" varStatus="no">
-               <li class="_9wicf" data-loc_plc-doc-id="1131800410">
-                  <div class="_75bjI">
-                     <div class="_2LKql">
-						 
-                        <mark>스페셜 피트니스</mark>
-                       ${vo.lo_name }<span class="_3ZgLm"></span>
-                     </div>
-                     <div class="_1qN5M">
-                        <span class="_3Ru_R">${vo.lo_tel } ${vo.lo_addr }</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="<c:url value="${vo.content }"/>"class="_3Ru_R btn btn-primary" role="button"> 상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         <c:choose>
-                     <c:when test="${not empty sessionScope.user_id }">
+            
+            
+            
+             <p class="loca">스페셜피트니스 위치</p>
+            
+               <table>
+                  
+                  
+                  <c:forEach items="${data }" var="vo" varStatus="no">
+                  <tr>
+                     <td>스페셜 피트니스</td>
+                     <td>${vo.lo_tel }</td>
+                     <td>
+                        ${vo.lo_addr }
+                     </td>
                      
-                  		<a href="<c:url value="locationlist"/>"class="_3Ru_R btn btn-primary " role="button"> 예약</a>
+                     <td> <a href="<c:url value="${vo.content }"/>"class="_3Ru_R btn btn-primary" role="button"> 상세보기</a></td>
+                     <td>
+                          <c:choose>
+                                 <c:when test="${not empty sessionScope.user_id }">
+                     
+                                    <a href="<c:url value="locationlist"/>"class="_3Ru_R btn btn-primary " role="button"> 예약</a>
                   
                      
                      </c:when>
                      
                      <c:otherwise>
-
-                  		<a href="<c:url value="locationReg"/>"class="_3Ru_R btn btn-primary" role="button"> 예약</a>
-                 
+                  
+                        <a href="<c:url value="findReg"/>"class="_3Ru_R btn btn-primary" role="button"> 예약</a>
+                    </td>
                      </c:otherwise>
                      
-                  	</c:choose>
-                     </div>      
-                   </div>
-                   </li>
-                 
-                           
-                           
-                           
-                 
-                           
-                   </c:forEach>        
-                           
-                           
-                           
-                           
-                      
-            </ul>
+                     </c:choose>
+                        
+                  
+                     
+                  </tr>
+               </c:forEach>
 
-         </div>
-      </div>
-   </div>
-
-
-  
-
+                  
+               </table>
+         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+</div>
+</div>
+</div>
 
    <script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
    <script src="<c:url value="${path }/resource/V3jquery.easing.1.3.js"/>"></script>

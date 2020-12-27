@@ -51,19 +51,41 @@
 							<div class="price-box" style="width:300px; height:500px; margin-right:500px;">
 								<h2 class="pricing-plan" >PT</h2>
 								<img src="<c:url value="${path }/resource/images/fit02.jpg"/>"alt="" width="100%" height="250px" />
-								<p>there live the blind texts.
-								</p>
-								<a href="../trainer/trainerlist?lo_no=${data.lo_no}&lo_name=${data.lo_name}&type=pt" class="btn btn-select-plan btn-sm">Select Plan</a>
+								<p>개인 맞춤 트레이닝</p>
+								
+ 								
+ 								
+ 								
+ 								<form name="frm1" action="../trainer/trainerlist" method="get">
+								
+								<input type ="hidden" name="lo_no" value="${data.lo_no}">
+								<input type ="hidden" name="lo_name" value="${data.lo_name}">
+								<input type ="hidden" name="type" value="pt">
+								<input type ="hidden" id="hidden_real" name="user_id" value="${user_id}"> 
+								<input type ="button" class="btn btn-select-plan btn-sm" onclick="return resAjaxGo3()" value="Select Plan"> 
+								</form>
+								
 							</div>
 						</div>
  						<div class="col-md-3 animate-box" >
 							<div class="price-box" style="width:300px; height:500px; margin-right:500px;">
 								<h2 class="pricing-plan">Health</h2>
 								<img src="<c:url value="${path }/resource/images/fit01.jpg"/>"alt="" width="100%" height="250px" />
-
-								<p>there live the blind texts.
-								</p>
-								<a href="../reservation/schedule?lo_no=${data.lo_no}&lo_name=${data.lo_name}&type=health" class="btn btn-select-plan btn-sm">Select Plan</a>
+								<p>자유로운 시설 이용</p>
+								
+								
+								
+								<form name="frm2" action="../reservation/schedule" method="get">
+								
+								<input type ="hidden" name="lo_no" value="${data.lo_no}">
+								<input type ="hidden" name="lo_name" value="${data.lo_name}">
+								<input type ="hidden" name="type" value="health">
+								
+								 <input type ="hidden" id="hidden_real" name="user_id" value="${user_id}"> 
+								<input class="btn btn-select-plan btn-sm" type ="button" onclick="return resAjaxGo4()" value="Select Plan">
+								</form> 
+								
+								
 							</div>
 						</div> 
 
@@ -75,15 +97,44 @@
 
 	</div>
 
+<script>
 
-<%--  <c:forEach items="${data }" var="data">
- 	<table>
- 		<tr>
- 			<td>${data.no }</td>
- 			<td>${data.lo_name}</td>
- 		</tr>
- 	</table>
- </c:forEach> --%>
+function resAjaxGo3() {
+	$.ajax({
+		//localhost:81/resAjax/reservation/myrescnt?user_id=hyeji
+		url : '/resAjax/reservation/myrescnt?user_id=${user_id}',
+		success : function(data) {
+			//alert(data)
+			if(eval(data)>0){
+				frm1.submit()
+			}else{
+				alert("결제한 이용권 내역이 없습니다. 이용권 구매 후 다시 선택해 주세요. ")
+			}
+		},
+		error : function(e) { 
+			alert(e.responseText);
+		}
+	});
+}
+function resAjaxGo4() {
+	$.ajax({
+		//localhost:81/resAjax/reservation/myrescnt?user_id=hyeji
+		url : '/resAjax/reservation/myrescnt?user_id=${user_id}',
+		success : function(data) {
+			//alert(data)
+			if(eval(data)>0){
+				frm2.submit()
+			}else{
+				alert("결제한 이용권 내역이 없습니다. 이용권 구매 후 다시 선택해 주세요. ")
+			}
+		},
+		error : function(e) { 
+			alert(e.responseText);
+		}
+	});
+}
+
+</script>
 <script src="<c:url value="${path }/resource/js/V3modernizr-2.6.2.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3jquery.easing.1.3.js"/>"></script>

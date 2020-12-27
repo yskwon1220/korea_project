@@ -5,10 +5,11 @@
 <h1 class="mt-4">자주묻는 질문 관리</h1>
 
 
+<div style="height: 100px;"></div>
 <div class="card mb-4">
 	<div class="card-header">
 		<i class="fas fa-bullhorn"></i> <a href="insert">등록 자주묻는 질문</a>
-		
+
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
@@ -28,19 +29,18 @@
 						<tr>
 							<th>${sm.qna_no }</th>
 							<td><a href="detail?qna_no=${sm.qna_no }">${sm.title }</a></td>
-							<td><fmt:formatDate value="${sm.regdate }"
-									pattern="yy-MM-dd HH:mm" /></td>
+							<td>${sm.ymd }</td>
 							<td>관리자</td>
 							<td>${sm.cnt }</td>
 							<td><a href="modify?qna_no=${sm.qna_no }"
 								class="btn btn-info btn-primary btn-sm">수정</a> <a
-								href="delete?qna_no=${sm.qna_no }" 
+								href="delete?qna_no=${sm.qna_no }"
 								class="btn btn-info btn-danger btn-sm">삭제</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="pag" align="center"  style="font-size: 30px">
+			<div class="pag" align="center" style="font-size: 30px">
 				<ul class="pagination">
 					<c:if test="${data.startPage>1 }">
 						<a href="?nowPage=${startPage-1 }"><span>«</span></a>
@@ -64,4 +64,3 @@
 	</div>
 </div>
 
-	

@@ -37,7 +37,7 @@ public class Reviewinsertreg implements Action {
 	
 	String fileUpload(MultipartFile ff, HttpServletRequest request) {
 		String path = request.getRealPath("/upup");
-		path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\upup\\";
+		path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\upup";
 		
 		String res = fileNewName(path,ff.getOriginalFilename());
 		

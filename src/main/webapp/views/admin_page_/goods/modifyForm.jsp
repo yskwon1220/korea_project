@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>                        
 <!-- container fluid 아래부터  -->
-                       <h1 class="mt-4">상품 관리</h1>
+                       <h1 class="mt-4">이용권 관리</h1>
                         <ol>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-id-badge"></i>
-                                <a href="">상품 등록</a>
+                                <a href="">이용권 등록</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -20,19 +20,19 @@
                                                 <table class="table table-bordered" width="0%" cellspacing="0">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="align-middle">상품 명</td>
+                                                            <td class="align-middle">이용권 명</td>
                                                             <td  class="align-middle">
                                                             	<input class="form-control" type="text" name="goods_name"value="${data.goods_name}">
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                           <td class="align-middle">상품 가격 </td>
+                                                           <td class="align-middle">이용권 가격 </td>
                                                            <td  class="align-middle">
                                                                <input class="form-control" type="text" name="goods_price" value="${data.goods_price}">
                                                            </td>
                                                        </tr>
                              						<tr>
-                                                        <td class="align-middle">상품 등록일</td>
+                                                        <td class="align-middle">이용권 등록일</td>
                                                         <td  class="align-middle">
                                                             <input class="form-control" type="text" id="regdate" name="welcomeDate" value="${data.welcomeDate}">
                                                         </td>

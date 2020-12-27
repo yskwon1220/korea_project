@@ -28,7 +28,7 @@ public class ReviewFileDelete implements Action {
 		ReviewVO vo = (ReviewVO)map.get("rrvo");
 		
 		String path = req.getRealPath("/upup");
-		path =  "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\upup\\";
+		path =  "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\upup";
 		
 		
 		new File(path + "\\" + vo.getReview_file_name()).delete();

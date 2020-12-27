@@ -60,7 +60,7 @@ public class MainService implements Action {
 		case "delete":
 			System.out.println(mapper.delete(vo.getImgNo()));
 			String fileName = vo.getImage();
-			String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images\\";
+			String path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images	";
 			new File(path + "\\" + fileName).delete();
 			mapper.delete(vo.getImgNo());
 			return "info";
@@ -79,7 +79,7 @@ public class MainService implements Action {
 			umapper.urDetail(urvo.mainNo);
 			System.out.println("잘 되고있는거 맞지!?" + umapper.urDetail(urvo.mainNo));
 			umapper.urModify(urvo);
-			return "urDetail?mainNo=" + urvo.getMainNo();
+			return "urInfo";
 		case "urDelete":
 			 umapper.urDelete(urvo.getMainNo());
 			return "urInfo";
@@ -90,7 +90,7 @@ public class MainService implements Action {
 
 	String fileUpload(MultipartFile mf, HttpServletRequest req) {
 		String path = req.getRealPath("/images");
-		path = "C:\\Sungmin\\sdddd\\20201221\\src\\main\\webapp\\resource\\images";
+		path = "C:\\Users\\Yongseok\\Desktop\\teamProject\\workspace\\korea_project\\src\\main\\webapp\\resource\\images";
 
 		String res = fileNewName(path, mf.getOriginalFilename());
 

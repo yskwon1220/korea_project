@@ -31,11 +31,13 @@
 	</div>
 </div> -->
 
+<div style="height: 100px;"></div>
 <div class="card mb-4">
 	<div class="card-header">
 		<i class="fas fa-bullhorn"></i> <a href="insert">등록 공지사항</a>
-		
+
 	</div>
+
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered" width="100%" cellspacing="0">
@@ -54,20 +56,19 @@
 						<tr>
 							<th>${sm.notice_no }</th>
 							<td><a href="detail?notice_no=${sm.notice_no }">${sm.title }</a></td>
-							<td><fmt:formatDate value="${sm.regdate }"
-									pattern="yy-MM-dd HH:mm" /></td>
+							<td>${sm.ymd }</td>
 							<td>관리자</td>
 							<td>${sm.cnt }</td>
 							<td><a href="modify?notice_no=${sm.notice_no }"
 								class="btn btn-info btn-primary btn-sm">수정</a> <a
-								href="delete?notice_no=${sm.notice_no }" 
+								href="delete?notice_no=${sm.notice_no }"
 								class="btn btn-info btn-danger btn-sm">삭제</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<div class="pag" align="center">
-				<ul class="pagination"  style="font-size: 30px">
+				<ul class="pagination" style="font-size: 30px">
 					<c:if test="${data.startPage>1 }">
 						<a href="?nowPage=${startPage-1 }"><span>«</span></a>
 					</c:if>
@@ -115,4 +116,3 @@
 	</div>
 </div> -->
 
-	

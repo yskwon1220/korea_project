@@ -10416,7 +10416,7 @@ body {
 img{
 	height: 200px;
 	width:200px;
-	object-fit:contain;
+	/*object-fit:contain;*/
 	max-height:100%;
 	max-width:100%;
 	display:block;

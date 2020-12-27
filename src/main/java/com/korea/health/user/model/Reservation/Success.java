@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import com.korea.health.provider.Action;
+import com.korea.health.user.model.usermember.UserMemberVO;
 
 
 
@@ -28,7 +29,11 @@ public class Success implements Action{
 		Date resdate;
 		try {
 			ReservationVO rvo = (ReservationVO)map.get("rvo");
+			UserMemberVO mvo = (UserMemberVO)map.get("mvo");
+			
+			
 			mapper.insert(rvo);
+			mapper.MyResMinusCnt(mvo);
 			
 			rvo.setLo_no(req.getParameter("lo_no")); 
 			rvo.setUser_name(req.getParameter("user_name"));

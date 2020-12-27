@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* event_page */
+.tot{
+	width: 100%;
+	height: auto;
+	background: gray;
+	display: #B3E3E3E3;
+
+}
+
+.big{
+	width: 100%;
+	height :auto;
+	display: block;
+	text-align: center;
+}
+.small_div{
+width: 380px;
+height: 300px;
+margin : 30px 50px 0px 50px;
+display: inline-block;
+}
+img{
+	width : 380px;
+	height : 250px;
+}
+.main_text{
+	font-size: 20px;
+	font-family:'나눔스퀘어';
+	color: rgb(160, 186, 199);
+	text-align: center;
+	
+
+}
+

@@ -321,9 +321,11 @@
 								<div class="selecter-box">
 		               				<select id="selectLo" name="lo_no" class="selecter" style="background-image: <c:url value="/images/arrow_down.png."/>">
 			               				<optgroup label = "지점" name="lo_no">
+			               				
 											<option selected hidden value="0">지점</option>
-			               					<c:forEach var="locationVO" items="${data.locaList}">
-											    <option value="${locationVO.lo_no}">${locationVO.lo_name}</option>
+			               					<c:forEach items="${data }" var="vo" varStatus="no">
+											    <option value="${vo.lo_no}">${vo.lo_name}</option>
+											    
 											</c:forEach>
 											<!-- 
 			               					<option>강남점</option>
@@ -333,18 +335,12 @@
 			               				</optgroup>
 			               			</select>
 
-			               			<select id="selectTr"  name="tr_no" class="selecter">
+			               			<select id="selectTr"  name="tr_name" class="selecter">
 		               					<optgroup label = "트레이너 ">
 											<option  selected hidden value="0" >트레이너</option>
-											<!-- 
-											<c:forEach var="trainerVO" items="${data.trList}">
-											    <option value="${trainerVO.tr_no}">${trainerVO.tr_name}</option>
+											<c:forEach items="${data }" var="vo" varStatus="no">
+												 <option value="${vo.tr_name}">${vo.tr_name}</option>
 											</c:forEach>
-			               					<option>길성민</option>
-			               					<option>박민주</option>
-			               					<option>박혜지</option>
-			               					<option>이현희</option>
-			               					 -->
 			               				</optgroup>
 		               				</select>
 	               				</div>
@@ -395,7 +391,7 @@
 
 	<ul id='logs' style='user-select: none;'></ul>
 
-	<%-- <jsp:include page="../../inc/footerV3.jsp" /> --%>
+	 <jsp:include page="../../inc/footerV3.jsp" /> 
 
 	<script>
 	 function check() {
@@ -489,7 +485,7 @@
 		src="<c:url value="${path }/resource/js/V3jquery.flexslider-min.js"/>"></script>
 	<script src="<c:url value="${path }/resource/js/V3main.js"/>"></script>
 
-	<script>
+<!-- 	<script>
 		$(document).ready(function(){
 			var list = new Array();
 	
@@ -521,6 +517,6 @@
 
 
 
-	</script>
+	</script> -->
 </body>
 </html>

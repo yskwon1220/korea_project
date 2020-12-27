@@ -30,9 +30,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="qna_no" resultType="java.lang.Integer" order="BEFORE">
 			<include refid="noMax"/>
 		</selectKey> 
-		INSERT INTO QNA (QNA_NO, KIND, TITLE, CONTENT, REGDATE, CNT)
+		INSERT INTO QNA (QNA_NO, TITLE, CONTENT, REGDATE, CNT)
 		values
-		(#{qna_no}, #{kind}, #{title}, #{content}, SYSDATE, 0)
+		(#{qna_no}, #{title}, #{content}, SYSDATE, 0)
 	</insert>
 
 
@@ -45,5 +45,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id = "delete" parameterType="java.lang.Integer">
 		DELETE FROM QNA WHERE QNA_NO = #{qna_no}
 	</delete>
+	
+	<update id="deleteNum" parameterType="qnaVO">
+		<![CDATA[
+			update qna set qna_no = qna_no - 1 where #{qna_no} <qna_no ]]>
+	</update>
+	
 </mapper>
 

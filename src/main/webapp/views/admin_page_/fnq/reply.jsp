@@ -15,12 +15,12 @@
 
 </head>
 <body>
-
 	<div class="container">
 		<div id="content">
 
 			<!-- Content -->
 			<article>
+			<div style="height:100px;"></div>
 				<h2>1대1 문의</h2>
 
 				<form name="reply" action="replyReg" method="post" onsubmit="return check();" enctype="multipart/form-data">
@@ -29,10 +29,6 @@
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"
 							class="form-control" name="title" id="title" value="${sm.title }">
-					</div>
-					<div class="mb-3">
-						<label for="rep">처리상태</label> <input type="text"
-							class="form-control" name="rep" id="rep" value="${sm.rep }">
 					</div>
 					<div class="mb-3">
 						<label for="content">질문</label>

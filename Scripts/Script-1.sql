@@ -247,4 +247,6 @@ SELECT * FROM dual;
       (SELECT USER_NO FROM USERMEMBER WHERE USER_ID = 'minjoo'),
       (SELECT lo_NO FROM USERMEMBER WHERE USER_ID = 'minjoo'),
       'G1001', 0, 0, '간편결제', '80000', SYSDATE);
+     
+     SELECT * FROM reservation WHERE user_id = 'minjoo';
       

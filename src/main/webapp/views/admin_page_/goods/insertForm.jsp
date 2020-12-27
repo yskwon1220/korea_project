@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>                        
 <!-- container fluid 아래부터  -->
-                       <h1 class="mt-4">상품 관리</h1>
+                       <h1 class="mt-4">이용권 관리</h1>
                         <ol>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-id-badge"></i>
-                                <a href="">상품 등록</a>
+                                <a href="">이용권 등록</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -19,26 +19,32 @@
                                                 <table class="table table-bordered" width="0%" cellspacing="0">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="align-middle">상품 명</td>
+                                                            <td class="align-middle">이용권 명</td>
                                                             <td  class="align-middle">
                                                             	<input class="form-control" type="text" name="goods_name" placeholder="자세한 상품 명을 입력해주세요 :)">
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                           <td class="align-middle">상품 가격 </td>
+                                                           <td class="align-middle">이용권 가격 </td>
                                                            <td  class="align-middle">
                                                                <input class="form-control" type="text" name="goods_price" placeholder="숫자로만 입력해주세요 예) 200000">
                                                            </td>
                                                        </tr>
+                                                        <tr>
+                                                           <td class="align-middle">이용 횟수</td>
+                                                           <td  class="align-middle">
+                                                               <input class="form-control" type="text" name="reserv_cnt" placeholder="숫자로만 입력해주세요 예) 30">
+                                                           </td>
+                                                       </tr>
                              						<tr>
-                                                        <td class="align-middle">상품 등록일</td>
+                                                        <td class="align-middle">이용권 등록일</td>
                                                         <td  class="align-middle">
                                                             <input class="form-control" type="text" id="regdate" name="welcomeDate" placeholder="클릭하시면 달력이 나옵니다.">
                                                         </td>
                                                     </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div class="col-md-2" style="float: none; margin: 0 auto;">
+                                                        <div class="col-md-3" style="float: none; margin: 0 auto;">
                                                             <input class="btn btn-info btn-primary btn-sm" type="submit" value="등록" onclick="complete()"/>
                                                             <input class="btn btn-info btn-danger btn-sm" type="reset" value="초기화">
                                                             <a href="/admin_page_/goods/info" class="btn btn-info btn-primary btn-sm">뒤로</a>

@@ -13,17 +13,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="fnqList" resultType="fnqboardVO" parameterType="fnqInfoVo">
 		<![CDATA[
 			select * from (select rownum rnum, t1.* from 
-					(select * from FNQBOARD order by BOARD_NO DESC) t1) 
+					(select * from FNQBOARD order by rep DESC, board_no DESC) t1) 
 					 where rnum >= #{start} and rnum <= #{end}
 		]]>
 
 	</select>
 	
+	<update id="deleteNum" parameterType="fnqboardVO">
+		<![CDATA[
+			update fnqboard set board_no = board_no - 1 where #{board_no} <board_no ]]>
+	</update>
+	
 	<select id="fnqList_2" resultType="fnqboardVO" parameterType="fnqInfoVo">
 		<![CDATA[
 			select * from (select rownum rnum, t1.* from 
-					(select * from FNQBOARD order by BOARD_NO DESC) t1) 
-					 where rnum >= #{start} and rnum <= #{end} and user_id = #{identify}
+					(select * from FNQBOARD order by user_id desc) t1) 
+					 where user_id like #{identify} and rnum >= #{start} and rnum <= #{end}
 		]]>
 
 	</select>
@@ -65,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 		
 	<update id="reply" parameterType="fnqboardVO">
-			UPDATE FNQBOARD SET TITLE = #{title},CONTENT = #{content}, REP = #{rep},REPLY = #{reply} WHERE BOARD_NO = #{board_no}
+			UPDATE FNQBOARD SET TITLE = #{title},CONTENT = #{content}, REP = '처리완료',REPLY = #{reply} WHERE BOARD_NO = #{board_no}
 	</update>	
 </mapper>
 

@@ -43,9 +43,12 @@ public class WebMvcConfig implements WebMvcConfigurer {  ///servlet-context.xml 
         registry.addInterceptor(userChk)
                         //.addPathPatterns("/**") // 인터셉터 경로  --- 지금은 모든 경로
                         .addPathPatterns("/user_page_/usermember/**") // 인터셉터 경로 
-                        .addPathPatterns("/user_page_/location/**") // 인터셉터 경로 추가  
-        				.addPathPatterns("/user_page_/fnq/onelist") // 인터셉터 경로 추가  
-        				.excludePathPatterns("/user_page_/usermember/findId",
+                        .addPathPatterns("/user_page_/trainer/**") // 인터셉터 경로 추가  
+                        .addPathPatterns("/user_page_/reservation/**") // 인터셉터 경로 추가   
+        				 
+        				.excludePathPatterns(
+        				
+        				"/user_page_/usermember/findId",
 		        		"/user_page_/usermember/findMyAccount",
 		        		"/user_page_/usermember/findPw",
 		        		"/user_page_/usermember/join",

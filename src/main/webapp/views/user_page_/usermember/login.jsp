@@ -58,12 +58,13 @@ function checkValue()
 					<!-- Content -->
 					<article>
 
-						<h2>로그인</h2>
-
 						<!-- 본문 들어가는 부분 -->
 
 <div class="text-center">
 
+						<div class="row " style="margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+							<h1>로그인</h1>
+						</div>
 
 
 
@@ -98,8 +99,8 @@ function checkValue()
 							</div>
 							</div>
 								
-							<div class="row form-inline" style="width: 30%; float:right;  margin:0 auto">	
-								<div class="form-group col ">
+							<div class="row form-inline" style="width: 30%; float:none;  margin:0 auto">	
+								<div class="form-group col " style="margin:0 auto; padding-top:30px; padding-bottom: 50px;">
 									<input type="button" class="btn btn-default" value="내계정찾기" onclick="location.href='findMyAccount'" />
 							
 								</div>

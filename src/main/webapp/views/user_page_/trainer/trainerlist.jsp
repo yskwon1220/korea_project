@@ -34,7 +34,7 @@
 </head>
 <body>
 	<div id="fh5co-page">
-		<div id="fh5co-pricing-section">
+		<div id="fh5co-pricing-section" style="height:1500px;"><!-- 이곳이 높이... -->
 			<div class="container">
 				<div class="row">
 					<div
@@ -49,12 +49,12 @@
 					
 						<c:forEach items="${data}" var="vo" varStatus="no">
 							<div class="col-md-3 animate-box">
-								<div class="price-box"  style="width:250px; height:450px;">
+								<div class="price-box"  style="width:300px; height:550px;">
 									<h2 class="pricing-plan">${vo.tr_name} 강사</h2>
 									 <img src="<c:url value="${path }/resource/images/gangsa/${vo.tr_pic}"/>" alt=""
-										style="border-radius: 50px;" width="200px" height="200px" /> 
-									<p>${vo.content}</p>
-									<a href="../reservation/schedule?lo_no=${vo.lo_no}&lo_name=${lo_name}&tr_name=${vo.tr_name}&type=${type}" class="btn btn-select-plan btn-sm">Select
+										style="border-radius: 50px;" width="100%" height="220px" /> 
+									    <p >${vo.contentTrans}</p>  
+									<a  href="../reservation/schedule?lo_no=${vo.lo_no}&lo_name=${lo_name}&tr_name=${vo.tr_name}&type=${type}" class="btn btn-select-plan btn-sm">Select
 										Plan</a>
 								
 								</div>

@@ -7,8 +7,7 @@
 
 <html>
    <head>
-      <title>소개</title>
-
+      <title>FitNess Club</title>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" /> 

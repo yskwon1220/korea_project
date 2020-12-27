@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-
 import com.korea.health.admin.model.branch.BranchVO;
 import com.korea.health.provider.Action;
 import com.korea.health.service.Pagenation;
+import com.korea.health.user.model.usermember.UserMemberVO;
 @Service("admin_page_reservation")
 public class ReservationService implements Action{
 	
@@ -26,7 +26,7 @@ public class ReservationService implements Action{
 		BranchVO bvo = (BranchVO)map.get("bvo");
 		Pagenation pageCtl = (Pagenation)map.get("pageCtl");
 		ReservationVO rvo = (ReservationVO)map.get("rvo");
-		ResTimeVO timevo = (ResTimeVO)map.get("timevo");
+		//ResTimeVO timevo = (ResTimeVO)map.get("timevo");
 		ReservationTimeVO timevo2 = (ReservationTimeVO)map.get("timevo2");
 		int listCnt;
 		
@@ -202,21 +202,29 @@ public class ReservationService implements Action{
 			
 		case "insert":
 			System.out.println("switch case : insert에 들어왔다.");
-			
+			UserMemberVO mvo = (UserMemberVO)map.get("mvo");
 			String resdateStr = request.getParameter("resdateStr");
-			System.out.println("너님 타입이 뭐세여..?" + request.getParameter("resdateStr").getClass().getName());
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date resdate;
 			try {
 				resdate = sdf.parse(resdateStr);
 				rvo.setResdate(resdate);
-				System.out.println("너님은 누구세여..?" + rvo.getResdate().getClass().getName());
+				
 				mapper.reservationInsert(rvo);
+				//테스트해야하는 부분
+				//mapper.MyResMinusCnt(mvo);
+				
+				/*
+				 * int cnt = mapper.selectCount(timevo2); //count(*) 갯수가 0이다
+				 * 
+				 * if(cnt != 0 ) { mapper.addCount(timevo2); }else { mapper.noCount(timevo2); }
+				 */
+				
+				
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
-			//return mapper.reservationDetail(Integer.parseInt(request.getParameter("re_no")));
 			return mapper.branchList();
 			
 			

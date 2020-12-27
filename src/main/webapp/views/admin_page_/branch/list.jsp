@@ -38,7 +38,7 @@
                                             <tr>
                                                 <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> ${data.tr_no}</a></td>
                                                 <td class="align-middle">${data.lo_name}</td>
-                                                <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/${data.tr_pic}"></a></td>
+                                                <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/gangsa/${data.tr_pic}"></a></td>
                                                 <td class="align-middle"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}">${data.tr_name}</a></td>
                                                 <td class="align-middle">${data.contentTrans}</td>
                                                 <td class="align-middle">${data.star}</td>

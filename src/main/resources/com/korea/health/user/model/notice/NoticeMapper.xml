@@ -39,6 +39,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(#{notice_no}, #{title}, #{content}, SYSDATE, 0)
 	</insert>
 
+	
+	<update id="deleteNum" parameterType="noticeVO">
+		<![CDATA[
+			update notice set notice_no = notice_no - 1 where #{notice_no} <notice_no ]]>
+	</update>
 
 	
 	<update id="modify" parameterType="noticeVO">

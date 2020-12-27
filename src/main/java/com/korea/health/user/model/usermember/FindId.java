@@ -32,13 +32,13 @@ public class FindId implements Action {
 		
 		UserMemberVO memberId = mapper.findId(mvo);
 		
-		String user_id = memberId.getUser_id();
 		
-		if (user_id == null) {
+		if (memberId == null) {
 			req.setAttribute("memberId", "findIdFailed");
 			
 		}else {
 			
+			String user_id = memberId.getUser_id();
 			req.setAttribute("memberId", user_id);
 
 		}

@@ -28,6 +28,7 @@ public class Onedelete implements Action {
 		FnqPageInfo fnqInfoVo = (FnqPageInfo) map.get("fnqInfoVo");
 		
 		System.out.println(mapper.delete(ovo.getBoard_no()));
+		mapper.deleteNum(ovo);
 		mapper.delete(ovo.getBoard_no());
 		return "onelist";	
 	}

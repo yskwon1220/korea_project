@@ -1,5 +1,7 @@
 package com.korea.health.user.model.usermember;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
@@ -10,7 +12,8 @@ public class UserMemberVO {
 	private Integer user_no, reserve_cnt, point;
 	private String  user_id, user_pw, user_name, user_birth, user_email, user_tel, gender , coupon, admin, lo_no;
 	private Date  regDate;
-	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
+	String ymd;
 	
 	public Integer getUser_no() {
 		return user_no;
@@ -78,12 +81,6 @@ public class UserMemberVO {
 	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
-	public Date getRegDate() {
-		return regDate;
-	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
 	public Integer getPoint() {
 		return point;
 	}
@@ -97,13 +94,33 @@ public class UserMemberVO {
 	public void setLo_no(String lo_no) {
 		this.lo_no = lo_no;
 	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		ymd = sdf.format(regDate);
+		this.regDate = regDate;
+	}
+	public String getYmd() {
+		return ymd;
+	}
+	public void setYmd(String ymd) {
+		try {
+			regDate = sdf.parse(ymd);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.ymd = ymd;
+	}
+	
 	@Override
 	public String toString() {
 		return "UserMemberVO [user_no=" + user_no + ", reserve_cnt=" + reserve_cnt + ", point=" + point + ", user_id="
 				+ user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_birth=" + user_birth
 				+ ", user_email=" + user_email + ", user_tel=" + user_tel + ", gender=" + gender + ", coupon=" + coupon
-				+ ", admin=" + admin + ", lo_no=" + lo_no + ", regDate=" + regDate + "]";
+				+ ", admin=" + admin + ", lo_no=" + lo_no + ", regDate=" + regDate + ", ymd=" + ymd + "]";
 	}
-
+	
 }
 

@@ -66,6 +66,7 @@ public class LoginReg implements Action {
 					}  
 					//회원정보 설정
 					req.getSession().setAttribute("user_id", uvo.getUser_id());
+					req.getSession().setAttribute("user_name", uvo.getUser_name());
 		
 					return req;
 					

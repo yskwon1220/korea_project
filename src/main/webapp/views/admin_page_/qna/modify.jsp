@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+	<div style="height: 100px;"></div>
 	<div class="container">
 		<div id="content">
 
@@ -25,9 +25,12 @@
 				<h2>자주묻는 질문</h2>
 				<hr>
 
-				<form name="qnamodify" action="modifyReg" onsubmit="return check(); "  method="post" enctype="multipart/form-data">
+				<form name="qnamodify" action="modifyReg"
+					onsubmit="return check(); " method="post"
+					enctype="multipart/form-data">
 					<c:set var="sm" value="${data }" />
 					<input type="hidden" name="qna_no" value="${sm.qna_no }">
+					<div style="height: 100px;"></div>
 					<div class="mb-3">
 						<label for="title">제목</label> <input type="text"
 							class="form-control" name="title" id="title" value="${sm.title }">

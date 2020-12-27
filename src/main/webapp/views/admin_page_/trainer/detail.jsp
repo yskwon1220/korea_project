@@ -19,7 +19,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td  class="align-middle" rowspan="7">
-                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/${data.tr_pic}"/>
+                                                            <img class="img-fluid rounded center-block align-middle"  src="/resource/images/gangsa/${data.tr_pic}"/>
                                                         </td>
                                                         <td class="align-middle text-lg-center">이름</td>
                                                         <td  class="align-middle ">${data.tr_name}</td>

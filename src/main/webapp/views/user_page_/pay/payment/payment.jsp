@@ -60,7 +60,6 @@ function maxLengthCheck(object){
 			$('#one_pass').val('');
 			$('.one_pay_popup').show();
 			$('.dim').show();
-			
 		}
 	/* 	else{
 			window.open("http://localhost:81/user_page_/pay/payment/one_join","카드결제","width=800, height=700, location=no, toolbar=no,scrollbars=no, menubar=no, resizable=no")
@@ -93,13 +92,12 @@ function maxLengthCheck(object){
 		}
 
  	if(payment_cate3){
-		var goods = ${title};
  		 $("input[name=pay_way]").val("가상계좌");
  	 	
 		BootPay.request({
 		price: $(array[1]).attr("value"), 
 		application_id: "5fd515762fa5c2002f03846b",
-		name: goods, 
+		name: '이용권 구매', 
 		pg: 'easypay',
 		method: 'vbank',
 		show_agree_window: 0,

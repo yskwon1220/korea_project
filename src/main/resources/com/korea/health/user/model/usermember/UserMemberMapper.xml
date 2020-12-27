@@ -77,11 +77,11 @@
 			</selectKey> 		
 		 		insert into  usermember (
 		 			user_no, user_id, user_pw, user_name, user_birth, user_email, 
-		 			user_tel, gender, regdate, admin, reserve_cnt,point,coupon,lo_no
+		 			user_tel, gender, regdate, admin, point,coupon,lo_no
 		 		)
 		 		values
 		 		(#{user_no}, #{user_id}, #{user_pw}, #{user_name}, #{user_birth}, #{user_email}, 
-		 		#{user_tel}, #{gender}, sysdate, 'user', 0, 0,' ',#{lo_no})		
+		 		#{user_tel}, #{gender}, sysdate, 'user',  0,' ',#{lo_no})		
  		
  		</insert>
  		
@@ -92,7 +92,7 @@
 		 resultType="com.korea.health.user.model.usermember.UserMemberVO">	
 
 		select 
-			user_id , user_pw , admin
+			user_id , user_pw , admin , user_name
 		from 
 			usermember 
 		where 

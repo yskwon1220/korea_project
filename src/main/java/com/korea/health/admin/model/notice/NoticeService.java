@@ -51,6 +51,7 @@ public class NoticeService implements Action {
 			return "detail?notice_no=" + nvo.getNotice_no();	
 		case "delete":
 			System.out.println(mapper.delete(nvo.getNotice_no()));
+			mapper.deleteNum(nvo);
 			mapper.delete(nvo.getNotice_no());
 			return "info";
 		}

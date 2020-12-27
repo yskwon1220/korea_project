@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-                            <h1 class="mt-4">상품 관리</h1>
+                            <h1 class="mt-4">이용권 관리</h1>
                         <ol>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="far fa-building"></i>
-                                <a href="">상품 목록</a>
+                                <a href="">이용권 목록</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

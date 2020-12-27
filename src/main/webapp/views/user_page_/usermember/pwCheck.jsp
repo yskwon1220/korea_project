@@ -29,7 +29,7 @@
 </head>
 <body>
 
-	<%-- <jsp:include page="../inc/headerV3.jsp" /> --%>
+
 	<div id="page-wrapper">
 
 
@@ -41,10 +41,12 @@
 <!-- Content -->
 <article>
 
-	<h2>비밀번호확인</h2>
 
 	<!-- 본문 들어가는 부분 -->
 	<div class="row text-center">
+						<div class="row " style=" margin:0 auto; padding-top:50px; padding-bottom: 25px;">
+							<h1>비밀번호확인</h1>
+						</div>
 		<!-- 가운데 정렬을 위해 -->
 		<form action="pwCheckOk">
 
@@ -56,23 +58,17 @@
 				</div>
 			</div>
 
-			<div class="row" style="width: 30%; float: none; margin: 0 auto">
+			<div class="row" style="width: 30%; float: none; margin: 0 auto; padding-top:20px; ">
 				<div class="form-group col ">
 					<input type="submit" class="btn btn-primary" value="비밀번호 확인" />
 				</div>
 			</div>
-			<div class="row" style="width: 100%; float: right; margin: 0 auto">	
-			<div class="row" style=" float: right; margin: 0 auto">	
-
+			<div class="row " style="width: 100%; float: none; margin:0 auto; padding-top:50px; padding-bottom: 50px;">
 				<div class="form-group col  ">
 					<input type="button" class="btn btn-default"
 						value="마이페이지로 돌아가기" onclick="location.href='myPage'" />
-
-					<!-- <input type="button" class="btn btn-default"
-						value="메인페이지로 돌아가기"
-						onclick="location.href='user_page/MainV3'"> -->
 				</div>
-			</div>
+			
 			</div>
 
 

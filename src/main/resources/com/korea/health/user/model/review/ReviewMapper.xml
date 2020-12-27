@@ -91,6 +91,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    	SELECT count(*) FROM RESERVATION WHERE USER_ID = #{user_id}
    </select>
    
+   <select id="reviewWrite" resultType="com.korea.health.user.model.Reservation.ReservationVO" parameterType="java.lang.String">
+   	select
+   		lo_name, lo_no, tr_name
+   	from
+   		reservation
+   		WHERE USER_ID = #{user_id}
+   </select>
+   
 </mapper>
 
 

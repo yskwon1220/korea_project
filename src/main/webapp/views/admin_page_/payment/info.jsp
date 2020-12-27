@@ -9,6 +9,8 @@
 					   <a href="/admin_page_/payment/info" class="btn btn-info btn-primary btn-m">2020년</a>
 					   <a href="/admin_page_/payment/info?year=2019" class="btn btn-info btn-primary btn-m">2019년</a>
 					   <a href="/admin_page_/payment/info?year=2018" class="btn btn-info btn-primary btn-m">2018년</a>
+					    <ol>
+                        </ol>
 					</div>
                         <div class="row" style="margin-bottom: 20px">
 						  <div class="col-sm-6">

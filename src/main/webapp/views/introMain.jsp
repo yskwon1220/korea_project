@@ -7,13 +7,11 @@
 <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="<c:url value="${path }/resource/css/intromain.css"/>" /> 
-<title>Insert title here</title>
+<title>FitNess Club</title>
 </head>
 	<body class="landing is-preload">
 
 			<div id="page-wrapper">
-
-
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
@@ -22,7 +20,7 @@
 							단 8주,<br />
 							리얼 후기 당신이 될 수 있습니다.</p>
 							<ul class="actions special">
-								<li><a href="../MainV3" class="button primary">together</a></li>
+								<li><a href="../main" class="button primary">together</a></li>
 							</ul>
 						</div>
 					</section>

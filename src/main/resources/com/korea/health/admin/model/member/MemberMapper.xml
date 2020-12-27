@@ -20,14 +20,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="memberList" resultType="com.korea.health.user.model.usermember.UserMemberVO"
 		parameterType="com.korea.health.service.Pagenation">
-		<![CDATA[
+		
        
         select * from 
         
         (select rownum rnum, t1.* from 
         
-        (select * from USERMEMBER ) t1) 
+        (select * from USERMEMBER 
+        
+        <if test='keyWord!=null and keyWord!=""'>
+        
+          
+            where ${search} like '%${keyWord}%'
+        
+    </if>
+        
+         order by user_name ) t1) 
          
+         <![CDATA[
          
          where rnum >= #{startList} and rnum <= #{endList}
          ]]>
@@ -41,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	resultType="com.korea.health.user.model.usermember.UserMemberVO" 
 	parameterType="com.korea.health.user.model.usermember.UserMemberVO"> 
 		<!-- select * from board where name like '%'||#{name}||'%' -->
-		select * from USERMEMBER where user_name like '%${user_name}%'
+		select * from USERMEMBER where user_name like '%${user_name}%' 
 	</select>
 	
 	<!--회원 정보 보기-->

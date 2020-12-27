@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		re_no, lo_no,
 		lo_name, type,
 		tr_name,
-		resdate, restime, user_name,
+		resdate, restime, user_name, user_id,
 		user_pw, user_tel, content)
 
 		values
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(re_noidx.nextval, #{lo_no},
 		#{lo_name}, #{type}, #{tr_name},
 		#{resdate}, #{restime},
-		#{user_name},
+		#{user_name}, #{user_id},
 		#{user_pw}, #{user_tel}, #{content}
 		)
 
@@ -55,6 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		type=#{type},
 		tr_name=#{tr_name},
 		RESTIME=#{restime},
+		user_id=#{user_id},
 		user_name=#{user_name},
 		user_pw=#{user_pw},
 		user_tel=#{user_tel},
@@ -161,6 +162,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          where rnum >= #{startList} and rnum <= #{endList}
          ]]>
 	</select>
+	
+
+	<!-- 예약할때마다 이용권 -1씩 차감 -->
+	<update id="MyResMinusCnt"
+		parameterType="com.korea.health.user.model.usermember.UserMemberVO">
+		<![CDATA[
+		update usermember  
+		set  reserve_cnt  =  reserve_cnt  - 1 
+		where user_id = #{user_id}
+        ]]>
+	</update>
+	
+		<!-- 예약인원수 테이블, 갯수가에 따라 실행 메소드가 다르다. -->
+	<select id="selectCount" resultType="java.lang.Integer"
+		parameterType="com.korea.health.admin.model.reservation.ReservationTimeVO">
+
+		select count(*)
+		from RESTIME
+		where lo_no = #{lo_no} and
+		resdate = #{resdate} and restime = #{restime}
+
+	</select>
+	
+	
+	<!--만약 존재하지않다면 다중테이블의 nowCnt에 1을 대입한다.(insert) -->
+	<insert id="noCount"
+		parameterType="com.korea.health.admin.model.reservation.ReservationTimeVO">
+
+		insert into RESTIME(lo_no, resdate, restime, nowCnt)
+		values (#{lo_no},#{resdate}, #{restime}, 1)
+
+	</insert>
+
+
+	<!-- 만약 데이터가 이미 존재한다면 다중테이블의 nowCnt를 1씩증가시킨다.(update) -->
+	<update id="addCount"
+		parameterType="com.korea.health.admin.model.reservation.ReservationTimeVO">
+		<![CDATA[
+		update RESTIME 
+		set nowCnt = nowCnt + 1 
+		where lo_no = #{lo_no} and resdate = #{resdate} and restime = #{restime}
+        ]]>
+	</update>
 	
 
 </mapper>
