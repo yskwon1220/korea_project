@@ -6,8 +6,9 @@
                     <div class="col-sm-6">
 					   <a href="/admin_page_/result/total" class="btn btn-info btn-primary btn-m">전체</a>
 					   <a href="/admin_page_/result/branch?lo_no=1001" class="btn btn-info btn-primary btn-m">강남점</a>
-					   <a href="/admin_page_/result/branch?lo_no=1002" class="btn btn-info btn-primary btn-m">강북점</a>
+					   <a href="/admin_page_/result/branch?lo_no=1002" class="btn btn-info btn-primary btn-m">강동점</a>
 					   <a href="/admin_page_/result/branch?lo_no=1003" class="btn btn-info btn-primary btn-m">강서점</a>
+					   <a href="/admin_page_/result/branch?lo_no=1004" class="btn btn-info btn-primary btn-m">강북점</a>
 					</div>
                         <ol>
                         </ol>

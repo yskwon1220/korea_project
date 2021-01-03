@@ -120,51 +120,51 @@
 				</div>
 			</div>
 		</div>
-		<div id="fh5co-blog-section" class="fh5co-light-grey-section">
-			<div class="container">
-				<div class="row">
-					<div
-						class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
-						<h2>이용후기</h2>
-						<hr>
-						<p>FitNess Club 회원님들의 실제 이용후기입니다.</p>
-					</div>
-				</div>
-				<div class="row">
-					<c:forEach items="${data_22 }" var="sm" begin="0" end="5">
-						<input type="hidden" name="review_no" value="${sm.review_no }">
-						<div class="col-md-4 col-sm-4 animate-box">
-							<a
-								href="/user_page_/review/review_detail?review_no=${sm.review_no }"
-								class="item-grid">
-								<div class="image"
-									style="background-image: url(${path}/upup/${sm.review_file_name})"></div>
-								<div class="v-align">
-									<div class="v-align-middle">
-										<h3 class="title">${sm.title }</h3>
-										<h5 class="date">
-											<span><fmt:formatDate value="${sm.regdate }"
-													pattern="yy-MM-dd HH:mm" /></span>
-										</h5>
-										<p>${sm.content }</p>
-									</div>
-								</div>
-							</a>
-						</div>
-					</c:forEach>
-					<div class="col-md-12 text-center animate-box">
-						<p>
-							<a href="/user_page_/review/reviewlist"
-								class="btn btn-primary with-arrow">더 보기 <i
-								class="icon-arrow-right"></i>
-							</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+		      <div id="fh5co-blog-section" class="fh5co-light-grey-section">
+         <div class="container">
+            <div class="row">
+               <div
+                  class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
+                  <h2>이용후기</h2>
+                  <hr>
+                  <p>FitNess Club 회원님들의 실제 이용후기입니다.</p>
+               </div>
+            </div>
+            <div class="row">
+               <c:forEach items="${data_22 }" var="sm" begin="0" end="2">
+                  <input type="hidden" name="review_no" value="${sm.review_no }">
+                  <div class="col-md-4 col-sm-4 animate-box">
+                     <a
+                        href="/user_page_/review/review_detail?review_no=${sm.review_no }"
+                        class="item-grid">
+                        <div class="image"
+                           style="background-image: url(${path}/upup/${sm.review_file_name})"></div>
+                        <div class="v-align">
+                           <div class="v-align-middle">
+                              <h3 class="title">${sm.title }</h3>
+                              <h5 class="date">
+                                 <span><fmt:formatDate value="${sm.regdate }"
+                                       pattern="yy-MM-dd HH:mm" /></span>
+                              </h5>
+                              <p>${sm.content }</p>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </c:forEach>
+               <div class="col-md-12 text-center animate-box">
+                  <p>
+                     <a href="/user_page_/review/reviewlist"
+                        class="btn btn-primary with-arrow">더 보기 <i
+                        class="icon-arrow-right"></i>
+                     </a>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
 
-	</div>
+   </div>
 
 
 	<jsp:include page="inc/footerV3.jsp" />

@@ -47,7 +47,6 @@
                                             <a class="nav-link" href="/admin_page_/reservation/info">예약 정보</a>
                                         </nav>
                                     </div>
-               <!--  -->
                <a class="nav-link collapsed" href="#" data-toggle="collapse"
                   data-target="#collapseTemps" aria-expanded="false"
                   aria-controls="collapseTemps">

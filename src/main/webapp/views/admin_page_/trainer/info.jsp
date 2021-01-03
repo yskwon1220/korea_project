@@ -29,7 +29,6 @@
                                                 <th class="text-lg-center">사진</th>
                                                 <th class="text-lg-center">직원 이름</th>
                                                 <th class="text-lg-center">직원 경력</th>
-                                                <th class="text-lg-center">회원 평가 점수</th>
                                             </tr>
                                         </thead>
                                         <tbody id="showTable">
@@ -40,7 +39,6 @@
                                                 <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}"> <img class="img-responsive" alt="" src="/resource/images/gangsa/${data.tr_pic}"  width="100%" height="100%" ></a></td>
                                                 <td class="align-middle text-lg-center"><a href="/admin_page_/trainer/detail?tr_no=${data.tr_no}">${data.tr_name}</a></td>
                                                 <td class="align-middle text-lg-center">${data.contentTrans}</td>
-                                                <td class="align-middle text-lg-center">${data.star}</td>
                                             </tr>
                                         </c:forEach>
                                         </tbody>

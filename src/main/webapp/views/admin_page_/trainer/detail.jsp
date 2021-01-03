@@ -44,10 +44,6 @@
                                                     <td class="align-middle text-lg-center">소속 지점</td>
                                                     <td  class="align-middle">${data.lo_name}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="align-middle text-lg-center">회원 평가 점수</td>
-                                                    <td  class="align-middle">${data.star}</td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
